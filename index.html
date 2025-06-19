@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oh My Glass | Toronto's Premier Glass Repair & Installation Services</title>
+  <meta name="description" content="Expert glass repair, replacement & installation in Toronto & GTA. custom mirrors, storefronts & window repairs. Free quotes available." />
+  <meta name="keywords" content="broken glass, glass repair toronto, window replacement GTA, storefront glass, emergency glass repair, custom mirrors, glass installation" />
+  <meta property="og:title" content="Oh My Glass | Toronto's Premier Glass Repair & Installation Services" />
+  <meta property="og:description" content="Expert glass repair, replacement & installation in Toronto & GTA. custom mirrors, storefronts & window repairs." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_CA" />
+  <link rel="canonical" href="https://ohmyglass.ca" />
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GlassAndMirrorStore",
+      "name": "Oh My Glass",
+      "image": "https://ohmyglass.ca/images/logo.png",
+      "description": "Expert glass repair, replacement & installation services in Toronto & GTA. 24/7 emergency service available.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Toronto",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.704259,
+        "longitude": -79.416228
+      },
+      "url": "https://ohmyglass.ca",
+      "telephone": "(XXX) XXX-XXXX",
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://www.facebook.com/ohmy.glass.to",
+        "https://www.instagram.com/ohmyglass.to/"
+      ],
+      "areaServed": [
+        "Toronto",
+        "Mississauga",
+        "Brampton",
+        "Scarborough",
+        "North York",
+        "Etobicoke",
+        "Richmond Hill",
+        "Vaughan",
+        "Oakville",
+        "Ajax",
+        "Markham",
+        "Milton",
+        "Pickering",
+        "Whitby",
+        "Woodbridge"
+      ]
+    }
+  </script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter and Goudy Old Style (if available) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Montserrat for headings -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+  <!-- closest available to Goudy Old Style Bold -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    html,
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen bg-gradient-to-b from-[#2c3a43] to-[#f5f7fa] overflow-x-hidden">
+
+  <!-- Navigation Bar -->
+  <header class="absolute top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-md shadow-none sticky">
+    <nav class="container mx-auto flex justify-between items-center py-4 px-6">
+      <img src="images/logo.png" alt="Oh My Glass Logo" class="h-12 w-auto drop-shadow" />
+      <!-- Desktop Nav Links -->
+      <div class="flex items-center gap-8">
+        <ul id="navbar-menu"
+          class="flex gap-8 text-[#2c3a43] font-semibold absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent shadow md:shadow-none flex-col md:flex-row items-center md:items-center transition-all duration-300 z-40">
+          <li><a href="#services" class="hover:text-[#d32f2f] block py-4 md:py-0">Services</a></li>
+          <li><a href="#our-works" class="hover:text-[#d32f2f] block py-4 md:py-0">Our Works</a></li>
+          <li><a href="#testimonials" class="hover:text-[#d32f2f] block py-4 md:py-0">Testimonials</a></li>
+          <li><a href="#contact-form" class="hover:text-[#d32f2f] block py-4 md:py-0">Contact</a></li>
+          <li class="w-full md:w-auto flex justify-center md:block">
+      </ul>
+      <a href="#contact-form"
+          class="block w-auto bg-[#d32f2f] text-white px-8 py-2 rounded-full shadow font-bold text-lg hover:bg-[#2c3a43] transition">Get
+        a Free Quote</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative h-screen min-h-[600px] w-full bg-cover bg-center"
+    style="background-image: url('images/hero.jpg');">
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-4">
+      <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 drop-shadow-lg leading-tight">Toronto's Expert Glass Repair & Installation Services</h1>
+      <p class="text-lg md:text-xl text-white font-normal drop-shadow-lg max-w-2xl mb-8">24/7 emergency glass repair and professional installation services for residential and commercial properties across the GTA.</p>
+      <a href="#contact-form"
+        class="inline-block bg-white text-[#d32f2f] border-2 border-[#d32f2f] rounded-full px-8 py-4 font-semibold text-lg shadow hover:bg-[#d32f2f] hover:text-white transition mb-2">Get
+        a Quote</a>
+    </div>
+  </section>
+
+  <!-- Trust/Impact Section -->
+  <section
+    class="relative bg-[#fafbfc] pt-24 pb-32 text-center overflow-hidden min-h-screen flex items-center justify-center"
+    style="background: url('images/glass-wall.jpg') center center / cover no-repeat;">
+    <div class="absolute inset-0 bg-white/80"></div>
+    <div class="relative container mx-auto px-4 z-10">
+      <h2 class="text-4xl md:text-5xl font-serif font-semibold text-gray-800 mb-6">Why Choose Us?</h2>
+      <p class="text-lg md:text-xl text-gray-700 mb-24 max-w-2xl mx-auto">We are a family-owned and operated business
+        that has been in the business for over 10 years. We are proud to have a 5-star rating on <a
+          href="https://www.google.com/search?q=oh+my+glass" target="_blank" class="text-[#d32f2f]">Google</a> and <a
+          href="https://www.facebook.com/ohmy.glass.to/reviews" target="_blank" class="text-[#d32f2f]">Facebook</a>. We
+        are 100%
+        committed to providing the best possible service to our customers.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-5xl mx-auto mb-12">
+        <div>
+          <div class="text-6xl md:text-7xl font-light text-gray-900 mb-2">1k<span
+              class="align-super text-2xl font-normal">+</span></div>
+          <div class="uppercase tracking-widest text-gray-700 text-lg font-semibold mb-4">Happy Customers</div>
+          <div class="text-gray-600 text-base md:text-lg max-w-xs mx-auto">We have served thousands of customers across
+            the GTA</div>
+        </div>
+        <div>
+          <div class="text-6xl md:text-7xl font-light text-gray-900 mb-2">10<span
+              class="align-super text-2xl font-normal">+</span></div>
+          <div class="uppercase tracking-widest text-gray-700 text-lg font-semibold mb-4">Years of Experience</div>
+          <div class="text-gray-600 text-base md:text-lg max-w-xs mx-auto">We have been in the business for over 10
+            years</div>
+        </div>
+        <div>
+          <div class="text-6xl md:text-7xl font-light text-gray-900 mb-2">5k<span
+              class="align-super text-2xl font-normal">+</span></div>
+          <div class="uppercase tracking-widest text-gray-700 text-lg font-semibold mb-4">Glass Replacements</div>
+          <div class="text-gray-600 text-base md:text-lg max-w-xs mx-auto">We have completed thousands of glass
+            replacements across the GTA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    <!-- CTA Section -->
+    <section id="contact-form" class="relative w-full bg-cover bg-center">
+      <div class="absolute inset-0 bg-gradient-to-br from-[#2c3a43]/95 to-[#2c3a43]/80"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center text-center py-24 px-4">
+        <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Get Your Free Quote Now</h2>
+        <p class="text-lg text-white/90 mb-8 max-w-2xl">We're here to help with all your glass needs. Fill out the form below and we'll get back to you quickly.</p>
+        
+        <div class="bg-white/95 backdrop-blur-md rounded-[2rem] shadow-2xl p-8 md:p-12 max-w-2xl w-full mx-auto border border-white/20">
+          <form id="quote-form" class="flex flex-col gap-8" novalidate enctype="multipart/form-data">
+            <!-- Contact Info Section -->
+            <div class="w-full space-y-6">
+              <h3 class="text-2xl font-bold text-[#2c3a43] text-left">Contact Information</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="relative">
+                  <input type="text" id="name" name="name" placeholder="Your Name" required
+                    class="peer w-full bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#d32f2f] focus:bg-white transition-all text-lg" />
+                  <label for="name" class="absolute left-6 -top-3 bg-white px-2 text-sm font-medium text-[#2c3a43]/60 peer-focus:text-[#d32f2f] transition-colors">Name</label>
+                </div>
+                <div class="relative">
+                  <input type="tel" id="phone" name="phone" placeholder="Phone Number" required
+                    class="peer w-full bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#d32f2f] focus:bg-white transition-all text-lg" />
+                  <label for="phone" class="absolute left-6 -top-3 bg-white px-2 text-sm font-medium text-[#2c3a43]/60 peer-focus:text-[#d32f2f] transition-colors">Phone</label>
+                </div>
+              </div>
+              <div class="relative">
+                <input type="email" id="email" name="email" placeholder="Email" required
+                  class="peer w-full bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#d32f2f] focus:bg-white transition-all text-lg" />
+                <label for="email" class="absolute left-6 -top-3 bg-white px-2 text-sm font-medium text-[#2c3a43]/60 peer-focus:text-[#d32f2f] transition-colors">Email</label>
+              </div>
+            </div>
+  
+            <!-- Service Selection -->
+            <div class="w-full space-y-6">
+              <h3 class="text-2xl font-bold text-[#2c3a43] text-left">Service Details</h3>
+              <div class="relative">
+                <select id="service" name="service" required
+                  class="peer w-full bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#d32f2f] focus:bg-white transition-all text-lg appearance-none">
+                <option value="">Select a Service</option>
+                <option>Emergency Glass Repair</option>
+                <option>Window Glass Replacement</option>
+                <option>Foggy/Cracked Glass Replacement</option>
+                <option>Storefront Glass/Aluminum</option>
+                <option>Door & Window Hardware Repair</option>
+                <option>Custom Mirrors & Glass Enclosures</option>
+                <option>Security Film & Board Up</option>
+              </select>
+                <label for="service" class="absolute left-6 -top-3 bg-white px-2 text-sm font-medium text-[#2c3a43]/60 peer-focus:text-[#d32f2f] transition-colors">Service Type</label>
+                <svg class="absolute right-6 top-1/2 -translate-y-1/2 w-5 h-5 text-[#2c3a43]/60 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              <div class="relative">
+                <textarea id="message" name="message" rows="3" placeholder="Please describe what you need help with"
+                  class="peer w-full bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#d32f2f] focus:bg-white transition-all text-lg resize-none"></textarea>
+                <label for="message" class="absolute left-6 -top-3 bg-white px-2 text-sm font-medium text-[#2c3a43]/60 peer-focus:text-[#d32f2f] transition-colors">Message</label>
+              </div>
+            </div>
+  
+            <!-- Photo Upload Section -->
+            <div class="w-full space-y-6">
+              <h3 class="text-2xl font-bold text-[#2c3a43] text-left">Add Photos</h3>
+              <p class="text-[#2c3a43]/60 text-left text-sm">Adding photos helps us provide a more accurate quote</p>
+              
+              <div class="flex gap-4 flex-wrap">
+                <button type="button" id="camera-btn"
+                  class="flex items-center gap-2 bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] px-6 py-3 rounded-xl hover:bg-[#d32f2f] hover:border-[#d32f2f] hover:text-white transition-all">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  Take Photo
+                </button>
+                
+                <label class="flex items-center gap-2 bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] px-6 py-3 rounded-xl hover:bg-[#d32f2f] hover:border-[#d32f2f] hover:text-white transition-all cursor-pointer">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                  </svg>
+                  Upload Photos
+                  <input type="file" id="photo-upload" name="photos[]" accept="image/*" multiple
+                    class="hidden" />
+                </label>
+              </div>
+  
+              <div id="preview-area" class="hidden grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4">
+                <!-- Preview images will be inserted here by JavaScript -->
+              </div>
+            </div>
+  
+            <!-- Form Feedback -->
+            <div id="form-feedback" class="w-full hidden">
+              <div class="bg-green-50 border-2 border-green-500/20 text-green-700 px-6 py-4 rounded-2xl">
+                Thank you! We'll contact you shortly with your quote.
+              </div>
+            </div>
+  
+            <!-- Submit Button -->
+            <button type="submit"
+              class="w-full bg-[#d32f2f] text-white font-bold py-5 rounded-2xl shadow-lg text-xl hover:bg-[#2c3a43] transition-colors relative overflow-hidden group">
+              <span class="relative z-10">Request My Free Quote</span>
+              <div class="absolute inset-0 bg-gradient-to-r from-[#d32f2f] to-[#ff4444] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </button>
+            </form>
+      </section>
+  
+
+    <!-- Services Section -->
+  <section id="services" class="relative bg-white py-20">
+      <div class="container mx-auto px-4">
+      <h3 class="text-center text-lg md:text-xl font-semibold uppercase tracking-widest text-gray-800 mb-12">We offer a
+        wide range of services to meet your needs.</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <!-- Service Card 1 -->
+          <div class="group relative h-72 flex flex-col items-center justify-end overflow-hidden rounded-lg shadow ">
+          <img src="/images/window-repairs.jpg" alt="Window Repairs"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
+            <div class="relative z-10 p-6 w-full flex items-center justify-center">
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-2">
+                <div class="text-xl font-bold text-white text-shadow">Window Repairs</div>
+              </div>
+            </div>
+          </div>
+          <!-- Service Card 2 -->
+        <div
+          class="group relative h-72 flex flex-col items-center justify-end overflow-hidden rounded-lg shadow bg-white">
+          <img src="images/aluminum-storefront.jpg" alt="Aluminum Storefront"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
+            <div class="relative z-10 p-6 w-full flex items-center justify-center">
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-2">
+                <div class="text-xl font-bold text-white text-shadow">Aluminum Storefront</div>
+              </div>
+            </div>
+          </div>
+          <!-- Service Card 3 -->
+        <div
+          class="group relative h-72 flex flex-col items-center justify-end overflow-hidden rounded-lg shadow bg-white">
+          <img src="images/door-repairs.jpg" alt="Door Repairs"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
+            <div class="relative z-10 p-6 w-full flex items-center justify-center">
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-2">
+                <div class="text-xl font-bold text-white text-shadow">Door Repairs</div>
+              </div>
+            </div>
+          </div>
+          <!-- Service Card 4 -->
+        <div
+          class="group relative h-72 flex flex-col items-center justify-end overflow-hidden rounded-lg shadow bg-white">
+          <img src="images/custom-mirror.jpg" alt="Custom Mirror"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
+            <div class="relative z-10 p-6 w-full flex items-center justify-center">
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-2">
+                <div class="text-xl font-bold text-white text-shadow">Custom Mirror</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+  <!-- Our Work Section -->
+  <section id="our-works" class="container mx-auto py-24 px-4 md:px-0">
+    <div class="mb-16 flex flex-col items-center">
+      <hr class="w-full max-w-4xl border-gray-300 mb-8">
+      <div class="uppercase tracking-widest text-gray-600 text-sm font-semibold mb-2">Our Work</div>
+      <hr class="w-full max-w-4xl border-gray-300 mt-8">
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+              <!-- Card 1 -->
+        <div class="flex flex-col items-center">
+          <div class="relative w-full aspect-[9/16] max-h-[640px] mb-6 rounded-md overflow-hidden">
+            <video 
+              data-src="videos/car-aid-auto collision.mp4"
+              class="w-full h-full object-cover lazy-video"
+              muted
+              loop
+              playsinline
+              poster="images/car-aid.jpg"
+              title="Car Aid Auto Collision Glass Installation"
+              aria-label="Video showcasing glass installation at Car Aid Auto Collision"
+              preload="metadata">
+              <track kind="description" src="videos/car-aid-description.vtt" label="English description">
+            </video>
+          </div>
+          <div class="uppercase text-[#2c3a43] text-xs font-bold tracking-widest mb-2">Car Aid Auto Collision</div>
+          <div class="text-2xl font-serif font-semibold text-[#2c3a43] mb-3 text-center">Commercial Glass Installation</div>
+          <div class="text-gray-700 text-base text-center">Professional storefront glass installation and repair services.</div>
+        </div>
+              <!-- Card 2 -->
+        <div class="flex flex-col items-center">
+          <div class="relative w-full aspect-[9/16] max-h-[640px] mb-6 rounded-md overflow-hidden">
+            <video 
+              data-src="videos/gracious-living.mp4"
+              class="w-full h-full object-cover lazy-video"
+              muted
+              loop
+              playsinline
+              title="Gracious Living Commercial Glass Replacement"
+              aria-label="Video showcasing commercial glass replacement at Gracious Living"
+              preload="metadata">
+              <track kind="description" src="videos/gracious-living-description.vtt" label="English description">
+            </video>
+          </div>
+          <div class="uppercase text-[#2c3a43] text-xs font-bold tracking-widest mb-2">Gracious Living</div>
+          <div class="text-2xl font-serif font-semibold text-[#2c3a43] mb-3 text-center">Commercial Glass Replacement</div>
+          <div class="text-gray-700 text-base text-center">Replacing glass in a commercial space.</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="flex flex-col items-center">
+                            <div class="relative w-full aspect-[9/16] max-h-[640px] mb-6 rounded-md overflow-hidden">
+            <video 
+              data-src="videos/ali-babas.mp4"
+              class="w-full h-full object-cover lazy-video"
+              muted
+              loop
+              playsinline
+              title="Ali Baba's Storefront Glass Replacement"
+              aria-label="Video showcasing storefront glass replacement at Ali Baba's"
+              preload="metadata">
+              <track kind="description" src="videos/ali-babas-description.vtt" label="English description">
+            </video>
+          </div>
+          <div class="uppercase text-[#2c3a43] text-xs font-bold tracking-widest mb-2">Ali Baba's</div>
+          <div class="text-2xl font-serif font-semibold text-[#2c3a43] mb-3 text-center">Storefront Glass Replacement</div>
+          <div class="text-gray-700 text-base text-center">Replacing glass in a commercial space.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="relative w-full mx-auto py-20 px-4 md:px-0">
+    <div class="p-14 mx-auto text-center">
+      <h2 class="text-4xl font-bold text-[#2c3a43] mb-8">What Our Customers Say</h2>
+      <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+      <script src="https://static.elfsight.com/platform/platform.js" async></script>
+      <div class="elfsight-app-4b4d3af7-795e-4314-825d-10a0237c35be" data-elfsight-app-lazy></div>
+    </div>
+  </section>
+  <!-- Service Area Section -->
+  <section id="service-area" class="container mx-auto py-8 px-4 md:px-0">
+    <div class="flex items-center justify-center mb-10">
+      <hr class="flex-grow border-gray-300 mr-4">
+      <div class="uppercase tracking-widest text-gray-600 text-sm font-semibold text-center">Service Area</div>
+      <hr class="flex-grow border-gray-300 ml-4">
+    </div>
+    <div class="text-center max-w-3xl mx-auto mb-6 text-lg text-[#2c3a43] font-serif">Toronto, Mississauga, Brampton,
+      Scarborough, North York, Etobicoke, Richmond Hill, Vaughan, Oakville, Ajax, Markham, Milton, Pickering, Whitby,
+      Woodbridge</div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#2c3a43] text-white py-8 mt-24">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+      <div class="mb-4 md:mb-0 flex items-center gap-2">
+        <img src="images/logo.png" alt="Oh My Glass Logo" class="h-8 w-auto drop-shadow" />
+        <span class="font-bold text-lg">Oh My Glass</span>
+        </div>
+      <div class="text-sm">&copy; <span id="year"></span> Oh My Glass. All rights reserved.</div>
+      <div class="text-sm">
+        <ul>
+          <li><a
+              href="https://www.google.com/maps/place/Oh+My+Glass/@43.704259,-79.416228,15z/data=!4m5!3m4!1s0x882b34d68bf5f443:0x70db884626f21bc7!8m2!3d43.704259!4d-79.416228"
+              target="_blank">Google Maps</a></li>
+          <li><a href="https://www.facebook.com/ohmy.glass.to" target="_blank">Facebook</a></li>
+          <li><a href="https://www.instagram.com/ohmyglass.to/" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <!-- JS -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+/* Mobile Navbar Dropdown Styles */
+@media (max-width: 767px) {
+  #navbar-menu {
+    display: none;
+  }
+
+  #hero-text {
+    font-size: 2rem;
+  }
+}
+
+/* Floating Call Button Animation */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+.animate-wiggle {
+  animation: wiggle 0.3s ease-in-out infinite;
+}
+
+/* Disable bounce animation if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-bounce {
+    animation: none;
+  }
+  .animate-wiggle {
+    animation: none;
+  }
+}
