@@ -238,34 +238,66 @@ if (navbarToggle && navbarMenu) {
   });
 }
 
-// Lazy load videos when they come into view
+// Handle lazy loading videos with loading indicators
 document.addEventListener('DOMContentLoaded', function() {
-  const lazyVideos = document.querySelectorAll('video.lazy-video');
+  const lazyVideos = document.querySelectorAll('.lazy-video');
   
-  if ('IntersectionObserver' in window) {
-    const videoObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const video = entry.target;
-          video.src = video.dataset.src;
-          video.load();
+  const loadVideo = (video) => {
+    const src = video.getAttribute('data-src');
+    if (!src) return;
+    
+    video.src = src;
+    video.removeAttribute('data-src');
+    
+    // Hide loading placeholder with a smooth fade when video can play
+    video.addEventListener('canplay', function() {
+      const loadingPlaceholder = video.parentElement.querySelector('.loading-placeholder');
+      if (loadingPlaceholder) {
+        // Start fade out
+        loadingPlaceholder.style.opacity = '0';
+        // Remove after fade completes
+        setTimeout(() => {
+          loadingPlaceholder.style.display = 'none';
+          // Fade in the video
+          video.style.opacity = '0';
+          video.style.transition = 'opacity 0.5s ease-in-out';
+          requestAnimationFrame(() => {
+            video.style.opacity = '1';
+          });
           video.play();
-          observer.unobserve(video);
-        }
-      });
-    }, {
-      rootMargin: '50px 0px',
-      threshold: 0.1
+        }, 500);
+      }
     });
 
-    lazyVideos.forEach(video => {
-      videoObserver.observe(video);
+    // Add error handling with retry
+    video.addEventListener('error', function() {
+      const loadingPlaceholder = video.parentElement.querySelector('.loading-placeholder');
+      if (loadingPlaceholder) {
+        const errorMessage = loadingPlaceholder.querySelector('span');
+        if (errorMessage) {
+          errorMessage.textContent = 'Error loading video. Retrying...';
+          // Retry loading after 2 seconds
+          setTimeout(() => {
+            video.src = src;
+          }, 2000);
+        }
+      }
     });
-  } else {
-    // Fallback for browsers that don't support IntersectionObserver
-    lazyVideos.forEach(video => {
-      video.src = video.dataset.src;
-      video.load();
+  };
+
+  // Use Intersection Observer to load videos when they come into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        loadVideo(entry.target);
+        observer.unobserve(entry.target);
+      }
     });
-  }
+  }, {
+    threshold: 0.1
+  });
+
+  lazyVideos.forEach(video => {
+    observer.observe(video);
+  });
 }); 

@@ -1,3 +1,15 @@
+html,
+body {
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: 0.02em;
+}
+
 /* Mobile Navbar Dropdown Styles */
 @media (max-width: 767px) {
   #navbar-menu {

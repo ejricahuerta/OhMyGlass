@@ -80,19 +80,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
   <!-- closest available to Goudy Old Style Bold -->
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    html,
-    body {
-      font-family: 'Inter', Arial, sans-serif;
-    }
 
-    h1,
-    h2,
-    h3 {
-      font-family: 'Montserrat', Arial, sans-serif;
-      letter-spacing: 0.02em;
-    }
-  </style>
 </head>
 
 <body class="relative min-h-screen bg-gradient-to-b from-[#2c3a43] to-[#f5f7fa] overflow-x-hidden">
@@ -184,20 +172,25 @@
               <h3 class="text-2xl font-bold text-[#2c3a43] text-left">Contact Information</h3>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="relative">
-                  <input type="text" id="name" name="name" placeholder="Your Name" required
+                  <input type="text" id="name" name="name" placeholder="Enter your full name" required
                     class="peer w-full bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#d32f2f] focus:bg-white transition-all text-lg" />
                   <label for="name" class="absolute left-6 -top-3 bg-white px-2 text-sm font-medium text-[#2c3a43]/60 peer-focus:text-[#d32f2f] transition-colors">Name</label>
                 </div>
                 <div class="relative">
-                  <input type="tel" id="phone" name="phone" placeholder="Phone Number" required
+                  <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (e.g., 416-555-0123)" required
                     class="peer w-full bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#d32f2f] focus:bg-white transition-all text-lg" />
                   <label for="phone" class="absolute left-6 -top-3 bg-white px-2 text-sm font-medium text-[#2c3a43]/60 peer-focus:text-[#d32f2f] transition-colors">Phone</label>
                 </div>
               </div>
               <div class="relative">
-                <input type="email" id="email" name="email" placeholder="Email" required
+                <input type="email" id="email" name="email" placeholder="Enter your email address for quote details" required
                   class="peer w-full bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#d32f2f] focus:bg-white transition-all text-lg" />
                 <label for="email" class="absolute left-6 -top-3 bg-white px-2 text-sm font-medium text-[#2c3a43]/60 peer-focus:text-[#d32f2f] transition-colors">Email</label>
+              </div>
+              <div class="relative">
+                <input type="text" id="postal" name="postal" placeholder="Enter postal code (e.g., M4B 1B3)" pattern="[A-Za-z][0-9][A-Za-z] [0-9][A-Za-z][0-9]" required
+                  class="peer w-full bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#d32f2f] focus:bg-white transition-all text-lg" />
+                <label for="postal" class="absolute left-6 -top-3 bg-white px-2 text-sm font-medium text-[#2c3a43]/60 peer-focus:text-[#d32f2f] transition-colors">Postal Code</label>
               </div>
             </div>
   
@@ -222,7 +215,7 @@
                 </svg>
               </div>
               <div class="relative">
-                <textarea id="message" name="message" rows="3" placeholder="Please describe what you need help with"
+                <textarea id="message" name="message" rows="3" placeholder="Tell us about your glass needs (type of service, location, timeline) and any specific requirements"
                   class="peer w-full bg-[#f5f7fa]/50 border-2 border-[#2c3a43]/10 text-[#2c3a43] rounded-2xl px-6 py-4 focus:outline-none focus:border-[#d32f2f] focus:bg-white transition-all text-lg resize-none"></textarea>
                 <label for="message" class="absolute left-6 -top-3 bg-white px-2 text-sm font-medium text-[#2c3a43]/60 peer-focus:text-[#d32f2f] transition-colors">Message</label>
               </div>
@@ -343,9 +336,23 @@
               <!-- Card 1 -->
         <div class="flex flex-col items-center">
           <div class="relative w-full aspect-[9/16] max-h-[640px] mb-6 rounded-md overflow-hidden">
+            <!-- Loading Placeholder -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[#2c3a43]/95 to-[#2c3a43]/80 backdrop-blur-sm z-10 loading-placeholder transition-opacity duration-500">
+              <div class="relative w-16 h-16">
+                <div class="absolute inset-0 rounded-full border-4 border-white/20"></div>
+                <div class="absolute inset-0 rounded-full border-4 border-[#d32f2f] border-t-transparent animate-spin"></div>
+                <div class="absolute inset-2 rounded-full border-2 border-white/10"></div>
+              </div>
+              <div class="flex items-center gap-2 mt-4">
+                <div class="w-2 h-2 rounded-full bg-[#d32f2f] animate-pulse"></div>
+                <div class="w-2 h-2 rounded-full bg-[#d32f2f] animate-pulse delay-200"></div>
+                <div class="w-2 h-2 rounded-full bg-[#d32f2f] animate-pulse delay-400"></div>
+              </div>
+              <span class="mt-4 text-white/90 font-medium text-sm tracking-wider uppercase">Loading Preview</span>
+            </div>
             <video 
               data-src="videos/car-aid-auto collision.mp4"
-              class="w-full h-full object-cover lazy-video"
+              class="w-full h-full object-cover lazy-video relative z-0 opacity-0"
               muted
               loop
               playsinline
@@ -363,9 +370,23 @@
               <!-- Card 2 -->
         <div class="flex flex-col items-center">
           <div class="relative w-full aspect-[9/16] max-h-[640px] mb-6 rounded-md overflow-hidden">
+            <!-- Loading Placeholder -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[#2c3a43]/95 to-[#2c3a43]/80 backdrop-blur-sm z-10 loading-placeholder transition-opacity duration-500">
+              <div class="relative w-16 h-16">
+                <div class="absolute inset-0 rounded-full border-4 border-white/20"></div>
+                <div class="absolute inset-0 rounded-full border-4 border-[#d32f2f] border-t-transparent animate-spin"></div>
+                <div class="absolute inset-2 rounded-full border-2 border-white/10"></div>
+              </div>
+              <div class="flex items-center gap-2 mt-4">
+                <div class="w-2 h-2 rounded-full bg-[#d32f2f] animate-pulse"></div>
+                <div class="w-2 h-2 rounded-full bg-[#d32f2f] animate-pulse delay-200"></div>
+                <div class="w-2 h-2 rounded-full bg-[#d32f2f] animate-pulse delay-400"></div>
+              </div>
+              <span class="mt-4 text-white/90 font-medium text-sm tracking-wider uppercase">Loading Preview</span>
+            </div>
             <video 
               data-src="videos/gracious-living.mp4"
-              class="w-full h-full object-cover lazy-video"
+              class="w-full h-full object-cover lazy-video relative z-0 opacity-0"
               muted
               loop
               playsinline
@@ -382,9 +403,23 @@
       <!-- Card 3 -->
       <div class="flex flex-col items-center">
                             <div class="relative w-full aspect-[9/16] max-h-[640px] mb-6 rounded-md overflow-hidden">
+            <!-- Loading Placeholder -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[#2c3a43]/95 to-[#2c3a43]/80 backdrop-blur-sm z-10 loading-placeholder transition-opacity duration-500">
+              <div class="relative w-16 h-16">
+                <div class="absolute inset-0 rounded-full border-4 border-white/20"></div>
+                <div class="absolute inset-0 rounded-full border-4 border-[#d32f2f] border-t-transparent animate-spin"></div>
+                <div class="absolute inset-2 rounded-full border-2 border-white/10"></div>
+              </div>
+              <div class="flex items-center gap-2 mt-4">
+                <div class="w-2 h-2 rounded-full bg-[#d32f2f] animate-pulse"></div>
+                <div class="w-2 h-2 rounded-full bg-[#d32f2f] animate-pulse delay-200"></div>
+                <div class="w-2 h-2 rounded-full bg-[#d32f2f] animate-pulse delay-400"></div>
+              </div>
+              <span class="mt-4 text-white/90 font-medium text-sm tracking-wider uppercase">Loading Preview</span>
+            </div>
             <video 
               data-src="videos/ali-babas.mp4"
-              class="w-full h-full object-cover lazy-video"
+              class="w-full h-full object-cover lazy-video relative z-0 opacity-0"
               muted
               loop
               playsinline
@@ -431,12 +466,24 @@
         </div>
       <div class="text-sm">&copy; <span id="year"></span> Oh My Glass. All rights reserved.</div>
       <div class="text-sm">
-        <ul>
-          <li><a
-              href="https://www.google.com/maps/place/Oh+My+Glass/@43.704259,-79.416228,15z/data=!4m5!3m4!1s0x882b34d68bf5f443:0x70db884626f21bc7!8m2!3d43.704259!4d-79.416228"
-              target="_blank">Google Maps</a></li>
-          <li><a href="https://www.facebook.com/ohmy.glass.to" target="_blank">Facebook</a></li>
-          <li><a href="https://www.instagram.com/ohmyglass.to/" target="_blank">Instagram</a></li>
+        <h3 class="font-bold mb-2">Our Services</h3>
+        <ul class="grid grid-cols-2 gap-2">
+          <li><a href="/window-glass-replacement.html" class="hover:text-[#d32f2f]">Window Glass Replacement</a></li>
+          <li><a href="/emergency-glass-repair.html" class="hover:text-[#d32f2f]">Emergency Glass Repair</a></li>
+          <li><a href="/residential-window-repair.html" class="hover:text-[#d32f2f]">Residential Window Repair</a></li>
+          <li><a href="/commercial-glass-repair.html" class="hover:text-[#d32f2f]">Commercial Glass Repair</a></li>
+          <li><a href="/foggy-window-repair.html" class="hover:text-[#d32f2f]">Foggy Window Repair</a></li>
+          <li><a href="/broken-window-repair.html" class="hover:text-[#d32f2f]">Broken Window Repair</a></li>
+          <li><a href="/double-pane-window-replacement.html" class="hover:text-[#d32f2f]">Double Pane Replacement</a></li>
+          <li><a href="/storefront-glass-repair.html" class="hover:text-[#d32f2f]">Storefront Glass Repair</a></li>
+        </ul>
+      </div>
+      <div class="text-sm">
+        <h3 class="font-bold mb-2">Connect With Us</h3>
+        <ul class="flex gap-4">
+          <li><a href="https://www.google.com/maps/place/Oh+My+Glass/@43.704259,-79.416228,15z/data=!4m5!3m4!1s0x882b34d68bf5f443:0x70db884626f21bc7!8m2!3d43.704259!4d-79.416228" target="_blank" class="hover:text-[#d32f2f]">Google Maps</a></li>
+          <li><a href="https://www.facebook.com/ohmy.glass.to" target="_blank" class="hover:text-[#d32f2f]">Facebook</a></li>
+          <li><a href="https://www.instagram.com/ohmyglass.to/" target="_blank" class="hover:text-[#d32f2f]">Instagram</a></li>
         </ul>
       </div>
     </div>
