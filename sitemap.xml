@@ -2,8 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://ohmyglass.ca/</loc>
-      <lastmod>2024-03-26</lastmod>
+      <lastmod>2024-05-22</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://ohmyglass.ca/window-glass-replacement.html</loc>
+      <lastmod>2024-05-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ohmyglass.ca/storefront-glass-repair.html</loc>
+      <lastmod>2024-05-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ohmyglass.ca/double-pane-window-replacement.html</loc>
+      <lastmod>2024-05-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ohmyglass.ca/broken-window-repair.html</loc>
+      <lastmod>2024-05-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ohmyglass.ca/foggy-window-repair.html</loc>
+      <lastmod>2024-05-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ohmyglass.ca/commercial-glass-repair.html</loc>
+      <lastmod>2024-05-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ohmyglass.ca/residential-window-repair.html</loc>
+      <lastmod>2024-05-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ohmyglass.ca/emergency-glass-repair.html</loc>
+      <lastmod>2024-05-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://ohmyglass.ca/free-quote.html</loc>
+      <lastmod>2024-05-22</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
    </url>
 </urlset> 
