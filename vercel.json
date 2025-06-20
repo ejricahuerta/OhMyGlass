@@ -1,14 +1,14 @@
 {
-    "cleanUrls": true,
-    "trailingSlash": false,
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/$1.html"
-      }
-    ],
-    "error": {
-      "404": "/401.html"
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/$1.html"
     }
+  ],
+  "error": {
+    "404": "/401.html"
   }
-  
+}
