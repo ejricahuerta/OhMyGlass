@@ -55,4 +55,52 @@ document.addEventListener("DOMContentLoaded", function () {
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
+
+  // Floating call button
+  const phoneNumber = "+16478032730";
+  const callButton = document.createElement("a");
+  callButton.href = `tel:${phoneNumber}`;
+  callButton.id = "floating-call-button";
+  callButton.setAttribute("aria-label", "Call Us");
+  callButton.classList.add(
+    "fixed",
+    "bottom-5",
+    "right-5",
+    "bg-[#d32f2f]",
+    "text-white",
+    "w-16",
+    "h-16",
+    "rounded-full",
+    "shadow-lg",
+    "hover:bg-[#2c3a43]",
+    "transition",
+    "z-50",
+    "flex",
+    "items-center",
+    "justify-center"
+  );
+  callButton.innerHTML = `<i class="fas fa-phone-alt text-2xl"></i>`;
+  document.body.appendChild(callButton);
+
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const closeMenuButton = document.getElementById("close-menu-button");
+  const navbarMenu = document.getElementById("navbar-menu");
+  const navLinks = navbarMenu.querySelectorAll("a");
+
+  if (mobileMenuButton && navbarMenu && closeMenuButton) {
+    mobileMenuButton.addEventListener("click", () => {
+      navbarMenu.classList.toggle("is-active");
+    });
+
+    closeMenuButton.addEventListener("click", () => {
+      navbarMenu.classList.remove("is-active");
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        navbarMenu.classList.remove("is-active");
+      });
+    });
+  }
 }); 
