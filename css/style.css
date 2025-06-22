@@ -15,10 +15,10 @@ h3 {
   #navbar-menu {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
     background-color: rgba(44, 58, 67, 0.95);
     backdrop-filter: blur(10px);
     flex-direction: column;
@@ -30,6 +30,10 @@ h3 {
 
   #navbar-menu.is-active {
     display: flex;
+  }
+
+  body.menu-is-active {
+    overflow: hidden !important;
   }
 
   #navbar-menu li a {

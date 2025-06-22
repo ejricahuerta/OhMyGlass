@@ -81,26 +81,4 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   callButton.innerHTML = `<i class="fas fa-phone-alt text-2xl"></i>`;
   document.body.appendChild(callButton);
-
-  // Mobile menu toggle
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const closeMenuButton = document.getElementById("close-menu-button");
-  const navbarMenu = document.getElementById("navbar-menu");
-  const navLinks = navbarMenu.querySelectorAll("a");
-
-  if (mobileMenuButton && navbarMenu && closeMenuButton) {
-    mobileMenuButton.addEventListener("click", () => {
-      navbarMenu.classList.toggle("is-active");
-    });
-
-    closeMenuButton.addEventListener("click", () => {
-      navbarMenu.classList.remove("is-active");
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        navbarMenu.classList.remove("is-active");
-      });
-    });
-  }
 }); 
