@@ -72,12 +72,12 @@
     }
   </script>
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- <!-- <link rel="stylesheet" href="css/style.css"> --> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
   <script src="https://tally.so/widgets/embed.js" defer></script>
   <style>
     html, body {
@@ -94,7 +94,7 @@
   <!-- Navigation Bar -->
   <header class="absolute top-0 left-0 w-full z-50 bg-white/50 backdrop-blur-md shadow-none sticky">
     <nav class="container mx-auto flex justify-between items-center py-4 px-6">
-      <a href="/"><img src="/images/logo.png" alt="Oh My Glass Logo" class="h-16 w-auto drop-shadow" /></a>
+      <a href="/"><img src="/images/logo.png" alt="Oh My Glass Logo" class="h-16 w-auto drop-shadow" width="288" height="64" /></a>
       <!-- Desktop Nav Links -->
       <div class="flex items-center gap-8">
         <ul id="navbar-menu"
@@ -162,7 +162,7 @@
     <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
       <!-- Logo and Copyright -->
       <div class="md:col-span-1 flex flex-col items-center">
-        <img src="images/logo.png" alt="Oh My Glass Logo" class="h-24 w-auto drop-shadow mb-4" />
+        <img src="/images/logo.png" alt="Oh My Glass Logo" class="h-24 w-auto drop-shadow mb-4" width="432" height="96" />
         <p class="text-sm">&copy; <span id="year"></span> Oh My Glass. All rights reserved.</p>
       </div>
 
