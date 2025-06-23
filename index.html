@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="preload" as="image" href="images/hero.jpg">
+  <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
   <title>Oh My Glass | Toronto's Premier Glass Repair & Installation Services</title>
   <meta name="description"
     content="Expert glass repair, replacement & installation in Toronto & GTA. Custom mirrors, storefronts & window repairs. Free quotes available." />
@@ -159,8 +159,11 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="relative h-screen min-h-[600px] w-full bg-cover bg-center"
-    style="background-image: url('images/hero.jpg');">
+  <section id="hero" class="relative h-screen min-h-[600px] w-full">
+    <picture>
+      <source srcset="images/hero.webp" type="image/webp">
+      <img src="images/hero.jpg" alt="A modern storefront with large glass windows, repaired by Oh My Glass" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover">
+    </picture>
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-4">
       <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 drop-shadow-lg leading-tight">Complete Glass
