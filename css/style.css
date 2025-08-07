@@ -19,13 +19,14 @@ h3 {
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    background-color: rgba(44, 58, 67, 0.95);
-    backdrop-filter: blur(10px);
+    background-color: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    z-index: 100;
+    z-index: 9999;
   }
 
   #navbar-menu.is-active {
@@ -34,6 +35,8 @@ h3 {
 
   body.menu-is-active {
     overflow: hidden !important;
+    position: fixed;
+    width: 100%;
   }
 
   #navbar-menu li a {
@@ -51,6 +54,8 @@ h3 {
     background: none;
     border: none;
   }
+
+
 
   #hero-text {
     font-size: 2rem;
