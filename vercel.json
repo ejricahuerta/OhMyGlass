@@ -4,6 +4,16 @@
   "outputDirectory": "build",
   "cleanUrls": true,
   "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, HEAD, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
+    }
+  ],
   "redirects": [
     {"source": "/:path*", "has": [{"type": "host", "value": "www.ohmyglass.ca"}], "destination": "https://ohmyglass.ca/:path*", "permanent": true},
     {"source": "/free-quote", "destination": "/contact", "permanent": true},
