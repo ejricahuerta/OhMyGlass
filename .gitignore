@@ -3,3 +3,11 @@ seo-strats.html
 .env
 
 design-guide.html
+
+# SvelteKit
+build
+.svelte-kit
+
+docs/*
+
+node_modules/*
