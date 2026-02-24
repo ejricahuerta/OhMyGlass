@@ -4,8 +4,8 @@ seo-strats.html
 
 design-guide.html
 
-# SvelteKit
-build
+# SvelteKit (adapter-static output; Vercel expects "public")
+public
 .svelte-kit
 
 docs/*
