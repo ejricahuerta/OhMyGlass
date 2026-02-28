@@ -36,21 +36,21 @@ export const footerServicesDefaultOrder = [
   { label: 'Window & Door Hardware', href: '/window-and-door-hardware-repairs' }
 ];
 
-/** GTA service area cities string (top cities first: Toronto, North York, Vaughan, Newmarket, Richmond Hill) */
+/** GTA service area cities string (top cities first: Toronto, North York, Vaughan, Richmond Hill, Markham, Mississauga) */
 export const serviceAreaCities =
-  'Toronto, North York, Vaughan, Newmarket, Richmond Hill, Mississauga, Scarborough, Etobicoke, Markham, Oakville, Ajax, Milton, Pickering, Whitby, Woodbridge, Burlington, Halton Hills, Caledon, Aurora, East Gwillimbury, Georgina, King, Whitchurch-Stouffville, Clarington, Oshawa, Scugog, Uxbridge';
+  'Toronto, North York, Vaughan, Richmond Hill, Markham, Mississauga, Scarborough, Etobicoke, Newmarket, Oakville, Ajax, Milton, Pickering, Whitby, Woodbridge, Burlington, Halton Hills, Caledon, Aurora, East Gwillimbury, Georgina, King, Whitchurch-Stouffville, Clarington, Oshawa, Scugog, Uxbridge';
 
 /** Same cities as an array for grid/pill display */
 export const serviceAreaCitiesList = [
   'Toronto',
   'North York',
   'Vaughan',
-  'Newmarket',
   'Richmond Hill',
+  'Markham',
   'Mississauga',
   'Scarborough',
   'Etobicoke',
-  'Markham',
+  'Newmarket',
   'Oakville',
   'Ajax',
   'Milton',

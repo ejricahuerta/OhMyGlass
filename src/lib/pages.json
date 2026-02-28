@@ -499,22 +499,23 @@
         "glass repair Toronto",
         "glass repair North York",
         "glass repair Vaughan",
-        "glass repair Newmarket",
         "glass repair Richmond Hill",
-        "glass repair Scarborough",
         "glass repair Markham",
+        "glass repair Mississauga",
+        "glass repair Scarborough",
         "glass repair Etobicoke",
         "window repair near me GTA"
       ],
-      "meta_description": "OhMyGlass serves the entire GTA: Toronto, North York, Vaughan, Newmarket, Richmond Hill, and 20+ more communities."
+      "meta_description": "OhMyGlass serves the entire GTA: Toronto, North York, Vaughan, Richmond Hill, Markham, Mississauga, and 20+ more communities."
     },
-    "pagecontent": "OhMyGlass provides glass repair and replacement services across the entire Greater Toronto Area. Our service territory extends from Oshawa and Whitby in the east to Burlington and Milton in the west, and from the Lake Ontario shoreline north to Newmarket, Aurora, and beyond. Whether you are in downtown Toronto, North York, Vaughan, Newmarket, Richmond Hill, or elsewhere in the GTA, our mobile technicians come to your location with the tools and materials to complete most jobs in a single visit. Contact us to confirm service availability in your area.",
+    "pagecontent": "OhMyGlass provides glass repair and replacement services across the entire Greater Toronto Area. Our service territory extends from Oshawa and Whitby in the east to Burlington and Milton in the west, and from the Lake Ontario shoreline north to Newmarket, Aurora, and beyond. Whether you are in Toronto, North York, Vaughan, Richmond Hill, Markham, Mississauga, or elsewhere in the GTA, our mobile technicians come to your location with the tools and materials to complete most jobs in a single visit. Contact us to confirm service availability in your area.",
     "service_area_locations": [
       { "name": "Toronto", "slug": "emergency-glass-repair-toronto" },
       { "name": "North York", "slug": "emergency-glass-repair-north-york" },
       { "name": "Vaughan", "slug": "emergency-glass-repair-vaughan" },
-      { "name": "Newmarket", "slug": "emergency-glass-repair-newmarket" },
-      { "name": "Richmond Hill", "slug": "emergency-glass-repair-richmond-hill" }
+      { "name": "Richmond Hill", "slug": "emergency-glass-repair-richmond-hill" },
+      { "name": "Markham", "slug": "emergency-glass-repair-markham" },
+      { "name": "Mississauga", "slug": "emergency-glass-repair-mississauga" }
     ]
   },
   {
