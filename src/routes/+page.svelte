@@ -59,7 +59,7 @@
       Expert Glass Repair Services
     </h1>
     <p class="text-lg md:text-xl text-white font-normal drop-shadow-lg max-w-3xl mb-8">
-      Professional glass repair and replacement windows in Toronto, North York, Mississauga, Vaughan & GTA. We repair cracked, broken, and foggy glass – saving you 60-80% vs full replacement. 24/7 emergency glass repair available.
+      Professional glass repair and replacement windows in Toronto, North York, Vaughan, Newmarket, Richmond Hill & GTA. We repair cracked, broken, and foggy glass – saving you 60-80% vs full replacement. 24/7 emergency glass repair available.
     </p>
     <a
       href="#contact-form"

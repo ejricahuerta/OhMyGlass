@@ -103,11 +103,11 @@
   };
   const resourceServiceLink = isResource ? (RESOURCE_SERVICE_LINKS[data.slug] || null) : null;
 
-  // Location page: slug is {service}-{location}, e.g. emergency-glass-repair-brampton
-  const LOCATION_SUFFIXES = ['brampton', 'etobicoke', 'markham', 'north-york', 'richmond-hill', 'scarborough', 'toronto', 'vaughan', 'mississauga'];
+  // Location page: slug is {service}-{location}, e.g. emergency-glass-repair-newmarket
+  const LOCATION_SUFFIXES = ['newmarket', 'etobicoke', 'markham', 'north-york', 'richmond-hill', 'scarborough', 'toronto', 'vaughan', 'mississauga'];
   const SERVICE_BASES = ['emergency-glass-repair', 'storefront-glass-repair', 'window-glass-replacement'];
   const LOCATION_DISPLAY_NAMES = {
-    brampton: 'Brampton', etobicoke: 'Etobicoke', markham: 'Markham', 'north-york': 'North York',
+    newmarket: 'Newmarket', etobicoke: 'Etobicoke', markham: 'Markham', 'north-york': 'North York',
     'richmond-hill': 'Richmond Hill', scarborough: 'Scarborough', toronto: 'Toronto', vaughan: 'Vaughan', mississauga: 'Mississauga'
   };
   const SERVICE_LABELS = {

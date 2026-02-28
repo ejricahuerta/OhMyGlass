@@ -93,8 +93,8 @@ export const serviceCards = [
   },
   {
     href: '/glass-repair-vs-replacement',
-    title: 'Glass Repair vs Replacement',
+    title: 'Glass Repair vs Window Glass Replacement',
     description:
-      'Learn when repair is better than replacement and save 60–80%. Expert assessment across the GTA.'
+      'Replace just the glass (~$200) or full window (~$2k). We replace panes and IGUs—no crack-filling. Expert assessment across the GTA.'
   }
 ];

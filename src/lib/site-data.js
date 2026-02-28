@@ -36,23 +36,23 @@ export const footerServicesDefaultOrder = [
   { label: 'Window & Door Hardware', href: '/window-and-door-hardware-repairs' }
 ];
 
-/** GTA service area cities string */
+/** GTA service area cities string (top cities first: Toronto, North York, Vaughan, Newmarket, Richmond Hill) */
 export const serviceAreaCities =
-  'Toronto, Mississauga, Brampton, Scarborough, North York, Etobicoke, Richmond Hill, Vaughan, Oakville, Ajax, Markham, Milton, Pickering, Whitby, Woodbridge, Burlington, Halton Hills, Caledon, Aurora, East Gwillimbury, Georgina, King, Newmarket, Whitchurch-Stouffville, Clarington, Oshawa, Scugog, Uxbridge';
+  'Toronto, North York, Vaughan, Newmarket, Richmond Hill, Mississauga, Scarborough, Etobicoke, Markham, Oakville, Ajax, Milton, Pickering, Whitby, Woodbridge, Burlington, Halton Hills, Caledon, Aurora, East Gwillimbury, Georgina, King, Whitchurch-Stouffville, Clarington, Oshawa, Scugog, Uxbridge';
 
 /** Same cities as an array for grid/pill display */
 export const serviceAreaCitiesList = [
   'Toronto',
-  'Mississauga',
-  'Brampton',
-  'Scarborough',
   'North York',
-  'Etobicoke',
-  'Richmond Hill',
   'Vaughan',
+  'Newmarket',
+  'Richmond Hill',
+  'Mississauga',
+  'Scarborough',
+  'Etobicoke',
+  'Markham',
   'Oakville',
   'Ajax',
-  'Markham',
   'Milton',
   'Pickering',
   'Whitby',
@@ -64,7 +64,6 @@ export const serviceAreaCitiesList = [
   'East Gwillimbury',
   'Georgina',
   'King',
-  'Newmarket',
   'Whitchurch-Stouffville',
   'Clarington',
   'Oshawa',
