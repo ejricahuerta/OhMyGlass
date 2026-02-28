@@ -16,14 +16,44 @@
   <meta property="og:locale" content="en_CA" />
   <link rel="canonical" href="https://ohmyglass.ca/contact" />
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebPage","name":"Contact Us - OhMyGlass","description":"Contact OhMyGlass for professional glass repair and replacement services in the Greater Toronto Area.","url":"https://ohmyglass.ca/contact"}
+    {JSON.stringify(contactPageSchema)}
+  </script>
+  <script type="application/ld+json">
+    {JSON.stringify(contactBreadcrumbSchema)}
   </script>
 </svelte:head>
 
 <script>
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
-  import ServiceArea from '$lib/components/ServiceArea.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import { getBreadcrumbSchema } from '$lib/schema.js';
+  import { nap } from '$lib/site-data.js';
+
+  const contactBreadcrumbSchema = getBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Contact', url: '/contact' }
+  ]);
+  const contactPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact Us - OhMyGlass',
+    description: 'Contact OhMyGlass for professional glass repair and replacement services in the Greater Toronto Area.',
+    url: 'https://ohmyglass.ca/contact',
+    mainEntity: {
+      '@type': 'LocalBusiness',
+      name: nap.name,
+      telephone: nap.telephoneSchema,
+      email: 'info@ohmyglass.ca',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: nap.address.streetAddress,
+        addressLocality: nap.address.addressLocality,
+        addressRegion: nap.address.addressRegion,
+        addressCountry: nap.address.addressCountry
+      },
+      url: 'https://ohmyglass.ca'
+    }
+  };
 </script>
 
 <CtaFormSection
@@ -33,5 +63,10 @@
   formTitle="OhMyGlass Contact Form"
 />
 
-<ServiceArea />
+<section class="bg-[#f5f7fa] py-6 text-center">
+  <p class="text-gray-600">
+    Serving the Greater Toronto Area.
+    <a href="/service-areas" class="text-[#d32f2f] font-semibold hover:underline">View Service Areas</a>
+  </p>
+</section>
 <Footer serviceLinksOrder="default" />

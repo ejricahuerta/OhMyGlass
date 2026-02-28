@@ -19,20 +19,27 @@
   <meta name="twitter:description" content="Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass." />
   <meta name="twitter:image" content="https://ohmyglass.ca/images/og-image.jpg" />
   <link rel="canonical" href="https://ohmyglass.ca" />
-  <!-- Schema Markup -->
+  <!-- Schema: LocalBusiness + Service list -->
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"OhMyGlass","image":"https://ohmyglass.ca/images/logo.png","description":"Expert glass repair specialists in Toronto & GTA. Professional repair services save 60-80% vs replacement. 24/7 emergency glass repair available. Window repair, cracked glass repair, foggy window repair.","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"ON","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":43.704259,"longitude":-79.416228},"url":"https://ohmyglass.ca","telephone":"+16478032730","priceRange":"$$","aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"100"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"sameAs":["https://www.facebook.com/ohmy.glass.to","https://www.instagram.com/ohmy.glass/"],"areaServed":["Toronto","Mississauga","Brampton","Scarborough","North York","Etobicoke","Richmond Hill","Vaughan","Oakville","Ajax","Markham","Milton","Pickering","Whitby","Woodbridge","Burlington","Halton Hills","Caledon","Aurora","East Gwillimbury","Georgina","King","Newmarket","Whitchurch-Stouffville","Clarington","Oshawa","Scugog","Uxbridge"]}
+    {JSON.stringify(getLocalBusinessSchema())}
   </script>
   <script type="application/ld+json">
-    [{"@context":"https://schema.org","@type":"Service","name":"Emergency Glass Repair","description":"24/7 emergency glass repair for broken or shattered windows and doors across Toronto & GTA. Fast response, board-up, and permanent replacement.","url":"https://ohmyglass.ca/emergency-glass-repair","provider":{"@type":"LocalBusiness","name":"OhMyGlass","url":"https://ohmyglass.ca"},"areaServed":{"@type":"GeoCircle","geoMidpoint":{"@type":"GeoCoordinates","latitude":43.704259,"longitude":-79.416228},"geoRadius":"50000"}},{"@context":"https://schema.org","@type":"Service","name":"Window Glass Replacement","description":"Window glass replacement for residential and commercial properties in Toronto & GTA. Cracked, foggy, or broken panes – repair or replace.","url":"https://ohmyglass.ca/window-glass-replacement","provider":{"@type":"LocalBusiness","name":"OhMyGlass","url":"https://ohmyglass.ca"},"areaServed":"Greater Toronto Area"},{"@context":"https://schema.org","@type":"Service","name":"Residential Window Repair","description":"Residential window repair across Toronto & GTA. Save 60-80% vs full replacement. Cracked, foggy, and broken window repair.","url":"https://ohmyglass.ca/residential-window-repair","provider":{"@type":"LocalBusiness","name":"OhMyGlass","url":"https://ohmyglass.ca"},"areaServed":"Greater Toronto Area"},{"@context":"https://schema.org","@type":"Service","name":"Commercial Glass Repair","description":"Commercial and storefront glass repair in Toronto & GTA. Storefronts, offices, safety glass. Fast, professional service.","url":"https://ohmyglass.ca/commercial-glass-repair","provider":{"@type":"LocalBusiness","name":"OhMyGlass","url":"https://ohmyglass.ca"},"areaServed":"Greater Toronto Area"}]
+    {JSON.stringify(homeServiceSchemas)}
   </script>
 </svelte:head>
 
 <script>
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
-  import ServiceArea from '$lib/components/ServiceArea.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { contact } from '$lib/site-data.js';
+  import { getLocalBusinessSchema } from '$lib/schema.js';
+
+  const homeServiceSchemas = [
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'Emergency Glass Repair', description: '24/7 emergency glass repair for broken or shattered windows and doors across Toronto & GTA. Fast response, board-up, and permanent replacement.', url: 'https://ohmyglass.ca/emergency-glass-repair', provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }, areaServed: 'Greater Toronto Area' },
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'Window Glass Replacement', description: 'Window glass replacement for residential and commercial properties in Toronto & GTA. Cracked, foggy, or broken panes – repair or replace.', url: 'https://ohmyglass.ca/window-glass-replacement', provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }, areaServed: 'Greater Toronto Area' },
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'Residential Window Repair', description: 'Residential window repair across Toronto & GTA. Save 60-80% vs full replacement. Cracked, foggy, and broken window repair.', url: 'https://ohmyglass.ca/residential-window-repair', provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }, areaServed: 'Greater Toronto Area' },
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'Commercial Glass Repair', description: 'Commercial and storefront glass repair in Toronto & GTA. Storefronts, offices, safety glass. Fast, professional service.', url: 'https://ohmyglass.ca/commercial-glass-repair', provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }, areaServed: 'Greater Toronto Area' }
+  ];
 </script>
 
 <!-- Hero Section -->
@@ -105,7 +112,7 @@
       <a href="/emergency-glass-repair" class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
         <picture>
           <source srcset="/images/window-repairs.webp" type="image/webp" />
-          <img src="/images/window-repairs.jpg" alt="Window Repairs" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
+          <img src="/images/window-repairs.jpg" alt="Residential window repair and glass replacement service in Toronto and GTA" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
         </picture>
         <div class="relative z-10 p-6 w-full flex items-center justify-center">
           <div class="bg-[#f5f7fa]/10 backdrop-blur-md rounded-lg px-4 py-2">
@@ -116,7 +123,7 @@
       <a href="/aluminum-storefront" class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
         <picture>
           <source srcset="/images/aluminum-storefront.webp" type="image/webp" />
-          <img src="/images/aluminum-storefront.jpg" alt="Aluminum Storefront" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
+          <img src="/images/aluminum-storefront.jpg" alt="Commercial aluminum storefront glass repair and installation" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
         </picture>
         <div class="relative z-10 p-6 w-full flex items-center justify-center">
           <div class="bg-[#f5f7fa]/10 backdrop-blur-md rounded-lg px-4 py-2">
@@ -127,7 +134,7 @@
       <a href="/door-repairs" class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
         <picture>
           <source srcset="/images/door-repairs.webp" type="image/webp" />
-          <img src="/images/door-repairs.jpg" alt="Door Repairs" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
+          <img src="/images/door-repairs.jpg" alt="Door glass repair and patio door repair in Toronto and GTA" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
         </picture>
         <div class="relative z-10 p-6 w-full flex items-center justify-center">
           <div class="bg-[#f5f7fa]/10 backdrop-blur-md rounded-lg px-4 py-2">
@@ -138,7 +145,7 @@
       <a href="/custom-mirror" class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
         <picture>
           <source srcset="/images/custom-mirror.webp" type="image/webp" />
-          <img src="/images/custom-mirror.jpg" alt="Custom Mirror" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
+          <img src="/images/custom-mirror.jpg" alt="Custom mirror installation and repair for homes and businesses" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
         </picture>
         <div class="relative z-10 p-6 w-full flex items-center justify-center">
           <div class="bg-[#f5f7fa]/10 backdrop-blur-md rounded-lg px-4 py-2">
@@ -219,5 +226,10 @@
   </div>
 </section>
 
-<ServiceArea />
+<section class="bg-[#f5f7fa] py-6 text-center">
+  <p class="text-gray-600">
+    Serving the Greater Toronto Area.
+    <a href="/service-areas" class="text-[#d32f2f] font-semibold hover:underline">View Service Areas</a>
+  </p>
+</section>
 <Footer serviceLinksOrder="index" />

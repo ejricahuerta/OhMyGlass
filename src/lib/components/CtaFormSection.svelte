@@ -54,8 +54,11 @@
           <i class="fas fa-envelope mr-2"></i>
           <a href={contact.emailHref} class="hover:text-[#d32f2f]">{contact.email}</a>
         </p>
-        <p>
+        <p class="mb-2">
           <i class="fas fa-map-marker-alt mr-2"></i>
+          <span class="text-white/90">{contact.addressDisplay}</span>
+        </p>
+        <p>
           <a href={contact.googleMaps} target="_blank" rel="noopener noreferrer" class="hover:text-[#d32f2f]">Find us on map</a>
         </p>
       </div>

@@ -72,10 +72,28 @@ export const serviceAreaCitiesList = [
   'Uxbridge'
 ];
 
-/** Contact and social */
+/** NAP (Name, Address, Phone) – must match Google Business Profile exactly */
+export const nap = {
+  name: 'OhMyGlass',
+  telephone: '647-803-2730',
+  telephoneSchema: '+16478032730',
+  telephoneHref: 'tel:+16478032730',
+  address: {
+    streetAddress: '7 Benjamin Boake Trail',
+    addressLocality: 'North York',
+    addressRegion: 'ON',
+    postalCode: '',
+    addressCountry: 'CA'
+  },
+  /** Single-line for display (match GBP) */
+  addressDisplay: '7 Benjamin Boake Trail, North York, ON, Canada'
+};
+
+/** Contact and social (NAP must match Google Business Profile) */
 export const contact = {
-  phone: '647-803-2730',
-  phoneHref: 'tel:+16478032730',
+  phone: nap.telephone,
+  phoneHref: nap.telephoneHref,
+  addressDisplay: nap.addressDisplay,
   email: 'info@ohmyglass.ca',
   emailHref: 'mailto:info@ohmyglass.ca',
   serviceAreasHref: '/service-areas',

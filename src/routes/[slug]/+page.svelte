@@ -1,70 +1,37 @@
 <svelte:head>
-  <title>{data.page.title}</title>
-  <meta name="description" content={data.page.seo?.meta_description ?? data.page.title} />
+  <title>{pageTitle}</title>
+  <meta name="description" content={metaDescription} />
   <meta name="keywords" content={Array.isArray(data.page.seo?.keywords) ? data.page.seo.keywords.join(', ') : ''} />
   <meta property="og:title" content={data.page.title} />
-  <meta property="og:description" content={data.page.seo?.meta_description ?? data.page.title} />
+  <meta property="og:description" content={metaDescription} />
   <meta property="og:image" content="https://ohmyglass.ca/images/og-image.jpg" />
   <meta property="fb:app_id" content="966242223397117" />
   <meta property="og:site_name" content="OhMyGlass" />
   <meta property="og:url" content="https://ohmyglass.ca/{data.slug}" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={data.page.title} />
-  <meta name="twitter:description" content={data.page.seo?.meta_description ?? data.page.title} />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={metaDescription} />
   <meta name="twitter:image" content="https://ohmyglass.ca/images/og-image.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_CA" />
   <link rel="canonical" href="https://ohmyglass.ca/{data.slug}" />
+  <!-- BreadcrumbList on all inner pages -->
   <script type="application/ld+json">
-    {JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: data.page.title,
-      description: data.page.seo?.meta_description ?? data.page.title,
-      url: `https://ohmyglass.ca/${data.slug}`
-    })}
+    {JSON.stringify(breadcrumbSchema)}
   </script>
   {#if data.slug === 'glass-repair-vs-replacement'}
     <script type="application/ld+json">
-      {JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: data.page.title.replace(' - OhMyGlass.ca', '').replace(' – OhMyGlass.ca', '').replace(' - OhMyGlass', '').replace(' – OhMyGlass', ''),
-        description: data.page.seo?.meta_description ?? data.page.title,
-        url: `https://ohmyglass.ca/${data.slug}`,
-        author: {
-          '@type': 'Organization',
-          name: 'OhMyGlass',
-          url: 'https://ohmyglass.ca',
-          telephone: '+16478032730',
-          areaServed: 'Greater Toronto Area'
-        },
-        datePublished: '2025-02-24',
-        dateModified: '2025-02-24',
-        publisher: {
-          '@type': 'Organization',
-          name: 'OhMyGlass',
-          url: 'https://ohmyglass.ca'
-        }
-      })}
+      {JSON.stringify(articleSchema)}
     </script>
   {/if}
-  {#if data.page.type !== 'resource'}
+  {#if data.page.type === 'service'}
     <script type="application/ld+json">
-      {JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: data.page.title.replace(' - OhMyGlass.ca', '').replace(' – OhMyGlass.ca', '').replace(' - OhMyGlass', '').replace(' – OhMyGlass', '').replace(' | OhMyGlass', ''),
-        description: data.page.seo?.meta_description ?? data.page.title,
-        url: `https://ohmyglass.ca/${data.slug}`,
-        provider: {
-          '@type': 'LocalBusiness',
-          name: 'OhMyGlass',
-          url: 'https://ohmyglass.ca',
-          telephone: '+16478032730',
-          areaServed: 'Greater Toronto Area'
-        }
-      })}
+      {JSON.stringify(serviceSchema)}
+    </script>
+  {/if}
+  {#if faqSchema.mainEntity.length > 0}
+    <script type="application/ld+json">
+      {JSON.stringify(faqSchema)}
     </script>
   {/if}
 </svelte:head>
@@ -74,6 +41,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import ContentPageForm from '$lib/components/ContentPageForm.svelte';
   import { contact } from '$lib/site-data.js';
+  import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema } from '$lib/schema.js';
 
   /** @type {{ page: { title: string; type?: string; seo?: { meta_description?: string; keywords?: string[] }; pagecontent: string; service_area_locations?: Array<{ name: string; slug: string }>; sections?: Array<{ heading: string; level?: number; content?: string; list?: string[] }> }; slug: string }} */
   export let data;
@@ -81,6 +49,59 @@
   const isServiceAreasPage = data.slug === 'service-areas';
   const isResource = data.page.type === 'resource';
   const hasSections = Array.isArray(data.page.sections) && data.page.sections.length > 0;
+
+  // BreadcrumbList: Home > ... > current page
+  const breadcrumbItems = [
+    { name: 'Home', url: '/' },
+    { name: data.page.title.replace(/\s*[-–|]\s*OhMyGlass[^]*$/i, '').trim(), url: `/${data.slug}` }
+  ];
+  const breadcrumbSchema = getBreadcrumbSchema(breadcrumbItems);
+
+  // Title max 60 chars for SERP; meta description max 160
+  const rawTitle = data.page.title || '';
+  const pageTitle = rawTitle.length > 60 ? rawTitle.slice(0, 57) + '...' : rawTitle;
+  const rawMeta = data.page.seo?.meta_description ?? data.page.title ?? '';
+  const metaDescription = rawMeta.length > 160 ? rawMeta.slice(0, 157) + '...' : rawMeta;
+
+  const articleSchema = data.slug === 'glass-repair-vs-replacement' ? {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: data.page.title.replace(/ - OhMyGlass\.ca$| – OhMyGlass\.ca$| - OhMyGlass$| – OhMyGlass$| \| OhMyGlass$/i, '').trim(),
+    description: data.page.seo?.meta_description ?? data.page.title,
+    url: `https://ohmyglass.ca/${data.slug}`,
+    author: { '@type': 'Organization', name: 'OhMyGlass', url: 'https://ohmyglass.ca', telephone: '+16478032730', areaServed: 'Greater Toronto Area' },
+    datePublished: '2025-02-24',
+    dateModified: '2025-02-24',
+    publisher: { '@type': 'Organization', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }
+  } : null;
+
+  const serviceSchema = data.page.type === 'service' ? getServiceSchema({
+    name: data.page.title,
+    description: data.page.seo?.meta_description ?? data.page.title,
+    url: `/${data.slug}`
+  }) : null;
+
+  // FAQPage: sections whose heading is a question (ends with ?)
+  const faqQuestions = (data.page.sections || [])
+    .filter((s) => s.heading && (s.heading.trim().endsWith('?') || s.heading.trim().startsWith('What ') || s.heading.trim().startsWith('How ') || s.heading.trim().startsWith('Why ') || s.heading.trim().startsWith('When ') || s.heading.trim().startsWith('Which ')))
+    .slice(0, 10)
+    .map((s) => ({
+      '@type': 'Question',
+      name: s.heading,
+      acceptedAnswer: { '@type': 'Answer', text: [s.content, s.list?.join(' ')].filter(Boolean).join(' ') || s.heading }
+    }));
+  const faqSchema = getFAQPageSchema(faqQuestions);
+
+  // Resource -> relevant service page for internal linking
+  const RESOURCE_SERVICE_LINKS = {
+    'how-to-tell-if-window-seal-is-broken': { href: '/foggy-window-repair', label: 'Foggy window repair' },
+    'foggy-double-pane-windows-repair-vs-replace': { href: '/foggy-window-repair', label: 'Foggy window repair' },
+    'emergency-glass-repair-toronto-what-to-expect': { href: '/emergency-glass-repair', label: 'Emergency glass repair' },
+    'window-glass-replacement-cost-gta': { href: '/window-glass-replacement', label: 'Window glass replacement' },
+    'storefront-glass-repair-toronto-business-owners': { href: '/storefront-glass-repair', label: 'Storefront glass repair' },
+    'glass-repair-vs-replacement': { href: '/window-glass-replacement', label: 'Window glass replacement' }
+  };
+  const resourceServiceLink = isResource ? (RESOURCE_SERVICE_LINKS[data.slug] || null) : null;
 
   // Location page: slug is {service}-{location}, e.g. emergency-glass-repair-brampton
   const LOCATION_SUFFIXES = ['brampton', 'etobicoke', 'markham', 'north-york', 'richmond-hill', 'scarborough', 'toronto', 'vaughan', 'mississauga'];
@@ -134,13 +155,20 @@
         {#if isResource}
           <a href="/resources" class="inline-block text-[#d32f2f] font-semibold hover:underline mb-6">← Resources</a>
         {/if}
-        {#if isLocationPage}
-          <p class="mb-6 text-gray-600">
+        <nav class="mb-6 text-sm text-gray-600" aria-label="Breadcrumb">
+          <a href="/" class="text-[#d32f2f] font-semibold hover:underline">Home</a>
+          <span class="mx-2">/</span>
+          {#if isLocationPage}
             <a href="/services" class="text-[#d32f2f] font-semibold hover:underline">Services</a>
-            <span class="mx-2">·</span>
+            <span class="mx-2">/</span>
             <a href="/service-areas" class="text-[#d32f2f] font-semibold hover:underline">Service areas</a>
-          </p>
-        {/if}
+            <span class="mx-2">/</span>
+          {:else if isResource}
+            <a href="/resources" class="text-[#d32f2f] font-semibold hover:underline">Resources</a>
+            <span class="mx-2">/</span>
+          {/if}
+          <span class="text-gray-800">{data.page.title.replace(/\s*[-–|]\s*OhMyGlass[^]*$/i, '').trim()}</span>
+        </nav>
         <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
           {data.page.title.replace(' - OhMyGlass.ca', '').replace(' – OhMyGlass.ca', '').replace(' - OhMyGlass', '').replace(' – OhMyGlass', '').replace(' | OhMyGlass', '')}
         </h1>
@@ -214,9 +242,13 @@
 
         {#if isResource}
           <p class="mt-10 pt-8 border-t border-gray-200">
+            {#if resourceServiceLink}
+              <a href={resourceServiceLink.href} class="text-[#d32f2f] font-semibold hover:underline">{resourceServiceLink.label}</a>
+              <span class="text-gray-600"> · </span>
+            {/if}
             <a href="/#contact-form" class="text-[#d32f2f] font-semibold hover:underline">Get a free quote</a>
-            <span class="text-gray-600"> or </span>
-            <a href="/resources" class="text-[#d32f2f] font-semibold hover:underline">back to Resources</a>.
+            <span class="text-gray-600"> · </span>
+            <a href="/resources" class="text-[#d32f2f] font-semibold hover:underline">Back to Resources</a>
           </p>
         {/if}
         {#if isLocationPage && locationPageInfo}
@@ -236,6 +268,11 @@
 </main>
 
 {#if !isServiceAreasPage && !isResource}
-  <ServiceArea />
+  <section class="bg-[#f5f7fa] py-6 text-center">
+    <p class="text-gray-600">
+      Serving the Greater Toronto Area.
+      <a href="/service-areas" class="text-[#d32f2f] font-semibold hover:underline">View Service Areas</a>
+    </p>
+  </section>
 {/if}
 <Footer serviceLinksOrder="default" />
