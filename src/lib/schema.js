@@ -3,6 +3,16 @@
  */
 import { siteUrl, nap, serviceAreaCitiesList, ogImage } from '$lib/site-data.js';
 
+/**
+ * Serialize schema for use inside <script type="application/ld+json">.
+ * Escapes "</script" so the HTML parser does not close the script tag early (which would
+ * truncate the JSON and cause "Missing '}' or object member name" in Search Console).
+ */
+export function safeJsonLdScript(value) {
+  const raw = JSON.stringify(value);
+  return raw.replace(/<\/script/gi, '\\u003c/script');
+}
+
 /** LocalBusiness schema for homepage (and organization context). */
 export function getLocalBusinessSchema() {
   return {
@@ -42,11 +52,12 @@ export function getLocalBusinessSchema() {
 
 /** Service schema for a service page. */
 export function getServiceSchema({ name, description, url }) {
+  const safeName = (name ?? '').toString().replace(/\s*[-–|]\s*OhMyGlass[^]*$/i, '').trim();
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: name.replace(/\s*[-–|]\s*OhMyGlass[^]*$/i, '').trim(),
-    description: description || '',
+    name: safeName,
+    description: (description ?? '').toString(),
     url: url.startsWith('http') ? url : `${siteUrl}/${url.replace(/^\//, '')}`,
     provider: {
       '@type': 'LocalBusiness',

@@ -21,10 +21,10 @@
   <link rel="canonical" href="https://ohmyglass.ca" />
   <!-- Schema: LocalBusiness + Service list -->
   <script type="application/ld+json">
-    {JSON.stringify(getLocalBusinessSchema())}
+    {safeJsonLdScript(getLocalBusinessSchema())}
   </script>
   <script type="application/ld+json">
-    {JSON.stringify(homeServiceSchemas)}
+    {safeJsonLdScript(homeServiceSchemas)}
   </script>
 </svelte:head>
 
@@ -32,7 +32,7 @@
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { contact } from '$lib/site-data.js';
-  import { getLocalBusinessSchema } from '$lib/schema.js';
+  import { getLocalBusinessSchema, safeJsonLdScript } from '$lib/schema.js';
 
   const homeServiceSchemas = [
     { '@context': 'https://schema.org', '@type': 'Service', name: 'Emergency Glass Repair', description: '24/7 emergency glass repair for broken or shattered windows and doors across Toronto & GTA. Fast response, board-up, and permanent replacement.', url: 'https://ohmyglass.ca/emergency-glass-repair', provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }, areaServed: 'Greater Toronto Area' },

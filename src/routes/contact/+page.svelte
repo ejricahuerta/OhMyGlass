@@ -16,17 +16,17 @@
   <meta property="og:locale" content="en_CA" />
   <link rel="canonical" href="https://ohmyglass.ca/contact" />
   <script type="application/ld+json">
-    {JSON.stringify(contactPageSchema)}
+    {safeJsonLdScript(contactPageSchema)}
   </script>
   <script type="application/ld+json">
-    {JSON.stringify(contactBreadcrumbSchema)}
+    {safeJsonLdScript(contactBreadcrumbSchema)}
   </script>
 </svelte:head>
 
 <script>
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
-  import { getBreadcrumbSchema } from '$lib/schema.js';
+  import { getBreadcrumbSchema, safeJsonLdScript } from '$lib/schema.js';
   import { nap } from '$lib/site-data.js';
 
   const contactBreadcrumbSchema = getBreadcrumbSchema([

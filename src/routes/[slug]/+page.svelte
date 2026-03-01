@@ -17,21 +17,21 @@
   <link rel="canonical" href="https://ohmyglass.ca/{data.slug}" />
   <!-- BreadcrumbList on all inner pages -->
   <script type="application/ld+json">
-    {JSON.stringify(breadcrumbSchema)}
+    {safeJsonLdScript(breadcrumbSchema)}
   </script>
   {#if data.slug === 'glass-repair-vs-replacement'}
     <script type="application/ld+json">
-      {JSON.stringify(articleSchema)}
+      {safeJsonLdScript(articleSchema)}
     </script>
   {/if}
   {#if data.page.type === 'service'}
     <script type="application/ld+json">
-      {JSON.stringify(serviceSchema)}
+      {safeJsonLdScript(serviceSchema)}
     </script>
   {/if}
   {#if faqSchema.mainEntity.length > 0}
     <script type="application/ld+json">
-      {JSON.stringify(faqSchema)}
+      {safeJsonLdScript(faqSchema)}
     </script>
   {/if}
 </svelte:head>
@@ -41,7 +41,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import ContentPageForm from '$lib/components/ContentPageForm.svelte';
   import { contact } from '$lib/site-data.js';
-  import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema } from '$lib/schema.js';
+  import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema, safeJsonLdScript } from '$lib/schema.js';
 
   /** @type {{ page: { title: string; type?: string; seo?: { meta_description?: string; keywords?: string[] }; pagecontent: string; service_area_locations?: Array<{ name: string; slug: string }>; sections?: Array<{ heading: string; level?: number; content?: string; list?: string[] }> }; slug: string }} */
   export let data;
