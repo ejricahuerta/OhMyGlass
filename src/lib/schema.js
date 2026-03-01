@@ -5,12 +5,15 @@ import { siteUrl, nap, serviceAreaCitiesList, ogImage } from '$lib/site-data.js'
 
 /**
  * Serialize schema for use inside <script type="application/ld+json">.
- * Escapes "</script" so the HTML parser does not close the script tag early (which would
- * truncate the JSON and cause "Missing '}' or object member name" in Search Console).
+ * - Escapes "</script" so the HTML parser does not close the script tag early (truncated
+ *   JSON causes "Missing '}' or object member name" in Search Console).
+ * - Escapes U+2028/U+2029 so JSON remains valid for strict validators.
  */
 export function safeJsonLdScript(value) {
-  const raw = JSON.stringify(value);
-  return raw.replace(/<\/script/gi, '\\u003c/script');
+  let raw = JSON.stringify(value);
+  raw = raw.replace(/<\/script/gi, '\\u003c/script');
+  raw = raw.replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
+  return raw;
 }
 
 /** LocalBusiness schema for homepage (and organization context). */
@@ -88,7 +91,7 @@ export function getBreadcrumbSchema(items) {
     itemListElement: (items || []).map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: item.name,
+      name: (item.name != null && item.name !== '') ? String(item.name) : 'Page',
       item: item.url.startsWith('http') ? item.url : `${siteUrl}${item.url.startsWith('/') ? '' : '/'}${item.url}`
     }))
   };
