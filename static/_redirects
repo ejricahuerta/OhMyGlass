@@ -1,0 +1,5 @@
+# Redirect www to canonical (non-www)
+https://www.ohmyglass.ca/*  https://ohmyglass.ca/:splat  301
+
+# Redirect .html URLs to clean URLs (one segment, e.g. /commercial-glass-repair.html)
+/:file.html  /:file  301

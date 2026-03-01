@@ -1,0 +1,16 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://ohmyglass.ca/:path*",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "www.ohmyglass.ca"
+        }
+      ]
+    }
+  ]
+}
