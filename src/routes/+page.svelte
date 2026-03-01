@@ -19,20 +19,16 @@
   <meta name="twitter:description" content="Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass." />
   <meta name="twitter:image" content="https://ohmyglass.ca/images/og-image.jpg" />
   <link rel="canonical" href="https://ohmyglass.ca/" />
-  <!-- Schema: LocalBusiness + Service list -->
-  <script type="application/ld+json">
-    {safeJsonLdScript(getLocalBusinessSchema())}
-  </script>
-  <script type="application/ld+json">
-    {safeJsonLdScript(homeServiceSchemas)}
-  </script>
+  <!-- Schema: LocalBusiness + Service list (injected raw so JSON is not escaped) -->
+  {@html getJsonLdScriptTag(getLocalBusinessSchema())}
+  {@html getJsonLdScriptTag(homeServiceSchemas)}
 </svelte:head>
 
 <script>
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { contact } from '$lib/site-data.js';
-  import { getLocalBusinessSchema, safeJsonLdScript } from '$lib/schema.js';
+  import { getLocalBusinessSchema, getJsonLdScriptTag } from '$lib/schema.js';
 
   const homeServiceSchemas = [
     { '@context': 'https://schema.org', '@type': 'Service', name: 'Emergency Glass Repair', description: '24/7 emergency glass repair for broken or shattered windows and doors across Toronto & GTA. Fast response, board-up, and permanent replacement.', url: 'https://ohmyglass.ca/emergency-glass-repair', provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }, areaServed: 'Greater Toronto Area' },

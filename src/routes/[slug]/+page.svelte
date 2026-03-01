@@ -15,24 +15,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_CA" />
   <link rel="canonical" href="https://ohmyglass.ca/{data.slug}" />
-  <!-- BreadcrumbList on all inner pages -->
-  <script type="application/ld+json">
-    {safeJsonLdScript(breadcrumbSchema)}
-  </script>
+  <!-- JSON-LD (injected raw so JSON is not escaped) -->
+  {@html getJsonLdScriptTag(breadcrumbSchema)}
   {#if data.slug === 'glass-repair-vs-replacement'}
-    <script type="application/ld+json">
-      {safeJsonLdScript(articleSchema)}
-    </script>
+    {@html getJsonLdScriptTag(articleSchema)}
   {/if}
   {#if data.page.type === 'service'}
-    <script type="application/ld+json">
-      {safeJsonLdScript(serviceSchema)}
-    </script>
+    {@html getJsonLdScriptTag(serviceSchema)}
   {/if}
   {#if faqSchema.mainEntity.length > 0}
-    <script type="application/ld+json">
-      {safeJsonLdScript(faqSchema)}
-    </script>
+    {@html getJsonLdScriptTag(faqSchema)}
   {/if}
 </svelte:head>
 
@@ -41,7 +33,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import ContentPageForm from '$lib/components/ContentPageForm.svelte';
   import { contact } from '$lib/site-data.js';
-  import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema, safeJsonLdScript } from '$lib/schema.js';
+  import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema, getJsonLdScriptTag } from '$lib/schema.js';
 
   /** @type {{ page: { title: string; type?: string; seo?: { meta_description?: string; keywords?: string[] }; pagecontent: string; service_area_locations?: Array<{ name: string; slug: string }>; sections?: Array<{ heading: string; level?: number; content?: string; list?: string[] }> }; slug: string }} */
   export let data;

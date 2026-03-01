@@ -16,6 +16,15 @@ export function safeJsonLdScript(value) {
   return raw;
 }
 
+/**
+ * Returns a full <script type="application/ld+json"> tag for use with {@html}.
+ * Use this so Svelte does not escape the JSON (which breaks parsing).
+ */
+export function getJsonLdScriptTag(value) {
+  if (value == null) return '';
+  return '<script type="application/ld+json">' + safeJsonLdScript(value) + '</script>';
+}
+
 /** LocalBusiness schema for homepage (and organization context). */
 export function getLocalBusinessSchema() {
   return {
