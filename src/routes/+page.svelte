@@ -18,7 +18,7 @@
   <meta name="twitter:title" content="OhMyGlass | Replacement Windows & Glass Repair Toronto & GTA" />
   <meta name="twitter:description" content="Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass." />
   <meta name="twitter:image" content="https://ohmyglass.ca/images/og-image.jpg" />
-  <link rel="canonical" href="https://ohmyglass.ca" />
+  <link rel="canonical" href="https://ohmyglass.ca/" />
   <!-- Schema: LocalBusiness + Service list -->
   <script type="application/ld+json">
     {safeJsonLdScript(getLocalBusinessSchema())}
@@ -180,7 +180,6 @@
       <div class="flex flex-col items-center">
         <div class="relative w-full aspect-[9/16] max-h-[640px] mb-6 rounded-md overflow-hidden">
           <video src="/videos/ali-babas.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline title="Ali Baba's Storefront Glass Replacement" aria-label="Video showcasing storefront glass replacement at Ali Baba's" preload="auto">
-            <track kind="description" src="/videos/ali-babas-description.vtt" label="English description" />
           </video>
         </div>
         <div class="uppercase text-[#1a1a1a] text-xs font-bold tracking-widest mb-2">Ali Baba's</div>
@@ -190,7 +189,6 @@
       <div class="flex flex-col items-center">
         <div class="relative w-full aspect-[9/16] max-h-[640px] mb-6 rounded-md overflow-hidden">
           <video src="/videos/car-aid-auto collision.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline title="Car Aid Auto Collision Glass Installation" aria-label="Video showcasing glass installation at Car Aid Auto Collision" preload="auto">
-            <track kind="description" src="/videos/car-aid-description.vtt" label="English description" />
           </video>
         </div>
         <div class="uppercase text-[#1a1a1a] text-xs font-bold tracking-widest mb-2">Car Aid Auto Collision</div>
@@ -200,7 +198,6 @@
       <div class="flex flex-col items-center">
         <div class="relative w-full aspect-[9/16] max-h-[640px] mb-6 rounded-md overflow-hidden">
           <video src="/videos/gracious-living.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline title="Gracious Living Commercial Glass Replacement" aria-label="Video showcasing commercial glass replacement at Gracious Living" preload="auto">
-            <track kind="description" src="/videos/gracious-living-description.vtt" label="English description" />
           </video>
         </div>
         <div class="uppercase text-[#2c3a43] text-xs font-bold tracking-widest mb-2">Gracious Living</div>

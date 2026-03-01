@@ -28,6 +28,7 @@ export function getLocalBusinessSchema() {
       streetAddress: nap.address.streetAddress,
       addressLocality: nap.address.addressLocality,
       addressRegion: nap.address.addressRegion,
+      ...(nap.address.postalCode && { postalCode: nap.address.postalCode }),
       addressCountry: nap.address.addressCountry
     },
     areaServed: serviceAreaCitiesList.map((city) => ({ '@type': 'City', name: city })),

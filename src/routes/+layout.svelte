@@ -38,7 +38,11 @@
     const retry = setTimeout(() => {
       loadTallyEmbeds();
     }, 500);
-    inject();
+    try {
+      inject();
+    } catch (_) {
+      // Analytics may fail in validators, ad-blockers, or strict environments
+    }
 
     const heroSection = document.getElementById('hero');
     function isMobile() {
