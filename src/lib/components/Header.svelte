@@ -41,31 +41,33 @@
       </picture>
     </a>
     <div class="flex items-center gap-8">
-      <ul
+      <div
         id="navbar-menu"
-        class="gap-8 text-[#1a1a1a] font-semibold md:static top-full left-0 w-full md:w-auto bg-[#f5f7fa] md:bg-transparent shadow md:shadow-none md:flex md:flex-row items-center md:items-center transition-all duration-300 z-40"
+        class="gap-8 text-[#1a1a1a] font-semibold md:static top-full left-0 w-full md:w-auto bg-[#f5f7fa] md:bg-transparent shadow md:shadow-none md:flex md:flex-row items-center md:items-center transition-all duration-300 z-40 flex flex-col md:flex-row"
       >
         <button
           id="close-menu-button"
-          class="md:hidden"
+          class="md:hidden self-end p-4"
           type="button"
           onclick={closeMenu}
           aria-label="Close menu"
         >
           <i class="fas fa-times"></i>
         </button>
-        {#each navLinks as link}
-          <li>
-            <a
-              href={link.href}
-              class="hover:text-[#d32f2f] block py-4 md:py-0"
-              onclick={closeMenu}
-            >
-              {link.label}
-            </a>
-          </li>
-        {/each}
-      </ul>
+        <ul class="flex flex-col md:flex-row gap-0 md:gap-8 w-full md:w-auto py-4 md:py-0">
+          {#each navLinks as link}
+            <li>
+              <a
+                href={link.href}
+                class="hover:text-[#d32f2f] block py-4 md:py-0"
+                onclick={closeMenu}
+              >
+                {link.label}
+              </a>
+            </li>
+          {/each}
+        </ul>
+      </div>
       {#if showQuote}
         <a
           href="#contact-form"
