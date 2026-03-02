@@ -6,7 +6,7 @@ const config = {
     adapter: adapter({
       pages: 'public',
       assets: 'public',
-      fallback: '404.html' // serve SPA for unknown URLs so we can redirect 404s to home
+      fallback: undefined
     }),
     prerender: {
       handleHttpError: ({ status }) => (status === 404 ? 'ignore' : undefined),

@@ -1,4 +1,4 @@
-import { redirect } from '@sveltejs/kit';
+import { error } from '@sveltejs/kit';
 import { getPageBySlug, getContentPageSlugs } from '$lib/pages-data.js';
 
 export const prerender = true;
@@ -10,6 +10,6 @@ export function entries() {
 /** @type {import('./$types').PageLoad} */
 export function load({ params }) {
   const page = getPageBySlug(params.slug);
-  if (!page) redirect(302, '/');
+  if (!page) throw error(404, `Page not found: ${params.slug}`);
   return { page, slug: params.slug };
 }
