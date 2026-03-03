@@ -19,6 +19,7 @@
 
 <script>
   import Footer from '$lib/components/Footer.svelte';
+  import { withInternalUtm } from '$lib/site-data.js';
 
   /** @type {{ page: { title: string; seo?: { meta_description?: string; keywords?: string[] } }; resources: Array<{ url: string; title: string; seo: { meta_description: string } }> }} */
   export let data;
@@ -37,7 +38,7 @@
       <div class="grid grid-cols-1 gap-8 w-full">
         {#each data.resources as resource}
           <a
-            href="/{resource.url}"
+            href={withInternalUtm(`/${resource.url}`, 'resources')}
             class="block p-6 bg-white/80 backdrop-blur-lg shadow-lg rounded-xl border border-white/20 hover:shadow-xl hover:border-[#d32f2f]/30 transition-all"
           >
             <h2 class="text-xl font-bold text-gray-800 mb-2">

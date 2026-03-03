@@ -20,6 +20,7 @@
 <script>
   import Footer from '$lib/components/Footer.svelte';
   import { serviceCards } from '$lib/service-cards.js';
+  import { withInternalUtm } from '$lib/site-data.js';
 
   /** @type {{ page: { title: string; seo?: { meta_description?: string; keywords?: string[] } }; serviceAreaLocations: Array<{ name: string; slug: string }> }} */
   export let data;
@@ -62,7 +63,7 @@
         <p class="text-gray-600 text-center mb-6 max-w-xl mx-auto">We serve the Greater Toronto Area. Select your area for local emergency glass repair and more.</p>
         <ul class="flex flex-wrap gap-3 justify-center">
           {#each locations as loc}
-            <li><a href="/{loc.slug}" class="inline-block px-4 py-2 bg-white/80 border border-gray-200 rounded-lg text-gray-800 hover:border-[#d32f2f] hover:text-[#d32f2f] transition-colors">{loc.name}</a></li>
+            <li><a href={withInternalUtm(`/${loc.slug}`, 'services')} class="inline-block px-4 py-2 bg-white/80 border border-gray-200 rounded-lg text-gray-800 hover:border-[#d32f2f] hover:text-[#d32f2f] transition-colors">{loc.name}</a></li>
           {/each}
         </ul>
       </section>

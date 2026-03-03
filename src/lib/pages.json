@@ -23,11 +23,11 @@
         "level": 2,
         "content": "Not all window damage looks the same, and understanding the type of break helps determine whether repair or full replacement is needed. Our technicians assess every job on-site before recommending a solution.",
         "list": [
-          "Impact cracks : a starburst or radial pattern spreading from a single point of contact, usually caused by a thrown object, ball, or hail.",
-          "Stress cracks : a clean line that starts near the edge and extends inward, often triggered by large temperature swings between indoors and outdoors.",
-          "Pressure cracks : a curved crack that can appear in sealed double-pane units when barometric pressure changes cause the glass to flex beyond its limit.",
-          "Edge damage : chips or cracks at the perimeter of the glass where it sits in the frame, often caused by settling or improper installation.",
-          "Shattered panes : tempered glass breaks into small granular pieces, while annealed glass breaks into large jagged shards. Both require full replacement."
+          "Impact cracks - a starburst or radial pattern spreading from a single point of contact, usually caused by a thrown object, ball, or hail.",
+          "Stress cracks - a clean line that starts near the edge and extends inward, often triggered by large temperature swings between indoors and outdoors.",
+          "Pressure cracks - a curved crack that can appear in sealed double-pane units when barometric pressure changes cause the glass to flex beyond its limit.",
+          "Edge damage - chips or cracks at the perimeter of the glass where it sits in the frame, often caused by settling or improper installation.",
+          "Shattered panes - tempered glass breaks into small granular pieces, while annealed glass breaks into large jagged shards. Both require full replacement."
         ]
       },
       {
@@ -35,11 +35,11 @@
         "level": 2,
         "content": "We follow a consistent process on every job to ensure your property is secured quickly and the replacement is installed correctly.",
         "list": [
-          "Safety first : we clear and clean up all broken glass from the area, inside and out, before any other work begins.",
-          "Assess the damage : our technician inspects the frame, seals, and surrounding structure to determine whether a glass-only replacement will work or if the frame also needs attention.",
-          "Secure the opening : if permanent glass cannot be installed immediately, we board up or temporarily glaze the opening to protect your property.",
-          "Precise measurement : we measure the opening and confirm the glass type, thickness, and any coatings (such as Low-E or tempered) required.",
-          "Professional installation : the new glass is set, sealed, and trimmed. We test the window for proper operation and clean the work area before leaving."
+          "Safety first - we clear and clean up all broken glass from the area, inside and out, before any other work begins.",
+          "Assess the damage - our technician inspects the frame, seals, and surrounding structure to determine whether a glass-only replacement will work or if the frame also needs attention.",
+          "Secure the opening - if permanent glass cannot be installed immediately, we board up or temporarily glaze the opening to protect your property.",
+          "Precise measurement - we measure the opening and confirm the glass type, thickness, and any coatings (such as Low-E or tempered) required.",
+          "Professional installation - the new glass is set, sealed, and trimmed. We test the window for proper operation and clean the work area before leaving."
         ]
       },
       {
@@ -86,11 +86,11 @@
         "level": 2,
         "content": "Commercial properties use a variety of glass types, each selected for its performance characteristics. We supply and install all of them.",
         "list": [
-          "Tempered safety glass : heat-treated to be four to five times stronger than standard annealed glass. When it does break, it shatters into small granular pieces rather than dangerous jagged shards. Required by the Ontario Building Code in many commercial applications.",
-          "Laminated safety glass : two or more panes bonded with a polyvinyl butyral (PVB) interlayer. If broken, the fragments adhere to the interlayer rather than falling free, providing security and holding the opening intact.",
-          "Insulated glass units (IGUs) : double- or triple-pane assemblies with an air or gas-filled cavity for thermal and acoustic insulation. Common in office buildings for energy code compliance.",
-          "Spandrel glass : opaque, coated glass used to conceal structural elements between vision panels on a building facade.",
-          "Wired glass : glass with an embedded wire mesh, traditionally used for fire-rated applications in corridors and stairwells."
+          "Tempered safety glass - heat-treated to be four to five times stronger than standard annealed glass. When it does break, it shatters into small granular pieces rather than dangerous jagged shards. Required by the Ontario Building Code in many commercial applications.",
+          "Laminated safety glass - two or more panes bonded with a polyvinyl butyral (PVB) interlayer. If broken, the fragments adhere to the interlayer rather than falling free, providing security and holding the opening intact.",
+          "Insulated glass units (IGUs) - double- or triple-pane assemblies with an air or gas-filled cavity for thermal and acoustic insulation. Common in office buildings for energy code compliance.",
+          "Spandrel glass - opaque, coated glass used to conceal structural elements between vision panels on a building facade.",
+          "Wired glass - glass with an embedded wire mesh, traditionally used for fire-rated applications in corridors and stairwells."
         ]
       },
       {
@@ -110,12 +110,12 @@
         "level": 2,
         "content": "We work with a wide range of commercial and institutional clients across the GTA. Our experience covers the specific glass requirements of different building types and industries.",
         "list": [
-          "Retail stores and shopping centres : storefront display glass, entrance doors, interior partitions.",
-          "Office buildings : exterior curtain wall glass, interior partitions, conference room glass, entrance lobbies.",
-          "Restaurants and hospitality : dining room windows, entrance doors, patio enclosures, pass-through windows.",
-          "Healthcare facilities : safety glass for patient areas, privacy glass, secure glazing.",
-          "Educational institutions : classroom windows, corridor safety glass, gymnasium glazing.",
-          "Industrial and warehouse : dock door glass, security glazing, interior office partitions."
+          "Retail stores and shopping centres - storefront display glass, entrance doors, interior partitions.",
+          "Office buildings - exterior curtain wall glass, interior partitions, conference room glass, entrance lobbies.",
+          "Restaurants and hospitality - dining room windows, entrance doors, patio enclosures, pass-through windows.",
+          "Healthcare facilities - safety glass for patient areas, privacy glass, secure glazing.",
+          "Educational institutions - classroom windows, corridor safety glass, gymnasium glazing.",
+          "Industrial and warehouse - dock door glass, security glazing, interior office partitions."
         ]
       },
       {
@@ -123,11 +123,11 @@
         "level": 2,
         "content": "We designed our commercial process around minimizing disruption to your business operations.",
         "list": [
-          "On-site assessment : we visit your location to evaluate the damage, measure the opening, and confirm the glass type and code requirements.",
-          "Detailed quote : you receive a written quote covering materials, labour, and timeline before any work begins.",
-          "Flexible scheduling : we can work after hours, on weekends, or during slow periods to avoid interrupting your customers and staff.",
-          "Professional installation : our glaziers install the new glass, verify the seal and fit, and clean the area thoroughly.",
-          "Code compliance : all commercial installations meet the applicable Ontario Building Code and fire code requirements."
+          "On-site assessment - we visit your location to evaluate the damage, measure the opening, and confirm the glass type and code requirements.",
+          "Detailed quote - you receive a written quote covering materials, labour, and timeline before any work begins.",
+          "Flexible scheduling - we can work after hours, on weekends, or during slow periods to avoid interrupting your customers and staff.",
+          "Professional installation - our glaziers install the new glass, verify the seal and fit, and clean the area thoroughly.",
+          "Code compliance - all commercial installations meet the applicable Ontario Building Code and fire code requirements."
         ]
       }
     ]
@@ -166,7 +166,7 @@
       ],
       "meta_description": "Double pane window replacement in Toronto & GTA. Replace just the glass unit, not the frame; save 60-80%. Low-E, argon gas, ENERGY STAR options. Free quote."
     },
-    "pagecontent": "Double-pane windows : also called insulated glass units (IGUs) or thermal panes, are the standard for energy-efficient homes and buildings across Ontario. When the sealed unit fails, you lose insulation, clarity, and comfort. OhMyGlass specializes in replacing only the glass unit itself, not the entire window frame, which saves homeowners 60 to 80 percent compared to full window replacement. We serve Toronto and the Greater Toronto Area with a range of IGU options including Low-E coatings and argon gas fills to maximize your home's thermal performance.",
+    "pagecontent": "Double-pane windows - also called insulated glass units (IGUs) or thermal panes, are the standard for energy-efficient homes and buildings across Ontario. When the sealed unit fails, you lose insulation, clarity, and comfort. OhMyGlass specializes in replacing only the glass unit itself, not the entire window frame, which saves homeowners 60 to 80 percent compared to full window replacement. We serve Toronto and the Greater Toronto Area with a range of IGU options including Low-E coatings and argon gas fills to maximize your home's thermal performance.",
     "sections": [
       {
         "heading": "How Do Double-Pane Windows Work?",
@@ -178,11 +178,11 @@
         "level": 2,
         "content": "Sealed unit failure is one of the most common window problems in the GTA's climate, where wide temperature swings stress the seals over time. Recognizing the signs early prevents further energy loss.",
         "list": [
-          "Fog or haze between the panes that cannot be wiped away from either side : this is moisture that has entered through a broken seal.",
+          "Fog or haze between the panes that cannot be wiped away from either side - this is moisture that has entered through a broken seal.",
           "Visible condensation droplets forming between the panes, especially in the morning or during temperature changes.",
-          "White or chalky mineral deposits between the panes : these are left behind as trapped moisture repeatedly evaporates and condenses.",
-          "A noticeable increase in outside noise, drafts, or cold spots near the window : the insulating gas has leaked out.",
-          "Higher heating or cooling bills without other explanation : failed IGUs can increase energy loss through windows significantly."
+          "White or chalky mineral deposits between the panes - these are left behind as trapped moisture repeatedly evaporates and condenses.",
+          "A noticeable increase in outside noise, drafts, or cold spots near the window - the insulating gas has leaked out.",
+          "Higher heating or cooling bills without other explanation - failed IGUs can increase energy loss through windows significantly."
         ]
       },
       {
@@ -190,17 +190,17 @@
         "level": 2,
         "content": "When we replace your sealed unit, you can choose from several glass and gas options to improve energy performance beyond the original installation.",
         "list": [
-          "Low-E (low-emissivity) coatings : a microscopically thin metallic coating applied to one surface of the glass that reflects infrared heat. Low-E glass can reduce heat loss through the window by 30 to 50 percent compared to uncoated glass.",
-          "Argon gas fill : argon is denser than air and reduces convective heat transfer within the IGU cavity. It improves the window's insulating value by approximately 5 to 15 percent over dry air.",
-          "Krypton gas fill : even denser than argon and used primarily in triple-pane units or where narrower cavities are required. It offers higher performance but at a higher cost.",
-          "ENERGY STAR compliance : the GTA falls within ENERGY STAR Canada Climate Zone 2 (3,500 to 6,000 heating degree-days). Qualifying windows must meet a U-factor of 1.40 W/m²K or lower, or an Energy Rating of 29 or higher.",
-          "Tempered or laminated safety glass : available for IGU replacement where building code or personal safety requires it, such as near doors or at low heights."
+          "Low-E (low-emissivity) coatings - a microscopically thin metallic coating applied to one surface of the glass that reflects infrared heat. Low-E glass can reduce heat loss through the window by 30 to 50 percent compared to uncoated glass.",
+          "Argon gas fill - argon is denser than air and reduces convective heat transfer within the IGU cavity. It improves the window's insulating value by approximately 5 to 15 percent over dry air.",
+          "Krypton gas fill - even denser than argon and used primarily in triple-pane units or where narrower cavities are required. It offers higher performance but at a higher cost.",
+          "ENERGY STAR compliance - the GTA falls within ENERGY STAR Canada Climate Zone 2 (3,500 to 6,000 heating degree-days). Qualifying windows must meet a U-factor of 1.40 W/m²K or lower, or an Energy Rating of 29 or higher.",
+          "Tempered or laminated safety glass - available for IGU replacement where building code or personal safety requires it, such as near doors or at low heights."
         ]
       },
       {
         "heading": "How Much Can You Save with IGU-Only Replacement?",
         "level": 2,
-        "content": "Replacing just the insulated glass unit while keeping the existing frame is one of the most cost-effective home improvements available. A full window replacement : frame, hardware, and glass : can cost several hundred to over a thousand dollars per window depending on size and type. An IGU-only replacement uses the same frame and trim, which eliminates the cost of new framing materials, interior and exterior finishing, and the labour to remove and reinstall the full unit. Most IGU replacements are completed in under an hour per window with no damage to your walls, trim, or paint. Contact OhMyGlass for a free on-site assessment to confirm whether your frames are in good condition for IGU-only replacement."
+        "content": "Replacing just the insulated glass unit while keeping the existing frame is one of the most cost-effective home improvements available. A full window replacement - frame, hardware, and glass - can cost several hundred to over a thousand dollars per window depending on size and type. An IGU-only replacement uses the same frame and trim, which eliminates the cost of new framing materials, interior and exterior finishing, and the labour to remove and reinstall the full unit. Most IGU replacements are completed in under an hour per window with no damage to your walls, trim, or paint. Contact OhMyGlass for a free on-site assessment to confirm whether your frames are in good condition for IGU-only replacement."
       }
     ]
   },
@@ -228,12 +228,12 @@
         "level": 2,
         "content": "The first few minutes after a glass break are critical for safety. Follow these steps while you wait for our team to arrive.",
         "list": [
-          "Clear the area : keep children, pets, and anyone without proper footwear away from the broken glass. Shards can scatter several feet from the break point.",
-          "Do not touch glass still attached to the frame : loose pieces can fall without warning and cause deep cuts.",
+          "Clear the area - keep children, pets, and anyone without proper footwear away from the broken glass. Shards can scatter several feet from the break point.",
+          "Do not touch glass still attached to the frame - loose pieces can fall without warning and cause deep cuts.",
           "Wear closed-toe shoes and gloves if you must walk near the area.",
-          "Cover the opening temporarily : use a heavy tarp, thick cardboard, or plastic sheeting secured with tape to block wind, rain, and debris.",
+          "Cover the opening temporarily - use a heavy tarp, thick cardboard, or plastic sheeting secured with tape to block wind, rain, and debris.",
           "Take photos of the damage from both inside and outside. These help our technician prepare the right glass size and type before arriving.",
-          "Call OhMyGlass at 647-803-2730 : our emergency line is staffed 24/7 including nights, weekends, and holidays."
+          "Call OhMyGlass at 647-803-2730 - our emergency line is staffed 24/7 including nights, weekends, and holidays."
         ]
       },
       {
@@ -241,11 +241,11 @@
         "level": 2,
         "content": "Our emergency process is designed to secure your property as fast as possible and schedule permanent replacement with minimal delay.",
         "list": [
-          "Phone assessment : when you call, we ask about the type and size of the break, whether anyone is injured, and whether the property is secure. This helps us dispatch the right crew with the right materials.",
-          "Rapid dispatch : a technician is dispatched immediately, with a target arrival of 30 to 60 minutes depending on your location in the GTA.",
-          "On-site securing : the technician cleans up all broken glass, then secures the opening with a board-up (reinforced plywood or polycarbonate) or temporary glazing.",
-          "Measurement for permanent glass : precise measurements are taken on-site so the replacement glass can be fabricated or sourced.",
-          "Follow-up installation : once the permanent glass is ready, we schedule a return visit at a time convenient for you to complete the replacement."
+          "Phone assessment - when you call, we ask about the type and size of the break, whether anyone is injured, and whether the property is secure. This helps us dispatch the right crew with the right materials.",
+          "Rapid dispatch - a technician is dispatched immediately, with a target arrival of 30 to 60 minutes depending on your location in the GTA.",
+          "On-site securing - the technician cleans up all broken glass, then secures the opening with a board-up (reinforced plywood or polycarbonate) or temporary glazing.",
+          "Measurement for permanent glass - precise measurements are taken on-site so the replacement glass can be fabricated or sourced.",
+          "Follow-up installation - once the permanent glass is ready, we schedule a return visit at a time convenient for you to complete the replacement."
         ]
       },
       {
@@ -253,12 +253,12 @@
         "level": 2,
         "content": "We handle every kind of glass emergency for both residential and commercial properties across the GTA.",
         "list": [
-          "Break-ins and vandalism : shattered storefront glass, smashed residential windows, broken door glass.",
-          "Storm damage : windows broken by wind-borne debris, hail, or fallen tree branches.",
-          "Accidental impacts : sports equipment, vehicle collisions, or objects thrown by lawn equipment.",
-          "Thermal stress cracks : cracks that appear without visible impact, caused by extreme temperature differences between the glass surface and edges.",
-          "Failed sealed units : while not always urgent, a sudden crack in a double-pane window can leave one pane exposed and should be addressed promptly.",
-          "Commercial door glass : broken entrance doors that prevent a business from opening or securing for the night."
+          "Break-ins and vandalism - shattered storefront glass, smashed residential windows, broken door glass.",
+          "Storm damage - windows broken by wind-borne debris, hail, or fallen tree branches.",
+          "Accidental impacts - sports equipment, vehicle collisions, or objects thrown by lawn equipment.",
+          "Thermal stress cracks - cracks that appear without visible impact, caused by extreme temperature differences between the glass surface and edges.",
+          "Failed sealed units - while not always urgent, a sudden crack in a double-pane window can leave one pane exposed and should be addressed promptly.",
+          "Commercial door glass - broken entrance doors that prevent a business from opening or securing for the night."
         ]
       },
       {
@@ -285,29 +285,29 @@
       ],
       "meta_description": "Foggy window repair in Toronto & GTA. Condensation between panes means a failed seal. We replace the glass unit, not the frame; save 60-80%. Free quote."
     },
-    "pagecontent": "Condensation trapped between window panes is one of the most common window problems in Ontario homes, and it signals that your sealed unit has failed. Once the hermetic seal around an insulated glass unit (IGU) is compromised, moisture enters the cavity and causes persistent fog, haze, and mineral deposits that worsen over time. OhMyGlass specializes in foggy window repair across Toronto and the GTA. Our solution replaces only the glass unit : not the entire window frame : making it a fast, cost-effective way to restore clarity, insulation, and curb appeal.",
+    "pagecontent": "Condensation trapped between window panes is one of the most common window problems in Ontario homes, and it signals that your sealed unit has failed. Once the hermetic seal around an insulated glass unit (IGU) is compromised, moisture enters the cavity and causes persistent fog, haze, and mineral deposits that worsen over time. OhMyGlass specializes in foggy window repair across Toronto and the GTA. Our solution replaces only the glass unit - not the entire window frame - making it a fast, cost-effective way to restore clarity, insulation, and curb appeal.",
     "sections": [
       {
         "heading": "What Causes Windows to Become Foggy?",
         "level": 2,
         "content": "Foggy windows are caused by a failure of the perimeter seal that keeps the insulated glass unit airtight. Several factors contribute to seal degradation over time.",
         "list": [
-          "Age : most IGU seals have a functional lifespan of 15 to 25 years. As the sealant materials age, they lose flexibility and adhesion.",
-          "UV exposure : prolonged direct sunlight breaks down the organic compounds in the sealant, particularly the primary polyisobutylene seal.",
-          "Temperature cycling : Ontario's wide seasonal temperature range causes the glass and frame to expand and contract repeatedly, stressing the seal at the glass-to-spacer bond.",
-          "Moisture exposure : water that pools on the sill or is driven into the frame by rain can accelerate sealant deterioration from the outside.",
-          "Poor original installation : IGUs that were installed without proper glazing support, drainage, or edge clearance may fail prematurely.",
-          "Manufacturing defects : occasionally, the factory seal or desiccant is inadequate, leading to early failure within the first few years."
+          "Age - most IGU seals have a functional lifespan of 15 to 25 years. As the sealant materials age, they lose flexibility and adhesion.",
+          "UV exposure - prolonged direct sunlight breaks down the organic compounds in the sealant, particularly the primary polyisobutylene seal.",
+          "Temperature cycling - Ontario's wide seasonal temperature range causes the glass and frame to expand and contract repeatedly, stressing the seal at the glass-to-spacer bond.",
+          "Moisture exposure - water that pools on the sill or is driven into the frame by rain can accelerate sealant deterioration from the outside.",
+          "Poor original installation - IGUs that were installed without proper glazing support, drainage, or edge clearance may fail prematurely.",
+          "Manufacturing defects - occasionally, the factory seal or desiccant is inadequate, leading to early failure within the first few years."
         ]
       },
       {
         "heading": "How to Tell If Your Window Seal Has Failed",
         "level": 2,
-        "content": "Not every instance of window condensation means a failed seal. Condensation on the interior surface of a window is usually a humidity issue inside the home. Condensation between the panes : visible from neither side and impossible to wipe away : is the definitive sign of seal failure.",
+        "content": "Not every instance of window condensation means a failed seal. Condensation on the interior surface of a window is usually a humidity issue inside the home. Condensation between the panes - visible from neither side and impossible to wipe away - is the definitive sign of seal failure.",
         "list": [
           "Persistent haze or fog between the two panes of glass that appears and disappears with temperature changes but never fully clears.",
           "Visible water droplets forming between the panes, especially noticeable in the morning or on cold days.",
-          "White or chalky residue between the panes : mineral deposits left behind after moisture repeatedly evaporates inside the cavity.",
+          "White or chalky residue between the panes - mineral deposits left behind after moisture repeatedly evaporates inside the cavity.",
           "A milky or cloudy appearance that reduces visibility and blocks natural light.",
           "A distorted or wavy look to objects viewed through the window, caused by moisture interfering with the glass surfaces."
         ]
@@ -317,17 +317,17 @@
         "level": 2,
         "content": "Our repair process replaces the failed insulated glass unit while preserving the existing window frame. This avoids the cost and disruption of a full window replacement.",
         "list": [
-          "On-site inspection : we confirm the seal failure and check the condition of the frame, sash, and hardware to ensure they can support a new IGU.",
-          "Precise measurement : we measure the opening and note the glass type, thickness, spacer width, and any coatings (Low-E, tinted) on the original unit.",
-          "IGU fabrication or sourcing : a new factory-sealed unit is built to your exact specifications, including your choice of glass coatings and gas fill.",
-          "Careful removal : the interior and exterior glazing stops are removed, and the failed IGU is extracted without damaging the frame or trim.",
-          "Installation and sealing : the new unit is set into the frame with proper shimming and glazing, then the stops and sealant are reinstalled. Most windows are completed in under an hour."
+          "On-site inspection - we confirm the seal failure and check the condition of the frame, sash, and hardware to ensure they can support a new IGU.",
+          "Precise measurement - we measure the opening and note the glass type, thickness, spacer width, and any coatings (Low-E, tinted) on the original unit.",
+          "IGU fabrication or sourcing - a new factory-sealed unit is built to your exact specifications, including your choice of glass coatings and gas fill.",
+          "Careful removal - the interior and exterior glazing stops are removed, and the failed IGU is extracted without damaging the frame or trim.",
+          "Installation and sealing - the new unit is set into the frame with proper shimming and glazing, then the stops and sealant are reinstalled. Most windows are completed in under an hour."
         ]
       },
       {
         "heading": "Why Replace the Glass Unit Instead of the Whole Window?",
         "level": 2,
-        "content": "Full window replacement : removing and replacing the frame, sash, hardware, and glass as a complete unit : makes sense when the frame itself is damaged, rotted, or warped. But in the majority of foggy window cases, the frame is still structurally sound and only the sealed glass unit has failed. Replacing just the IGU typically costs 60 to 80 percent less than a full window replacement. It is also faster (usually under an hour per window), causes no damage to interior or exterior trim, and preserves the original look of your home. OhMyGlass always inspects the frame first and recommends full replacement only when the frame condition warrants it."
+        "content": "Full window replacement - removing and replacing the frame, sash, hardware, and glass as a complete unit - makes sense when the frame itself is damaged, rotted, or warped. But in the majority of foggy window cases, the frame is still structurally sound and only the sealed glass unit has failed. Replacing just the IGU typically costs 60 to 80 percent less than a full window replacement. It is also faster (usually under an hour per window), causes no damage to interior or exterior trim, and preserves the original look of your home. OhMyGlass always inspects the frame first and recommends full replacement only when the frame condition warrants it."
       }
     ]
   },
@@ -349,15 +349,15 @@
       ],
       "meta_description": "Glass-only replacement vs full window glass replacement. We replace the glass pane or IGU; we don't fill cracks. Free assessment across the GTA."
     },
-    "pagecontent": "Choosing between replacing just the glass (pane or IGU) and full window glass replacement depends on the size, location, and severity of the damage. We do not fill or seal cracks; we replace the glass. In many cases, replacing only the damaged glass is the better option : it is faster, far less expensive (around $200 vs roughly $2,000 for full window glass replacement), and preserves your existing frame and trim. OhMyGlass provides a free on-site assessment across the GTA so you only pay for what you actually need. Our technicians evaluate every job individually and recommend glass-only replacement when it will provide a lasting result, and full window replacement only when safety or structural integrity requires it.",
+    "pagecontent": "Choosing between replacing just the glass (pane or IGU) and full window glass replacement depends on the size, location, and severity of the damage. We do not fill or seal cracks; we replace the glass. In many cases, replacing only the damaged glass is the better option - it is faster, far less expensive (around $200 vs roughly $2,000 for full window glass replacement), and preserves your existing frame and trim. OhMyGlass provides a free on-site assessment across the GTA so you only pay for what you actually need. Our technicians evaluate every job individually and recommend glass-only replacement when it will provide a lasting result, and full window replacement only when safety or structural integrity requires it.",
     "sections": [
       {
         "heading": "When Replacing Just the Glass Is the Better Option",
         "level": 2,
         "content": "Replacing only the damaged glass (the pane or insulated glass unit) saves money and time when the frame is still good. We do not fill or seal cracks; we replace the glass. Our technicians recommend glass-only replacement when the following conditions apply.",
         "list": [
-          "A single pane or one section of glass is damaged (cracked, chipped, or shattered) and the rest of the window and frame are sound : we replace that glass only.",
-          "Foggy or steamy double-pane windows where the seal has failed : we replace only the insulated glass unit (IGU), not the whole frame, for a fraction of the cost of a full window.",
+          "A single pane or one section of glass is damaged (cracked, chipped, or shattered) and the rest of the window and frame are sound - we replace that glass only.",
+          "Foggy or steamy double-pane windows where the seal has failed - we replace only the insulated glass unit (IGU), not the whole frame, for a fraction of the cost of a full window.",
           "Damage is limited to one pane or one IGU so that replacing just that unit restores the window without replacing the entire window."
         ]
       },
@@ -368,9 +368,9 @@
         "list": [
           "Cracks longer than about six inches, or chips larger than a quarter, especially in critical viewing areas or near the edge of the glass.",
           "Damage that has penetrated through both layers of a double-pane unit or deep into the pane, compromising the structural strength of the glass.",
-          "Multiple chips or cracks in one pane : we replace that pane or the full IGU; we do not patch or fill cracks.",
-          "Shattered tempered glass : once tempered glass breaks, the entire pane disintegrates and must be replaced.",
-          "Frames or seals that are warped, rotted, or have failed repeatedly : replacement provides better long-term value and safety in these situations."
+          "Multiple chips or cracks in one pane - we replace that pane or the full IGU; we do not patch or fill cracks.",
+          "Shattered tempered glass - once tempered glass breaks, the entire pane disintegrates and must be replaced.",
+          "Frames or seals that are warped, rotted, or have failed repeatedly - replacement provides better long-term value and safety in these situations."
         ]
       },
       {
@@ -439,7 +439,7 @@
         "home window foggy repair",
         "residential glass replacement cost"
       ],
-      "meta_description": "Residential window repair in Toronto & GTA. Cracked, foggy, broken windows : we repair or replace the glass, not the frame. Save 60-80%. Free quote."
+      "meta_description": "Residential window repair in Toronto & GTA. Cracked, foggy, broken windows - we repair or replace the glass, not the frame. Save 60-80%. Free quote."
     },
     "pagecontent": "Your home's windows play a critical role in comfort, energy efficiency, security, and curb appeal. When a window is cracked, foggy, or drafty, it affects all four. OhMyGlass provides expert residential window repair and replacement services across Toronto and the Greater Toronto Area. We work with all common window types and address everything from a single cracked pane to whole-house IGU replacements. Our glass-only approach preserves your existing frames and trim, saving you significant cost compared to full window replacement.",
     "sections": [
@@ -448,14 +448,14 @@
         "level": 2,
         "content": "We repair and replace glass in every residential window style found in GTA homes, from older single-pane windows to modern triple-pane units.",
         "list": [
-          "Casement windows : hinged at the side and operated by a crank handle. Common in newer homes and condominiums.",
-          "Double-hung windows : two sashes that slide vertically, held in place by balance mechanisms. The most common window type in Ontario homes.",
-          "Single-hung windows : similar to double-hung but only the bottom sash moves.",
-          "Sliding windows : sashes that slide horizontally along a track. Common in basements and bedrooms.",
-          "Awning windows : hinged at the top and open outward. Often installed above or below other windows for ventilation.",
-          "Bay and bow windows : a group of windows that project outward from the wall, creating additional interior space.",
-          "Picture windows : large fixed (non-opening) windows designed to maximize natural light and views.",
-          "Basement and hopper windows : smaller windows hinged at the bottom, opening inward. Found in basements and bathrooms."
+          "Casement windows - hinged at the side and operated by a crank handle. Common in newer homes and condominiums.",
+          "Double-hung windows - two sashes that slide vertically, held in place by balance mechanisms. The most common window type in Ontario homes.",
+          "Single-hung windows - similar to double-hung but only the bottom sash moves.",
+          "Sliding windows - sashes that slide horizontally along a track. Common in basements and bedrooms.",
+          "Awning windows - hinged at the top and open outward. Often installed above or below other windows for ventilation.",
+          "Bay and bow windows - a group of windows that project outward from the wall, creating additional interior space.",
+          "Picture windows - large fixed (non-opening) windows designed to maximize natural light and views.",
+          "Basement and hopper windows - smaller windows hinged at the bottom, opening inward. Found in basements and bathrooms."
         ]
       },
       {
@@ -463,11 +463,11 @@
         "level": 2,
         "content": "Most residential window issues fall into one of a few categories. Many of them can be solved by replacing the glass or sealed unit alone, without touching the frame.",
         "list": [
-          "Cracked or broken glass : from accidental impacts, thermal stress, or pressure changes. A single cracked pane can be replaced without disturbing the rest of the window.",
-          "Foggy or hazy insulated glass : caused by seal failure in the double- or triple-pane unit. Moisture enters the cavity and causes persistent condensation between the panes.",
-          "Drafts and air leaks : worn weatherstripping or failed seals allow air infiltration around the sash or between the glass and frame.",
-          "Difficult operation : cranks that are stripped, balances that have failed, or tracks that are dirty or damaged can prevent windows from opening or closing properly.",
-          "Condensation on interior glass surface : while not a glass defect, this indicates high indoor humidity or insufficient insulation and may be improved with a Low-E glass upgrade."
+          "Cracked or broken glass - from accidental impacts, thermal stress, or pressure changes. A single cracked pane can be replaced without disturbing the rest of the window.",
+          "Foggy or hazy insulated glass - caused by seal failure in the double- or triple-pane unit. Moisture enters the cavity and causes persistent condensation between the panes.",
+          "Drafts and air leaks - worn weatherstripping or failed seals allow air infiltration around the sash or between the glass and frame.",
+          "Difficult operation - cranks that are stripped, balances that have failed, or tracks that are dirty or damaged can prevent windows from opening or closing properly.",
+          "Condensation on interior glass surface - while not a glass defect, this indicates high indoor humidity or insufficient insulation and may be improved with a Low-E glass upgrade."
         ]
       },
       {
@@ -475,11 +475,11 @@
         "level": 2,
         "content": "We follow a consistent process on every residential job to deliver reliable results with minimal disruption to your home.",
         "list": [
-          "In-home assessment : we inspect the window, identify the problem, and check the condition of the frame, sash, and hardware.",
-          "Repair recommendation : we explain whether a glass-only replacement, an IGU swap, a hardware fix, or a full window replacement is the right solution, and why.",
-          "Precise measurement : if glass replacement is needed, we take exact measurements including glass type, thickness, coatings, and spacer configuration.",
-          "Professional installation : we remove the damaged glass carefully, clean the frame, install the new glass or IGU, and reseal everything. Interior and exterior stops are reinstalled.",
-          "Final check and cleanup : we verify proper fit, test the window's operation, and clean up all debris before leaving."
+          "In-home assessment - we inspect the window, identify the problem, and check the condition of the frame, sash, and hardware.",
+          "Repair recommendation - we explain whether a glass-only replacement, an IGU swap, a hardware fix, or a full window replacement is the right solution, and why.",
+          "Precise measurement - if glass replacement is needed, we take exact measurements including glass type, thickness, coatings, and spacer configuration.",
+          "Professional installation - we remove the damaged glass carefully, clean the frame, install the new glass or IGU, and reseal everything. Interior and exterior stops are reinstalled.",
+          "Final check and cleanup - we verify proper fit, test the window's operation, and clean up all debris before leaving."
         ]
       },
       {
@@ -534,7 +534,7 @@
       ],
       "meta_description": "Complete glass repair services in Toronto & GTA. Residential windows, commercial storefronts, emergency 24/7, foggy glass, mirrors, door glass, hardware. Free quotes."
     },
-    "pagecontent": "OhMyGlass offers a full range of glass repair and replacement services for homes and businesses across the Greater Toronto Area. Our service categories cover every type of glass work : from emergency board-ups and broken window repairs to energy-efficient IGU replacements and custom mirror installations. Every job starts with a free assessment, and our repair-first approach means you pay only for what is necessary.\n\nOur core services include 24/7 emergency glass repair for urgent situations, residential window repair for all window types, commercial glass repair for storefronts and office buildings, foggy window repair for failed sealed units, double-pane window replacement with Low-E and argon gas options, storefront glass repair and installation, aluminum storefront systems, door glass repair for patio and entry doors, custom mirror installation, and window and door hardware repairs. Explore the links below or contact us at 647-803-2730 for a free quote."
+    "pagecontent": "OhMyGlass offers a full range of glass repair and replacement services for homes and businesses across the Greater Toronto Area. Our service categories cover every type of glass work - from emergency board-ups and broken window repairs to energy-efficient IGU replacements and custom mirror installations. Every job starts with a free assessment, and our repair-first approach means you pay only for what is necessary.\n\nOur core services include 24/7 emergency glass repair for urgent situations, residential window repair for all window types, commercial glass repair for storefronts and office buildings, foggy window repair for failed sealed units, double-pane window replacement with Low-E and argon gas options, storefront glass repair and installation, aluminum storefront systems, door glass repair for patio and entry doors, custom mirror installation, and window and door hardware repairs. Explore the links below or contact us at 647-803-2730 for a free quote."
   },
   {
     "url": "storefront-glass-repair",
@@ -560,11 +560,11 @@
         "level": 2,
         "content": "Storefront glass must meet specific performance requirements for safety, energy efficiency, and appearance. We supply and install all common types.",
         "list": [
-          "Tempered safety glass : the standard for most storefront applications. Heat-treated to be four to five times stronger than annealed glass and breaks into small, relatively harmless pieces if shattered.",
-          "Laminated safety glass : two panes bonded with a PVB interlayer that holds fragments in place if the glass is broken, providing enhanced security against forced entry.",
-          "Insulated glass units (IGUs) : double-pane assemblies with an insulating gas cavity, used where energy performance and interior comfort are priorities.",
-          "Tinted glass : reduces solar heat gain and glare while maintaining visibility. Available in bronze, grey, green, and blue tones.",
-          "Low-iron glass : an ultra-clear glass with reduced green tint, used for high-end retail displays where true colour rendering of merchandise is important."
+          "Tempered safety glass - the standard for most storefront applications. Heat-treated to be four to five times stronger than annealed glass and breaks into small, relatively harmless pieces if shattered.",
+          "Laminated safety glass - two panes bonded with a PVB interlayer that holds fragments in place if the glass is broken, providing enhanced security against forced entry.",
+          "Insulated glass units (IGUs) - double-pane assemblies with an insulating gas cavity, used where energy performance and interior comfort are priorities.",
+          "Tinted glass - reduces solar heat gain and glare while maintaining visibility. Available in bronze, grey, green, and blue tones.",
+          "Low-iron glass - an ultra-clear glass with reduced green tint, used for high-end retail displays where true colour rendering of merchandise is important."
         ]
       },
       {
@@ -577,18 +577,18 @@
         "level": 2,
         "content": "We offer a complete range of storefront glass services, from emergency repairs to planned upgrades.",
         "list": [
-          "Emergency board-up and glass replacement : rapid response to secure your business after a break-in, vandalism, or accident.",
-          "Single-pane replacement : removal of a damaged panel and installation of new glass matched to your existing storefront.",
-          "Full storefront glass installation : complete glass and framing for new construction, renovations, or full-facade upgrades.",
-          "Commercial entrance door glass : replacement of glass in swing doors, automatic doors, and revolving doors.",
-          "Interior commercial glass : office partitions, reception counters, display cases, and interior walls.",
-          "Safety glass upgrades : replacing non-compliant glass with tempered or laminated glass to meet current building code requirements."
+          "Emergency board-up and glass replacement - rapid response to secure your business after a break-in, vandalism, or accident.",
+          "Single-pane replacement - removal of a damaged panel and installation of new glass matched to your existing storefront.",
+          "Full storefront glass installation - complete glass and framing for new construction, renovations, or full-facade upgrades.",
+          "Commercial entrance door glass - replacement of glass in swing doors, automatic doors, and revolving doors.",
+          "Interior commercial glass - office partitions, reception counters, display cases, and interior walls.",
+          "Safety glass upgrades - replacing non-compliant glass with tempered or laminated glass to meet current building code requirements."
         ]
       },
       {
         "heading": "How We Minimize Disruption to Your Business",
         "level": 2,
-        "content": "We know that storefront repairs can impact foot traffic and revenue, so we design our process to keep disruption as short as possible. We offer flexible scheduling including early morning, evening, and weekend appointments so work can be done when your store is closed or at its quietest. Our mobile crews arrive with all necessary materials and tools, and most single-pane replacements are completed within a few hours. For larger projects, we coordinate with your team to phase the work and keep entrances accessible. We clean up thoroughly after every job : your storefront is ready for customers as soon as we leave."
+        "content": "We know that storefront repairs can impact foot traffic and revenue, so we design our process to keep disruption as short as possible. We offer flexible scheduling including early morning, evening, and weekend appointments so work can be done when your store is closed or at its quietest. Our mobile crews arrive with all necessary materials and tools, and most single-pane replacements are completed within a few hours. For larger projects, we coordinate with your team to phase the work and keep entrances accessible. We clean up thoroughly after every job - your storefront is ready for customers as soon as we leave."
       }
     ]
   },
@@ -608,18 +608,18 @@
       ],
       "meta_description": "Aluminum storefront glass repair and installation in Toronto & GTA. Narrow, medium, and wide stile systems. Thermally broken options. Fast, professional service."
     },
-    "pagecontent": "Aluminum storefront systems are the backbone of commercial glass facades across the Greater Toronto Area. They combine structural strength, clean sightlines, and weather resistance in a lightweight, low-maintenance package. OhMyGlass repairs and installs aluminum storefront glass for businesses of all sizes : from a single replacement pane in an existing frame to a complete new storefront system. We work with all major framing profiles including narrow stile, medium stile, and wide stile configurations, and offer both thermally broken and non-thermally broken options to suit your building's energy and budget requirements.",
+    "pagecontent": "Aluminum storefront systems are the backbone of commercial glass facades across the Greater Toronto Area. They combine structural strength, clean sightlines, and weather resistance in a lightweight, low-maintenance package. OhMyGlass repairs and installs aluminum storefront glass for businesses of all sizes - from a single replacement pane in an existing frame to a complete new storefront system. We work with all major framing profiles including narrow stile, medium stile, and wide stile configurations, and offer both thermally broken and non-thermally broken options to suit your building's energy and budget requirements.",
     "sections": [
       {
         "heading": "Types of Aluminum Storefront Systems",
         "level": 2,
         "content": "Aluminum storefront framing comes in several standard profiles, each designed for different traffic levels and hardware requirements.",
         "list": [
-          "Narrow stile : vertical stiles of 1-3/4 to 2-1/8 inches. Designed for light to moderate traffic locations such as office lobbies and strip mall entrances. Provides maximum glass area and minimal frame visibility.",
-          "Medium stile : vertical stiles of 3-1/2 inches. Suited for moderate to heavy traffic in retail stores, restaurants, and medical offices. Balances glass visibility with structural strength.",
-          "Wide stile : vertical stiles of 5 inches. Built for heavy traffic in public buildings, schools, and transit facilities. Accommodates panic hardware, closers, and a wider variety of operating hardware.",
-          "Thermally broken systems : framing that includes an insulating barrier (typically a polyamide strip) between the interior and exterior aluminum to reduce heat transfer through the frame. Required in many new builds for energy code compliance.",
-          "Non-thermally broken systems : standard aluminum framing without an insulating break. Common in older buildings and non-conditioned spaces."
+          "Narrow stile - vertical stiles of 1-3/4 to 2-1/8 inches. Designed for light to moderate traffic locations such as office lobbies and strip mall entrances. Provides maximum glass area and minimal frame visibility.",
+          "Medium stile - vertical stiles of 3-1/2 inches. Suited for moderate to heavy traffic in retail stores, restaurants, and medical offices. Balances glass visibility with structural strength.",
+          "Wide stile - vertical stiles of 5 inches. Built for heavy traffic in public buildings, schools, and transit facilities. Accommodates panic hardware, closers, and a wider variety of operating hardware.",
+          "Thermally broken systems - framing that includes an insulating barrier (typically a polyamide strip) between the interior and exterior aluminum to reduce heat transfer through the frame. Required in many new builds for energy code compliance.",
+          "Non-thermally broken systems - standard aluminum framing without an insulating break. Common in older buildings and non-conditioned spaces."
         ]
       },
       {
@@ -627,11 +627,11 @@
         "level": 2,
         "content": "Aluminum storefront frames accommodate a wide range of glass types and thicknesses, from single panes to insulated glass units.",
         "list": [
-          "Standard clear tempered glass : the most common choice for commercial storefronts, meeting Ontario Building Code safety requirements.",
-          "Laminated safety glass : provides enhanced security and holds together when broken, making forced entry more difficult.",
-          "Insulated glass units (IGUs) : double-pane units with an air or argon cavity for improved thermal and acoustic performance.",
-          "Tinted and Low-E coated glass : reduces solar heat gain, glare, and UV transmission while maintaining outward visibility.",
-          "Spandrel glass : opaque, coated glass used between vision panels to conceal floor slabs, structural members, and mechanical systems."
+          "Standard clear tempered glass - the most common choice for commercial storefronts, meeting Ontario Building Code safety requirements.",
+          "Laminated safety glass - provides enhanced security and holds together when broken, making forced entry more difficult.",
+          "Insulated glass units (IGUs) - double-pane units with an air or argon cavity for improved thermal and acoustic performance.",
+          "Tinted and Low-E coated glass - reduces solar heat gain, glare, and UV transmission while maintaining outward visibility.",
+          "Spandrel glass - opaque, coated glass used between vision panels to conceal floor slabs, structural members, and mechanical systems."
         ]
       },
       {
@@ -639,11 +639,11 @@
         "level": 2,
         "content": "Whether you need a single pane replaced in an existing aluminum frame or a complete new storefront system installed, our process is consistent and professional.",
         "list": [
-          "Site survey : we measure the opening, identify the existing framing profile (manufacturer, series, finish), and note any code requirements.",
-          "Material sourcing : glass is fabricated or sourced to the exact size and specification. For frame repairs, we match the existing aluminum profile and finish.",
-          "Glazing : glass is dry-glazed into the frame using EPDM gaskets on both interior and exterior faces, providing a weather-tight seal without wet sealants.",
-          "Hardware and finishing : door hardware, closers, locks, and threshold components are installed or replaced as needed.",
-          "Final inspection : we verify the seal, alignment, and operation of all doors and panels before completing the job."
+          "Site survey - we measure the opening, identify the existing framing profile (manufacturer, series, finish), and note any code requirements.",
+          "Material sourcing - glass is fabricated or sourced to the exact size and specification. For frame repairs, we match the existing aluminum profile and finish.",
+          "Glazing - glass is dry-glazed into the frame using EPDM gaskets on both interior and exterior faces, providing a weather-tight seal without wet sealants.",
+          "Hardware and finishing - door hardware, closers, locks, and threshold components are installed or replaced as needed.",
+          "Final inspection - we verify the seal, alignment, and operation of all doors and panels before completing the job."
         ]
       },
       {
@@ -651,11 +651,11 @@
         "level": 2,
         "content": "Aluminum is the dominant framing material for commercial storefronts for several practical reasons.",
         "list": [
-          "Durability : extruded 6063-T5 aluminum alloy resists corrosion, warping, and rot, even in Ontario's freeze-thaw climate.",
-          "Lightweight : aluminum weighs about one-third as much as steel, reducing structural load on the building and simplifying installation.",
-          "Low maintenance : anodized or powder-coated finishes hold up for decades without painting or staining.",
-          "Design flexibility : aluminum extrusions can be manufactured in a wide range of profiles, finishes, and colours to match any architectural style.",
-          "Recyclability : aluminum is one of the most recyclable building materials, with no loss of quality when reprocessed."
+          "Durability - extruded 6063-T5 aluminum alloy resists corrosion, warping, and rot, even in Ontario's freeze-thaw climate.",
+          "Lightweight - aluminum weighs about one-third as much as steel, reducing structural load on the building and simplifying installation.",
+          "Low maintenance - anodized or powder-coated finishes hold up for decades without painting or staining.",
+          "Design flexibility - aluminum extrusions can be manufactured in a wide range of profiles, finishes, and colours to match any architectural style.",
+          "Recyclability - aluminum is one of the most recyclable building materials, with no loss of quality when reprocessed."
         ]
       }
     ]
@@ -677,19 +677,19 @@
       ],
       "meta_description": "Door glass repair and replacement in Toronto & GTA. Patio, entry, sliding, French doors. Tempered safety glass, IGUs. Save 60-80% vs full door replacement. Free quote."
     },
-    "pagecontent": "Broken, cracked, or foggy door glass affects both the security and energy efficiency of your home or business. OhMyGlass repairs and replaces glass in all types of doors across the Greater Toronto Area : from patio sliding doors and French doors to front entry doors and commercial entrance systems. In most cases, we replace only the glass panel or insulated glass unit, keeping your existing door frame and hardware intact. This approach typically saves 60 to 80 percent compared to a full door replacement.",
+    "pagecontent": "Broken, cracked, or foggy door glass affects both the security and energy efficiency of your home or business. OhMyGlass repairs and replaces glass in all types of doors across the Greater Toronto Area - from patio sliding doors and French doors to front entry doors and commercial entrance systems. In most cases, we replace only the glass panel or insulated glass unit, keeping your existing door frame and hardware intact. This approach typically saves 60 to 80 percent compared to a full door replacement.",
     "sections": [
       {
         "heading": "What Types of Doors Do We Service?",
         "level": 2,
         "content": "We work with every common door type found in GTA homes and businesses.",
         "list": [
-          "Patio sliding doors : large glass panels on a track, common in homes with deck or backyard access. We replace the glass unit without removing the door from the frame.",
-          "French doors : double doors with full-length glass panels (lites), often used for dining rooms, patios, and master bedrooms.",
-          "Entry doors with glass inserts : front and side doors with decorative glass panels, sidelights, or transoms.",
-          "Storm doors : exterior screen and glass doors installed over the primary entry door for weather protection.",
-          "Commercial glass entrance doors : swing doors, automatic sliding doors, and vestibule doors in office buildings, retail stores, and restaurants.",
-          "Interior glass doors : office doors, conference room glass, and interior French doors."
+          "Patio sliding doors - large glass panels on a track, common in homes with deck or backyard access. We replace the glass unit without removing the door from the frame.",
+          "French doors - double doors with full-length glass panels (lites), often used for dining rooms, patios, and master bedrooms.",
+          "Entry doors with glass inserts - front and side doors with decorative glass panels, sidelights, or transoms.",
+          "Storm doors - exterior screen and glass doors installed over the primary entry door for weather protection.",
+          "Commercial glass entrance doors - swing doors, automatic sliding doors, and vestibule doors in office buildings, retail stores, and restaurants.",
+          "Interior glass doors - office doors, conference room glass, and interior French doors."
         ]
       },
       {
@@ -697,11 +697,11 @@
         "level": 2,
         "content": "Door glass is subject to many of the same issues as window glass, plus additional stresses from daily opening and closing.",
         "list": [
-          "Cracked or broken glass : from impacts, forced entry attempts, or thermal stress. Door glass is required by building code to be tempered or laminated safety glass.",
-          "Foggy insulated glass : the sealed unit in a patio door or insulated entry door has failed, causing condensation between the panes.",
-          "Failed seals and drafts : worn weatherstripping or deteriorated glazing seals around the glass panel allow air and water infiltration.",
-          "Difficult sliding : patio and sliding door tracks can accumulate debris, or the rollers and track can wear out, causing the door to drag or stick.",
-          "Broken or worn hardware : locks, handles, and hinges can fail with daily use, compromising security and ease of operation."
+          "Cracked or broken glass - from impacts, forced entry attempts, or thermal stress. Door glass is required by building code to be tempered or laminated safety glass.",
+          "Foggy insulated glass - the sealed unit in a patio door or insulated entry door has failed, causing condensation between the panes.",
+          "Failed seals and drafts - worn weatherstripping or deteriorated glazing seals around the glass panel allow air and water infiltration.",
+          "Difficult sliding - patio and sliding door tracks can accumulate debris, or the rollers and track can wear out, causing the door to drag or stick.",
+          "Broken or worn hardware - locks, handles, and hinges can fail with daily use, compromising security and ease of operation."
         ]
       },
       {
@@ -709,11 +709,11 @@
         "level": 2,
         "content": "When replacing door glass, the Ontario Building Code requires safety glass in all door applications. We offer several options depending on your priorities.",
         "list": [
-          "Tempered safety glass : the standard for door glass. If broken, it shatters into small granular pieces rather than dangerous shards.",
-          "Laminated safety glass : two panes bonded with a PVB interlayer. Provides enhanced security because the glass holds together even when broken, making forced entry more difficult.",
-          "Low-E insulated glass units : double-pane units with a Low-E coating and argon gas fill for improved energy efficiency. Ideal for patio doors and entry doors exposed to weather.",
-          "Decorative glass : frosted, textured, leaded, or stained glass options for entry doors and sidelights where privacy or aesthetics are important.",
-          "Obscure or privacy glass : diffused or patterned glass that lets light through while blocking visibility, suitable for bathroom doors and side panels."
+          "Tempered safety glass - the standard for door glass. If broken, it shatters into small granular pieces rather than dangerous shards.",
+          "Laminated safety glass - two panes bonded with a PVB interlayer. Provides enhanced security because the glass holds together even when broken, making forced entry more difficult.",
+          "Low-E insulated glass units - double-pane units with a Low-E coating and argon gas fill for improved energy efficiency. Ideal for patio doors and entry doors exposed to weather.",
+          "Decorative glass - frosted, textured, leaded, or stained glass options for entry doors and sidelights where privacy or aesthetics are important.",
+          "Obscure or privacy glass - diffused or patterned glass that lets light through while blocking visibility, suitable for bathroom doors and side panels."
         ]
       },
       {
@@ -721,11 +721,11 @@
         "level": 2,
         "content": "Our process is designed to complete most door glass repairs in a single visit with minimal disruption.",
         "list": [
-          "On-site assessment : we inspect the door, identify the glass type and size, check the frame and hardware condition, and confirm building code requirements.",
-          "Glass fabrication or sourcing : tempered and laminated glass must be cut to size and processed before installation, so we take precise measurements on the first visit.",
-          "Careful removal : the damaged glass or IGU is removed without damaging the door frame, weatherstripping, or hardware.",
-          "Installation : the new glass is set and glazed with appropriate gaskets or sealant, and the door is reassembled.",
-          "Operational check : we test the door's opening, closing, locking, and sealing to ensure everything works correctly before completing the job."
+          "On-site assessment - we inspect the door, identify the glass type and size, check the frame and hardware condition, and confirm building code requirements.",
+          "Glass fabrication or sourcing - tempered and laminated glass must be cut to size and processed before installation, so we take precise measurements on the first visit.",
+          "Careful removal - the damaged glass or IGU is removed without damaging the door frame, weatherstripping, or hardware.",
+          "Installation - the new glass is set and glazed with appropriate gaskets or sealant, and the door is reassembled.",
+          "Operational check - we test the door's opening, closing, locking, and sealing to ensure everything works correctly before completing the job."
         ]
       }
     ]
@@ -747,19 +747,19 @@
       ],
       "meta_description": "Custom mirror installation and repair in Toronto & GTA. Cut to size, beveled, frameless. Bathrooms, gyms, closets, commercial. Professional installation. Free quote."
     },
-    "pagecontent": "A well-installed mirror transforms a room : it adds light, creates a sense of space, and serves a practical function every day. OhMyGlass supplies and installs custom mirrors for homes and businesses across the Greater Toronto Area. We cut mirrors to your exact dimensions, offer a choice of edge finishes, and install using professional mounting methods suited to the mirror's size and the wall's structure. Whether you need a single bathroom vanity mirror or a full wall installation for a fitness studio, our team delivers a clean, precise result.",
+    "pagecontent": "A well-installed mirror transforms a room - it adds light, creates a sense of space, and serves a practical function every day. OhMyGlass supplies and installs custom mirrors for homes and businesses across the Greater Toronto Area. We cut mirrors to your exact dimensions, offer a choice of edge finishes, and install using professional mounting methods suited to the mirror's size and the wall's structure. Whether you need a single bathroom vanity mirror or a full wall installation for a fitness studio, our team delivers a clean, precise result.",
     "sections": [
       {
         "heading": "What Types of Mirrors Do We Install?",
         "level": 2,
         "content": "We supply and install mirrors for every residential and commercial application.",
         "list": [
-          "Frameless wall mirrors : clean, modern appearance with no frame to obstruct the mirror surface. Ideal for bathrooms, powder rooms, and contemporary spaces.",
-          "Beveled mirrors : feature an angled, polished edge that catches light and adds visual depth. Available with bevel widths from 1/2 inch to 1 inch.",
-          "Framed mirrors : mirrors set in decorative frames in a wide range of styles, materials, and colours to complement your interior design.",
-          "Full-length mirrors : floor-to-ceiling or large-format mirrors for dressing rooms, closets, hallways, and retail fitting areas.",
-          "Antiqued and decorative mirrors : mirrors with an aged, distressed, or tinted finish for decorative and design-focused applications.",
-          "Safety-backed mirrors : mirrors with an adhesive safety film on the back that holds fragments together if the mirror breaks. Required in many commercial and public installations."
+          "Frameless wall mirrors - clean, modern appearance with no frame to obstruct the mirror surface. Ideal for bathrooms, powder rooms, and contemporary spaces.",
+          "Beveled mirrors - feature an angled, polished edge that catches light and adds visual depth. Available with bevel widths from 1/2 inch to 1 inch.",
+          "Framed mirrors - mirrors set in decorative frames in a wide range of styles, materials, and colours to complement your interior design.",
+          "Full-length mirrors - floor-to-ceiling or large-format mirrors for dressing rooms, closets, hallways, and retail fitting areas.",
+          "Antiqued and decorative mirrors - mirrors with an aged, distressed, or tinted finish for decorative and design-focused applications.",
+          "Safety-backed mirrors - mirrors with an adhesive safety film on the back that holds fragments together if the mirror breaks. Required in many commercial and public installations."
         ]
       },
       {
@@ -767,10 +767,10 @@
         "level": 2,
         "content": "The edge finish and thickness of a mirror affect both its appearance and its suitability for the installation method.",
         "list": [
-          "Flat polished edge : the edge is ground and polished to a smooth, sleek finish. The most popular choice for frameless installations and modern interiors.",
-          "Beveled edge : the edge is cut at an angle (typically 1/2 to 1 inch wide) and polished, creating a subtle frame effect that adds elegance without an actual frame.",
-          "Seamed edge : the edge is lightly sanded to remove sharpness but not polished. Used when the mirror will be set in a frame or channel that covers the edge.",
-          "Pencil polished edge : the edge is rounded and polished into a smooth curved profile. Common on smaller mirrors and decorative pieces.",
+          "Flat polished edge - the edge is ground and polished to a smooth, sleek finish. The most popular choice for frameless installations and modern interiors.",
+          "Beveled edge - the edge is cut at an angle (typically 1/2 to 1 inch wide) and polished, creating a subtle frame effect that adds elegance without an actual frame.",
+          "Seamed edge - the edge is lightly sanded to remove sharpness but not polished. Used when the mirror will be set in a frame or channel that covers the edge.",
+          "Pencil polished edge - the edge is rounded and polished into a smooth curved profile. Common on smaller mirrors and decorative pieces.",
           "Standard thickness is 1/4 inch (6 mm), which works for most mirrors up to about 4 by 6 feet. For larger mirrors, 3/8 inch glass is recommended to prevent bowing and distortion."
         ]
       },
@@ -779,10 +779,10 @@
         "level": 2,
         "content": "Proper installation is essential for safety and longevity, especially with large or heavy mirrors. Our installation method depends on the mirror's size, weight, and the wall structure.",
         "list": [
-          "French cleat (Z-bar) mounting : the industry standard for large, heavy mirrors. A metal bar is secured to the wall studs, and a matching bar is attached to the back of the mirror. The mirror hangs on the cleat, distributing weight evenly across the wall.",
-          "J-channel bottom support : a metal channel is mounted at the base to support the mirror's weight, with clips or adhesive at the top to hold it in position. Common for bathroom vanity mirrors.",
-          "Adhesive mounting : neutral-cure mirror-safe silicone and double-sided glazing tape are used for lighter mirrors on smooth, flat surfaces. The adhesive must be compatible with the mirror's reflective coating to prevent desilvering.",
-          "Mechanical clips : small metal or plastic clips mounted to the wall hold the mirror at its edges. A simple, economical method for standard-size mirrors."
+          "French cleat (Z-bar) mounting - the industry standard for large, heavy mirrors. A metal bar is secured to the wall studs, and a matching bar is attached to the back of the mirror. The mirror hangs on the cleat, distributing weight evenly across the wall.",
+          "J-channel bottom support - a metal channel is mounted at the base to support the mirror's weight, with clips or adhesive at the top to hold it in position. Common for bathroom vanity mirrors.",
+          "Adhesive mounting - neutral-cure mirror-safe silicone and double-sided glazing tape are used for lighter mirrors on smooth, flat surfaces. The adhesive must be compatible with the mirror's reflective coating to prevent desilvering.",
+          "Mechanical clips - small metal or plastic clips mounted to the wall hold the mirror at its edges. A simple, economical method for standard-size mirrors."
         ]
       },
       {
@@ -790,13 +790,13 @@
         "level": 2,
         "content": "We install mirrors in a wide range of settings across the GTA.",
         "list": [
-          "Bathroom vanities : single or double vanity mirrors, medicine cabinet replacements, and full-wall installations above a countertop.",
-          "Closets and dressing areas : full-length mirrors on walls or closet doors for getting ready.",
-          "Gyms and fitness studios : large wall-to-wall mirror installations with safety backing, designed to withstand the vibrations and activity of a workout environment.",
-          "Dance and yoga studios : floor-to-ceiling mirrors for form checking and instruction.",
-          "Salons and spas : station mirrors cut to custom sizes with polished edges.",
-          "Restaurants and retail : decorative mirrors used to create visual depth, enhance lighting, and add architectural interest.",
-          "Commercial washrooms : large frameless mirrors above countertops, often with safety film backing."
+          "Bathroom vanities - single or double vanity mirrors, medicine cabinet replacements, and full-wall installations above a countertop.",
+          "Closets and dressing areas - full-length mirrors on walls or closet doors for getting ready.",
+          "Gyms and fitness studios - large wall-to-wall mirror installations with safety backing, designed to withstand the vibrations and activity of a workout environment.",
+          "Dance and yoga studios - floor-to-ceiling mirrors for form checking and instruction.",
+          "Salons and spas - station mirrors cut to custom sizes with polished edges.",
+          "Restaurants and retail - decorative mirrors used to create visual depth, enhance lighting, and add architectural interest.",
+          "Commercial washrooms - large frameless mirrors above countertops, often with safety film backing."
         ]
       }
     ]
@@ -818,20 +818,20 @@
       ],
       "meta_description": "Window and door hardware repair in Toronto & GTA. Cranks, hinges, locks, balances, weatherstripping, rollers. Restore function without full replacement. Free quote."
     },
-    "pagecontent": "A window or door that will not open, close, lock, or seal properly is more than an annoyance : it is a security risk and a source of energy loss. OhMyGlass repairs and replaces window and door hardware across the Greater Toronto Area. From a stripped window crank to a broken patio door roller, our technicians diagnose the problem on-site and carry common replacement parts to complete most repairs in a single visit. Hardware repair is often far less expensive than replacing the entire window or door, and it can restore full functionality to units that are otherwise in good condition.",
+    "pagecontent": "A window or door that will not open, close, lock, or seal properly is more than an annoyance - it is a security risk and a source of energy loss. OhMyGlass repairs and replaces window and door hardware across the Greater Toronto Area. From a stripped window crank to a broken patio door roller, our technicians diagnose the problem on-site and carry common replacement parts to complete most repairs in a single visit. Hardware repair is often far less expensive than replacing the entire window or door, and it can restore full functionality to units that are otherwise in good condition.",
     "sections": [
       {
         "heading": "What Hardware Do We Repair and Replace?",
         "level": 2,
         "content": "We work with all types of window and door operating hardware found in residential and commercial buildings.",
         "list": [
-          "Crank handles and operators : the gear-driven mechanism that opens and closes casement and awning windows. When the gears strip, the handle spins freely without moving the sash.",
-          "Hinges : friction hinges on casement windows and butt hinges on doors. Worn or corroded hinges cause sticking, sagging, and difficulty closing.",
-          "Locks and latches : sash locks on double-hung windows, multi-point locking systems on doors, deadbolts, and commercial door locks. A broken lock compromises security immediately.",
-          "Window balances : the spring-loaded mechanisms (block-and-tackle or spiral) inside the jambs of double-hung windows that hold the sash at any position. When a balance fails, the sash will not stay open or slides down on its own.",
-          "Weatherstripping : the flexible seals around sashes, meeting rails, and door frames that block drafts, rain, and dust. Worn weatherstripping is one of the most common causes of energy loss around windows and doors.",
-          "Rollers and tracks : the wheels and channels that allow sliding windows and patio doors to glide smoothly. Worn rollers or damaged tracks cause dragging, sticking, and difficulty locking.",
-          "Handles and pulls : door handles, window lift handles, and pull hardware that wear out or break with daily use."
+          "Crank handles and operators - the gear-driven mechanism that opens and closes casement and awning windows. When the gears strip, the handle spins freely without moving the sash.",
+          "Hinges - friction hinges on casement windows and butt hinges on doors. Worn or corroded hinges cause sticking, sagging, and difficulty closing.",
+          "Locks and latches - sash locks on double-hung windows, multi-point locking systems on doors, deadbolts, and commercial door locks. A broken lock compromises security immediately.",
+          "Window balances - the spring-loaded mechanisms (block-and-tackle or spiral) inside the jambs of double-hung windows that hold the sash at any position. When a balance fails, the sash will not stay open or slides down on its own.",
+          "Weatherstripping - the flexible seals around sashes, meeting rails, and door frames that block drafts, rain, and dust. Worn weatherstripping is one of the most common causes of energy loss around windows and doors.",
+          "Rollers and tracks - the wheels and channels that allow sliding windows and patio doors to glide smoothly. Worn rollers or damaged tracks cause dragging, sticking, and difficulty locking.",
+          "Handles and pulls - door handles, window lift handles, and pull hardware that wear out or break with daily use."
         ]
       },
       {
@@ -839,12 +839,12 @@
         "level": 2,
         "content": "Most hardware issues have straightforward solutions that our technicians can resolve on-site.",
         "list": [
-          "Stripped crank : the gears inside the operator are worn. Solution: replace the operator mechanism and crank handle as a unit.",
-          "Stiff or stuck hinge : dirt, paint, or corrosion is preventing smooth movement. Solution: clean, lubricate, and adjust, or replace the hinge if it is bent or corroded beyond repair.",
-          "Broken lock : the latch or cam mechanism has failed. Solution: replace the lock hardware with a compatible unit and verify the keeper alignment.",
-          "Sash that will not stay up : the balance spring has lost tension or the cord has broken. Solution: replace the balance mechanism in the jamb channel.",
-          "Drafty window or door : weatherstripping has compressed, cracked, or fallen out. Solution: remove the old material and install new weatherstripping matched to the profile.",
-          "Patio door that drags : rollers are worn, flat, or the track is bent. Solution: replace the roller assemblies and straighten or replace the track."
+          "Stripped crank - the gears inside the operator are worn. Solution: replace the operator mechanism and crank handle as a unit.",
+          "Stiff or stuck hinge - dirt, paint, or corrosion is preventing smooth movement. Solution: clean, lubricate, and adjust, or replace the hinge if it is bent or corroded beyond repair.",
+          "Broken lock - the latch or cam mechanism has failed. Solution: replace the lock hardware with a compatible unit and verify the keeper alignment.",
+          "Sash that will not stay up - the balance spring has lost tension or the cord has broken. Solution: replace the balance mechanism in the jamb channel.",
+          "Drafty window or door - weatherstripping has compressed, cracked, or fallen out. Solution: remove the old material and install new weatherstripping matched to the profile.",
+          "Patio door that drags - rollers are worn, flat, or the track is bent. Solution: replace the roller assemblies and straighten or replace the track."
         ]
       },
       {
@@ -853,7 +853,7 @@
         "content": "Regular maintenance extends the life of your hardware and prevents most common failures before they start.",
         "list": [
           "Clean tracks and channels at least twice a year with mild soap and water to prevent debris buildup that causes sticking and wear.",
-          "Lubricate moving parts : hinges, operators, locks, and rollers : with a silicone-based spray. Avoid petroleum-based lubricants like WD-40 for long-term use, as they can attract dust and gum up over time.",
+          "Lubricate moving parts - hinges, operators, locks, and rollers - with a silicone-based spray. Avoid petroleum-based lubricants like WD-40 for long-term use, as they can attract dust and gum up over time.",
           "Inspect weatherstripping annually. Look for cracks, gaps, compression, or sections that have pulled away from the frame. Replace as needed.",
           "Tighten loose screws on hinges, handles, and lock hardware at least once a year. Loose screws accelerate wear on the surrounding material.",
           "Check window balances by opening a double-hung window halfway and releasing it. If it slides down on its own, the balance needs attention.",
@@ -884,20 +884,20 @@
       ],
       "meta_description": "Window glass replacement in Toronto & GTA. Single-pane, double-pane IGU, tempered, Low-E. Fast service, free quote. Save 60-80% vs full window replacement."
     },
-    "pagecontent": "OhMyGlass is your trusted partner for window glass replacement across the Greater Toronto Area. Whether you are dealing with a cracked single pane, a fogged-up insulated glass unit, or an outdated window that needs a performance upgrade, our certified glaziers provide precise, professional replacement. We handle all glass types : single-pane, double-pane IGUs, triple-pane, tempered, laminated, Low-E coated, and tinted : for both residential and commercial properties. Our glass-only replacement approach preserves your existing frame and trim, saving you 60 to 80 percent compared to a full window replacement.",
+    "pagecontent": "OhMyGlass is your trusted partner for window glass replacement across the Greater Toronto Area. Whether you are dealing with a cracked single pane, a fogged-up insulated glass unit, or an outdated window that needs a performance upgrade, our certified glaziers provide precise, professional replacement. We handle all glass types - single-pane, double-pane IGUs, triple-pane, tempered, laminated, Low-E coated, and tinted - for both residential and commercial properties. Our glass-only replacement approach preserves your existing frame and trim, saving you 60 to 80 percent compared to a full window replacement.",
     "sections": [
       {
         "heading": "What Types of Replacement Glass Do We Offer?",
         "level": 2,
         "content": "We supply and install the full range of window glass types used in Ontario homes and commercial buildings.",
         "list": [
-          "Annealed (float) glass : standard clear glass used in many older and non-safety applications. The most economical option for basic single-pane replacement.",
-          "Tempered safety glass : heat-treated to be four to five times stronger than annealed glass. Required by the Ontario Building Code in locations near doors, at low heights, and in other high-risk areas.",
-          "Laminated glass : two panes bonded with a PVB interlayer for safety and security. Holds together when broken, providing protection against forced entry and flying debris.",
-          "Low-E coated glass : features a microscopically thin metallic coating that reflects infrared heat, reducing heat transfer by 30 to 50 percent compared to uncoated glass.",
-          "Tinted glass : bronze, grey, green, or blue tones that reduce glare and solar heat gain while maintaining visibility.",
-          "Obscure and frosted glass : textured or etched glass that allows light transmission while blocking clear visibility, suitable for bathrooms and privacy applications.",
-          "Insulated glass units (IGUs) : factory-sealed double- or triple-pane assemblies with an air or gas-filled cavity for thermal and acoustic insulation."
+          "Annealed (float) glass - standard clear glass used in many older and non-safety applications. The most economical option for basic single-pane replacement.",
+          "Tempered safety glass - heat-treated to be four to five times stronger than annealed glass. Required by the Ontario Building Code in locations near doors, at low heights, and in other high-risk areas.",
+          "Laminated glass - two panes bonded with a PVB interlayer for safety and security. Holds together when broken, providing protection against forced entry and flying debris.",
+          "Low-E coated glass - features a microscopically thin metallic coating that reflects infrared heat, reducing heat transfer by 30 to 50 percent compared to uncoated glass.",
+          "Tinted glass - bronze, grey, green, or blue tones that reduce glare and solar heat gain while maintaining visibility.",
+          "Obscure and frosted glass - textured or etched glass that allows light transmission while blocking clear visibility, suitable for bathrooms and privacy applications.",
+          "Insulated glass units (IGUs) - factory-sealed double- or triple-pane assemblies with an air or gas-filled cavity for thermal and acoustic insulation."
         ]
       },
       {
@@ -905,24 +905,24 @@
         "level": 2,
         "content": "Our process is designed for accuracy and efficiency, with most single-window replacements completed in 30 to 60 minutes.",
         "list": [
-          "On-site measurement : we measure the exact dimensions of the opening and note the glass type, thickness, coatings, and any spacer configuration for IGUs.",
-          "Glass fabrication or sourcing : the replacement glass or IGU is fabricated to your exact specifications. Tempered glass must be cut to size before heat treatment, so precise measurement is critical.",
-          "Removal of old glass : glazing stops (the trim that holds the glass in the frame) are carefully removed, and the old glass is extracted without damaging the frame or surrounding finish.",
-          "Frame preparation : the frame channel is cleaned, old sealant is removed, and the frame is inspected for any damage that could affect the new installation.",
-          "Installation : the new glass is set into the frame with proper shimming to ensure even weight distribution. Glazing gaskets or sealant are applied, and the stops are reinstalled.",
-          "Quality check and cleanup : we inspect the seal, verify the window operates correctly, clean the new glass, and remove all debris from the work area."
+          "On-site measurement - we measure the exact dimensions of the opening and note the glass type, thickness, coatings, and any spacer configuration for IGUs.",
+          "Glass fabrication or sourcing - the replacement glass or IGU is fabricated to your exact specifications. Tempered glass must be cut to size before heat treatment, so precise measurement is critical.",
+          "Removal of old glass - glazing stops (the trim that holds the glass in the frame) are carefully removed, and the old glass is extracted without damaging the frame or surrounding finish.",
+          "Frame preparation - the frame channel is cleaned, old sealant is removed, and the frame is inspected for any damage that could affect the new installation.",
+          "Installation - the new glass is set into the frame with proper shimming to ensure even weight distribution. Glazing gaskets or sealant are applied, and the stops are reinstalled.",
+          "Quality check and cleanup - we inspect the seal, verify the window operates correctly, clean the new glass, and remove all debris from the work area."
         ]
       },
       {
         "heading": "Energy-Efficient Glass Options for Ontario Homes",
         "level": 2,
-        "content": "Ontario's climate : with cold winters and warm, humid summers : makes window energy performance especially important. Upgrading your window glass during a replacement is one of the most effective ways to reduce heating and cooling costs.",
+        "content": "Ontario's climate - with cold winters and warm, humid summers - makes window energy performance especially important. Upgrading your window glass during a replacement is one of the most effective ways to reduce heating and cooling costs.",
         "list": [
           "Low-E coatings reflect infrared heat back into your home in winter and block solar heat gain in summer. A Low-E IGU can reduce heat loss through the window by 30 to 50 percent.",
           "Argon gas fill in the IGU cavity is denser than air and reduces convective heat transfer, improving insulating performance by approximately 5 to 15 percent.",
           "Triple-pane IGUs add a third pane and second insulating cavity, offering up to 50 percent better performance than a standard double-pane unit.",
           "The Greater Toronto Area falls within ENERGY STAR Canada Climate Zone 2. Windows qualifying for this zone must achieve a U-factor of 1.40 W/m²K or lower, or an Energy Rating of 29 or higher.",
-          "Warm-edge spacers : composite or stainless steel spacers between the panes reduce heat transfer at the edge of the IGU compared to traditional aluminum spacers, reducing condensation on the interior glass near the frame."
+          "Warm-edge spacers - composite or stainless steel spacers between the panes reduce heat transfer at the edge of the IGU compared to traditional aluminum spacers, reducing condensation on the interior glass near the frame."
         ]
       },
       {
@@ -930,12 +930,12 @@
         "level": 2,
         "content": "The cost of window glass replacement varies depending on several factors. We provide a free, detailed quote before any work begins so you know exactly what to expect.",
         "list": [
-          "Glass type : tempered and laminated glass cost more than standard annealed glass due to additional processing. Low-E coatings and gas fills add to the cost of an IGU.",
-          "Size and thickness : larger panes and thicker glass require more material and careful handling.",
-          "Number of panes : a single-pane replacement is less expensive than a double- or triple-pane IGU replacement.",
-          "Accessibility : windows on upper floors, behind landscaping, or in tight spaces may require additional time or equipment.",
-          "Quantity : replacing glass in multiple windows at the same time is more cost-effective per window than individual replacements.",
-          "Urgency : after-hours and emergency service is available 24/7 but may carry a premium compared to scheduled appointments."
+          "Glass type - tempered and laminated glass cost more than standard annealed glass due to additional processing. Low-E coatings and gas fills add to the cost of an IGU.",
+          "Size and thickness - larger panes and thicker glass require more material and careful handling.",
+          "Number of panes - a single-pane replacement is less expensive than a double- or triple-pane IGU replacement.",
+          "Accessibility - windows on upper floors, behind landscaping, or in tight spaces may require additional time or equipment.",
+          "Quantity - replacing glass in multiple windows at the same time is more cost-effective per window than individual replacements.",
+          "Urgency - after-hours and emergency service is available 24/7 but may carry a premium compared to scheduled appointments."
         ]
       }
     ]
@@ -1012,7 +1012,7 @@
       ],
       "meta_description": "Storefront glass repair and installation in Newmarket. Tempered, laminated, insulated glass. Emergency board-up. Minimal disruption. Free quote."
     },
-    "pagecontent": "A damaged storefront can deter customers and compromise your business's security. OhMyGlass provides expert storefront glass repair and installation in Newmarket, serving Main Street, Davis Drive, Yonge Street, and the surrounding commercial corridors. We work with all types of commercial glass : tempered, laminated, insulated, and tinted : and every installation meets Ontario Building Code requirements for safety glazing. Our flexible scheduling minimizes disruption to your business operations.",
+    "pagecontent": "A damaged storefront can deter customers and compromise your business's security. OhMyGlass provides expert storefront glass repair and installation in Newmarket, serving Main Street, Davis Drive, Yonge Street, and the surrounding commercial corridors. We work with all types of commercial glass - tempered, laminated, insulated, and tinted - and every installation meets Ontario Building Code requirements for safety glazing. Our flexible scheduling minimizes disruption to your business operations.",
     "sections": [
       {
         "heading": "Commercial Glass Services in Newmarket",
@@ -1069,9 +1069,9 @@
         "double pane window Newmarket",
         "foggy window repair Newmarket"
       ],
-      "meta_description": "Window glass replacement in Newmarket. Cracked, foggy, or broken panes : we replace the glass, not the frame. Save 60-80%. Free quote. Call today."
+      "meta_description": "Window glass replacement in Newmarket. Cracked, foggy, or broken panes - we replace the glass, not the frame. Save 60-80%. Free quote. Call today."
     },
-    "pagecontent": "OhMyGlass provides reliable window glass replacement for homeowners and businesses in Newmarket. As one of the GTA's fastest-growing cities, Newmarket has a large stock of newer homes built in the 2000s and 2010s : many of which are now reaching the age where original sealed units begin to fail. We replace cracked, foggy, and broken window glass across all Newmarket neighbourhoods, using our glass-only approach that preserves your existing frames and saves 60 to 80 percent compared to full window replacement. We offer Low-E and argon gas options to improve energy efficiency.",
+    "pagecontent": "OhMyGlass provides reliable window glass replacement for homeowners and businesses in Newmarket. As one of the GTA's fastest-growing cities, Newmarket has a large stock of newer homes built in the 2000s and 2010s - many of which are now reaching the age where original sealed units begin to fail. We replace cracked, foggy, and broken window glass across all Newmarket neighbourhoods, using our glass-only approach that preserves your existing frames and saves 60 to 80 percent compared to full window replacement. We offer Low-E and argon gas options to improve energy efficiency.",
     "sections": [
       {
         "heading": "Window Glass Services in Newmarket",
@@ -1131,7 +1131,7 @@
       ],
       "meta_description": "24/7 emergency glass repair in Mississauga. Broken window or door? We secure your property fast. Residential & commercial. Call 647-803-2730 now."
     },
-    "pagecontent": "When you have a glass emergency in Mississauga, you need a team you can count on around the clock. OhMyGlass provides 24/7 emergency glass repair services across Mississauga : from the high-rise corridors along Hurontario and Square One to the residential neighbourhoods of Erin Mills, Meadowvale, and the lakeshore communities of Port Credit and Lorne Park. Our rapid-response team arrives equipped to board up, clean up broken glass, and take measurements for permanent replacement, ensuring your property is secured as quickly as possible.",
+    "pagecontent": "When you have a glass emergency in Mississauga, you need a team you can count on around the clock. OhMyGlass provides 24/7 emergency glass repair services across Mississauga - from the high-rise corridors along Hurontario and Square One to the residential neighbourhoods of Erin Mills, Meadowvale, and the lakeshore communities of Port Credit and Lorne Park. Our rapid-response team arrives equipped to board up, clean up broken glass, and take measurements for permanent replacement, ensuring your property is secured as quickly as possible.",
     "sections": [
       {
         "heading": "Emergency Glass Services in Mississauga",
@@ -1250,7 +1250,7 @@
       ],
       "meta_description": "Storefront glass repair and installation in Etobicoke. Commercial storefronts, entrance doors, safety glass. Fast service, free quote. OhMyGlass."
     },
-    "pagecontent": "Keep your Etobicoke business looking professional and secure with expert storefront glass repair from OhMyGlass. Etobicoke is home to a diverse commercial landscape : from the retail corridors along Bloor Street West, Dundas Street, and The Queensway to the business parks near the airport and the mixed-use developments along the Humber Bay waterfront. We repair and replace storefront glass in all of these areas, using tempered, laminated, and insulated glass that meets Ontario Building Code requirements.",
+    "pagecontent": "Keep your Etobicoke business looking professional and secure with expert storefront glass repair from OhMyGlass. Etobicoke is home to a diverse commercial landscape - from the retail corridors along Bloor Street West, Dundas Street, and The Queensway to the business parks near the airport and the mixed-use developments along the Humber Bay waterfront. We repair and replace storefront glass in all of these areas, using tempered, laminated, and insulated glass that meets Ontario Building Code requirements.",
     "sections": [
       {
         "heading": "Commercial Glass Services in Etobicoke",
@@ -1310,7 +1310,7 @@
       ],
       "meta_description": "Window glass replacement in Etobicoke. Cracked, foggy, or broken panes. We replace the glass, not the frame; save 60-80%. Free quote. OhMyGlass."
     },
-    "pagecontent": "OhMyGlass provides expert window glass replacement in Etobicoke for both residential and commercial properties. Etobicoke's housing stock ranges from mid-century bungalows and split-levels in The Kingsway and Markland Wood to modern high-rise condos along the Humber Bay waterfront : each with different glass types and replacement needs. We handle single-pane replacements, double-pane IGU swaps for foggy windows, and energy-efficient upgrades with Low-E coatings and argon gas. Our glass-only approach saves you 60 to 80 percent compared to full window replacement.",
+    "pagecontent": "OhMyGlass provides expert window glass replacement in Etobicoke for both residential and commercial properties. Etobicoke's housing stock ranges from mid-century bungalows and split-levels in The Kingsway and Markland Wood to modern high-rise condos along the Humber Bay waterfront - each with different glass types and replacement needs. We handle single-pane replacements, double-pane IGU swaps for foggy windows, and energy-efficient upgrades with Low-E coatings and argon gas. Our glass-only approach saves you 60 to 80 percent compared to full window replacement.",
     "sections": [
       {
         "heading": "Window Glass Services in Etobicoke",
@@ -1488,7 +1488,7 @@
       ],
       "meta_description": "Window glass replacement in Markham. Cracked, foggy, or broken panes. Save 60-80% with glass-only replacement. Low-E, argon options. Free quote."
     },
-    "pagecontent": "OhMyGlass is your trusted provider of window glass replacement in Markham. The city's wide range of housing : from established homes in Unionville and Markham Village to newer developments in Cornell, Berczy, and Cathedraltown : means a variety of window types and glass specifications. We replace cracked, foggy, and broken window glass across all Markham neighbourhoods, offering Low-E and argon gas upgrades to improve energy efficiency. Our glass-only replacement approach preserves your frames and saves 60 to 80 percent compared to full window replacement.",
+    "pagecontent": "OhMyGlass is your trusted provider of window glass replacement in Markham. The city's wide range of housing - from established homes in Unionville and Markham Village to newer developments in Cornell, Berczy, and Cathedraltown - means a variety of window types and glass specifications. We replace cracked, foggy, and broken window glass across all Markham neighbourhoods, offering Low-E and argon gas upgrades to improve energy efficiency. Our glass-only replacement approach preserves your frames and saves 60 to 80 percent compared to full window replacement.",
     "sections": [
       {
         "heading": "Window Glass Services in Markham",
@@ -1548,7 +1548,7 @@
       ],
       "meta_description": "24/7 emergency glass repair in North York. Broken window or door? We secure your property fast. Homes, condos, businesses. Call 647-803-2730."
     },
-    "pagecontent": "OhMyGlass is based in North York and provides 24/7 emergency glass repair across the entire district. North York is a diverse area with everything from the high-rise commercial core around Yonge and Sheppard to the residential neighbourhoods of Willowdale, Bayview Village, Don Mills, and York Mills. Our proximity means fast response times for North York emergencies : we aim to be on-site within 30 to 60 minutes. Whether it is a condo balcony door, a house window, or a commercial storefront, we arrive equipped to board up, clean up, and begin the replacement process immediately.",
+    "pagecontent": "OhMyGlass is based in North York and provides 24/7 emergency glass repair across the entire district. North York is a diverse area with everything from the high-rise commercial core around Yonge and Sheppard to the residential neighbourhoods of Willowdale, Bayview Village, Don Mills, and York Mills. Our proximity means fast response times for North York emergencies - we aim to be on-site within 30 to 60 minutes. Whether it is a condo balcony door, a house window, or a commercial storefront, we arrive equipped to board up, clean up, and begin the replacement process immediately.",
     "sections": [
       {
         "heading": "Emergency Glass Services in North York",
@@ -1620,7 +1620,7 @@
           "Storefront glass and aluminum framing installation.",
           "Office building and tower lobby glass repair.",
           "Commercial entrance door glass replacement.",
-          "Interior commercial glass : partitions, conference rooms, reception areas.",
+          "Interior commercial glass - partitions, conference rooms, reception areas.",
           "Safety glass upgrades for building code compliance."
         ]
       },
@@ -1669,7 +1669,7 @@
       ],
       "meta_description": "Window glass replacement in North York. Cracked, foggy, or broken panes. Houses and condos. Save 60-80% vs full replacement. Free quote."
     },
-    "pagecontent": "As our home base, North York is where OhMyGlass delivers its fastest and most convenient window glass replacement service. North York's mix of post-war bungalows, 1970s and 1980s detached homes, and modern condo towers means we encounter every type of window and glass configuration. Whether your older home's single-pane basement window needs replacement or your condo's double-pane sealed unit has fogged up, we replace the glass efficiently while preserving your existing frames : saving you 60 to 80 percent compared to full window replacement.",
+    "pagecontent": "As our home base, North York is where OhMyGlass delivers its fastest and most convenient window glass replacement service. North York's mix of post-war bungalows, 1970s and 1980s detached homes, and modern condo towers means we encounter every type of window and glass configuration. Whether your older home's single-pane basement window needs replacement or your condo's double-pane sealed unit has fogged up, we replace the glass efficiently while preserving your existing frames - saving you 60 to 80 percent compared to full window replacement.",
     "sections": [
       {
         "heading": "Window Glass Services in North York",
@@ -1846,7 +1846,7 @@
       ],
       "meta_description": "Window glass replacement in Richmond Hill. Cracked, foggy, or broken panes. Save 60-80% with glass-only replacement. Free quote. OhMyGlass."
     },
-    "pagecontent": "OhMyGlass delivers professional window glass replacement for homeowners and businesses in Richmond Hill. The town's housing ranges from established homes in the Yonge corridor and Bayview Hill to newer subdivisions in Oak Ridges and Jefferson : each with their own window types and glass specifications. We replace cracked, foggy, and broken glass across all Richmond Hill neighbourhoods, preserving your existing frames and offering Low-E and argon gas options for improved energy efficiency. Our glass-only approach saves 60 to 80 percent compared to full window replacement.",
+    "pagecontent": "OhMyGlass delivers professional window glass replacement for homeowners and businesses in Richmond Hill. The town's housing ranges from established homes in the Yonge corridor and Bayview Hill to newer subdivisions in Oak Ridges and Jefferson - each with their own window types and glass specifications. We replace cracked, foggy, and broken glass across all Richmond Hill neighbourhoods, preserving your existing frames and offering Low-E and argon gas options for improved energy efficiency. Our glass-only approach saves 60 to 80 percent compared to full window replacement.",
     "sections": [
       {
         "heading": "Window Glass Services in Richmond Hill",
@@ -1905,7 +1905,7 @@
       ],
       "meta_description": "24/7 emergency glass repair in Scarborough. Broken window or door? We secure your property fast. Residential & commercial. Call 647-803-2730."
     },
-    "pagecontent": "Glass emergencies in Scarborough are no match for OhMyGlass. Our 24/7 emergency service covers all of Scarborough's diverse communities : from the residential towers and commercial plazas around Scarborough Town Centre to the established neighbourhoods of Agincourt, Birch Cliff, Guildwood, and West Hill. Scarborough's mix of single-family homes, apartment buildings, and retail plazas means we handle a wide variety of glass types and situations. We arrive equipped to board up, clean up, and take measurements for permanent replacement on the same visit.",
+    "pagecontent": "Glass emergencies in Scarborough are no match for OhMyGlass. Our 24/7 emergency service covers all of Scarborough's diverse communities - from the residential towers and commercial plazas around Scarborough Town Centre to the established neighbourhoods of Agincourt, Birch Cliff, Guildwood, and West Hill. Scarborough's mix of single-family homes, apartment buildings, and retail plazas means we handle a wide variety of glass types and situations. We arrive equipped to board up, clean up, and take measurements for permanent replacement on the same visit.",
     "sections": [
       {
         "heading": "Emergency Glass Services in Scarborough",
@@ -1975,7 +1975,7 @@
           "Strip plaza and retail glass repair and installation.",
           "Commercial entrance door glass replacement.",
           "Aluminum storefront framing repair.",
-          "Interior commercial glass : partitions, counters, display cases.",
+          "Interior commercial glass - partitions, counters, display cases.",
           "Safety glass upgrades for building code compliance."
         ]
       },
@@ -2024,7 +2024,7 @@
       ],
       "meta_description": "Window glass replacement in Scarborough. Cracked, foggy, or broken panes. All window types. Save 60-80% vs full replacement. Free quote. OhMyGlass."
     },
-    "pagecontent": "OhMyGlass is committed to providing the best window glass replacement services in Scarborough. The area's housing stock is diverse : from 1950s and 1960s bungalows in Birch Cliff and Guildwood to newer townhomes and condominiums around Scarborough Town Centre. We replace all types of window glass, including single-pane windows in older homes, foggy double-pane IGUs in mid-age properties, and modern Low-E insulated units. Our glass-only approach preserves your existing frames, saving 60 to 80 percent compared to full window replacement.",
+    "pagecontent": "OhMyGlass is committed to providing the best window glass replacement services in Scarborough. The area's housing stock is diverse - from 1950s and 1960s bungalows in Birch Cliff and Guildwood to newer townhomes and condominiums around Scarborough Town Centre. We replace all types of window glass, including single-pane windows in older homes, foggy double-pane IGUs in mid-age properties, and modern Low-E insulated units. Our glass-only approach preserves your existing frames, saving 60 to 80 percent compared to full window replacement.",
     "sections": [
       {
         "heading": "Window Glass Services in Scarborough",
@@ -2085,7 +2085,7 @@
       ],
       "meta_description": "Storefront glass repair in Mississauga. Commercial storefronts, entrance doors, safety glass. Hurontario, Square One area. Fast service. Free quote."
     },
-    "pagecontent": "Keep your Mississauga business looking its best with expert storefront glass repair from OhMyGlass. Mississauga's commercial landscape is one of the most dynamic in the GTA : from the high-density retail and office towers around Square One and City Centre to the charming village storefronts of Port Credit and Streetsville, and the business parks along Dixie Road, Matheson Boulevard, and Hurontario Street. We handle all types of commercial glass repair and installation, using tempered, laminated, and insulated glass that meets Ontario Building Code requirements.",
+    "pagecontent": "Keep your Mississauga business looking its best with expert storefront glass repair from OhMyGlass. Mississauga's commercial landscape is one of the most dynamic in the GTA - from the high-density retail and office towers around Square One and City Centre to the charming village storefronts of Port Credit and Streetsville, and the business parks along Dixie Road, Matheson Boulevard, and Hurontario Street. We handle all types of commercial glass repair and installation, using tempered, laminated, and insulated glass that meets Ontario Building Code requirements.",
     "sections": [
       {
         "heading": "Commercial Glass Services in Mississauga",
@@ -2095,7 +2095,7 @@
           "Emergency storefront glass board-up and replacement.",
           "Full storefront glass and aluminum framing installation.",
           "Commercial entrance and automatic door glass repair.",
-          "Office building glass : lobbies, partitions, conference rooms.",
+          "Office building glass - lobbies, partitions, conference rooms.",
           "Safety glass upgrades for Ontario Building Code compliance.",
           "Tinted, Low-E, and insulated commercial glass options."
         ]
@@ -2146,7 +2146,7 @@
       ],
       "meta_description": "24/7 emergency glass repair in Toronto. Broken window or door? We arrive in 30-60 minutes, board up and replace. Call 647-803-2730 now."
     },
-    "pagecontent": "When a glass emergency happens in Toronto, OhMyGlass provides immediate 24/7 response across the entire city. Toronto's density and diversity : from the glass-heavy storefronts along Queen Street West, Yonge Street, and the Danforth to the residential neighbourhoods of The Beaches, Leslieville, Parkdale, and Rosedale : means we encounter every type of glass situation. Our emergency team responds quickly with board-up materials and common glass sizes, securing your property on the first visit and arranging permanent replacement with minimal delay.",
+    "pagecontent": "When a glass emergency happens in Toronto, OhMyGlass provides immediate 24/7 response across the entire city. Toronto's density and diversity - from the glass-heavy storefronts along Queen Street West, Yonge Street, and the Danforth to the residential neighbourhoods of The Beaches, Leslieville, Parkdale, and Rosedale - means we encounter every type of glass situation. Our emergency team responds quickly with board-up materials and common glass sizes, securing your property on the first visit and arranging permanent replacement with minimal delay.",
     "sections": [
       {
         "heading": "Emergency Glass Services in Toronto",
@@ -2207,7 +2207,7 @@
       ],
       "meta_description": "Storefront glass repair in Toronto. Downtown, Queen West, Yonge, Danforth. Tempered, laminated glass. Emergency and scheduled. Free quote. OhMyGlass."
     },
-    "pagecontent": "A well-maintained storefront is essential for any Toronto business. OhMyGlass provides top-tier storefront glass repair and installation across Toronto, from the flagship retail corridors on Bloor Street and Queen Street West to the independent shops along the Danforth, Ossington, and Dundas West. Toronto's commercial glass needs range from heritage storefronts with custom glazing profiles to modern full-height glass facades. We work with all types of commercial glass : tempered, laminated, insulated, and tinted : ensuring every installation meets Ontario Building Code safety requirements.",
+    "pagecontent": "A well-maintained storefront is essential for any Toronto business. OhMyGlass provides top-tier storefront glass repair and installation across Toronto, from the flagship retail corridors on Bloor Street and Queen Street West to the independent shops along the Danforth, Ossington, and Dundas West. Toronto's commercial glass needs range from heritage storefronts with custom glazing profiles to modern full-height glass facades. We work with all types of commercial glass - tempered, laminated, insulated, and tinted - ensuring every installation meets Ontario Building Code safety requirements.",
     "sections": [
       {
         "heading": "Commercial Glass Services in Toronto",
@@ -2269,7 +2269,7 @@
       ],
       "meta_description": "Window glass replacement in Toronto. Houses, condos, heritage homes. Cracked, foggy, or broken panes. Save 60-80%. Free quote. OhMyGlass."
     },
-    "pagecontent": "OhMyGlass is a leading provider of window glass replacement in Toronto, serving homeowners, condo residents, and property managers across the city. Toronto's housing stock is remarkably diverse : Victorian and Edwardian homes in Cabbagetown and The Annex, post-war bungalows in Leaside and East York, and modern condo towers downtown and along the waterfront. Each requires different glass types and approaches, and our team has the experience to handle them all. We replace cracked, foggy, and broken window glass while preserving your existing frames, saving you 60 to 80 percent compared to full window replacement.",
+    "pagecontent": "OhMyGlass is a leading provider of window glass replacement in Toronto, serving homeowners, condo residents, and property managers across the city. Toronto's housing stock is remarkably diverse - Victorian and Edwardian homes in Cabbagetown and The Annex, post-war bungalows in Leaside and East York, and modern condo towers downtown and along the waterfront. Each requires different glass types and approaches, and our team has the experience to handle them all. We replace cracked, foggy, and broken window glass while preserving your existing frames, saving you 60 to 80 percent compared to full window replacement.",
     "sections": [
       {
         "heading": "Window Glass Services in Toronto",
@@ -2451,7 +2451,7 @@
       ],
       "meta_description": "Window glass replacement in Vaughan. Woodbridge, Maple, Kleinburg. Cracked, foggy, or broken panes. Save 60-80%. Free quote. OhMyGlass."
     },
-    "pagecontent": "OhMyGlass is the leading provider of window glass replacement in Vaughan, serving homeowners across Woodbridge, Maple, Kleinburg, and the Vaughan Metropolitan Centre area. Vaughan's housing stock includes established homes in Woodbridge and Thornhill, newer subdivisions in Maple and Vellore Village, and modern condos at the VMC : each with different window types and glass requirements. We replace cracked, foggy, and broken glass while preserving your existing frames, offering Low-E and argon gas upgrades for improved energy efficiency. Our glass-only approach saves 60 to 80 percent versus full window replacement.",
+    "pagecontent": "OhMyGlass is the leading provider of window glass replacement in Vaughan, serving homeowners across Woodbridge, Maple, Kleinburg, and the Vaughan Metropolitan Centre area. Vaughan's housing stock includes established homes in Woodbridge and Thornhill, newer subdivisions in Maple and Vellore Village, and modern condos at the VMC - each with different window types and glass requirements. We replace cracked, foggy, and broken glass while preserving your existing frames, offering Low-E and argon gas upgrades for improved energy efficiency. Our glass-only approach saves 60 to 80 percent versus full window replacement.",
     "sections": [
       {
         "heading": "Window Glass Services in Vaughan",
@@ -2512,7 +2512,7 @@
       ],
       "meta_description": "Window glass replacement in Mississauga. Cracked, foggy, or broken panes. All window types. Save 60-80% vs full replacement. Free quote. Call today."
     },
-    "pagecontent": "OhMyGlass is your top choice for professional window glass replacement in Mississauga. The city's housing ranges from the established lakefront homes of Port Credit and Lorne Park to the large suburban developments of Erin Mills and Meadowvale, and the growing number of high-rise condos around City Centre. We handle all types of window glass : from single-pane replacements in older homes to double-pane IGU swaps for foggy windows and energy-efficient Low-E upgrades. Our glass-only approach preserves your existing frames and saves 60 to 80 percent compared to full window replacement.",
+    "pagecontent": "OhMyGlass is your top choice for professional window glass replacement in Mississauga. The city's housing ranges from the established lakefront homes of Port Credit and Lorne Park to the large suburban developments of Erin Mills and Meadowvale, and the growing number of high-rise condos around City Centre. We handle all types of window glass - from single-pane replacements in older homes to double-pane IGU swaps for foggy windows and energy-efficient Low-E upgrades. Our glass-only approach preserves your existing frames and saves 60 to 80 percent compared to full window replacement.",
     "sections": [
       {
         "heading": "Window Glass Services in Mississauga",
@@ -2595,7 +2595,7 @@
   {
     "url": "foggy-double-pane-windows-repair-vs-replace",
     "type": "resource",
-    "title": "Foggy Double-Pane Windows: Repair vs Replace | OhMyGlass",
+    "title": "Foggy Double-Pane Windows - Repair vs Replace | OhMyGlass",
     "seo": {
       "keywords": ["foggy double pane window", "foggy window repair", "IGU replacement Toronto", "condensation between window panes", "sealed unit failure GTA"],
       "meta_description": "Foggy double-pane windows mean the seal has failed. Repair by replacing the glass unit only; save 60-80% vs full window replacement. Free quote in Toronto & GTA."
@@ -2622,7 +2622,7 @@
   {
     "url": "emergency-glass-repair-toronto-what-to-expect",
     "type": "resource",
-    "title": "Emergency Glass Repair in Toronto: What to Expect | OhMyGlass",
+    "title": "Emergency Glass Repair in Toronto - What to Expect | OhMyGlass",
     "seo": {
       "keywords": ["emergency glass repair Toronto", "24/7 glass repair", "broken window emergency", "board up service Toronto", "urgent glass replacement GTA"],
       "meta_description": "What to expect when you call for emergency glass repair in Toronto: response time, board-up, and permanent replacement. 24/7 service across the GTA."
@@ -2676,7 +2676,7 @@
   {
     "url": "storefront-glass-repair-toronto-business-owners",
     "type": "resource",
-    "title": "Storefront Glass Repair: What Toronto Business Owners Need to Know | OhMyGlass",
+    "title": "Storefront Glass Repair - What Toronto Business Owners Need to Know | OhMyGlass",
     "seo": {
       "keywords": ["storefront glass repair Toronto", "commercial glass repair", "business storefront window", "storefront glass replacement GTA", "commercial glass emergency"],
       "meta_description": "Storefront glass repair for Toronto businesses: types of damage, code requirements, and fast service to minimize downtime. Free quote, 24/7 emergency."

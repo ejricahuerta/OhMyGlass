@@ -23,7 +23,7 @@
   import ServiceArea from '$lib/components/ServiceArea.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import ContentPageForm from '$lib/components/ContentPageForm.svelte';
-  import { contact } from '$lib/site-data.js';
+  import { contact, withInternalUtm } from '$lib/site-data.js';
   import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema, getJsonLdGraphScriptTag } from '$lib/schema.js';
 
   /** @type {{ page: { title: string; type?: string; seo?: { meta_description?: string; keywords?: string[] }; pagecontent: string; service_area_locations?: Array<{ name: string; slug: string }>; sections?: Array<{ heading: string; level?: number; content?: string; list?: string[] }> }; slug: string }} */
@@ -86,12 +86,12 @@
 
   // Resource -> relevant service page for internal linking
   const RESOURCE_SERVICE_LINKS = {
-    'how-to-tell-if-window-seal-is-broken': { href: '/foggy-window-repair', label: 'Foggy window repair' },
-    'foggy-double-pane-windows-repair-vs-replace': { href: '/foggy-window-repair', label: 'Foggy window repair' },
-    'emergency-glass-repair-toronto-what-to-expect': { href: '/emergency-glass-repair', label: 'Emergency glass repair' },
-    'window-glass-replacement-cost-gta': { href: '/window-glass-replacement', label: 'Window glass replacement' },
-    'storefront-glass-repair-toronto-business-owners': { href: '/storefront-glass-repair', label: 'Storefront glass repair' },
-    'glass-repair-vs-replacement': { href: '/window-glass-replacement', label: 'Window glass replacement' }
+    'how-to-tell-if-window-seal-is-broken': { href: withInternalUtm('/foggy-window-repair', 'content'), label: 'Foggy window repair' },
+    'foggy-double-pane-windows-repair-vs-replace': { href: withInternalUtm('/foggy-window-repair', 'content'), label: 'Foggy window repair' },
+    'emergency-glass-repair-toronto-what-to-expect': { href: withInternalUtm('/emergency-glass-repair', 'content'), label: 'Emergency glass repair' },
+    'window-glass-replacement-cost-gta': { href: withInternalUtm('/window-glass-replacement', 'content'), label: 'Window glass replacement' },
+    'storefront-glass-repair-toronto-business-owners': { href: withInternalUtm('/storefront-glass-repair', 'content'), label: 'Storefront glass repair' },
+    'glass-repair-vs-replacement': { href: withInternalUtm('/window-glass-replacement', 'content'), label: 'Window glass replacement' }
   };
   const resourceServiceLink = isResource ? (RESOURCE_SERVICE_LINKS[data.slug] || null) : null;
 
@@ -145,18 +145,18 @@
     <div class="grid grid-cols-1 {isResource ? '' : 'lg:grid-cols-2'} gap-12">
       <div class="prose prose-lg max-w-none">
         {#if isResource}
-          <a href="/resources" class="inline-block text-[#d32f2f] font-semibold hover:underline mb-6">← Resources</a>
+          <a href={withInternalUtm('/resources', 'content')} class="inline-block text-[#d32f2f] font-semibold hover:underline mb-6">← Resources</a>
         {/if}
         <nav class="mb-6 text-sm text-gray-600" aria-label="Breadcrumb">
-          <a href="/" class="text-[#d32f2f] font-semibold hover:underline">Home</a>
+          <a href={withInternalUtm('/', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Home</a>
           <span class="mx-2">/</span>
           {#if isLocationPage}
-            <a href="/services" class="text-[#d32f2f] font-semibold hover:underline">Services</a>
+            <a href={withInternalUtm('/services', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Services</a>
             <span class="mx-2">/</span>
-            <a href="/service-areas" class="text-[#d32f2f] font-semibold hover:underline">Service areas</a>
+            <a href={withInternalUtm('/service-areas', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Service areas</a>
             <span class="mx-2">/</span>
           {:else if isResource}
-            <a href="/resources" class="text-[#d32f2f] font-semibold hover:underline">Resources</a>
+            <a href={withInternalUtm('/resources', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Resources</a>
             <span class="mx-2">/</span>
           {/if}
           <span class="text-gray-800">{data.page.title.replace(/\s*[-–|]\s*OhMyGlass[^]*$/i, '').trim()}</span>
@@ -226,7 +226,7 @@
             <p class="text-gray-600 mb-3">This service is available in:</p>
             <ul class="flex flex-wrap gap-2">
               {#each genericServiceAreaLinks as link}
-                <li><a href="/{link.slug}" class="text-[#d32f2f] font-semibold hover:underline">{link.name}</a></li>
+                <li><a href={withInternalUtm(`/${link.slug}`, 'content')} class="text-[#d32f2f] font-semibold hover:underline">{link.name}</a></li>
               {/each}
             </ul>
           </div>
@@ -238,16 +238,16 @@
               <a href={resourceServiceLink.href} class="text-[#d32f2f] font-semibold hover:underline">{resourceServiceLink.label}</a>
               <span class="text-gray-600"> · </span>
             {/if}
-            <a href="/#contact-form" class="text-[#d32f2f] font-semibold hover:underline">Get a free quote</a>
+            <a href={withInternalUtm('/#contact-form', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Get a free quote</a>
             <span class="text-gray-600"> · </span>
-            <a href="/resources" class="text-[#d32f2f] font-semibold hover:underline">Back to Resources</a>
+            <a href={withInternalUtm('/resources', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Back to Resources</a>
           </p>
         {/if}
         {#if isLocationPage && locationPageInfo}
           <p class="mt-10 pt-8 border-t border-gray-200 text-gray-700">
             Other services in {locationPageInfo.cityName}:
             {#each locationPageInfo.otherLinks as link, i}
-              <a href="/{link.slug}" class="text-[#d32f2f] font-semibold hover:underline">{link.label}</a>{i < locationPageInfo.otherLinks.length - 1 ? ', ' : ''}
+              <a href={withInternalUtm(`/${link.slug}`, 'content')} class="text-[#d32f2f] font-semibold hover:underline">{link.label}</a>{i < locationPageInfo.otherLinks.length - 1 ? ', ' : ''}
             {/each}
           </p>
         {/if}
@@ -263,7 +263,7 @@
   <section class="bg-[#f5f7fa] py-6 text-center">
     <p class="text-gray-600">
       Serving the Greater Toronto Area.
-      <a href="/service-areas" class="text-[#d32f2f] font-semibold hover:underline">View Service Areas</a>
+      <a href={withInternalUtm('/service-areas', 'content')} class="text-[#d32f2f] font-semibold hover:underline">View Service Areas</a>
     </p>
   </section>
 {/if}

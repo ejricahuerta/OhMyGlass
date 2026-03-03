@@ -1,5 +1,5 @@
 <script>
-  import { navLinks, contact } from '$lib/site-data.js';
+  import { navLinks, contact, withInternalUtm } from '$lib/site-data.js';
   import { showQuoteInNav } from '$lib/nav-state.js';
 
   /** @type {string} - "Free Quote" or "Get a Free Quote" */
@@ -28,7 +28,7 @@
 
 <header class="sticky top-0 w-full z-50 bg-white/50 backdrop-blur-md shadow-none">
   <nav class="container mx-auto flex justify-between items-center py-4 px-6">
-    <a href="/">
+    <a href={withInternalUtm('/', 'nav')}>
       <picture>
         <source srcset="/images/logo.webp" type="image/webp" />
         <img

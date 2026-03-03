@@ -27,7 +27,7 @@
 <script>
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
-  import { contact } from '$lib/site-data.js';
+  import { contact, withInternalUtm } from '$lib/site-data.js';
   import { getLocalBusinessSchema, getJsonLdScriptTag } from '$lib/schema.js';
 
   const homeServiceSchemas = [
@@ -116,7 +116,7 @@
           </div>
         </div>
       </a>
-      <a href="/aluminum-storefront" class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
+      <a href={withInternalUtm('/aluminum-storefront', 'home')} class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
         <picture>
           <source srcset="/images/aluminum-storefront.webp" type="image/webp" />
           <img src="/images/aluminum-storefront.jpg" alt="Commercial aluminum storefront glass repair and installation" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
@@ -127,7 +127,7 @@
           </div>
         </div>
       </a>
-      <a href="/door-repairs" class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
+      <a href={withInternalUtm('/door-repairs', 'home')} class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
         <picture>
           <source srcset="/images/door-repairs.webp" type="image/webp" />
           <img src="/images/door-repairs.jpg" alt="Door glass repair and patio door repair in Toronto and GTA" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
@@ -138,7 +138,7 @@
           </div>
         </div>
       </a>
-      <a href="/custom-mirror" class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
+      <a href={withInternalUtm('/custom-mirror', 'home')} class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
         <picture>
           <source srcset="/images/custom-mirror.webp" type="image/webp" />
           <img src="/images/custom-mirror.jpg" alt="Custom mirror installation and repair for homes and businesses" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
@@ -222,7 +222,7 @@
 <section class="bg-[#f5f7fa] py-6 text-center">
   <p class="text-gray-600">
     Serving the Greater Toronto Area.
-    <a href="/service-areas" class="text-[#d32f2f] font-semibold hover:underline">View Service Areas</a>
+    <a href={withInternalUtm('/service-areas', 'home')} class="text-[#d32f2f] font-semibold hover:underline">View Service Areas</a>
   </p>
 </section>
 <Footer serviceLinksOrder="index" />

@@ -23,7 +23,7 @@
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { getBreadcrumbSchema, getJsonLdScriptTag } from '$lib/schema.js';
-  import { nap } from '$lib/site-data.js';
+  import { nap, withInternalUtm } from '$lib/site-data.js';
 
   const contactBreadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -62,7 +62,7 @@
 <section class="bg-[#f5f7fa] py-6 text-center">
   <p class="text-gray-600">
     Serving the Greater Toronto Area.
-    <a href="/service-areas" class="text-[#d32f2f] font-semibold hover:underline">View Service Areas</a>
+    <a href={withInternalUtm('/service-areas', 'contact')} class="text-[#d32f2f] font-semibold hover:underline">View Service Areas</a>
   </p>
 </section>
 <Footer serviceLinksOrder="default" />
