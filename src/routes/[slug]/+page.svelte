@@ -15,17 +15,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_CA" />
   <link rel="canonical" href="https://ohmyglass.ca/{data.slug}" />
-  <!-- JSON-LD (injected raw so JSON is not escaped) -->
-  {@html getJsonLdScriptTag(breadcrumbSchema)}
-  {#if data.slug === 'glass-repair-vs-replacement'}
-    {@html getJsonLdScriptTag(articleSchema)}
-  {/if}
-  {#if data.page.type === 'service'}
-    {@html getJsonLdScriptTag(serviceSchema)}
-  {/if}
-  {#if faqSchema.mainEntity.length > 0}
-    {@html getJsonLdScriptTag(faqSchema)}
-  {/if}
+  <!-- JSON-LD: single @graph to avoid "Duplicate field FAQPage" in Search Console -->
+  {@html jsonLdGraphScriptTag}
 </svelte:head>
 
 <script>
@@ -33,7 +24,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import ContentPageForm from '$lib/components/ContentPageForm.svelte';
   import { contact } from '$lib/site-data.js';
-  import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema, getJsonLdScriptTag } from '$lib/schema.js';
+  import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema, getJsonLdGraphScriptTag } from '$lib/schema.js';
 
   /** @type {{ page: { title: string; type?: string; seo?: { meta_description?: string; keywords?: string[] }; pagecontent: string; service_area_locations?: Array<{ name: string; slug: string }>; sections?: Array<{ heading: string; level?: number; content?: string; list?: string[] }> }; slug: string }} */
   export let data;
@@ -83,6 +74,15 @@
       acceptedAnswer: { '@type': 'Answer', text: [s.content, s.list?.join(' ')].filter(Boolean).join(' ') || s.heading }
     }));
   const faqSchema = getFAQPageSchema(faqQuestions);
+
+  // Single JSON-LD @graph (one script tag) to prevent duplicate FAQPage / multiple same-type blocks
+  const jsonLdGraph = [
+    breadcrumbSchema,
+    data.slug === 'glass-repair-vs-replacement' ? articleSchema : null,
+    data.page.type === 'service' ? serviceSchema : null,
+    faqSchema.mainEntity.length > 0 ? faqSchema : null
+  ].filter(Boolean);
+  const jsonLdGraphScriptTag = getJsonLdGraphScriptTag(jsonLdGraph);
 
   // Resource -> relevant service page for internal linking
   const RESOURCE_SERVICE_LINKS = {

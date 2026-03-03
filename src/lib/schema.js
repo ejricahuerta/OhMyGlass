@@ -25,6 +25,18 @@ export function getJsonLdScriptTag(value) {
   return '<script type="application/ld+json">' + safeJsonLdScript(value) + '</script>';
 }
 
+/**
+ * Returns a single <script type="application/ld+json"> tag containing all schemas in @graph.
+ * Use one graph per page to avoid "Duplicate field" issues in Google Search Console.
+ * @param {Array<object>} schemas - Array of schema objects (BreadcrumbList, Service, FAQPage, etc.)
+ */
+export function getJsonLdGraphScriptTag(schemas) {
+  const list = Array.isArray(schemas) ? schemas.filter((s) => s != null) : [];
+  if (list.length === 0) return '';
+  const graph = { '@context': 'https://schema.org', '@graph': list };
+  return '<script type="application/ld+json">' + safeJsonLdScript(graph) + '</script>';
+}
+
 /** LocalBusiness schema for homepage (and organization context). */
 export function getLocalBusinessSchema() {
   return {
