@@ -7,6 +7,9 @@
   import FloatingCallButton from '$lib/components/FloatingCallButton.svelte';
   import { showQuoteInNav, showFloatingCallButton } from '$lib/nav-state.js';
 
+  const FONT_AWESOME_URL =
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
+
   $: isHome = $page.url.pathname === '/';
   $: bodyClass = isHome
     ? 'relative min-h-screen bg-gradient-to-b from-[#1a1a1a] to-[#f5f7fa] overflow-x-hidden'
@@ -34,6 +37,13 @@
   });
 
   onMount(() => {
+    // Load Font Awesome after hydration to avoid head reconciliation issues (fixes hydration removeAttribute error)
+    const faLink = document.createElement('link');
+    faLink.rel = 'stylesheet';
+    faLink.href = FONT_AWESOME_URL;
+    faLink.media = 'all';
+    document.head.appendChild(faLink);
+
     loadTallyEmbeds();
     const retry = setTimeout(() => {
       loadTallyEmbeds();
@@ -90,12 +100,6 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    media="print"
-    onload={(e) => (e.currentTarget.media = 'all')}
-  />
   <noscript>
     <link
       rel="stylesheet"

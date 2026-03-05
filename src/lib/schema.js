@@ -28,10 +28,20 @@ export function getJsonLdScriptTag(value) {
 /**
  * Returns a single <script type="application/ld+json"> tag containing all schemas in @graph.
  * Use one graph per page to avoid "Duplicate field" issues in Google Search Console.
+ * Deduplicates by @type so only the first of each type is emitted (e.g. one FAQPage per page).
  * @param {Array<object>} schemas - Array of schema objects (BreadcrumbList, Service, FAQPage, etc.)
  */
 export function getJsonLdGraphScriptTag(schemas) {
-  const list = Array.isArray(schemas) ? schemas.filter((s) => s != null) : [];
+  const raw = Array.isArray(schemas) ? schemas.filter((s) => s != null) : [];
+  if (raw.length === 0) return '';
+  const seen = new Set();
+  const list = raw.filter((s) => {
+    const type = s['@type'];
+    const key = Array.isArray(type) ? type.join(',') : (type || '');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
   if (list.length === 0) return '';
   const graph = { '@context': 'https://schema.org', '@graph': list };
   return '<script type="application/ld+json">' + safeJsonLdScript(graph) + '</script>';
