@@ -1,34 +1,4 @@
 {
-  "cleanUrls": true,
-  "redirects": [
-    { "source": "/:path*", "destination": "https://ohmyglass.ca/:path*", "permanent": true, "has": [{ "type": "host", "value": "www.ohmyglass.ca" }] },
-    { "source": "/:path([^.]+)\\.html", "destination": "/:path", "permanent": true },
-    { "source": "/newmarket-emergency-glass-repair", "destination": "/emergency-glass-repair-newmarket", "permanent": true },
-    { "source": "/newmarket-storefront-glass-repair", "destination": "/storefront-glass-repair-newmarket", "permanent": true },
-    { "source": "/newmarket-window-glass-replacement", "destination": "/window-glass-replacement-newmarket", "permanent": true },
-    { "source": "/etobicoke-emergency-glass-repair", "destination": "/emergency-glass-repair-etobicoke", "permanent": true },
-    { "source": "/etobicoke-storefront-glass-repair", "destination": "/storefront-glass-repair-etobicoke", "permanent": true },
-    { "source": "/etobicoke-window-glass-replacement", "destination": "/window-glass-replacement-etobicoke", "permanent": true },
-    { "source": "/markham-emergency-glass-repair", "destination": "/emergency-glass-repair-markham", "permanent": true },
-    { "source": "/markham-storefront-glass-repair", "destination": "/storefront-glass-repair-markham", "permanent": true },
-    { "source": "/markham-window-glass-replacement", "destination": "/window-glass-replacement-markham", "permanent": true },
-    { "source": "/north-york-emergency-glass-repair", "destination": "/emergency-glass-repair-north-york", "permanent": true },
-    { "source": "/north-york-storefront-glass-repair", "destination": "/storefront-glass-repair-north-york", "permanent": true },
-    { "source": "/north-york-window-glass-replacement", "destination": "/window-glass-replacement-north-york", "permanent": true },
-    { "source": "/richmond-hill-emergency-glass-repair", "destination": "/emergency-glass-repair-richmond-hill", "permanent": true },
-    { "source": "/richmond-hill-storefront-glass-repair", "destination": "/storefront-glass-repair-richmond-hill", "permanent": true },
-    { "source": "/richmond-hill-window-glass-replacement", "destination": "/window-glass-replacement-richmond-hill", "permanent": true },
-    { "source": "/scarborough-emergency-glass-repair", "destination": "/emergency-glass-repair-scarborough", "permanent": true },
-    { "source": "/scarborough-storefront-glass-repair", "destination": "/storefront-glass-repair-scarborough", "permanent": true },
-    { "source": "/scarborough-window-glass-replacement", "destination": "/window-glass-replacement-scarborough", "permanent": true },
-    { "source": "/toronto-emergency-glass-repair", "destination": "/emergency-glass-repair-toronto", "permanent": true },
-    { "source": "/toronto-storefront-glass-repair", "destination": "/storefront-glass-repair-toronto", "permanent": true },
-    { "source": "/toronto-window-glass-replacement", "destination": "/window-glass-replacement-toronto", "permanent": true },
-    { "source": "/vaughan-emergency-glass-repair", "destination": "/emergency-glass-repair-vaughan", "permanent": true },
-    { "source": "/vaughan-storefront-glass-repair", "destination": "/storefront-glass-repair-vaughan", "permanent": true },
-    { "source": "/vaughan-window-glass-replacement", "destination": "/window-glass-replacement-vaughan", "permanent": true },
-    { "source": "/mississauga-emergency-glass-repair", "destination": "/emergency-glass-repair-mississauga", "permanent": true },
-    { "source": "/mississauga-storefront-glass-repair", "destination": "/storefront-glass-repair-mississauga", "permanent": true },
-    { "source": "/mississauga-window-glass-replacement", "destination": "/window-glass-replacement-mississauga", "permanent": true }
-  ]
+  "cleanUrls": true
+ 
 }
