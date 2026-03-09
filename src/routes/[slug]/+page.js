@@ -11,5 +11,7 @@ export function entries() {
 export function load({ params }) {
   const page = getPageBySlug(params.slug);
   if (!page) throw error(404, `Page not found: ${params.slug}`);
-  return { page, slug: params.slug };
+  // Use page.url (canonical slug) for canonical/og:url so GSC and crawlers see the official URL
+  const canonicalSlug = page.url.replace(/\.html$/, '');
+  return { page, slug: canonicalSlug };
 }
