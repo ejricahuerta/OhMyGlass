@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "redirects": [
+    { "source": "/:path*", "destination": "https://ohmyglass.ca/:path*", "permanent": true, "has": [{ "type": "host", "value": "www.ohmyglass.ca" }] },
     { "source": "/:path([^.]+)\\.html", "destination": "/:path", "permanent": true },
     { "source": "/newmarket-emergency-glass-repair", "destination": "/emergency-glass-repair-newmarket", "permanent": true },
     { "source": "/newmarket-storefront-glass-repair", "destination": "/storefront-glass-repair-newmarket", "permanent": true },
