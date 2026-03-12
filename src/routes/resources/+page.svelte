@@ -71,15 +71,17 @@
                 class="group flex flex-col h-full w-full bg-white rounded-2xl p-6 shadow-sm border border-neutral-200/80 hover:border-[#d32f2f]/30 hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#d32f2f]/50 focus:ring-offset-2"
               >
                 <div class="flex-1 min-h-0">
-                  <span
-                    class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-lg bg-neutral-100 text-neutral-600 group-hover:bg-[#d32f2f]/10 group-hover:text-[#d32f2f] transition-colors mb-4"
-                    aria-hidden="true"
-                  >
-                    <i class="fa-solid fa-file-lines"></i>
-                  </span>
-                  <h2 class="text-lg font-bold text-neutral-900 group-hover:text-[#d32f2f] transition-colors mb-2">
-                    {cleanTitle(resource.title)}
-                  </h2>
+                  <div class="flex items-center gap-3 mb-3">
+                    <span
+                      class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-lg bg-neutral-100 text-neutral-600 group-hover:bg-[#d32f2f]/10 group-hover:text-[#d32f2f] transition-colors"
+                      aria-hidden="true"
+                    >
+                      <i class="fa-solid fa-file-lines"></i>
+                    </span>
+                    <h2 class="text-lg font-bold text-neutral-900 group-hover:text-[#d32f2f] transition-colors min-w-0 flex-1">
+                      {cleanTitle(resource.title)}
+                    </h2>
+                  </div>
                   <p class="text-neutral-600 text-sm leading-relaxed">
                     {resource.seo?.meta_description ?? resource.title}
                   </p>

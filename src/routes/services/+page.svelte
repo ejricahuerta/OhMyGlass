@@ -76,35 +76,35 @@
                   href={card.href}
                   class="group flex flex-col h-full w-full bg-white rounded-2xl p-6 shadow-sm border border-neutral-200/80 hover:border-[#d32f2f]/30 hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#d32f2f]/50 focus:ring-offset-2"
                 >
-                  <div class="flex items-start gap-4 flex-1 min-h-0">
-                    <span
-                      class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-lg {key === 'emergency'
-                        ? 'bg-[#d32f2f]/10 text-[#d32f2f]'
-                        : 'bg-neutral-100 text-neutral-600 group-hover:bg-[#d32f2f]/10 group-hover:text-[#d32f2f] transition-colors'}"
-                      aria-hidden="true"
-                    >
-                      {#if card.icon}
-                        <i class="fa-solid {card.icon}"></i>
-                      {:else}
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                      {/if}
-                    </span>
-                    <div class="min-w-0 flex-1">
-                      <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <div class="flex-1 min-h-0">
+                    <div class="flex items-center gap-3 mb-3">
+                      <span
+                        class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-lg {key === 'emergency'
+                          ? 'bg-[#d32f2f]/10 text-[#d32f2f]'
+                          : 'bg-neutral-100 text-neutral-600 group-hover:bg-[#d32f2f]/10 group-hover:text-[#d32f2f] transition-colors'}"
+                        aria-hidden="true"
+                      >
+                        {#if card.icon}
+                          <i class="fa-solid {card.icon}"></i>
+                        {:else}
+                          <i class="fa-solid fa-screwdriver-wrench"></i>
+                        {/if}
+                      </span>
+                      <div class="min-w-0 flex-1 flex flex-wrap items-center gap-2">
                         {#if card.badge}
                           <span
                             class="text-xs font-semibold px-2 py-0.5 rounded-full {key === 'emergency'
                               ? 'bg-[#d32f2f] text-white'
                               : 'bg-neutral-200 text-neutral-700'}">{card.badge}</span>
-                          {/if}
+                        {/if}
                         <h3 class="text-lg font-bold text-neutral-900 group-hover:text-[#d32f2f] transition-colors">
                           {card.title}
                         </h3>
                       </div>
-                      <p class="text-neutral-600 text-sm leading-relaxed line-clamp-3">
-                        {card.description}
-                      </p>
                     </div>
+                    <p class="text-neutral-600 text-sm leading-relaxed line-clamp-3">
+                      {card.description}
+                    </p>
                   </div>
                   <span class="inline-flex items-center gap-1 mt-auto pt-4 text-sm font-semibold text-[#d32f2f] group-hover:gap-2 transition-all">
                     Learn more
