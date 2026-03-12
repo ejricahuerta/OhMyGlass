@@ -3,6 +3,7 @@
   import { afterNavigate } from '$app/navigation';
   import { inject } from '@vercel/analytics';
   import { page } from '$app/stores';
+  import { PUBLIC_GOOGLE_TAG_MANAGER_ID } from '$env/static/public';
   import Header from '$lib/components/Header.svelte';
   import FloatingCallButton from '$lib/components/FloatingCallButton.svelte';
   import { showQuoteInNav, showFloatingCallButton } from '$lib/nav-state.js';
@@ -52,6 +53,24 @@
       inject();
     } catch (_) {
       // Analytics may fail in validators, ad-blockers, or strict environments
+    }
+
+    if (PUBLIC_GOOGLE_TAG_MANAGER_ID) {
+      try {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          window.dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', PUBLIC_GOOGLE_TAG_MANAGER_ID);
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GOOGLE_TAG_MANAGER_ID}`;
+        document.head.appendChild(script);
+      } catch (_) {
+        // gtag may fail in validators or ad-blockers
+      }
     }
 
     const heroSection = document.getElementById('hero');
