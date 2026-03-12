@@ -1,7 +1,8 @@
 <script>
   import { onMount } from 'svelte';
   import { afterNavigate } from '$app/navigation';
-  import { inject } from '@vercel/analytics';
+  import { dev } from '$app/environment';
+  import { injectAnalytics } from '@vercel/analytics/sveltekit';
   import posthog from 'posthog-js';
   import { page } from '$app/stores';
   import { PUBLIC_GOOGLE_TAG_MANAGER_ID, PUBLIC_POSTHOG_KEY } from '$env/static/public';
@@ -54,7 +55,7 @@
       loadTallyEmbeds();
     }, 500);
     try {
-      inject();
+      injectAnalytics({ mode: dev ? 'development' : 'production' });
     } catch (_) {
       // Analytics may fail in validators, ad-blockers, or strict environments
     }
