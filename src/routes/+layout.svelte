@@ -2,8 +2,9 @@
   import { onMount } from 'svelte';
   import { afterNavigate } from '$app/navigation';
   import { inject } from '@vercel/analytics';
+  import posthog from 'posthog-js';
   import { page } from '$app/stores';
-  import { PUBLIC_GOOGLE_TAG_MANAGER_ID } from '$env/static/public';
+  import { PUBLIC_GOOGLE_TAG_MANAGER_ID, PUBLIC_POSTHOG_KEY } from '$env/static/public';
   import Header from '$lib/components/Header.svelte';
   import FloatingCallButton from '$lib/components/FloatingCallButton.svelte';
   import { showQuoteInNav, showFloatingCallButton } from '$lib/nav-state.js';
@@ -35,6 +36,9 @@
     requestAnimationFrame(() => {
       loadTallyEmbeds();
     });
+    if (PUBLIC_POSTHOG_KEY && typeof posthog?.capture === 'function') {
+      posthog.capture('$pageview', { $current_url: $page.url.href });
+    }
   });
 
   onMount(() => {
