@@ -7,58 +7,71 @@
   const year = new Date().getFullYear();
   const footerLinks =
     serviceLinksOrder === 'index' ? footerServicesIndexOrder : footerServicesDefaultOrder;
+
+  const linkClass =
+    'transition-colors duration-200 hover:text-[#d32f2f] focus-visible:text-[#d32f2f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 rounded';
+  const headingClass = 'font-bold text-sm uppercase tracking-wide mb-4 text-center text-white/90';
 </script>
 
 <footer class="bg-gradient-to-r from-[#3a3a3a] to-[#1a1a1a] text-white pt-16 pb-12">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-    <div class="md:col-span-1 flex flex-col items-center">
+  <div class="container mx-auto px-4 grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-8">
+    <!-- Brand -->
+    <div class="flex flex-col items-center text-center md:items-center">
       <picture>
         <source srcset="/images/logo.webp" type="image/webp" />
         <img
           src="/images/logo.png"
-          alt="OhMyGlass Logo"
-          class="h-24 w-auto drop-shadow-lg mb-4 filter drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+          alt="OhMyGlass"
+          class="h-24 w-auto mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
           width="432"
           height="96"
         />
       </picture>
-      <p class="text-sm">&copy; <span id="year">{year}</span> OhMyGlass. All rights reserved.</p>
+      <p class="text-sm text-white/80">&copy; <span id="year">{year}</span> OhMyGlass. All rights reserved.</p>
     </div>
-    <div class="md:col-span-1">
-      <h3 class="font-bold mb-4 text-center">Our Services</h3>
+
+    <!-- Services -->
+    <nav class="text-center" aria-label="Footer services">
+      <h3 class={headingClass}>Our Services</h3>
       <ul class="space-y-2">
         {#each footerLinks as link}
           <li>
-            <a href={link.href} class="hover:text-[#d32f2f]">{link.label}</a>
+            <a href={link.href} class={linkClass}>{link.label}</a>
           </li>
         {/each}
       </ul>
-    </div>
-    <div class="md:col-span-1">
-      <h3 class="font-bold mb-4 text-center">Contact Us</h3>
+    </nav>
+
+    <!-- Contact -->
+    <div class="text-center">
+      <h3 class={headingClass}>Contact Us</h3>
       <ul class="space-y-2">
-        <li><a href={contact.phoneHref} class="hover:text-[#d32f2f]">{contact.phone}</a></li>
-        <li><a href={contact.emailHref} class="hover:text-[#d32f2f]">{contact.email}</a></li>
-        <li><a href={contact.googleMaps} target="_blank" rel="noopener noreferrer" class="hover:text-[#d32f2f]">Find Us on Map</a></li>
-        <li><a href={contact.serviceAreasHref} class="hover:text-[#d32f2f]">Service Areas</a></li>
+        <li><a href={contact.phoneHref} class={linkClass}>{contact.phone}</a></li>
+        <li><a href={contact.emailHref} class={linkClass}>{contact.email}</a></li>
+        <li>
+          <a href={contact.googleMaps} target="_blank" rel="noopener noreferrer" class={linkClass}>Find Us on Map</a>
+        </li>
+        <li><a href={contact.serviceAreasHref} class={linkClass}>Service Areas</a></li>
       </ul>
     </div>
-    <div class="md:col-span-1">
-      <h3 class="font-bold mb-4 text-center">Connect With Us</h3>
-      <ul class="flex gap-4 justify-center">
+
+    <!-- Social -->
+    <div class="text-center">
+      <h3 class={headingClass}>Connect With Us</h3>
+      <ul class="flex gap-4 justify-center" role="list">
         <li>
-          <a href={contact.googleMaps} target="_blank" rel="noopener noreferrer" class="hover:text-[#d32f2f]" aria-label="Google Maps">
-            <i class="fab fa-google"></i>
+          <a href={contact.googleMaps} target="_blank" rel="noopener noreferrer" class="{linkClass} inline-flex items-center justify-center w-10 h-10" aria-label="Google Maps">
+            <i class="fab fa-google" aria-hidden="true"></i>
           </a>
         </li>
         <li>
-          <a href={contact.facebook} target="_blank" rel="noopener noreferrer" class="hover:text-[#d32f2f]" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
+          <a href={contact.facebook} target="_blank" rel="noopener noreferrer" class="{linkClass} inline-flex items-center justify-center w-10 h-10" aria-label="Facebook">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
           </a>
         </li>
         <li>
-          <a href={contact.instagram} target="_blank" rel="noopener noreferrer" class="hover:text-[#d32f2f]" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
+          <a href={contact.instagram} target="_blank" rel="noopener noreferrer" class="{linkClass} inline-flex items-center justify-center w-10 h-10" aria-label="Instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
           </a>
         </li>
       </ul>
