@@ -138,55 +138,110 @@
 
   const serviceAreasIntro =
     'We provide expert glass repair and replacement across the Greater Toronto Area.';
+  const serviceAreaLocations = (data.page.service_area_locations ?? []);
 </script>
 
-<main class="py-16">
-  <div class="container mx-auto px-4">
+<main class={isServiceAreasPage ? 'min-h-screen' : 'py-16'}>
+  {#if isServiceAreasPage}
+    <!-- Service Areas hero -->
+    <section class="relative bg-gradient-to-b from-neutral-800 to-neutral-900 text-white pt-20 pb-16 md:pt-24 md:pb-20 px-4 overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#d32f2f]/30 to-transparent"></div>
+      </div>
+      <div class="container mx-auto relative z-10 max-w-4xl">
+        <p class="text-sm uppercase tracking-widest text-neutral-300 mb-3">Coverage</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
+          Service areas
+        </h1>
+        <p class="text-lg md:text-xl text-neutral-200 max-w-2xl">
+          {serviceAreasIntro} Select your area for local emergency glass repair, window replacement, and more.
+        </p>
+      </div>
+    </section>
+  {/if}
+
+  <div class="container mx-auto px-4 {isServiceAreasPage ? 'py-14 md:py-20' : ''}">
     <div class="grid grid-cols-1 {isResource ? '' : 'lg:grid-cols-2'} gap-12">
       <div class="prose prose-lg max-w-none">
         {#if isResource}
           <a href={withInternalUtm('/resources', 'content')} class="inline-block text-[#d32f2f] font-semibold hover:underline mb-6">← Resources</a>
         {/if}
-        <nav class="mb-6 text-sm text-gray-600" aria-label="Breadcrumb">
-          <a href={withInternalUtm('/', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Home</a>
-          <span class="mx-2">/</span>
-          {#if isLocationPage}
-            <a href={withInternalUtm('/services', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Services</a>
+        {#if !isServiceAreasPage}
+          <nav class="mb-6 text-sm text-gray-600" aria-label="Breadcrumb">
+            <a href={withInternalUtm('/', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Home</a>
             <span class="mx-2">/</span>
-            <a href={withInternalUtm('/service-areas', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Service areas</a>
-            <span class="mx-2">/</span>
-          {:else if isResource}
-            <a href={withInternalUtm('/resources', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Resources</a>
-            <span class="mx-2">/</span>
-          {/if}
-          <span class="text-gray-800">{data.page.title.replace(/\s*[-–|]\s*OhMyGlass[^]*$/i, '').trim()}</span>
-        </nav>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
-          {data.page.title.replace(' - OhMyGlass.ca', '').replace(' – OhMyGlass.ca', '').replace(' - OhMyGlass', '').replace(' – OhMyGlass', '').replace(' | OhMyGlass', '')}
-        </h1>
+            {#if isLocationPage}
+              <a href={withInternalUtm('/services', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Services</a>
+              <span class="mx-2">/</span>
+              <a href={withInternalUtm('/service-areas', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Service areas</a>
+              <span class="mx-2">/</span>
+            {:else if isResource}
+              <a href={withInternalUtm('/resources', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Resources</a>
+              <span class="mx-2">/</span>
+            {/if}
+            <span class="text-gray-800">{data.page.title.replace(/\s*[-–|]\s*OhMyGlass[^]*$/i, '').trim()}</span>
+          </nav>
+        {/if}
+        {#if !isServiceAreasPage}
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
+            {data.page.title.replace(' - OhMyGlass.ca', '').replace(' – OhMyGlass.ca', '').replace(' - OhMyGlass', '').replace(' – OhMyGlass', '').replace(' | OhMyGlass', '')}
+          </h1>
+        {/if}
 
         {#if isServiceAreasPage}
-          <p class="text-gray-700 text-lg mb-8">{serviceAreasIntro}</p>
-          <ServiceArea showHeading={false} embed={true} />
-          <div class="mt-10">
-            <h2 class="text-xl font-semibold text-gray-800 mb-3">Our location & the GTA</h2>
-            <p class="text-gray-600 mb-4">OhMyGlass is based in North York and serves the Greater Toronto Area. View our location on the map.</p>
-            <div class="rounded-xl overflow-hidden border border-gray-200 shadow-lg bg-white">
+          <!-- Browse by area -->
+          <div class="mb-12">
+            <h2 class="text-xl font-semibold text-neutral-800 mb-3">Browse by area</h2>
+            <p class="text-neutral-600 mb-6">We serve the GTA. Choose your area for local glass repair and replacement services.</p>
+            {#if serviceAreaLocations.length > 0}
+              <nav class="flex flex-wrap gap-3" aria-label="Service areas">
+                {#each serviceAreaLocations as loc}
+                  <a
+                    href={withInternalUtm(`/${loc.slug}`, 'content')}
+                    class="inline-flex items-center px-5 py-2.5 bg-white border border-neutral-200 rounded-xl text-neutral-800 font-medium shadow-sm hover:bg-[#d32f2f] hover:text-white hover:border-[#d32f2f] transition-colors focus:outline-none focus:ring-2 focus:ring-[#d32f2f]/50 focus:ring-offset-2"
+                  >
+                    {loc.name}
+                  </a>
+                {/each}
+              </nav>
+            {:else}
+              <ServiceArea showHeading={false} embed={true} />
+            {/if}
+          </div>
+          <!-- Map -->
+          <div class="bg-white rounded-2xl border border-neutral-200 shadow-sm overflow-hidden">
+            <div class="p-6 pb-4">
+              <h2 class="text-xl font-semibold text-neutral-800 mb-2">Our location & the GTA</h2>
+              <p class="text-neutral-600 text-sm">OhMyGlass is based in North York and serves the Greater Toronto Area.</p>
+            </div>
+            <div class="aspect-[4/3] min-h-[300px]">
               <iframe
                 title="OhMyGlass location and Greater Toronto Area"
                 src={contact.googleMapsEmbedGtaSrc}
                 width="100%"
-                height="400"
+                height="100%"
+                class="w-full h-full min-h-[300px]"
                 style="border:0;"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
-            <p class="mt-3 text-sm text-gray-500">
-              <a href={contact.googleMaps} target="_blank" rel="noopener noreferrer" class="text-[#d32f2f] hover:underline">Open in Google Maps</a>
+            <p class="p-4 pt-3 text-sm text-neutral-500 border-t border-neutral-100">
+              <a href={contact.googleMaps} target="_blank" rel="noopener noreferrer" class="text-[#d32f2f] font-medium hover:underline">Open in Google Maps</a>
             </p>
           </div>
+          <!-- Service Areas CTA -->
+          <section class="mt-12 py-8 px-6 bg-neutral-800 text-white rounded-2xl">
+            <p class="text-lg font-semibold mb-4 m-0">Need glass repair in your area? We're available 24/7.</p>
+            <a
+              href={contact.phoneHref}
+              class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors"
+            >
+              <i class="fa-solid fa-phone"></i>
+              {contact.phone}
+            </a>
+          </section>
         {:else if hasSections}
           <div class="text-gray-700 space-y-6">
             {#each paragraphs as p}

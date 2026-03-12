@@ -19,56 +19,143 @@
 
 <script>
   import Footer from '$lib/components/Footer.svelte';
-  import { serviceCards } from '$lib/service-cards.js';
-  import { withInternalUtm } from '$lib/site-data.js';
+  import { getServicesByCategory } from '$lib/service-cards.js';
+  import { withInternalUtm, contact } from '$lib/site-data.js';
 
   /** @type {{ page: { title: string; seo?: { meta_description?: string; keywords?: string[] } }; serviceAreaLocations: Array<{ name: string; slug: string }> }} */
   export let data;
 
   const locations = data.serviceAreaLocations ?? [];
+  const serviceGroups = getServicesByCategory();
 </script>
 
-<main class="py-16">
-  <div class="container mx-auto px-4">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Expert Glass Repair Services Toronto & GTA</h1>
-      <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-        Professional glass repair specialists serving the Greater Toronto Area. We repair cracked, broken, and foggy glass – saving you 60-80% vs replacement. 24/7 emergency glass repair available.
-      </p>
+<main class="min-h-screen">
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-b from-neutral-800 to-neutral-900 text-white pt-20 pb-16 md:pt-24 md:pb-20 px-4 overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#d32f2f]/30 to-transparent"></div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {#each serviceCards as card}
+    <div class="container mx-auto relative z-10 max-w-4xl">
+      <p class="text-sm uppercase tracking-widest text-neutral-300 mb-3">Our services</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
+        Expert Glass Repair<br class="hidden sm:inline" /> Toronto & GTA
+      </h1>
+      <p class="text-lg md:text-xl text-neutral-200 max-w-2xl">
+        Professional glass repair specialists. We repair cracked, broken, and foggy glass – saving you 60–80% vs replacement. 24/7 emergency service available.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
         <a
-          href={card.href}
-          class="flex flex-col {card.priority
-            ? 'bg-red-600/20 backdrop-blur-lg shadow-lg overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border-2 border-red-500/30'
-            : 'bg-[#f5f7fa]/40 backdrop-blur-lg shadow-lg overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-white/20'}"
+          href={contact.phoneHref}
+          class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-semibold px-6 py-3 rounded-2xl transition-colors"
         >
-          <div class="p-6 flex flex-col flex-grow">
-            <div class="flex items-center mb-2">
-              {#if card.badge}
-                <span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full mr-2">{card.badge}</span>
-              {/if}
-              <h3 class="text-2xl font-bold {card.priority ? 'text-gray-800' : 'text-slate-900'} mb-2">{card.title}</h3>
-            </div>
-            <p class="text-gray-600 mb-4">{card.description}</p>
-            <span class="font-semibold {card.priority ? 'text-red-600' : 'text-gray-700'} group-hover:underline mt-auto">Learn More →</span>
-          </div>
+          <i class="fa-solid fa-phone"></i>
+          Call 24/7
         </a>
+        <a
+          href="/free-quote"
+          class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-2xl border border-white/20 transition-colors"
+        >
+          Get a free quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services by category -->
+  <section class="py-14 md:py-20 bg-[#f5f7fa]">
+    <div class="container mx-auto px-4">
+      {#each serviceGroups as { key, label, cards }}
+        <div class="mb-16 last:mb-0">
+          <h2 class="text-xl font-semibold uppercase tracking-wider text-neutral-600 mb-6 pl-1">
+            {label}
+          </h2>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 list-none p-0 m-0">
+            {#each cards as card}
+              <li class="flex">
+                <a
+                  href={card.href}
+                  class="group flex flex-col h-full w-full bg-white rounded-2xl p-6 shadow-sm border border-neutral-200/80 hover:border-[#d32f2f]/30 hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#d32f2f]/50 focus:ring-offset-2"
+                >
+                  <div class="flex items-start gap-4 flex-1 min-h-0">
+                    <span
+                      class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-lg {key === 'emergency'
+                        ? 'bg-[#d32f2f]/10 text-[#d32f2f]'
+                        : 'bg-neutral-100 text-neutral-600 group-hover:bg-[#d32f2f]/10 group-hover:text-[#d32f2f] transition-colors'}"
+                      aria-hidden="true"
+                    >
+                      {#if card.icon}
+                        <i class="fa-solid {card.icon}"></i>
+                      {:else}
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                      {/if}
+                    </span>
+                    <div class="min-w-0 flex-1">
+                      <div class="flex flex-wrap items-center gap-2 mb-1">
+                        {#if card.badge}
+                          <span
+                            class="text-xs font-semibold px-2 py-0.5 rounded-full {key === 'emergency'
+                              ? 'bg-[#d32f2f] text-white'
+                              : 'bg-neutral-200 text-neutral-700'}">{card.badge}</span>
+                          {/if}
+                        <h3 class="text-lg font-bold text-neutral-900 group-hover:text-[#d32f2f] transition-colors">
+                          {card.title}
+                        </h3>
+                      </div>
+                      <p class="text-neutral-600 text-sm leading-relaxed line-clamp-3">
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                  <span class="inline-flex items-center gap-1 mt-auto pt-4 text-sm font-semibold text-[#d32f2f] group-hover:gap-2 transition-all">
+                    Learn more
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                  </span>
+                </a>
+              </li>
+            {/each}
+          </ul>
+        </div>
       {/each}
     </div>
-    {#if locations.length > 0}
-      <section class="mt-16 pt-12 border-t border-gray-200">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Services by area</h2>
-        <p class="text-gray-600 text-center mb-6 max-w-xl mx-auto">We serve the Greater Toronto Area. Select your area for local emergency glass repair and more.</p>
-        <ul class="flex flex-wrap gap-3 justify-center">
+  </section>
+
+  <!-- Services by area -->
+  {#if locations.length > 0}
+    <section class="py-14 md:py-20 bg-white border-t border-neutral-200">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-neutral-800 mb-2">Services by area</h2>
+        <p class="text-neutral-600 max-w-xl mx-auto mb-8">
+          We serve the Greater Toronto Area. Select your area for local emergency glass repair and more.
+        </p>
+        <nav class="flex flex-wrap gap-3 justify-center" aria-label="Service areas">
           {#each locations as loc}
-            <li><a href={withInternalUtm(`/${loc.slug}`, 'services')} class="inline-block px-4 py-2 bg-white/80 border border-gray-200 rounded-lg text-gray-800 hover:border-[#d32f2f] hover:text-[#d32f2f] transition-colors">{loc.name}</a></li>
+            <a
+              href={withInternalUtm(`/${loc.slug}`, 'services')}
+              class="inline-flex items-center px-5 py-2.5 bg-neutral-100 hover:bg-[#d32f2f] hover:text-white text-neutral-800 font-medium rounded-xl transition-colors focus:outline-none focus:ring-2 focus:ring-[#d32f2f]/50 focus:ring-offset-2"
+            >
+              {loc.name}
+            </a>
           {/each}
-        </ul>
-      </section>
-    {/if}
-  </div>
+        </nav>
+      </div>
+    </section>
+  {/if}
+
+  <!-- CTA strip -->
+  <section class="py-10 md:py-12 bg-neutral-800 text-white">
+    <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-center sm:text-left">
+      <p class="text-lg font-semibold m-0">
+        Need help now? We're available 24/7 for emergency glass repair.
+      </p>
+      <a
+        href={contact.phoneHref}
+        class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors whitespace-nowrap"
+      >
+        <i class="fa-solid fa-phone"></i>
+        {contact.phone}
+      </a>
+    </div>
+  </section>
 </main>
 
 <Footer serviceLinksOrder="index" />
