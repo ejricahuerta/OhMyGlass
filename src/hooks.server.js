@@ -1,0 +1,40 @@
+/**
+ * Server hooks for SEO and URL normalization.
+ * - 301 www → non-www so canonical (ohmyglass.ca) matches the only served host.
+ * - 301 trailing slash → no trailing slash (except for "/").
+ * - 301 .html URLs → clean path so one URL per page.
+ */
+
+const CANONICAL_HOST = 'ohmyglass.ca';
+
+/** @type {import('@sveltejs/kit').Handle} */
+export async function handle({ event, resolve }) {
+  const url = event.url;
+  const host = url.hostname.toLowerCase();
+  const pathname = url.pathname;
+  const search = url.search;
+  const hash = url.hash;
+
+  // 1. Redirect www to non-www (301) so GSC "Alternate page with proper canonical" goes away
+  if (host === 'www.ohmyglass.ca') {
+    const target = new URL(url);
+    target.hostname = CANONICAL_HOST;
+    return new Response(null, { status: 301, headers: { Location: target.toString() } });
+  }
+
+  // 2. Redirect trailing slash to no trailing slash (except "/")
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    const cleanPath = pathname.slice(0, -1);
+    const location = cleanPath + search + hash;
+    return new Response(null, { status: 301, headers: { Location: location } });
+  }
+
+  // 3. Redirect .html to clean path (301)
+  if (pathname.endsWith('.html')) {
+    const cleanPath = pathname.slice(0, -5);
+    const location = cleanPath + search + hash;
+    return new Response(null, { status: 301, headers: { Location: location } });
+  }
+
+  return resolve(event);
+}

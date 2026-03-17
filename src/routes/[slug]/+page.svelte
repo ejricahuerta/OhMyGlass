@@ -4,17 +4,17 @@
   <meta name="keywords" content={Array.isArray(data.page.seo?.keywords) ? data.page.seo.keywords.join(', ') : ''} />
   <meta property="og:title" content={data.page.title} />
   <meta property="og:description" content={metaDescription} />
-  <meta property="og:image" content="https://ohmyglass.ca/images/og-image.jpg" />
+  <meta property="og:image" content={ogImage} />
   <meta property="fb:app_id" content="966242223397117" />
   <meta property="og:site_name" content="OhMyGlass" />
-  <meta property="og:url" content="https://ohmyglass.ca/{data.slug}" />
+  <meta property="og:url" content={siteUrl + '/' + data.slug} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={pageTitle} />
   <meta name="twitter:description" content={metaDescription} />
-  <meta name="twitter:image" content="https://ohmyglass.ca/images/og-image.jpg" />
+  <meta name="twitter:image" content={ogImage} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_CA" />
-  <link rel="canonical" href="https://ohmyglass.ca/{data.slug}" />
+  <link rel="canonical" href={siteUrl + '/' + data.slug} />
   <!-- JSON-LD: single @graph to avoid "Duplicate field FAQPage" in Search Console -->
   {@html jsonLdGraphScriptTag}
 </svelte:head>
@@ -23,7 +23,7 @@
   import ServiceArea from '$lib/components/ServiceArea.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import ContentPageForm from '$lib/components/ContentPageForm.svelte';
-  import { contact, withInternalUtm } from '$lib/site-data.js';
+  import { contact, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
   import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema, getJsonLdGraphScriptTag } from '$lib/schema.js';
 
   /** @type {{ page: { title: string; type?: string; seo?: { meta_description?: string; keywords?: string[] }; pagecontent: string; service_area_locations?: Array<{ name: string; slug: string }>; sections?: Array<{ heading: string; level?: number; content?: string; list?: string[] }> }; slug: string }} */
@@ -51,11 +51,11 @@
     '@type': 'Article',
     headline: data.page.title.replace(/ - OhMyGlass\.ca$| – OhMyGlass\.ca$| - OhMyGlass$| – OhMyGlass$| \| OhMyGlass$/i, '').trim(),
     description: data.page.seo?.meta_description ?? data.page.title,
-    url: `https://ohmyglass.ca/${data.slug}`,
-    author: { '@type': 'Organization', name: 'OhMyGlass', url: 'https://ohmyglass.ca', telephone: '+16478032730', areaServed: 'Greater Toronto Area' },
+    url: `${siteUrl}/${data.slug}`,
+    author: { '@type': 'Organization', name: 'OhMyGlass', url: siteUrl, telephone: '+16478032730', areaServed: 'Greater Toronto Area' },
     datePublished: '2025-02-24',
     dateModified: '2025-02-24',
-    publisher: { '@type': 'Organization', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }
+    publisher: { '@type': 'Organization', name: 'OhMyGlass', url: siteUrl }
   } : null;
 
   const serviceSchema = data.page.type === 'service' ? getServiceSchema({

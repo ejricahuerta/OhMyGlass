@@ -5,20 +5,20 @@
   <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high" />
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ohmyglass.ca/" />
+  <meta property="og:url" content={siteUrl + '/'} />
   <meta property="og:title" content="OhMyGlass | Replacement Windows & Glass Repair Toronto & GTA - Free Quote, 24/7" />
   <meta property="og:description" content="Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass." />
-  <meta property="og:image" content="https://ohmyglass.ca/images/og-image.jpg" />
+  <meta property="og:image" content={ogImage} />
   <meta property="fb:app_id" content="966242223397117" />
   <meta property="og:site_name" content="OhMyGlass" />
   <meta property="og:locale" content="en_CA" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://ohmyglass.ca/" />
+  <meta name="twitter:url" content={siteUrl + '/'} />
   <meta name="twitter:title" content="OhMyGlass | Replacement Windows & Glass Repair Toronto & GTA" />
   <meta name="twitter:description" content="Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass." />
-  <meta name="twitter:image" content="https://ohmyglass.ca/images/og-image.jpg" />
-  <link rel="canonical" href="https://ohmyglass.ca/" />
+  <meta name="twitter:image" content={ogImage} />
+  <link rel="canonical" href={siteUrl + '/'} />
   <!-- Schema: LocalBusiness + Service list (injected raw so JSON is not escaped) -->
   {@html getJsonLdScriptTag(getLocalBusinessSchema())}
   {@html getJsonLdScriptTag(homeServiceSchemas)}
@@ -27,14 +27,14 @@
 <script>
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
-  import { contact, withInternalUtm } from '$lib/site-data.js';
+  import { contact, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
   import { getLocalBusinessSchema, getJsonLdScriptTag } from '$lib/schema.js';
 
   const homeServiceSchemas = [
-    { '@context': 'https://schema.org', '@type': 'Service', name: 'Emergency Glass Repair', description: '24/7 emergency glass repair for broken or shattered windows and doors across Toronto & GTA. Fast response, board-up, and permanent replacement.', url: 'https://ohmyglass.ca/emergency-glass-repair', provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }, areaServed: 'Greater Toronto Area' },
-    { '@context': 'https://schema.org', '@type': 'Service', name: 'Window Glass Replacement', description: 'Window glass replacement for residential and commercial properties in Toronto & GTA. Cracked, foggy, or broken panes – repair or replace.', url: 'https://ohmyglass.ca/window-glass-replacement', provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }, areaServed: 'Greater Toronto Area' },
-    { '@context': 'https://schema.org', '@type': 'Service', name: 'Residential Window Repair', description: 'Residential window repair across Toronto & GTA. Save 60-80% vs full replacement. Cracked, foggy, and broken window repair.', url: 'https://ohmyglass.ca/residential-window-repair', provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }, areaServed: 'Greater Toronto Area' },
-    { '@context': 'https://schema.org', '@type': 'Service', name: 'Commercial Glass Repair', description: 'Commercial and storefront glass repair in Toronto & GTA. Storefronts, offices, safety glass. Fast, professional service.', url: 'https://ohmyglass.ca/commercial-glass-repair', provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: 'https://ohmyglass.ca' }, areaServed: 'Greater Toronto Area' }
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'Emergency Glass Repair', description: '24/7 emergency glass repair for broken or shattered windows and doors across Toronto & GTA. Fast response, board-up, and permanent replacement.', url: `${siteUrl}/emergency-glass-repair`, provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: siteUrl }, areaServed: 'Greater Toronto Area' },
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'Window Glass Replacement', description: 'Window glass replacement for residential and commercial properties in Toronto & GTA. Cracked, foggy, or broken panes – repair or replace.', url: `${siteUrl}/window-glass-replacement`, provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: siteUrl }, areaServed: 'Greater Toronto Area' },
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'Residential Window Repair', description: 'Residential window repair across Toronto & GTA. Save 60-80% vs full replacement. Cracked, foggy, and broken window repair.', url: `${siteUrl}/residential-window-repair`, provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: siteUrl }, areaServed: 'Greater Toronto Area' },
+    { '@context': 'https://schema.org', '@type': 'Service', name: 'Commercial Glass Repair', description: 'Commercial and storefront glass repair in Toronto & GTA. Storefronts, offices, safety glass. Fast, professional service.', url: `${siteUrl}/commercial-glass-repair`, provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: siteUrl }, areaServed: 'Greater Toronto Area' }
   ];
 </script>
 

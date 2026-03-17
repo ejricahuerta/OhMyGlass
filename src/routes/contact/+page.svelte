@@ -4,17 +4,17 @@
   <meta name="keywords" content="contact ohmyglass, glass repair contact, window replacement contact, GTA glass services" />
   <meta property="og:title" content="Contact OhMyGlass" />
   <meta property="og:description" content="Get in touch with OhMyGlass for professional glass services in the Greater Toronto Area. We look forward to hearing from you." />
-  <meta property="og:image" content="https://ohmyglass.ca/images/og-image.jpg" />
+  <meta property="og:image" content={ogImage} />
   <meta property="fb:app_id" content="966242223397117" />
   <meta property="og:site_name" content="OhMyGlass" />
-  <meta property="og:url" content="https://ohmyglass.ca/contact" />
+  <meta property="og:url" content={siteUrl + '/contact'} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact Us" />
   <meta name="twitter:description" content="Get in touch with OhMyGlass for professional glass services in the Greater Toronto Area. We look forward to hearing from you." />
-  <meta name="twitter:image" content="https://ohmyglass.ca/images/og-image.jpg" />
+  <meta name="twitter:image" content={ogImage} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_CA" />
-  <link rel="canonical" href="https://ohmyglass.ca/contact" />
+  <link rel="canonical" href={siteUrl + '/contact'} />
   {@html getJsonLdScriptTag(contactPageSchema)}
   {@html getJsonLdScriptTag(contactBreadcrumbSchema)}
 </svelte:head>
@@ -23,7 +23,7 @@
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { getBreadcrumbSchema, getJsonLdScriptTag } from '$lib/schema.js';
-  import { nap, withInternalUtm } from '$lib/site-data.js';
+  import { nap, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
 
   const contactBreadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -34,7 +34,7 @@
     '@type': 'ContactPage',
     name: 'Contact Us - OhMyGlass',
     description: 'Contact OhMyGlass for professional glass repair and replacement services in the Greater Toronto Area.',
-    url: 'https://ohmyglass.ca/contact',
+    url: siteUrl + '/contact',
     mainEntity: {
       '@type': 'LocalBusiness',
       name: nap.name,
@@ -47,7 +47,7 @@
         addressRegion: nap.address.addressRegion,
         addressCountry: nap.address.addressCountry
       },
-      url: 'https://ohmyglass.ca'
+      url: siteUrl
     }
   };
 </script>

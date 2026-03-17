@@ -4,23 +4,23 @@
   <meta name="keywords" content={Array.isArray(data.page.seo?.keywords) ? data.page.seo.keywords.join(', ') : ''} />
   <meta property="og:title" content={data.page.title} />
   <meta property="og:description" content={data.page.seo?.meta_description ?? data.page.title} />
-  <meta property="og:image" content="https://ohmyglass.ca/images/og-image.jpg" />
+  <meta property="og:image" content={ogImage} />
   <meta property="fb:app_id" content="966242223397117" />
   <meta property="og:site_name" content="OhMyGlass" />
-  <meta property="og:url" content="https://ohmyglass.ca/services" />
+  <meta property="og:url" content={siteUrl + '/services'} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Expert Glass Repair Services Toronto & GTA" />
   <meta name="twitter:description" content={data.page.seo?.meta_description ?? data.page.title} />
-  <meta name="twitter:image" content="https://ohmyglass.ca/images/og-image.jpg" />
+  <meta name="twitter:image" content={ogImage} />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_CA" />
-  <link rel="canonical" href="https://ohmyglass.ca/services" />
+  <link rel="canonical" href={siteUrl + '/services'} />
 </svelte:head>
 
 <script>
   import Footer from '$lib/components/Footer.svelte';
   import { getServicesByCategory } from '$lib/service-cards.js';
-  import { withInternalUtm, contact } from '$lib/site-data.js';
+  import { withInternalUtm, contact, siteUrl, ogImage } from '$lib/site-data.js';
 
   /** @type {{ page: { title: string; seo?: { meta_description?: string; keywords?: string[] } }; serviceAreaLocations: Array<{ name: string; slug: string }> }} */
   export let data;
