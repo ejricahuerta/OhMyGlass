@@ -38,6 +38,26 @@ export const serviceCards = [
     icon: 'fa-house'
   },
   {
+    href: withInternalUtm('/window-repair-toronto', 'services'),
+    badge: 'TORONTO',
+    title: 'Window Repair Toronto',
+    description:
+      'Same-day window repair in Toronto for cracked, broken, and foggy glass. Repair-first service that saves 60-80% vs replacement.',
+    priority: true,
+    category: 'residential',
+    icon: 'fa-location-dot'
+  },
+  {
+    href: withInternalUtm('/window-repair-north-york', 'services'),
+    badge: 'NORTH YORK',
+    title: 'Window Repair North York',
+    description:
+      'Fast and affordable window repair in North York for homes, condos, and businesses. 24/7 emergency response available.',
+    priority: true,
+    category: 'residential',
+    icon: 'fa-map-pin'
+  },
+  {
     href: withInternalUtm('/commercial-glass-repair', 'services'),
     badge: 'REPAIR',
     title: 'Commercial Glass Repair',
@@ -100,6 +120,16 @@ export const serviceCards = [
       'Upgrade your home or business with our high-quality window glass replacement services.',
     category: 'residential',
     icon: 'fa-square'
+  },
+  {
+    href: withInternalUtm('/glass-replacement-toronto', 'services'),
+    badge: 'TORONTO',
+    title: 'Glass Replacement Toronto',
+    description:
+      'Expert glass replacement in Toronto for residential and commercial windows with same-day options and clear pricing.',
+    priority: true,
+    category: 'residential',
+    icon: 'fa-city'
   },
   {
     href: withInternalUtm('/double-pane-window-replacement', 'services'),

@@ -158,6 +158,38 @@
   </div>
 </section>
 
+<!-- Priority Landing Pages -->
+<section class="relative bg-[#f5f7fa] py-10">
+  <div class="container mx-auto px-4">
+    <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+      <h3 class="text-center text-xl md:text-2xl font-semibold text-gray-800 mb-3">Popular Toronto Area Pages</h3>
+      <p class="text-center text-gray-600 mb-6">
+        Explore our highest-priority service pages for Toronto and North York.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+        <a
+          href={withInternalUtm('/window-repair-toronto', 'home')}
+          class="inline-flex items-center px-5 py-2.5 bg-neutral-100 hover:bg-[#d32f2f] hover:text-white text-neutral-800 font-medium rounded-xl transition-colors"
+        >
+          Window Repair Toronto
+        </a>
+        <a
+          href={withInternalUtm('/window-repair-north-york', 'home')}
+          class="inline-flex items-center px-5 py-2.5 bg-neutral-100 hover:bg-[#d32f2f] hover:text-white text-neutral-800 font-medium rounded-xl transition-colors"
+        >
+          Window Repair North York
+        </a>
+        <a
+          href={withInternalUtm('/glass-replacement-toronto', 'home')}
+          class="inline-flex items-center px-5 py-2.5 bg-neutral-100 hover:bg-[#d32f2f] hover:text-white text-neutral-800 font-medium rounded-xl transition-colors"
+        >
+          Glass Replacement Toronto
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Divider Section -->
 <section class="relative bg-[#f5f7fa] py-16">
   <div class="container mx-auto px-4">

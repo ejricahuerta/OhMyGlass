@@ -10,10 +10,12 @@ const CANONICAL_HOST = 'ohmyglass.ca';
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
   const url = event.url;
+  const requestUrl = new URL(event.request.url);
   const host = url.hostname.toLowerCase();
   const pathname = url.pathname;
-  const search = url.search;
-  const hash = url.hash;
+  // Read query from the raw request URL to remain prerender-safe.
+  // (event.url.search access throws during prerender in SvelteKit)
+  const search = requestUrl.search;
 
   // 1. Redirect www to non-www (301) so GSC "Alternate page with proper canonical" goes away
   if (host === 'www.ohmyglass.ca') {
@@ -25,14 +27,14 @@ export async function handle({ event, resolve }) {
   // 2. Redirect trailing slash to no trailing slash (except "/")
   if (pathname.length > 1 && pathname.endsWith('/')) {
     const cleanPath = pathname.slice(0, -1);
-    const location = cleanPath + search + hash;
+    const location = cleanPath + search;
     return new Response(null, { status: 301, headers: { Location: location } });
   }
 
   // 3. Redirect .html to clean path (301)
   if (pathname.endsWith('.html')) {
     const cleanPath = pathname.slice(0, -5);
-    const location = cleanPath + search + hash;
+    const location = cleanPath + search;
     return new Response(null, { status: 301, headers: { Location: location } });
   }
 
