@@ -25,6 +25,9 @@ export const navLinks = [
 /** @type {Array<{ label: string; href: string }>} */
 export const footerServicesIndexOrder = [
   { label: 'Emergency Glass Repair', href: withInternalUtm('/emergency-glass-repair', 'footer') },
+  { label: 'Window Repair Toronto', href: withInternalUtm('/window-repair-toronto', 'footer') },
+  { label: 'Window Repair North York', href: withInternalUtm('/window-repair-north-york', 'footer') },
+  { label: 'Glass Replacement Toronto', href: withInternalUtm('/glass-replacement-toronto', 'footer') },
   { label: 'Broken Window Repair', href: withInternalUtm('/broken-window-repair', 'footer') },
   { label: 'Residential Window Repair', href: withInternalUtm('/residential-window-repair', 'footer') },
   { label: 'Commercial Glass Repair', href: withInternalUtm('/commercial-glass-repair', 'footer') },
@@ -38,6 +41,9 @@ export const footerServicesIndexOrder = [
 /** Footer service links - contact/free-quote order (Window Glass Replacement first) */
 /** @type {Array<{ label: string; href: string }>} */
 export const footerServicesDefaultOrder = [
+  { label: 'Window Repair Toronto', href: withInternalUtm('/window-repair-toronto', 'footer') },
+  { label: 'Window Repair North York', href: withInternalUtm('/window-repair-north-york', 'footer') },
+  { label: 'Glass Replacement Toronto', href: withInternalUtm('/glass-replacement-toronto', 'footer') },
   { label: 'Window Glass Replacement', href: withInternalUtm('/window-glass-replacement', 'footer') },
   { label: 'Emergency Glass Repair', href: withInternalUtm('/emergency-glass-repair', 'footer') },
   { label: 'Residential Window Repair', href: withInternalUtm('/residential-window-repair', 'footer') },

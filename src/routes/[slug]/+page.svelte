@@ -242,6 +242,31 @@
               {contact.phone}
             </a>
           </section>
+          <!-- Priority SEO landing pages -->
+          <section class="mt-8 py-8 px-6 bg-white border border-neutral-200 rounded-2xl">
+            <h2 class="text-xl font-semibold text-neutral-800 mb-2">Popular Toronto area pages</h2>
+            <p class="text-neutral-600 mb-4">Quick links to our highest-priority local service pages.</p>
+            <div class="flex flex-wrap gap-3">
+              <a
+                href={withInternalUtm('/window-repair-toronto', 'content')}
+                class="inline-flex items-center px-4 py-2 rounded-xl bg-neutral-100 hover:bg-[#d32f2f] hover:text-white text-neutral-800 font-medium transition-colors"
+              >
+                Window Repair Toronto
+              </a>
+              <a
+                href={withInternalUtm('/window-repair-north-york', 'content')}
+                class="inline-flex items-center px-4 py-2 rounded-xl bg-neutral-100 hover:bg-[#d32f2f] hover:text-white text-neutral-800 font-medium transition-colors"
+              >
+                Window Repair North York
+              </a>
+              <a
+                href={withInternalUtm('/glass-replacement-toronto', 'content')}
+                class="inline-flex items-center px-4 py-2 rounded-xl bg-neutral-100 hover:bg-[#d32f2f] hover:text-white text-neutral-800 font-medium transition-colors"
+              >
+                Glass Replacement Toronto
+              </a>
+            </div>
+          </section>
         {:else if hasSections}
           <div class="text-gray-700 space-y-6">
             {#each paragraphs as p}
