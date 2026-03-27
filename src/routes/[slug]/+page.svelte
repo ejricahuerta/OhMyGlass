@@ -64,8 +64,79 @@
     url: `/${data.slug}`
   }) : null;
 
+  const CUSTOM_RESOURCE_FAQ_QUESTIONS = {
+    'how-to-tell-if-window-seal-is-broken': [
+      {
+        '@type': 'Question',
+        name: 'What is actually happening when my window looks foggy?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Modern windows have two or three layers of glass with a sealed gap between them for insulation. When the seal fails, outside air gets in and moisture settles permanently between the panes, creating a hazy look that cleaning will not fix.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I tell if it is a seal failure or just condensation?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'If fog wipes away from the inside or outside, it is normal condensation. If it stays after cleaning both surfaces, the seal is broken and the moisture is inside the glass unit.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Can I fix a broken window seal without replacing the whole window?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. OhMyGlass replaces only the failed glass unit while keeping your existing frame, trim, and hardware. This usually costs much less than a full window replacement.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'When do I actually need a full window replacement?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A full replacement is usually needed only when the frame is damaged, such as severe rot or warping that prevents proper window operation.'
+        }
+      }
+    ],
+    'window-glass-replacement-cost-gta': [
+      {
+        '@type': 'Question',
+        name: 'What is the difference between glass repair and full window replacement?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A glass repair replaces only the glass unit while keeping your existing frame, trim, and hardware. Full replacement is a full tear-out and is usually needed only when the frame is rotted, warped, or structurally compromised.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'What affects the cost of window glass repair in Toronto?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Main factors include job type and complexity, glass type, floor level and access, frame condition, and whether the work is scheduled or emergency.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Why do you not give quotes over the phone?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Each window is different. Dimensions, glass configuration, frame condition, and access all affect the final quote. We provide free, no-obligation on-site quotes so there are no surprises.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you charge for quotes?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. We provide free quotes for glass repair and replacement jobs across Toronto and the GTA.'
+        }
+      }
+    ]
+  };
+
   // FAQPage: sections whose heading is a question (ends with ?)
-  const faqQuestions = (data.page.sections || [])
+  const faqQuestions = CUSTOM_RESOURCE_FAQ_QUESTIONS[data.slug] ?? (data.page.sections || [])
     .filter((s) => s.heading && (s.heading.trim().endsWith('?') || s.heading.trim().startsWith('What ') || s.heading.trim().startsWith('How ') || s.heading.trim().startsWith('Why ') || s.heading.trim().startsWith('When ') || s.heading.trim().startsWith('Which ')))
     .slice(0, 10)
     .map((s) => ({
@@ -180,6 +251,16 @@
     ],
     'broken-window-repair': [
       { href: '/window-repair-cost', label: 'Window Repair Cost Guide' }
+    ],
+    'how-to-tell-if-window-seal-is-broken': [
+      { href: '/foggy-window-repair', label: 'Foggy window repair' },
+      { href: '/residential-window-repair', label: 'Residential window repair' },
+      { href: '/window-repair-cost', label: 'Window repair cost' }
+    ],
+    'window-glass-replacement-cost-gta': [
+      { href: '/broken-window-repair', label: 'Broken window repair' },
+      { href: '/foggy-window-repair', label: 'Foggy window repair' },
+      { href: '/emergency-glass-repair', label: 'Emergency glass repair' }
     ]
   };
   const relatedPageLinks = RELATED_PAGE_LINKS[data.slug] ?? [];
