@@ -12,3 +12,4 @@ docs/*
 
 node_modules/*
 .vercel
+keys.json
