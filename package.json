@@ -7,7 +7,13 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "generate:bogus-paths": "node scripts/generate-bogus-paths.js"
+    "generate:bogus-paths": "node scripts/generate-bogus-paths.js",
+    "gbp:auth:login": "node scripts/gbp-auth.js login",
+    "gbp:auth:url": "node scripts/gbp-auth.js url",
+    "gbp:auth:exchange": "node scripts/gbp-auth.js exchange",
+    "discover:gbp": "node scripts/discover-gbp-ids.js",
+    "sync:gbp": "node scripts/sync-gbp.js",
+    "sync:gbp:apply": "node scripts/sync-gbp.js --apply"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.8",

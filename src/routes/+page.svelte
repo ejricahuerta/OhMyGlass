@@ -25,6 +25,7 @@
 </svelte:head>
 
 <script>
+  import { onMount } from 'svelte';
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { contact, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
@@ -36,6 +37,46 @@
     { '@context': 'https://schema.org', '@type': 'Service', name: 'Residential Window Repair', description: 'Residential window repair across Toronto & GTA. Save 60-80% vs full replacement. Cracked, foggy, and broken window repair.', url: `${siteUrl}/residential-window-repair`, provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: siteUrl }, areaServed: 'Greater Toronto Area' },
     { '@context': 'https://schema.org', '@type': 'Service', name: 'Commercial Glass Repair', description: 'Commercial and storefront glass repair in Toronto & GTA. Storefronts, offices, safety glass. Fast, professional service.', url: `${siteUrl}/commercial-glass-repair`, provider: { '@type': 'LocalBusiness', name: 'OhMyGlass', url: siteUrl }, areaServed: 'Greater Toronto Area' }
   ];
+
+  const reviewWidgetIds = [
+    '4b4d3af7-795e-4314-825d-10a0237c35be',
+    '377d5892-86fd-4760-96cb-f660a82102ed',
+  ];
+  let activeReviewWidgetIndex = 0;
+  let primaryReviewContainer;
+  let fallbackReviewContainer;
+
+  const isReviewWidgetLoaded = (container) => {
+    if (!container) return false;
+    return Boolean(
+      container.querySelector('iframe') ||
+      container.querySelector('[class*="eapps"]')
+    );
+  };
+
+  onMount(() => {
+    const maxWaitMs = 8000;
+    const pollMs = 500;
+    const startTime = Date.now();
+
+    const intervalId = setInterval(() => {
+      if (isReviewWidgetLoaded(primaryReviewContainer)) {
+        activeReviewWidgetIndex = 0;
+        clearInterval(intervalId);
+        return;
+      }
+
+      const hasTimedOut = Date.now() - startTime >= maxWaitMs;
+      if (isReviewWidgetLoaded(fallbackReviewContainer) || hasTimedOut) {
+        activeReviewWidgetIndex = 1;
+        clearInterval(intervalId);
+      }
+    }, pollMs);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  });
 </script>
 
 <!-- Hero Section -->
@@ -116,7 +157,7 @@
           </div>
         </div>
       </a>
-      <a href={withInternalUtm('/aluminum-storefront', 'home')} class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
+      <a href={withInternalUtm('/storefront-glass-repair', 'home')} class="group relative h-72 flex flex-col items-center justify-end overflow-hidden shadow hover:scale-105 transition-transform duration-300">
         <picture>
           <source srcset="/images/aluminum-storefront.webp" type="image/webp" />
           <img src="/images/aluminum-storefront.jpg" alt="Commercial aluminum storefront glass repair and installation" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" />
@@ -185,6 +226,12 @@
         >
           Glass Replacement Toronto
         </a>
+        <a
+          href={withInternalUtm('/window-repair-cost', 'home')}
+          class="inline-flex items-center px-5 py-2.5 bg-neutral-100 hover:bg-[#d32f2f] hover:text-white text-neutral-800 font-medium rounded-xl transition-colors"
+        >
+          Window Repair Cost Guide
+        </a>
       </div>
     </div>
   </div>
@@ -246,8 +293,13 @@
 <section id="reviews" class="relative w-full mx-auto py-20 px-4 md:px-0">
   <div class="p-14 mx-auto text-center">
     <h2 class="text-4xl font-bold text-[#2c3a43] mb-8">What Our Customers Say</h2>
-    <script src="https://static.elfsight.com/platform/platform.js" async></script>
-    <div class="elfsight-app-377d5892-86fd-4760-96cb-f660a82102ed" data-elfsight-app-lazy></div>
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div bind:this={primaryReviewContainer} class={activeReviewWidgetIndex === 0 ? 'block' : 'hidden'}>
+      <div class={`elfsight-app-${reviewWidgetIds[0]}`} data-elfsight-app-lazy></div>
+    </div>
+    <div bind:this={fallbackReviewContainer} class={activeReviewWidgetIndex === 1 ? 'block' : 'hidden'}>
+      <div class={`elfsight-app-${reviewWidgetIds[1]}`} data-elfsight-app-lazy></div>
+    </div>
   </div>
 </section>
 

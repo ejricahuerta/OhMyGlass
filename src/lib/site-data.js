@@ -33,6 +33,9 @@ export const footerServicesIndexOrder = [
   { label: 'Commercial Glass Repair', href: withInternalUtm('/commercial-glass-repair', 'footer') },
   { label: 'Foggy Window Repair', href: withInternalUtm('/foggy-window-repair', 'footer') },
   { label: 'Storefront Glass Repair', href: withInternalUtm('/storefront-glass-repair', 'footer') },
+  { label: 'Shower Glass Repair', href: withInternalUtm('/shower-glass-repair', 'footer') },
+  { label: 'Patio Door Repair', href: withInternalUtm('/patio-door-repair', 'footer') },
+  { label: 'Sliding Door Repair', href: withInternalUtm('/sliding-door-repair', 'footer') },
   { label: 'Window & Door Hardware', href: withInternalUtm('/window-and-door-hardware-repairs', 'footer') },
   { label: 'Window Glass Replacement', href: withInternalUtm('/window-glass-replacement', 'footer') },
   { label: 'Double Pane Replacement', href: withInternalUtm('/double-pane-window-replacement', 'footer') }
@@ -49,6 +52,9 @@ export const footerServicesDefaultOrder = [
   { label: 'Residential Window Repair', href: withInternalUtm('/residential-window-repair', 'footer') },
   { label: 'Commercial Glass Repair', href: withInternalUtm('/commercial-glass-repair', 'footer') },
   { label: 'Foggy Window Repair', href: withInternalUtm('/foggy-window-repair', 'footer') },
+  { label: 'Shower Glass Repair', href: withInternalUtm('/shower-glass-repair', 'footer') },
+  { label: 'Patio Door Repair', href: withInternalUtm('/patio-door-repair', 'footer') },
+  { label: 'Sliding Door Repair', href: withInternalUtm('/sliding-door-repair', 'footer') },
   { label: 'Broken Window Repair', href: withInternalUtm('/broken-window-repair', 'footer') },
   { label: 'Double Pane Replacement', href: withInternalUtm('/double-pane-window-replacement', 'footer') },
   { label: 'Storefront Glass Repair', href: withInternalUtm('/storefront-glass-repair', 'footer') },
@@ -130,7 +136,7 @@ export const contact = {
 export const tallyFormSrc = 'https://tally.so/embed/wMl6y0?ref=Tally&hideTitle=1&dynamicHeight=1';
 
 /** Site base URL for canonical/OG */
-export const siteUrl = 'https://ohmyglass.ca';
+export const siteUrl = 'https://www.ohmyglass.ca';
 
 /** OG image path */
-export const ogImage = 'https://ohmyglass.ca/images/og-image.jpg';
+export const ogImage = 'https://www.ohmyglass.ca/images/og-image.jpg';

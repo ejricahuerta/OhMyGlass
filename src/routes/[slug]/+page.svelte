@@ -139,6 +139,50 @@
   const serviceAreasIntro =
     'We provide expert glass repair and replacement across the Greater Toronto Area.';
   const serviceAreaLocations = (data.page.service_area_locations ?? []);
+  const serviceAreaSectionSlugs = new Set([
+    'broken-window-repair',
+    'residential-window-repair',
+    'foggy-window-repair',
+    'commercial-glass-repair',
+    'storefront-glass-repair'
+  ]);
+  const hasExplicitAreasSection = (data.page.sections || []).some((section) =>
+    /areas?\s+we\s+serve|service\s+areas?/i.test(section.heading || '')
+  );
+  const shouldShowServiceAreaAboveForm =
+    data.page.type === 'service' &&
+    serviceAreaSectionSlugs.has(data.slug) &&
+    !isGenericServiceWithAreas &&
+    !hasExplicitAreasSection;
+
+  const RELATED_PAGE_LINKS = {
+    'shower-glass-repair': [
+      { href: '/patio-door-repair', label: 'Patio Door Repair' },
+      { href: '/door-repairs', label: 'Door Repairs' },
+      { href: '/broken-window-repair', label: 'Broken Window Repair' }
+    ],
+    'patio-door-repair': [
+      { href: '/sliding-door-repair', label: 'Sliding Door Repair' }
+    ],
+    'sliding-door-repair': [
+      { href: '/patio-door-repair', label: 'Patio Door Repair' }
+    ],
+    'door-repairs': [
+      { href: '/shower-glass-repair', label: 'Shower Glass Repair' },
+      { href: '/patio-door-repair', label: 'Patio Door Repair' },
+      { href: '/sliding-door-repair', label: 'Sliding Door Repair' }
+    ],
+    'residential-window-repair': [
+      { href: '/window-repair-cost', label: 'Window Repair Cost Guide' }
+    ],
+    'foggy-window-repair': [
+      { href: '/window-repair-cost', label: 'Window Repair Cost Guide' }
+    ],
+    'broken-window-repair': [
+      { href: '/window-repair-cost', label: 'Window Repair Cost Guide' }
+    ]
+  };
+  const relatedPageLinks = RELATED_PAGE_LINKS[data.slug] ?? [];
 </script>
 
 <main class={isServiceAreasPage ? 'min-h-screen' : 'py-16'}>
@@ -323,6 +367,21 @@
             <a href={withInternalUtm('/resources', 'content')} class="text-[#d32f2f] font-semibold hover:underline">Back to Resources</a>
           </p>
         {/if}
+        {#if relatedPageLinks.length > 0}
+          <div class="mt-10 pt-8 border-t border-gray-200">
+            <h2 class="text-xl font-semibold text-gray-800 mb-3">See also</h2>
+            <div class="flex flex-wrap gap-3">
+              {#each relatedPageLinks as link}
+                <a
+                  href={withInternalUtm(link.href, 'content')}
+                  class="inline-flex items-center px-4 py-2 rounded-xl bg-neutral-100 hover:bg-[#d32f2f] hover:text-white text-neutral-800 font-medium transition-colors"
+                >
+                  {link.label}
+                </a>
+              {/each}
+            </div>
+          </div>
+        {/if}
         {#if isLocationPage && locationPageInfo}
           <p class="mt-10 pt-8 border-t border-gray-200 text-gray-700">
             Other services in {locationPageInfo.cityName}:
@@ -333,7 +392,12 @@
         {/if}
       </div>
       {#if !isResource}
-        <ContentPageForm formTitle="OhMyGlass Free Quote" />
+        <div>
+          {#if shouldShowServiceAreaAboveForm}
+            <ServiceArea showHeading={true} embed={true} />
+          {/if}
+          <ContentPageForm formTitle="OhMyGlass Free Quote" />
+        </div>
       {/if}
     </div>
   </div>

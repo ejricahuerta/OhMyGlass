@@ -88,7 +88,7 @@ export const serviceCards = [
     icon: 'fa-store'
   },
   {
-    href: withInternalUtm('/aluminum-storefront', 'services'),
+    href: withInternalUtm('/storefront-glass-repair', 'services'),
     title: 'Aluminum Storefront',
     description:
       'Aluminum storefront glass repair and installation for commercial spaces. Durable frames, tempered glass, and professional installation across the GTA.',
@@ -112,6 +112,30 @@ export const serviceCards = [
       'Door glass repair and replacement for patio doors, entry doors, and sliding glass doors. Save 60-80% with repair when possible.',
     category: 'residential',
     icon: 'fa-door-closed'
+  },
+  {
+    href: withInternalUtm('/shower-glass-repair', 'services'),
+    title: 'Shower Glass Repair',
+    description:
+      'Repair and replacement for frameless enclosures, sliding shower doors, and hinged panels.',
+    category: 'residential',
+    icon: 'fa-shower'
+  },
+  {
+    href: withInternalUtm('/patio-door-repair', 'services'),
+    title: 'Patio Door Repair',
+    description:
+      'Glass panel replacement and hardware repair for sliding and hinged patio doors. Same-day service.',
+    category: 'residential',
+    icon: 'fa-door-open'
+  },
+  {
+    href: withInternalUtm('/sliding-door-repair', 'services'),
+    title: 'Sliding Door Repair',
+    description:
+      'Track, roller, glass, and hardware repair for residential and commercial sliding doors.',
+    category: 'residential',
+    icon: 'fa-sliders'
   },
   {
     href: withInternalUtm('/window-glass-replacement', 'services'),

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /401.html
 Disallow: /404.html
-Sitemap: https://ohmyglass.ca/sitemap.xml 
+Sitemap: https://www.ohmyglass.ca/sitemap.xml
