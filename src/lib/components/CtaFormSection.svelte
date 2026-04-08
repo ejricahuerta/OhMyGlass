@@ -1,5 +1,6 @@
 <script>
   import { tallyFormSrc, contact } from '$lib/site-data.js';
+  import ActiveContact from '$lib/components/ActiveContact.svelte';
 
   /** @type {string} */
   export let title = 'Free Quote';
@@ -48,7 +49,9 @@
       <div class="text-white text-lg mt-8">
         <p class="mb-2">
           <i class="fas fa-phone-alt mr-2"></i>
-          <a href={contact.phoneHref} class="hover:text-[#d32f2f]">{contact.phone}</a>
+          <ActiveContact let:phone let:phoneHref>
+            <a href={phoneHref} class="hover:text-[#d32f2f]">{phone}</a>
+          </ActiveContact>
         </p>
         <p class="mb-2">
           <i class="fas fa-envelope mr-2"></i>

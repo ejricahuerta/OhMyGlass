@@ -1,5 +1,6 @@
 <script>
-  import { navLinks, contact, withInternalUtm } from '$lib/site-data.js';
+  import { navLinks, withInternalUtm } from '$lib/site-data.js';
+  import ActiveContact from '$lib/components/ActiveContact.svelte';
   import { showQuoteInNav } from '$lib/nav-state.js';
 
   /** @type {string} - "Free Quote" or "Get a Free Quote" */
@@ -76,12 +77,14 @@
           {ctaLabel}
         </a>
       {:else}
-        <a
-          href={contact.phoneHref}
-          class="inline-block text-[#1a1a1a] font-semibold text-sm md:text-base hover:text-[#d32f2f] transition-colors duration-300"
-        >
-          {contact.phone}
-        </a>
+        <ActiveContact let:phone let:phoneHref>
+          <a
+            href={phoneHref}
+            class="inline-block text-[#1a1a1a] font-semibold text-sm md:text-base hover:text-[#d32f2f] transition-colors duration-300"
+          >
+            {phone}
+          </a>
+        </ActiveContact>
       {/if}
       <button
         id="mobile-menu-button"

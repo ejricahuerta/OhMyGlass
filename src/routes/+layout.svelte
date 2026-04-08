@@ -1,5 +1,6 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount, setContext } from 'svelte';
+  import { writable } from 'svelte/store';
   import { afterNavigate } from '$app/navigation';
   import { dev } from '$app/environment';
   import { injectAnalytics } from '@vercel/analytics/sveltekit';
@@ -9,6 +10,15 @@
   import Header from '$lib/components/Header.svelte';
   import FloatingCallButton from '$lib/components/FloatingCallButton.svelte';
   import { showQuoteInNav, showFloatingCallButton } from '$lib/nav-state.js';
+  import { PHONE_STORE_KEY } from '$lib/phone-context.js';
+  import { getActivePhone } from '$lib/phone-schedule.js';
+
+  /** @type {import('./$types').LayoutData} */
+  export let data;
+
+  const phoneStore = writable(data.activePhone);
+  $: phoneStore.set(data.activePhone);
+  setContext(PHONE_STORE_KEY, phoneStore);
 
   const FONT_AWESOME_URL =
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
@@ -43,6 +53,10 @@
   });
 
   onMount(() => {
+    const syncPhone = () => phoneStore.set(getActivePhone(new Date()));
+    syncPhone();
+    const phoneInterval = setInterval(syncPhone, 60_000);
+
     // Load Font Awesome after hydration to avoid head reconciliation issues (fixes hydration removeAttribute error)
     const faLink = document.createElement('link');
     faLink.rel = 'stylesheet';
@@ -112,6 +126,7 @@
     window.addEventListener('resize', updateNav);
     return () => {
       clearTimeout(retry);
+      clearInterval(phoneInterval);
     };
   });
 </script>
