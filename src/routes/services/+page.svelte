@@ -19,8 +19,9 @@
 
 <script>
   import Footer from '$lib/components/Footer.svelte';
+  import ActiveContact from '$lib/components/ActiveContact.svelte';
   import { getServicesByCategory } from '$lib/service-cards.js';
-  import { withInternalUtm, contact, siteUrl, ogImage } from '$lib/site-data.js';
+  import { withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
 
   /** @type {{ page: { title: string; seo?: { meta_description?: string; keywords?: string[] } }; serviceAreaLocations: Array<{ name: string; slug: string }> }} */
   export let data;
@@ -44,13 +45,15 @@
         Professional glass repair specialists. We repair cracked, broken, and foggy glass – saving you 60–80% vs replacement. 24/7 emergency service available.
       </p>
       <div class="mt-8 flex flex-wrap gap-4">
-        <a
-          href={contact.phoneHref}
-          class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-semibold px-6 py-3 rounded-2xl transition-colors"
-        >
-          <i class="fa-solid fa-phone"></i>
-          Call 24/7
-        </a>
+        <ActiveContact let:phoneHref>
+          <a
+            href={phoneHref}
+            class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-semibold px-6 py-3 rounded-2xl transition-colors"
+          >
+            <i class="fa-solid fa-phone"></i>
+            Call 24/7
+          </a>
+        </ActiveContact>
         <a
           href="/free-quote"
           class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-2xl border border-white/20 transition-colors"
@@ -147,13 +150,15 @@
       <p class="text-lg font-semibold m-0">
         Need help now? We're available 24/7 for emergency glass repair.
       </p>
-      <a
-        href={contact.phoneHref}
-        class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors whitespace-nowrap"
-      >
-        <i class="fa-solid fa-phone"></i>
-        {contact.phone}
-      </a>
+      <ActiveContact let:phone let:phoneHref>
+        <a
+          href={phoneHref}
+          class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors whitespace-nowrap"
+        >
+          <i class="fa-solid fa-phone"></i>
+          {phone}
+        </a>
+      </ActiveContact>
     </div>
   </section>
 </main>

@@ -23,6 +23,7 @@
   import ServiceArea from '$lib/components/ServiceArea.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import ContentPageForm from '$lib/components/ContentPageForm.svelte';
+  import ActiveContact from '$lib/components/ActiveContact.svelte';
   import { contact, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
   import { getBreadcrumbSchema, getServiceSchema, getFAQPageSchema, getJsonLdGraphScriptTag } from '$lib/schema.js';
 
@@ -359,13 +360,15 @@
           <!-- Service Areas CTA -->
           <section class="mt-12 py-8 px-6 bg-neutral-800 text-white rounded-2xl">
             <p class="text-lg font-semibold mb-4 m-0">Need glass repair in your area? We're available 24/7.</p>
-            <a
-              href={contact.phoneHref}
-              class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors"
-            >
-              <i class="fa-solid fa-phone"></i>
-              {contact.phone}
-            </a>
+            <ActiveContact let:phone let:phoneHref>
+              <a
+                href={phoneHref}
+                class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors"
+              >
+                <i class="fa-solid fa-phone"></i>
+                {phone}
+              </a>
+            </ActiveContact>
           </section>
           <!-- Priority SEO landing pages -->
           <section class="mt-8 py-8 px-6 bg-white border border-neutral-200 rounded-2xl">

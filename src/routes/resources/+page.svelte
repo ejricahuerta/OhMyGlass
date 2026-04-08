@@ -19,7 +19,8 @@
 
 <script>
   import Footer from '$lib/components/Footer.svelte';
-  import { withInternalUtm, contact, siteUrl, ogImage } from '$lib/site-data.js';
+  import ActiveContact from '$lib/components/ActiveContact.svelte';
+  import { withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
 
   /** @type {{ page: { title: string; seo?: { meta_description?: string; keywords?: string[] } }; resources: Array<{ url: string; title: string; seo: { meta_description: string } }> }} */
   export let data;
@@ -120,13 +121,15 @@
       <p class="text-lg font-semibold m-0">
         Need glass repair or replacement? We serve the GTA with 24/7 emergency service.
       </p>
-      <a
-        href={contact.phoneHref}
-        class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors whitespace-nowrap"
-      >
-        <i class="fa-solid fa-phone"></i>
-        {contact.phone}
-      </a>
+      <ActiveContact let:phone let:phoneHref>
+        <a
+          href={phoneHref}
+          class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors whitespace-nowrap"
+        >
+          <i class="fa-solid fa-phone"></i>
+          {phone}
+        </a>
+      </ActiveContact>
     </div>
   </section>
 </main>

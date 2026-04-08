@@ -1,5 +1,6 @@
 <script>
   import { footerServicesIndexOrder, footerServicesDefaultOrder, contact } from '$lib/site-data.js';
+  import ActiveContact from '$lib/components/ActiveContact.svelte';
 
   /** @type {'index' | 'default'} - index = home page order, default = contact/free-quote order */
   export let serviceLinksOrder = 'index';
@@ -46,7 +47,11 @@
     <div class="text-center">
       <h3 class={headingClass}>Contact Us</h3>
       <ul class="space-y-2">
-        <li><a href={contact.phoneHref} class={linkClass}>{contact.phone}</a></li>
+        <li>
+          <ActiveContact let:phone let:phoneHref>
+            <a href={phoneHref} class={linkClass}>{phone}</a>
+          </ActiveContact>
+        </li>
         <li><a href={contact.emailHref} class={linkClass}>{contact.email}</a></li>
         <li>
           <a href={contact.googleMaps} target="_blank" rel="noopener noreferrer" class={linkClass}>Find Us on Map</a>
