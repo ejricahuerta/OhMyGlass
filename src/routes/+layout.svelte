@@ -16,8 +16,9 @@
   /** @type {import('./$types').LayoutData} */
   export let data;
 
-  const phoneStore = writable(data.activePhone);
-  $: phoneStore.set(data.activePhone);
+  const phoneFallback = () => getActivePhone(new Date());
+  const phoneStore = writable(data?.activePhone ?? phoneFallback());
+  $: phoneStore.set(data?.activePhone ?? phoneFallback());
   setContext(PHONE_STORE_KEY, phoneStore);
 
   const FONT_AWESOME_URL =

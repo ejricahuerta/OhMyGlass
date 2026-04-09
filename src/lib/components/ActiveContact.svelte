@@ -4,9 +4,10 @@
   import { contact } from '$lib/site-data.js';
 
   const phoneStore = getContext(PHONE_STORE_KEY);
-  $: active = phoneStore
-    ? $phoneStore
-    : { phone: contact.phone, phoneHref: contact.phoneHref };
+  const staticContact = { phone: contact.phone, phoneHref: contact.phoneHref };
+  $: fromStore = phoneStore ? $phoneStore : null;
+  $: active =
+    fromStore?.phone != null && fromStore?.phoneHref != null ? fromStore : staticContact;
 </script>
 
 <slot phone={active.phone} phoneHref={active.phoneHref} />
