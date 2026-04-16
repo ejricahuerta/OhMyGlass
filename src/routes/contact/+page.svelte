@@ -23,7 +23,7 @@
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { getBreadcrumbSchema, getJsonLdScriptTag } from '$lib/schema.js';
-  import { nap, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
+  import { nap, contact, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
 
   const contactBreadcrumbSchema = getBreadcrumbSchema([
     { name: 'Home', url: '/' },
@@ -39,7 +39,7 @@
       '@type': 'LocalBusiness',
       name: nap.name,
       telephone: nap.telephoneSchema,
-      email: 'info@ohmyglass.ca',
+      email: contact.email,
       address: {
         '@type': 'PostalAddress',
         streetAddress: nap.address.streetAddress,

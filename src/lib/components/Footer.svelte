@@ -48,8 +48,10 @@
       <h3 class={headingClass}>Contact Us</h3>
       <ul class="space-y-2">
         <li>
-          <ActiveContact let:phone let:phoneHref>
+          <ActiveContact let:phone let:phoneHref let:afterHoursPhone let:afterHoursPhoneHref>
             <a href={phoneHref} class={linkClass}>{phone}</a>
+            <span class="block text-white/60 text-xs mt-1">After hours</span>
+            <a href={afterHoursPhoneHref} class="{linkClass} text-sm">{afterHoursPhone}</a>
           </ActiveContact>
         </li>
         <li><a href={contact.emailHref} class={linkClass}>{contact.email}</a></li>

@@ -118,8 +118,12 @@ export const contact = {
   phone: nap.telephone,
   phoneHref: nap.telephoneHref,
   addressDisplay: nap.addressDisplay,
-  email: 'info@ohmyglass.ca',
-  emailHref: 'mailto:info@ohmyglass.ca',
+  email: 'ohmy.glass.to@gmail.com',
+  emailHref: 'mailto:ohmy.glass.to@gmail.com',
+  /** Evenings & overnight line (listed alongside main; not time-switched in the UI) */
+  afterHoursPhone: '437-525-1255',
+  afterHoursPhoneHref: 'tel:+14375251255',
+  afterHoursPhoneSchema: '+14375251255',
   serviceAreasHref: withInternalUtm('/service-areas', 'footer'),
   googleMaps: 'https://maps.app.goo.gl/asTcvrbx57PsitbD9',
   /** iframe src for embedding the same location in the page */

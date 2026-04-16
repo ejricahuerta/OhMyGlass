@@ -9,6 +9,23 @@ import allPages from './pages.json';
 
 const SLUGS_WITH_DEDICATED_ROUTES = ['index', 'contact', 'free-quote', 'resources', 'services'];
 
+/** Service bases that combine with a location slug as `{service}-{location}` (canonical). */
+const SERVICE_LOCATION_BASES = ['emergency-glass-repair', 'storefront-glass-repair', 'window-glass-replacement'];
+
+/** Location slug prefixes for legacy `{location}-{service}` URLs (longest first). */
+const LOCATION_FIRST_PREFIXES = [
+  'north-york',
+  'richmond-hill',
+  'newmarket',
+  'etobicoke',
+  'markham',
+  'scarborough',
+  'mississauga',
+  'brampton',
+  'toronto',
+  'vaughan'
+].sort((a, b) => b.length - a.length);
+
 /** @param {string} url - e.g. "window-glass-replacement" */
 function urlToSlug(url) {
   return url.replace(/\.html$/, '');
@@ -18,6 +35,26 @@ function urlToSlug(url) {
 export function getPageBySlug(slug) {
   const slugClean = urlToSlug(slug);
   return allPages.find((p) => p.url === slugClean || urlToSlug(p.url) === slugClean) ?? null;
+}
+
+/**
+ * If `slug` is legacy `{location}-{service}` and canonical `{service}-{location}` exists, return canonical slug.
+ * Otherwise null (including when `slug` already matches a page).
+ * @param {string} slug
+ */
+export function getCanonicalSlugIfLocationFirst(slug) {
+  const clean = urlToSlug(slug);
+  if (SLUGS_WITH_DEDICATED_ROUTES.includes(clean)) return null;
+  if (getPageBySlug(clean)) return null;
+  for (const loc of LOCATION_FIRST_PREFIXES) {
+    const prefix = `${loc}-`;
+    if (!clean.startsWith(prefix)) continue;
+    const service = clean.slice(prefix.length);
+    if (!SERVICE_LOCATION_BASES.includes(service)) continue;
+    const canonical = `${service}-${loc}`;
+    if (getPageBySlug(canonical)) return canonical;
+  }
+  return null;
 }
 
 /**

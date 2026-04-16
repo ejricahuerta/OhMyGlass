@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "prebuild": "npm run sitemap",
     "build": "vite build",
     "preview": "vite preview",
     "generate:bogus-paths": "node scripts/generate-bogus-paths.js",
+    "sitemap": "node scripts/generate-sitemap.mjs",
     "gbp:auth:login": "node scripts/gbp-auth.js login",
     "gbp:auth:url": "node scripts/gbp-auth.js url",
     "gbp:auth:exchange": "node scripts/gbp-auth.js exchange",

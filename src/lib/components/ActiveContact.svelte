@@ -10,4 +10,9 @@
     fromStore?.phone != null && fromStore?.phoneHref != null ? fromStore : staticContact;
 </script>
 
-<slot phone={active.phone} phoneHref={active.phoneHref} />
+<slot
+  phone={active.phone}
+  phoneHref={active.phoneHref}
+  afterHoursPhone={contact.afterHoursPhone}
+  afterHoursPhoneHref={contact.afterHoursPhoneHref}
+/>

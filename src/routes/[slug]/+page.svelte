@@ -360,14 +360,22 @@
           <!-- Service Areas CTA -->
           <section class="mt-12 py-8 px-6 bg-neutral-800 text-white rounded-2xl">
             <p class="text-lg font-semibold mb-4 m-0">Need glass repair in your area? We're available 24/7.</p>
-            <ActiveContact let:phone let:phoneHref>
-              <a
-                href={phoneHref}
-                class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors"
-              >
-                <i class="fa-solid fa-phone"></i>
-                {phone}
-              </a>
+            <ActiveContact let:phone let:phoneHref let:afterHoursPhone let:afterHoursPhoneHref>
+              <div class="flex flex-col sm:flex-row flex-wrap gap-3">
+                <a
+                  href={phoneHref}
+                  class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors"
+                >
+                  <i class="fa-solid fa-phone"></i>
+                  {phone}
+                </a>
+                <a
+                  href={afterHoursPhoneHref}
+                  class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-bold px-6 py-3 rounded-2xl border border-white/30 transition-colors"
+                >
+                  After hours: {afterHoursPhone}
+                </a>
+              </div>
             </ActiveContact>
           </section>
           <!-- Priority SEO landing pages -->

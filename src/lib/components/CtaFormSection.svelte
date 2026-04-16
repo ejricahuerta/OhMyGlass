@@ -49,8 +49,12 @@
       <div class="text-white text-lg mt-8">
         <p class="mb-2">
           <i class="fas fa-phone-alt mr-2"></i>
-          <ActiveContact let:phone let:phoneHref>
+          <ActiveContact let:phone let:phoneHref let:afterHoursPhone let:afterHoursPhoneHref>
             <a href={phoneHref} class="hover:text-[#d32f2f]">{phone}</a>
+            <span class="block text-white/80 text-base mt-1 pl-7">
+              After hours:
+              <a href={afterHoursPhoneHref} class="hover:text-[#d32f2f]">{afterHoursPhone}</a>
+            </span>
           </ActiveContact>
         </p>
         <p class="mb-2">
