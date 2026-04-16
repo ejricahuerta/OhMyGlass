@@ -77,13 +77,21 @@
           {ctaLabel}
         </a>
       {:else}
-        <ActiveContact let:phone let:phoneHref>
-          <a
-            href={phoneHref}
-            class="inline-block text-[#1a1a1a] font-semibold text-sm md:text-base hover:text-[#d32f2f] transition-colors duration-300"
-          >
-            {phone}
-          </a>
+        <ActiveContact let:phone let:phoneHref let:afterHoursPhone let:afterHoursPhoneHref>
+          <div class="flex flex-col items-end gap-0.5 text-right">
+            <a
+              href={phoneHref}
+              class="inline-block text-[#1a1a1a] font-semibold text-sm md:text-base hover:text-[#d32f2f] transition-colors duration-300"
+            >
+              {phone}
+            </a>
+            <a
+              href={afterHoursPhoneHref}
+              class="inline-block text-[#1a1a1a]/80 font-medium text-xs md:text-sm hover:text-[#d32f2f] transition-colors duration-300"
+            >
+              After hours: {afterHoursPhone}
+            </a>
+          </div>
         </ActiveContact>
       {/if}
       <button

@@ -11,14 +11,9 @@
   import FloatingCallButton from '$lib/components/FloatingCallButton.svelte';
   import { showQuoteInNav, showFloatingCallButton } from '$lib/nav-state.js';
   import { PHONE_STORE_KEY } from '$lib/phone-context.js';
-  import { getActivePhone } from '$lib/phone-schedule.js';
+  import { contact } from '$lib/site-data.js';
 
-  /** @type {import('./$types').LayoutData} */
-  export let data;
-
-  const phoneFallback = () => getActivePhone(new Date());
-  const phoneStore = writable(data?.activePhone ?? phoneFallback());
-  $: phoneStore.set(data?.activePhone ?? phoneFallback());
+  const phoneStore = writable({ phone: contact.phone, phoneHref: contact.phoneHref });
   setContext(PHONE_STORE_KEY, phoneStore);
 
   const FONT_AWESOME_URL =
@@ -54,10 +49,6 @@
   });
 
   onMount(() => {
-    const syncPhone = () => phoneStore.set(getActivePhone(new Date()));
-    syncPhone();
-    const phoneInterval = setInterval(syncPhone, 60_000);
-
     // Load Font Awesome after hydration to avoid head reconciliation issues (fixes hydration removeAttribute error)
     const faLink = document.createElement('link');
     faLink.rel = 'stylesheet';
@@ -127,7 +118,6 @@
     window.addEventListener('resize', updateNav);
     return () => {
       clearTimeout(retry);
-      clearInterval(phoneInterval);
     };
   });
 </script>

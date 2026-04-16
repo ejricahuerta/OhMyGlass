@@ -44,14 +44,21 @@
       <p class="text-lg md:text-xl text-neutral-200 max-w-2xl">
         Professional glass repair specialists. We repair cracked, broken, and foggy glass – saving you 60–80% vs replacement. 24/7 emergency service available.
       </p>
-      <div class="mt-8 flex flex-wrap gap-4">
-        <ActiveContact let:phoneHref>
+      <div class="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-start sm:items-center">
+        <ActiveContact let:phone let:phoneHref let:afterHoursPhone let:afterHoursPhoneHref>
           <a
             href={phoneHref}
             class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-semibold px-6 py-3 rounded-2xl transition-colors"
           >
             <i class="fa-solid fa-phone"></i>
-            Call 24/7
+            {phone}
+          </a>
+          <a
+            href={afterHoursPhoneHref}
+            class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-2xl border border-white/25 transition-colors"
+          >
+            <i class="fa-solid fa-moon"></i>
+            After hours: {afterHoursPhone}
           </a>
         </ActiveContact>
         <a
@@ -150,14 +157,22 @@
       <p class="text-lg font-semibold m-0">
         Need help now? We're available 24/7 for emergency glass repair.
       </p>
-      <ActiveContact let:phone let:phoneHref>
-        <a
-          href={phoneHref}
-          class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors whitespace-nowrap"
-        >
-          <i class="fa-solid fa-phone"></i>
-          {phone}
-        </a>
+      <ActiveContact let:phone let:phoneHref let:afterHoursPhone let:afterHoursPhoneHref>
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3 justify-center sm:justify-start">
+          <a
+            href={phoneHref}
+            class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors whitespace-nowrap"
+          >
+            <i class="fa-solid fa-phone"></i>
+            {phone}
+          </a>
+          <a
+            href={afterHoursPhoneHref}
+            class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-bold px-6 py-3 rounded-2xl border border-white/30 transition-colors whitespace-nowrap"
+          >
+            After hours: {afterHoursPhone}
+          </a>
+        </div>
       </ActiveContact>
     </div>
   </section>

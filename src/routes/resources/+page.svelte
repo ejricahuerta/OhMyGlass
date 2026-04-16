@@ -121,14 +121,22 @@
       <p class="text-lg font-semibold m-0">
         Need glass repair or replacement? We serve the GTA with 24/7 emergency service.
       </p>
-      <ActiveContact let:phone let:phoneHref>
-        <a
-          href={phoneHref}
-          class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors whitespace-nowrap"
-        >
-          <i class="fa-solid fa-phone"></i>
-          {phone}
-        </a>
+      <ActiveContact let:phone let:phoneHref let:afterHoursPhone let:afterHoursPhoneHref>
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3 justify-center sm:justify-start">
+          <a
+            href={phoneHref}
+            class="inline-flex items-center gap-2 bg-[#d32f2f] hover:bg-[#b71c1c] text-white font-bold px-6 py-3 rounded-2xl transition-colors whitespace-nowrap"
+          >
+            <i class="fa-solid fa-phone"></i>
+            {phone}
+          </a>
+          <a
+            href={afterHoursPhoneHref}
+            class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-bold px-6 py-3 rounded-2xl border border-white/30 transition-colors whitespace-nowrap"
+          >
+            After hours: {afterHoursPhone}
+          </a>
+        </div>
       </ActiveContact>
     </div>
   </section>

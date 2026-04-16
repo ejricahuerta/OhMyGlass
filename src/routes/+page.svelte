@@ -26,6 +26,7 @@
 
 <script>
   import { onMount } from 'svelte';
+  import ActiveContact from '$lib/components/ActiveContact.svelte';
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { contact, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
@@ -309,4 +310,35 @@
     <a href={withInternalUtm('/service-areas', 'home')} class="text-[#d32f2f] font-semibold hover:underline">View Service Areas</a>
   </p>
 </section>
+
+<!-- Final CTA -->
+<section class="relative w-full overflow-hidden bg-gradient-to-br from-[#1a1a1a] via-[#252525] to-[#2c3a43] py-20 md:py-28 px-4 text-center">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(211,47,47,0.12)_0%,_transparent_55%)] pointer-events-none"></div>
+  <div class="relative container mx-auto max-w-3xl">
+    <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4 md:mb-5 leading-tight">
+      Ready to repair or replace your glass?
+    </h2>
+    <p class="text-lg md:text-xl text-white/85 mb-10 max-w-2xl mx-auto">
+      Request a free quote or call us for 24/7 emergency glass repair across Toronto and the GTA.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
+      <a
+        href="#contact-form"
+        class="inline-flex justify-center items-center bg-white text-[#d32f2f] border-2 border-white px-8 md:px-10 py-4 font-bold text-lg rounded-3xl shadow-lg hover:bg-[#d32f2f] hover:text-white hover:border-[#d32f2f] transition-all duration-300 transform hover:scale-[1.02]"
+      >
+        Free Quote
+      </a>
+      <ActiveContact let:phone let:phoneHref>
+        <a
+          href={phoneHref}
+          class="inline-flex justify-center items-center border-2 border-white/50 text-white px-8 md:px-10 py-4 font-bold text-lg rounded-3xl hover:bg-white/10 hover:border-white transition-all duration-300"
+        >
+          <i class="fas fa-phone-alt mr-2 opacity-90"></i>
+          {phone}
+        </a>
+      </ActiveContact>
+    </div>
+  </div>
+</section>
+
 <Footer serviceLinksOrder="index" />
