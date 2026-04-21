@@ -635,13 +635,14 @@ img { display: block; max-width: 100%; }
 .reviews-summary .platform-logo {
   width: 44px; height: 44px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 20px; flex-shrink: 0;
+  flex-shrink: 0;
 }
+.reviews-summary .platform-logo svg { display: block; }
 .reviews-summary .platform-logo--g {
-  background: #fff; color: #4285f4; font-family: 'Inter', sans-serif;
+  background: #fff;
 }
 .reviews-summary .platform-logo--f {
-  background: #1877f2; color: #fff; font-family: Georgia, serif; font-size: 24px; line-height: 1; padding-bottom: 2px;
+  background: transparent;
 }
 .reviews-summary .platform .name { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bone); opacity: 0.55; }
 .reviews-summary .platform .val { font-size: 22px; font-weight: 700; }
