@@ -1,5 +1,5 @@
 // Shared UI components for OhMyGlass
-const { useState, useEffect, useRef } = React;
+const { useState, useEffect, useLayoutEffect, useRef } = React;
 
 // ============== ICONS ==============
 const Icon = {
@@ -34,12 +34,20 @@ const Icon = {
   Star: ({ size = 14 }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
   ),
+  ChevronDown: ({ size = 18 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="square">
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  ),
 };
 
 // ============== NAV ==============
 function Nav({ page, setPage, urgency, onOpenTweaks }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const mobileMenuCloseRef = useRef(null);
+  const hamburgerRef = useRef(null);
+  const hadMenuOpenRef = useRef(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
@@ -48,6 +56,25 @@ function Nav({ page, setPage, urgency, onOpenTweaks }) {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+  useEffect(() => {
+    if (menuOpen) {
+      hadMenuOpenRef.current = true;
+      const onKey = (e) => {
+        if (e.key === 'Escape') setMenuOpen(false);
+      };
+      window.addEventListener('keydown', onKey);
+      const t = requestAnimationFrame(() => mobileMenuCloseRef.current?.focus());
+      return () => {
+        cancelAnimationFrame(t);
+        window.removeEventListener('keydown', onKey);
+      };
+    }
+    if (hadMenuOpenRef.current) {
+      hadMenuOpenRef.current = false;
+      requestAnimationFrame(() => hamburgerRef.current?.focus());
+    }
+    return undefined;
   }, [menuOpen]);
   const go = (p, anchor) => {
     setPage(p); setMenuOpen(false);
@@ -75,7 +102,7 @@ function Nav({ page, setPage, urgency, onOpenTweaks }) {
           </a>
           <div className="nav-links">
             {navItems.map((it, i) => (
-              <button key={i} className={page === it[1] && !it[2] ? 'active' : ''} onClick={() => go(it[1], it[2])}>{it[0]}</button>
+              <button type="button" key={i} className={page === it[1] && !it[2] ? 'active' : ''} onClick={() => go(it[1], it[2])}>{it[0]}</button>
             ))}
           </div>
           <div className="nav-cta">
@@ -85,25 +112,46 @@ function Nav({ page, setPage, urgency, onOpenTweaks }) {
                 <div className="phone-num">647-803-2730</div>
               </div>
             </a>
-            <button className="btn btn-red" onClick={() => go('contact')}>
+            <button type="button" className="btn btn-red" onClick={() => go('contact')}>
               <span>Free Quote</span> <Icon.Arrow />
             </button>
-            <button className="hamburger" onClick={() => setMenuOpen(true)} aria-label="Open menu">
+            <button
+              type="button"
+              ref={hamburgerRef}
+              className="hamburger"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              aria-controls="omg-mobile-nav"
+            >
               <Icon.Menu size={22} />
             </button>
           </div>
         </div>
       </nav>
-      <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
+      <div
+        id="omg-mobile-nav"
+        className={`mobile-menu${menuOpen ? ' open' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+        aria-hidden={!menuOpen}
+      >
         <div className="mobile-menu-top">
           <img src="assets/logo.png" alt="OhMyGlass" />
-          <button className="mobile-menu-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
+          <button
+            type="button"
+            ref={mobileMenuCloseRef}
+            className="mobile-menu-close"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+          >
             <Icon.X size={24}/>
           </button>
         </div>
         <div className="mobile-menu-links">
           {navItems.map((it, i) => (
-            <button key={i} className={page === it[1] && !it[2] ? 'active' : ''} onClick={() => go(it[1], it[2])}>
+            <button key={i} type="button" className={page === it[1] && !it[2] ? 'active' : ''} onClick={() => go(it[1], it[2])}>
               <span>{it[0]}</span>
               <span className="arr"><Icon.Arrow size={16}/></span>
             </button>
@@ -113,7 +161,7 @@ function Nav({ page, setPage, urgency, onOpenTweaks }) {
           <a href="tel:6478032730" className="btn btn-red">
             <Icon.Phone /> 24/7 · 647-803-2730
           </a>
-          <button className="btn btn-bone-out" onClick={() => go('contact')}>
+          <button type="button" className="btn btn-bone-out" onClick={() => go('contact')}>
             Free quote <Icon.Arrow />
           </button>
         </div>
@@ -126,15 +174,20 @@ function EmergencyBar({ urgency }) {
   const level = Math.max(1, Math.min(5, urgency));
   if (level === 1) return null;
   const msg = level >= 4
-    ? <>24/7 EMERGENCY GLASS REPAIR · 30–60 MIN ARRIVAL · BOARD-UP INCLUDED FREE · CALL NOW</>
-    : <>24/7 Emergency Service · Typical arrival 30–60 min across the GTA</>;
+    ? <>24/7 EMERGENCY · RAPID DISPATCH · BOARD-UP FREE</>
+    : <>24/7 · GTA · ETA WHEN YOU CALL</>;
   return (
     <div className={`e-bar level-${level}`}>
       <span className="dot" />
       <span>{msg}</span>
       <span className="sep">·</span>
       <a href="tel:6478032730">647-803-2730</a>
-      {level >= 3 && <><span className="sep">·</span><a href="tel:4375251255">After hours: 437-525-1255</a></>}
+      {level >= 3 && (
+        <>
+          <span className="sep">·</span>
+          <a href="tel:4375251255" aria-label="After hours, 437-525-1255">437-525-1255</a>
+        </>
+      )}
     </div>
   );
 }
@@ -201,16 +254,54 @@ function Footer({ setPage }) {
   );
 }
 
+function floatCallOverlapsRedUnderlay(floatRect) {
+  const markers = document.querySelectorAll('[data-float-underlay="red"]');
+  for (const el of markers) {
+    const r = el.getBoundingClientRect();
+    if (r.bottom <= floatRect.top || r.top >= floatRect.bottom || r.right <= floatRect.left || r.left >= floatRect.right) continue;
+    return true;
+  }
+  return false;
+}
+
 // ============== FLOAT CALL BUTTON ==============
-function FloatCall() {
+function FloatCall({ page = '' }) {
   const [visible, setVisible] = useState(false);
+  const [onRedBg, setOnRedBg] = useState(false);
+  const ref = useRef(null);
+
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 600);
-    window.addEventListener('scroll', onScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useLayoutEffect(() => {
+    const tick = () => {
+      const el = ref.current;
+      if (!el || !visible) {
+        setOnRedBg(false);
+        return;
+      }
+      setOnRedBg(floatCallOverlapsRedUnderlay(el.getBoundingClientRect()));
+    };
+    tick();
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    return () => {
+      window.removeEventListener('scroll', tick);
+      window.removeEventListener('resize', tick);
+    };
+  }, [visible, page]);
+
   return (
-    <a href="tel:6478032730" className={`float-call${visible ? ' visible' : ''}`} aria-label="Call 24/7">
+    <a
+      ref={ref}
+      href="tel:6478032730"
+      className={`float-call${visible ? ' visible' : ''}${onRedBg ? ' on-red-bg' : ''}`}
+      aria-label="Call 24/7"
+    >
       <span className="dot"></span>
       <Icon.Phone size={16} />
       <span className="fc-label">Call 24/7 · 647-803-2730</span>
@@ -265,7 +356,7 @@ function QuoteForm({ compact = false }) {
     <div className="form-success">
       <div className="check"><Icon.Check size={28}/></div>
       <h3>Quote request received.</h3>
-      <p>Thanks {form.name.split(' ')[0] || 'friend'} — we've got it. For emergencies, our dispatch team will call you back within 15 minutes. Otherwise expect a text or email within 2 business hours.</p>
+      <p>Thanks {form.name.split(' ')[0] || 'friend'} — we've got it. For emergencies, our dispatch team prioritizes your message and reaches out as soon as possible. Otherwise expect a text or email within 2 business hours.</p>
       <div style={{display:'flex', gap:12, marginTop: 8}}>
         <a href="tel:6478032730" className="btn btn-red">Or call now · 647-803-2730</a>
       </div>
@@ -328,7 +419,7 @@ function QuoteForm({ compact = false }) {
           Get my free quote <Icon.Arrow />
         </button>
         <div className="form-note">
-          Emergencies? Call <a href="tel:6478032730" style={{color:'#E5322D', fontWeight:700}}>647-803-2730</a> for dispatch within 15 minutes.
+          Emergencies? Call <a href="tel:6478032730" style={{color:'#E5322D', fontWeight:700}}>647-803-2730</a> for live dispatch — you will get an ETA on the call.
           After-hours line: <a href="tel:4375251255" style={{color:'#E5322D', fontWeight:700}}>437-525-1255</a>.
         </div>
       </form>

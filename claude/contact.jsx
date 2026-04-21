@@ -14,7 +14,7 @@ function ContactPage({ setPage }) {
 
       <section className="contact-hero">
         <div className="inner">
-          <div className="mono" style={{fontSize:11, letterSpacing:'0.15em', color:'var(--red)', fontWeight:700, marginBottom:16, textTransform:'uppercase'}}>Let's talk glass</div>
+          <div className="mono contact-hero-eyebrow">{"Let's talk glass"}</div>
           <h1>Contact<br /><span className="serif">OhMy</span>Glass.</h1>
           <p className="sub">
             Have a question or need to get in touch? Fill out the form below and we'll get back to you quickly. You can also reach us by phone or email — emergencies are answered 24/7.
@@ -100,7 +100,7 @@ function ContactPage({ setPage }) {
       </div>
 
       {/* Final CTA */}
-      <section className="cta-final">
+      <section className="cta-final" data-float-underlay="red">
         <div className="inner">
           <h2>Glass <span className="serif">doesn't</span> wait. Neither do we.</h2>
           <p>Pick up the phone or send the form. Whichever's faster for you — we'll be on the way.</p>

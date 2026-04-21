@@ -1,5 +1,71 @@
 // Home page for OhMyGlass
-const { useState: useStateH, useEffect: useEffectH } = React;
+const { useState: useStateH, useEffect: useEffectH, useRef: useRefH } = React;
+
+function WorkFilmCard({ w, filmNum }) {
+  const [playing, setPlaying] = useStateH(false);
+  const vidRef = useRefH(null);
+
+  const startPlay = () => {
+    setPlaying(true);
+    requestAnimationFrame(() => {
+      const el = vidRef.current;
+      if (el) el.play().catch(() => {});
+    });
+  };
+
+  const onPlayOverlayClick = (e) => {
+    e.preventDefault();
+    startPlay();
+  };
+
+  const onPlayOverlayKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      startPlay();
+    }
+  };
+
+  const onVideoEnded = () => {
+    setPlaying(false);
+    const el = vidRef.current;
+    if (el) el.currentTime = 0;
+  };
+
+  return (
+    <div className="work-item">
+      <div className="work-frame">
+        <video
+          ref={vidRef}
+          className={playing ? 'is-playing' : ''}
+          src={encodeURI(w.video)}
+          playsInline
+          preload="metadata"
+          controls={playing}
+          onEnded={onVideoEnded}
+        />
+        {!playing && (
+          <div
+            className="play"
+            onClick={onPlayOverlayClick}
+            onKeyDown={onPlayOverlayKeyDown}
+            role="button"
+            tabIndex={0}
+            aria-label={`Play film: ${w.brand}`}
+          >
+            <div className="play-btn"><Icon.Play size={28} /></div>
+          </div>
+        )}
+      </div>
+      <div className="meta">
+        <span className="idx">FILM {String(filmNum).padStart(2, '0')}</span>
+        <span className="loc">{w.loc}</span>
+      </div>
+      <h3>{w.brand}</h3>
+      <div className="cat">{w.cat}</div>
+      <p>{w.desc}</p>
+    </div>
+  );
+}
 
 function HomePage({ setPage }) {
   const [hoverIdx, setHoverIdx] = useStateH(null);
@@ -31,13 +97,13 @@ function HomePage({ setPage }) {
               Professional glass repair and replacement across Toronto, North York, Vaughan, Richmond Hill, Markham, Mississauga and the full GTA. We repair cracked, broken, and foggy glass — saving you 60–80% vs full replacement. 24/7 emergency response.
             </p>
             <div className="hero-ctas">
-              <button className="btn btn-red btn-xl" onClick={() => go('contact')}>Free quote <Icon.Arrow /></button>
+              <button type="button" className="btn btn-red btn-xl" onClick={() => go('contact')}>Free quote <Icon.Arrow /></button>
               <a href="tel:6478032730" className="btn btn-bone-out btn-xl"><Icon.Phone /> 647-803-2730</a>
             </div>
             <div className="hero-meta">
               <div>
-                <div className="k">Arrival</div>
-                <div className="v">30–60 min</div>
+                <div className="k">Dispatch</div>
+                <div className="v">Live 24/7</div>
               </div>
               <div>
                 <div className="k">Savings</div>
@@ -60,7 +126,7 @@ function HomePage({ setPage }) {
             <div className="tag">File 04 · Queen St · Toronto</div>
           </div>
         </div>
-        <div className="hero-marquee" style={{marginTop: 72}}>
+        <div className="hero-marquee hero-marquee-spacer">
           <div className="track">
             {Array(3).fill(0).map((_, i) => (
               <span key={i}>
@@ -168,7 +234,7 @@ function HomePage({ setPage }) {
             ))}
           </div>
           <div style={{textAlign:'center'}}>
-            <button className="btn btn-outline btn-lg" onClick={() => go('services')}>See all 21 services <Icon.Arrow /></button>
+            <button type="button" className="btn btn-outline btn-lg" onClick={() => go('services')}>See all 21 services <Icon.Arrow /></button>
           </div>
         </div>
       </section>
@@ -191,9 +257,10 @@ function HomePage({ setPage }) {
               'Foggy Window Repair GTA',
               'Double Pane Replacement',
             ].map(c => (
-              <a className="seo-chip" key={c} onClick={() => go('services')} style={{cursor:'pointer'}}>
-                {c} <span className="arrow"><Icon.Arrow size={12} /></span>
-              </a>
+              <button type="button" className="seo-chip" key={c} onClick={() => go('services')}>
+                <span className="seo-chip-label">{c}</span>
+                <span className="arrow" aria-hidden><Icon.Arrow size={12} /></span>
+              </button>
             ))}
           </div>
         </div>
@@ -214,21 +281,7 @@ function HomePage({ setPage }) {
           </p>
           <div className="work-grid">
             {window.OMG_DATA.work.map((w, i) => (
-              <div className="work-item" key={i}>
-                <div className="work-frame">
-                  <img src={w.img} alt={w.brand} />
-                  <div className="play">
-                    <div className="play-btn"><Icon.Play size={28} /></div>
-                  </div>
-                </div>
-                <div className="meta">
-                  <span className="idx">FILM {String(i+1).padStart(2, '0')}</span>
-                  <span className="loc">{w.loc}</span>
-                </div>
-                <h3>{w.brand}</h3>
-                <div className="cat">{w.cat}</div>
-                <p>{w.desc}</p>
-              </div>
+              <WorkFilmCard key={w.brand} w={w} filmNum={i + 1} />
             ))}
           </div>
           <div style={{textAlign:'center', marginTop: 48}}>
@@ -285,12 +338,12 @@ function HomePage({ setPage }) {
       </section>
 
       {/* FINAL CTA */}
-      <section className="cta-final">
+      <section className="cta-final" data-float-underlay="red">
         <div className="inner">
           <h2>Ready to <span className="serif">repair</span><br/>or replace your glass?</h2>
           <p>Request a free quote or call us for 24/7 emergency glass repair across Toronto and the GTA. We'll have a technician on the way in under an hour.</p>
           <div className="ctas">
-            <button className="btn btn-white btn-xl" onClick={() => go('contact')}>Free quote <Icon.Arrow /></button>
+            <button type="button" className="btn btn-white btn-xl" onClick={() => go('contact')}>Free quote <Icon.Arrow /></button>
             <a href="tel:6478032730" className="btn btn-bone-out btn-xl"><Icon.Phone /> 647-803-2730</a>
           </div>
         </div>
