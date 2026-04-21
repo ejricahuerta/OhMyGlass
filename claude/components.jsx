@@ -39,7 +39,31 @@ const Icon = {
       <path d="M6 9l6 6 6-6" />
     </svg>
   ),
+  Message: ({ size = 18 }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+    </svg>
+  ),
 };
+
+function SmsQuoteCta({ location, variant = 'outline' }) {
+  const S = window.OMG_DATA.site;
+  const href = window.OMG_smsHref();
+  const btnClass =
+    variant === 'on-red'
+      ? 'btn sms-btn sms-btn--on-red btn-xl'
+      : variant === 'solid-red'
+        ? 'btn btn-red btn-xl sms-btn'
+        : 'btn btn-bone-out btn-xl sms-btn';
+  return (
+    <div className="sms-quote-block">
+      <a href={href} data-cta-location={location} className={btnClass}>
+        <Icon.Message size={18} /> Text us: {S.phoneDisplay}
+      </a>
+      <p className="sms-quote-helper">{S.smsHelper}</p>
+    </div>
+  );
+}
 
 // ============== NAV ==============
 function Nav({ page, setPage, urgency, onOpenTweaks }) {
@@ -106,7 +130,7 @@ function Nav({ page, setPage, urgency, onOpenTweaks }) {
             ))}
           </div>
           <div className="nav-cta">
-            <a href="tel:6478032730" className="nav-phone">
+            <a href="tel:6478032730" className="nav-phone" data-cta-location="nav-desktop">
               <div>
                 <div className="phone-label">24/7 dispatch</div>
                 <div className="phone-num">647-803-2730</div>
@@ -138,7 +162,7 @@ function Nav({ page, setPage, urgency, onOpenTweaks }) {
         aria-hidden={!menuOpen}
       >
         <div className="mobile-menu-top">
-          <img src="assets/logo.png" alt="OhMyGlass" />
+          <img src="assets/logo-dark.png" alt="OhMyGlass" />
           <button
             type="button"
             ref={mobileMenuCloseRef}
@@ -158,7 +182,7 @@ function Nav({ page, setPage, urgency, onOpenTweaks }) {
           ))}
         </div>
         <div className="mobile-menu-cta">
-          <a href="tel:6478032730" className="btn btn-red">
+          <a href="tel:6478032730" className="btn btn-red" data-cta-location="nav-mobile-menu">
             <Icon.Phone /> 24/7 · 647-803-2730
           </a>
           <button type="button" className="btn btn-bone-out" onClick={() => go('contact')}>
@@ -173,19 +197,20 @@ function Nav({ page, setPage, urgency, onOpenTweaks }) {
 function EmergencyBar({ urgency }) {
   const level = Math.max(1, Math.min(5, urgency));
   if (level === 1) return null;
+  const T = window.OMG_DATA.trust;
   const msg = level >= 4
     ? <>24/7 EMERGENCY · RAPID DISPATCH · BOARD-UP FREE</>
-    : <>24/7 · GTA · ETA WHEN YOU CALL</>;
+    : <>{T.responseTimeBar}</>;
   return (
     <div className={`e-bar level-${level}`}>
       <span className="dot" />
       <span>{msg}</span>
       <span className="sep">·</span>
-      <a href="tel:6478032730">647-803-2730</a>
+      <a href="tel:6478032730" data-cta-location="emergency-bar">647-803-2730</a>
       {level >= 3 && (
         <>
           <span className="sep">·</span>
-          <a href="tel:4375251255" aria-label="After hours, 437-525-1255">437-525-1255</a>
+          <a href="tel:4375251255" data-cta-location="emergency-bar-alt" aria-label="After hours, 437-525-1255">437-525-1255</a>
         </>
       )}
     </div>
@@ -200,7 +225,10 @@ function Footer({ setPage }) {
       <div className="footer-inner">
         <div className="footer-top">
           <div className="brand-col">
-            <img className="logo-real" src="assets/logo.png" alt="OhMyGlass" style={{background:'#fff', padding:'8px 12px', borderRadius:'2px', height:'56px'}} />
+            <img className="footer-logo" src="assets/logo-dark.png" alt="OhMyGlass" />
+            <div className="footer-trust-badge" aria-label="Credentials">
+              {window.OMG_DATA.trust.licensedBadge}
+            </div>
             <p>Expert glass repair and replacement across Toronto and the GTA. 10+ years, 5,000+ repairs, 24/7 emergency. We repair when possible, replace only when necessary.</p>
             <div style={{display:'flex', gap:'10px'}}>
               <a href="https://www.instagram.com/ohmy.glass/" style={{width:36, height:36, border:'1px solid rgba(245,242,236,0.2)', display:'flex', alignItems:'center', justifyContent:'center', borderRadius:2}}><Icon.IG /></a>
@@ -228,11 +256,11 @@ function Footer({ setPage }) {
             <div className="contact-info">
               <div className="item">
                 <strong>Main · 24/7</strong>
-                <a href="tel:6478032730">647-803-2730</a>
+                <a href="tel:6478032730" data-cta-location="footer">647-803-2730</a>
               </div>
               <div className="item">
                 <strong>After hours</strong>
-                <a href="tel:4375251255">437-525-1255</a>
+                <a href="tel:4375251255" data-cta-location="footer-alt">437-525-1255</a>
               </div>
               <div className="item">
                 <strong>Email</strong>
@@ -247,7 +275,7 @@ function Footer({ setPage }) {
         </div>
         <div className="footer-bottom">
           <div>© 2026 OHMYGLASS — ALL RIGHTS RESERVED</div>
-          <div>GLASS REPAIR · GTA · 24/7 DISPATCH</div>
+          <div className="footer-bottom-trust">{window.OMG_DATA.trust.footerTrustLine}</div>
         </div>
       </div>
     </footer>
@@ -299,6 +327,7 @@ function FloatCall({ page = '' }) {
     <a
       ref={ref}
       href="tel:6478032730"
+      data-cta-location="float-call"
       className={`float-call${visible ? ' visible' : ''}${onRedBg ? ' on-red-bg' : ''}`}
       aria-label="Call 24/7"
     >
@@ -310,8 +339,8 @@ function FloatCall({ page = '' }) {
 }
 
 // ============== QUOTE FORM ==============
-function QuoteForm({ compact = false }) {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', area: '', message: '' });
+function QuoteForm({ compact = false, submitLocation }) {
+  const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '' });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -335,7 +364,14 @@ function QuoteForm({ compact = false }) {
     ev.preventDefault();
     const e = validate();
     setErrors(e);
-    if (Object.keys(e).length === 0) setSubmitted(true);
+    if (Object.keys(e).length === 0) {
+      if (typeof window.OMG_trackEvent === 'function') {
+        window.OMG_trackEvent('quote_form_submit', {
+          location: submitLocation || (compact ? 'compact' : 'contact'),
+        });
+      }
+      setSubmitted(true);
+    }
   };
   const field = (k) => ({
     value: form[k],
@@ -357,8 +393,8 @@ function QuoteForm({ compact = false }) {
       <div className="check"><Icon.Check size={28}/></div>
       <h3>Quote request received.</h3>
       <p>Thanks {form.name.split(' ')[0] || 'friend'} — we've got it. For emergencies, our dispatch team prioritizes your message and reaches out as soon as possible. Otherwise expect a text or email within 2 business hours.</p>
-      <div style={{display:'flex', gap:12, marginTop: 8}}>
-        <a href="tel:6478032730" className="btn btn-red">Or call now · 647-803-2730</a>
+        <div style={{display:'flex', gap:12, marginTop: 8}}>
+        <a href="tel:6478032730" className="btn btn-red" data-cta-location="form-success">Or call now · 647-803-2730</a>
       </div>
     </div>
   );
@@ -385,31 +421,21 @@ function QuoteForm({ compact = false }) {
           <input type="email" {...field('email')} placeholder="you@example.com" />
           {errors.email && <span className="err-msg">{errors.email}</span>}
         </div>
-        <div className="form-row">
-          <div className={`field${errors.service ? ' error' : ''}`}>
-            <label>Service needed <span className="req">*</span></label>
-            <select {...field('service')}>
-              <option value="">— Select —</option>
-              <option>Emergency glass repair (24/7)</option>
-              <option>Window repair</option>
-              <option>Window replacement</option>
-              <option>Foggy / sealed unit</option>
-              <option>Storefront / commercial</option>
-              <option>Shower glass</option>
-              <option>Patio / sliding door</option>
-              <option>Custom mirror</option>
-              <option>Other</option>
-            </select>
-            {errors.service && <span className="err-msg">{errors.service}</span>}
-          </div>
-          <div className="field">
-            <label>Your area</label>
-            <select {...field('area')}>
-              <option value="">— Select —</option>
-              {window.OMG_DATA.areas.map(a => <option key={a.name}>{a.name}</option>)}
-              <option>Other GTA</option>
-            </select>
-          </div>
+        <div className={`field${errors.service ? ' error' : ''}`} style={{ marginBottom: 12 }}>
+          <label>Service needed <span className="req">*</span></label>
+          <select {...field('service')}>
+            <option value="">— Select —</option>
+            <option>Emergency glass repair (24/7)</option>
+            <option>Window repair</option>
+            <option>Window replacement</option>
+            <option>Foggy / sealed unit</option>
+            <option>Storefront / commercial</option>
+            <option>Shower glass</option>
+            <option>Patio / sliding door</option>
+            <option>Custom mirror</option>
+            <option>Other</option>
+          </select>
+          {errors.service && <span className="err-msg">{errors.service}</span>}
         </div>
         <div className="field" style={{marginBottom: 16}}>
           <label>What happened? (optional)</label>
@@ -419,12 +445,13 @@ function QuoteForm({ compact = false }) {
           Get my free quote <Icon.Arrow />
         </button>
         <div className="form-note">
-          Emergencies? Call <a href="tel:6478032730" style={{color:'#E5322D', fontWeight:700}}>647-803-2730</a> for live dispatch — you will get an ETA on the call.
-          After-hours line: <a href="tel:4375251255" style={{color:'#E5322D', fontWeight:700}}>437-525-1255</a>.
+          24/7 <a href="tel:6478032730" data-cta-location="quote-form-note" style={{color:'#E5322D', fontWeight:700}}>647-803-2730</a>
+          {' · '}
+          <a href="tel:4375251255" data-cta-location="quote-form-note-alt" style={{color:'#E5322D', fontWeight:700}}>437-525-1255</a> if busy.
         </div>
       </form>
     </div>
   );
 }
 
-Object.assign(window, { Icon, Nav, Footer, FloatCall, QuoteForm, EmergencyBar });
+Object.assign(window, { Icon, Nav, Footer, FloatCall, QuoteForm, EmergencyBar, SmsQuoteCta });

@@ -2,6 +2,7 @@
 function EmergencyPage({ setPage }) {
   const go = (p) => { setPage(p); window.scrollTo({ top: 0 }); };
   const D = window.OMG_DATA;
+  const T = D.trust;
 
   return (
     <>
@@ -19,29 +20,34 @@ function EmergencyPage({ setPage }) {
       <section className="em-hero" data-float-underlay="red">
         <div className="inner">
           <div className="badge-row">
-            <span className="big-badge"><span className="dot"></span>DISPATCHING NOW</span>
+            <span className="big-badge"><span className="dot"></span>ON CALL NOW</span>
             <span className="big-badge outline">24/7 · Nights · Weekends · Holidays</span>
-            <span className="big-badge outline">Rapid dispatch · GTA</span>
+            <span className="big-badge outline">{T.responseTimeEmergencyBadge}</span>
+            <span className="big-badge trust-badge-hero">{T.licensedBadge}</span>
           </div>
-          <h1>Emergency glass repair.<br/><span className="serif">When</span> you need it most.</h1>
+          <h1>Emergency glass repair.<br/>When you need it <span className="serif">most</span>.</h1>
           <p className="intro">
-            Accidents, break-ins, and storms don't wait for business hours — and neither do we. OhMyGlass provides round-the-clock 24/7 emergency glass repair across the Greater Toronto Area. When you call, we confirm your address and job type, dispatch the nearest available crew right away, and your dispatcher gives an estimated arrival based on distance, traffic, and current volume. We carry board-up materials, common glass sizes, and professional tools on every service vehicle.
+            Accidents, break-ins, and storms don't wait for business hours — and neither do we. OhMyGlass provides round-the-clock 24/7 emergency glass repair across the Greater Toronto Area. {T.responseTimeLine} We carry board-up materials, common glass sizes, and professional tools on every service vehicle.
           </p>
+          <p className="em-hero-insurance">{T.insuranceLine}</p>
           <div className="call-panel">
             <div>
               <div className="k">Main · 24/7 dispatch</div>
-              <div className="v">647-803-2730</div>
+              <div className="v"><a href="tel:6478032730" data-cta-location="emergency-hero" className="em-hero-phone-link">647-803-2730</a></div>
             </div>
             <div className="sep"></div>
             <div>
               <div className="k">After hours line</div>
-              <div className="v">437-525-1255</div>
+              <div className="v"><a href="tel:4375251255" data-cta-location="emergency-hero-alt" className="em-hero-phone-link">437-525-1255</a></div>
             </div>
             <div className="call-panel-cta">
-              <a href="tel:6478032730" className="btn" style={{background:'#fff', color:'#E5322D', padding:'14px 20px'}}>
+              <a href="tel:6478032730" data-cta-location="emergency-hero-cta" className="btn" style={{background:'#fff', color:'#E5322D', padding:'14px 20px'}}>
                 <Icon.Phone /> Call now
               </a>
             </div>
+          </div>
+          <div className="em-hero-sms">
+            <SmsQuoteCta location="emergency-hero" variant="on-red" />
           </div>
         </div>
       </section>
@@ -116,10 +122,37 @@ function EmergencyPage({ setPage }) {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="section-plain em-faq-section">
+        <div className="inner">
+          <div className="em-section-head" style={{ marginBottom: 32 }}>
+            <div>
+              <div className="num">SECTION · FAQ</div>
+              <h2>Quick <span className="serif">answers.</span></h2>
+            </div>
+            <div className="sub">Insurance, billing, and what to expect when you call.</div>
+          </div>
+          <div className="faq-list">
+            {D.faq.map((item, i) => (
+              <details className="faq-item" key={i}>
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Board-up callout */}
       <section className="section-plain" style={{background:'var(--bone)'}}>
         <div className="inner">
           <div className="boardup-callout">
+            <div className="boardup-seal" aria-hidden>
+              <div className="boardup-seal-inner">
+                <span className="boardup-seal-zero">$0</span>
+                <span className="boardup-seal-cap">Board-up</span>
+              </div>
+            </div>
             <div>
               <div className="tag">FREE WITH REPAIR</div>
               <h3>Board-up<br/><span className="serif">included.</span></h3>
@@ -159,7 +192,7 @@ function EmergencyPage({ setPage }) {
                 </div>
                 <div>
                   <div className="mono" style={{fontSize:10, letterSpacing:'0.12em', color:'var(--mute)', textTransform:'uppercase'}}>Is it urgent?</div>
-                  <a href="tel:6478032730" style={{fontSize:20, fontWeight:800, letterSpacing:'-0.01em'}}>Call 647-803-2730</a>
+                  <a href="tel:6478032730" data-cta-location="emergency-form-aside" style={{fontSize:20, fontWeight:800, letterSpacing:'-0.01em'}}>Call 647-803-2730</a>
                 </div>
               </div>
             </div>

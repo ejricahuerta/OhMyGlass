@@ -1,5 +1,34 @@
 // Shared data for OhMyGlass prototype
+// Trust copy: confirm warranty years, insurance depth, and response SLA with operations before go-live.
 window.OMG_DATA = {
+  site: {
+    phoneDisplay: '647-803-2730',
+    phoneE164: '6478032730',
+    afterHoursDisplay: '437-525-1255',
+    afterHoursE164: '4375251255',
+    smsDefaultBody:
+      'Hi OhMyGlass — sending photos of the damage for a quote. Dimensions if I have them: ',
+    smsHelper: 'Snap a pic, send dimensions if you have them — quote back in minutes.',
+  },
+  trust: {
+    responseTimeShort: '~90 min · core GTA',
+    responseTimeLine:
+      'Typical on-site arrival within 90 minutes in core GTA, 24/7 — your dispatcher confirms a live ETA on every call.',
+    responseTimeBar: '24/7 · GTA · ~90 MIN ON-SITE · CORE GTA',
+    responseTimeEmergencyBadge: '~90 min on-site · core GTA',
+    warrantyLine: 'All installations backed by a 2-year workmanship warranty.',
+    insuranceLine:
+      'We work with all major home and commercial insurance carriers. Itemized invoices provided.',
+    licensedBadge: 'Licensed · Insured · WSIB',
+    footerTrustLine: '~90 min on-site target · core GTA · 24/7 dispatch',
+  },
+  faq: [
+    {
+      q: 'Do you handle insurance claims?',
+      a:
+        'We provide itemized invoices and documentation carriers expect, and we coordinate with you (and your adjuster when needed) on scope and paperwork. Coverage decisions are always up to your insurer.',
+    },
+  ],
   services: {
     emergency: [
       { badge: '24/7', title: 'Emergency Glass Repair', desc: '24/7 emergency service for broken or shattered glass. Fast response, professional repair, and cost-effective solutions. Don\'t replace when we can repair!', link: '/emergency-glass-repair' },
@@ -90,4 +119,30 @@ window.OMG_DATA = {
     ['Window Glass Replacement', '/window-glass-replacement'],
     ['Double Pane Replacement', '/double-pane-window-replacement'],
   ],
+};
+
+window.OMG_smsHref = function OMG_smsHref() {
+  var body = window.OMG_DATA.site.smsDefaultBody;
+  return 'sms:' + window.OMG_DATA.site.phoneE164 + '?body=' + encodeURIComponent(body);
+};
+
+window.dataLayer = window.dataLayer || [];
+
+window.OMG_trackEvent = function OMG_trackEvent(eventName, params) {
+  var p = params || {};
+  if (typeof console !== 'undefined' && console.debug) {
+    console.debug('[OMG]', eventName, p);
+  }
+  if (window.dataLayer && typeof window.dataLayer.push === 'function') {
+    var payload = { event: eventName };
+    for (var k in p) {
+      if (Object.prototype.hasOwnProperty.call(p, k)) payload[k] = p[k];
+    }
+    window.dataLayer.push(payload);
+  }
+  if (typeof window.gtag === 'function') {
+    try {
+      window.gtag('event', eventName, p);
+    } catch (e) {}
+  }
 };
