@@ -14,11 +14,12 @@ function ContactPage({ setPage }) {
 
       <section className="contact-hero">
         <div className="inner">
-          <div className="mono" style={{fontSize:11, letterSpacing:'0.15em', color:'var(--red)', fontWeight:700, marginBottom:16, textTransform:'uppercase'}}>Let's talk glass</div>
+          <div className="mono contact-hero-eyebrow">{"Let's talk glass"}</div>
           <h1>Contact<br /><span className="serif">OhMy</span>Glass.</h1>
           <p className="sub">
             Have a question or need to get in touch? Fill out the form below and we'll get back to you quickly. You can also reach us by phone or email — emergencies are answered 24/7.
           </p>
+          <p className="contact-hero-trust">{window.OMG_DATA.trust.insuranceLine}</p>
         </div>
       </section>
 
@@ -29,14 +30,20 @@ function ContactPage({ setPage }) {
             <div className="item">
               <div className="k">Main · 24/7</div>
               <div className="v">
-                <a href="tel:6478032730">647-803-2730</a>
+                <a href="tel:6478032730" data-cta-location="contact-sidebar">647-803-2730</a>
                 <span className="sub">Primary dispatch line — always answered</span>
+              </div>
+            </div>
+            <div className="item">
+              <div className="k">Text a photo</div>
+              <div className="v contact-sms-wrap">
+                <SmsQuoteCta location="contact-sidebar" variant="solid-red" />
               </div>
             </div>
             <div className="item">
               <div className="k">After hours</div>
               <div className="v">
-                <a href="tel:4375251255">437-525-1255</a>
+                <a href="tel:4375251255" data-cta-location="contact-sidebar-alt">437-525-1255</a>
                 <span className="sub">Backup line if main is busy</span>
               </div>
             </div>
@@ -100,12 +107,12 @@ function ContactPage({ setPage }) {
       </div>
 
       {/* Final CTA */}
-      <section className="cta-final">
+      <section className="cta-final" data-float-underlay="red">
         <div className="inner">
           <h2>Glass <span className="serif">doesn't</span> wait. Neither do we.</h2>
           <p>Pick up the phone or send the form. Whichever's faster for you — we'll be on the way.</p>
           <div className="ctas">
-            <a href="tel:6478032730" className="btn btn-white btn-xl"><Icon.Phone /> Call 647-803-2730</a>
+            <a href="tel:6478032730" data-cta-location="contact-cta-final" className="btn btn-white btn-xl"><Icon.Phone /> Call 647-803-2730</a>
             <a href="mailto:ohmy.glass.to@gmail.com" className="btn btn-bone-out btn-xl">Email us</a>
           </div>
         </div>

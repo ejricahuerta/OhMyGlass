@@ -17,6 +17,22 @@ function App() {
     try { localStorage.setItem('omg_page', page); } catch {}
   }, [page]);
 
+  useEffectApp(() => {
+    const onDocClick = (e) => {
+      const sms = e.target.closest('a[href^="sms:"][data-cta-location]');
+      if (sms && typeof window.OMG_trackEvent === 'function') {
+        window.OMG_trackEvent('sms_click', { location: sms.getAttribute('data-cta-location') || '' });
+        return;
+      }
+      const tel = e.target.closest('a[href^="tel:"][data-cta-location]');
+      if (tel && typeof window.OMG_trackEvent === 'function') {
+        window.OMG_trackEvent('phone_click', { location: tel.getAttribute('data-cta-location') || '' });
+      }
+    };
+    document.addEventListener('click', onDocClick);
+    return () => document.removeEventListener('click', onDocClick);
+  }, []);
+
   // Apply urgency as CSS var
   useEffectApp(() => {
     document.documentElement.style.setProperty('--urgency', String(tweaks.urgencyIntensity));
@@ -53,7 +69,7 @@ function App() {
       <Nav page={page} setPage={setPage} urgency={tweaks.urgencyIntensity} />
       <PageComp setPage={setPage} />
       <Footer setPage={setPage} />
-      <FloatCall />
+      <FloatCall page={page} />
       <TweaksPanel open={tweaksOpen} tweaks={tweaks} update={updateTweak} onClose={() => setTweaksOpen(false)} />
     </div>
   );

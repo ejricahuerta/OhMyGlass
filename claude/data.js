@@ -1,5 +1,34 @@
 // Shared data for OhMyGlass prototype
+// Trust copy: confirm warranty years, insurance depth, and response SLA with operations before go-live.
 window.OMG_DATA = {
+  site: {
+    phoneDisplay: '647-803-2730',
+    phoneE164: '6478032730',
+    afterHoursDisplay: '437-525-1255',
+    afterHoursE164: '4375251255',
+    smsDefaultBody:
+      'Hi OhMyGlass — sending photos of the damage for a quote. Dimensions if I have them: ',
+    smsHelper: 'Snap a pic, send dimensions if you have them — quote back in minutes.',
+  },
+  trust: {
+    responseTimeShort: '~90 min · core GTA',
+    responseTimeLine:
+      'Typical on-site arrival within 90 minutes in core GTA, 24/7 — your dispatcher confirms a live ETA on every call.',
+    responseTimeBar: '24/7 · GTA · ~90 MIN ON-SITE · CORE GTA',
+    responseTimeEmergencyBadge: '~90 min on-site · core GTA',
+    warrantyLine: 'All installations backed by a 2-year workmanship warranty.',
+    insuranceLine:
+      'We work with all major home and commercial insurance carriers. Itemized invoices provided.',
+    licensedBadge: 'Licensed · Insured · WSIB',
+    footerTrustLine: '~90 min on-site target · core GTA · 24/7 dispatch',
+  },
+  faq: [
+    {
+      q: 'Do you handle insurance claims?',
+      a:
+        'We provide itemized invoices and documentation carriers expect, and we coordinate with you (and your adjuster when needed) on scope and paperwork. Coverage decisions are always up to your insurer.',
+    },
+  ],
   services: {
     emergency: [
       { badge: '24/7', title: 'Emergency Glass Repair', desc: '24/7 emergency service for broken or shattered glass. Fast response, professional repair, and cost-effective solutions. Don\'t replace when we can repair!', link: '/emergency-glass-repair' },
@@ -30,15 +59,15 @@ window.OMG_DATA = {
     ],
   },
   areas: [
-    { name: 'Toronto', pop: '2.79M', jobs: '1,800+', eta: '20–40 MIN', desc: 'Full downtown, midtown, east and west end coverage. Our flagship service area with the highest job volume.' },
-    { name: 'North York', pop: '869K', jobs: '1,200+', eta: '15–30 MIN', desc: 'Home base. HQ at 7 Benjamin Boake Trail. Fastest response times in the GTA.' },
-    { name: 'Vaughan', pop: '323K', jobs: '420+', eta: '30–50 MIN', desc: 'Full coverage including Maple, Woodbridge, Thornhill, Concord. Residential + commercial.' },
-    { name: 'Richmond Hill', pop: '202K', jobs: '280+', eta: '35–55 MIN', desc: 'Oak Ridges, Yonge corridor, Bayview. Same-day residential specialty.' },
-    { name: 'Markham', pop: '338K', jobs: '310+', eta: '40–60 MIN', desc: 'Unionville, Cathedraltown, Milliken. Strong commercial & office presence.' },
-    { name: 'Mississauga', pop: '717K', jobs: '530+', eta: '40–60 MIN', desc: 'Port Credit to Square One. Storefront and high-rise residential.' },
-    { name: 'Scarborough', pop: '632K', jobs: '460+', eta: '35–55 MIN', desc: 'Full east GTA coverage. Agincourt, Rouge, Cliffside.' },
-    { name: 'Etobicoke', pop: '365K', jobs: '390+', eta: '35–55 MIN', desc: 'Humber Bay, Kipling, Islington. Commercial strips and single-family homes.' },
-    { name: 'Newmarket', pop: '84K', jobs: '150+', eta: '50–70 MIN', desc: 'Northern GTA coverage. Scheduled appointments same-week.' },
+    { name: 'Toronto', pop: '2.79M', jobs: '1,800+', eta: 'Core zone', desc: 'Full downtown, midtown, east and west end coverage. Our flagship service area with the highest job volume.' },
+    { name: 'North York', pop: '869K', jobs: '1,200+', eta: 'HQ zone', desc: 'Home base. HQ at 7 Benjamin Boake Trail. Primary dispatch hub for GTA-wide emergency and scheduled work.' },
+    { name: 'Vaughan', pop: '323K', jobs: '420+', eta: 'Metro GTA', desc: 'Full coverage including Maple, Woodbridge, Thornhill, Concord. Residential + commercial.' },
+    { name: 'Richmond Hill', pop: '202K', jobs: '280+', eta: 'Metro GTA', desc: 'Oak Ridges, Yonge corridor, Bayview. Same-day residential specialty.' },
+    { name: 'Markham', pop: '338K', jobs: '310+', eta: 'Metro GTA', desc: 'Unionville, Cathedraltown, Milliken. Strong commercial & office presence.' },
+    { name: 'Mississauga', pop: '717K', jobs: '530+', eta: 'Metro GTA', desc: 'Port Credit to Square One. Storefront and high-rise residential.' },
+    { name: 'Scarborough', pop: '632K', jobs: '460+', eta: 'Metro GTA', desc: 'Full east GTA coverage. Agincourt, Rouge, Cliffside.' },
+    { name: 'Etobicoke', pop: '365K', jobs: '390+', eta: 'Metro GTA', desc: 'Humber Bay, Kipling, Islington. Commercial strips and single-family homes.' },
+    { name: 'Newmarket', pop: '84K', jobs: '150+', eta: 'Extended GTA', desc: 'Northern GTA coverage. Scheduled appointments same-week.' },
   ],
   reviews: [
     { stars: 5, text: 'Called at 11pm after a break-in at my shop. Crew was on-site in 35 minutes, boarded everything up, and had new tempered glass in two days. Charged exactly what was quoted.', name: 'Michael R.', meta: 'Storefront · Queen St W', initials: 'MR' },
@@ -46,13 +75,13 @@ window.OMG_DATA = {
     { stars: 5, text: 'Frameless shower enclosure cracked during installation by another company. OhMyGlass came out same-day, measured everything, and replaced the panel perfectly. Saved my reno timeline.', name: 'Derek K.', meta: 'Homeowner · Vaughan', initials: 'DK' },
   ],
   work: [
-    { brand: 'Ali Baba\'s', cat: 'Commercial Storefront', desc: 'Replacing glass in a commercial space. Full tempered storefront panel installed in under 4 hours.', loc: 'Toronto', img: 'https://images.unsplash.com/photo-1542321993-8fc36217e26e?w=1200' },
-    { brand: 'Car Aid Auto Collision', cat: 'Commercial Glass Installation', desc: 'Professional storefront glass installation and repair services across the shop facade.', loc: 'Scarborough', img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200' },
-    { brand: 'Gracious Living', cat: 'Commercial Replacement', desc: 'Replacing glass in a commercial space. Custom-fabricated IGUs for an office retrofit.', loc: 'Mississauga', img: 'https://images.unsplash.com/photo-1577494096822-bfb9b3b82b56?w=1200' },
+    { brand: 'Ali Baba\'s', cat: 'Commercial Storefront', desc: 'Replacing glass in a commercial space. Full tempered storefront panel installed in under 4 hours.', loc: 'Toronto', video: 'videos/ali-babas.mp4' },
+    { brand: 'Car Aid Auto Collision', cat: 'Commercial Glass Installation', desc: 'Professional storefront glass installation and repair services across the shop facade.', loc: 'Scarborough', video: 'videos/car-aid-auto collision.mp4' },
+    { brand: 'Gracious Living', cat: 'Commercial Replacement', desc: 'Replacing glass in a commercial space. Custom-fabricated IGUs for an office retrofit.', loc: 'Mississauga', video: 'videos/gracious-living.mp4' },
   ],
   processSteps: [
     { n: '01', t: 'Phone assessment', d: 'We ask about the type and size of break, whether anyone is injured, and if the property is secure. Helps us dispatch the right crew with the right materials.' },
-    { n: '02', t: 'Rapid dispatch', d: 'A technician is dispatched immediately with target arrival of 30 to 60 minutes depending on your location in the GTA.' },
+    { n: '02', t: 'Rapid dispatch', d: 'Once details are confirmed, the nearest available technician is dispatched and your dispatcher shares an estimated arrival based on distance, traffic, and current call volume.' },
     { n: '03', t: 'On-site securing', d: 'Technician cleans up all broken glass, then secures the opening with a board-up (reinforced plywood or polycarbonate) or temporary glazing.' },
     { n: '04', t: 'Measure for permanent glass', d: 'Precise measurements are taken on-site so the replacement glass can be fabricated or sourced promptly.' },
     { n: '05', t: 'Follow-up installation', d: 'Once the permanent glass is ready, we schedule a return visit at a time convenient for you to complete the replacement.' },
@@ -90,4 +119,30 @@ window.OMG_DATA = {
     ['Window Glass Replacement', '/window-glass-replacement'],
     ['Double Pane Replacement', '/double-pane-window-replacement'],
   ],
+};
+
+window.OMG_smsHref = function OMG_smsHref() {
+  var body = window.OMG_DATA.site.smsDefaultBody;
+  return 'sms:' + window.OMG_DATA.site.phoneE164 + '?body=' + encodeURIComponent(body);
+};
+
+window.dataLayer = window.dataLayer || [];
+
+window.OMG_trackEvent = function OMG_trackEvent(eventName, params) {
+  var p = params || {};
+  if (typeof console !== 'undefined' && console.debug) {
+    console.debug('[OMG]', eventName, p);
+  }
+  if (window.dataLayer && typeof window.dataLayer.push === 'function') {
+    var payload = { event: eventName };
+    for (var k in p) {
+      if (Object.prototype.hasOwnProperty.call(p, k)) payload[k] = p[k];
+    }
+    window.dataLayer.push(payload);
+  }
+  if (typeof window.gtag === 'function') {
+    try {
+      window.gtag('event', eventName, p);
+    } catch (e) {}
+  }
 };

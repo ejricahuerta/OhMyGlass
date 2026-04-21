@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/OhMyGlass.html", "destination": "/", "permanent": true }
+  ]
+}
