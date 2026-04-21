@@ -1,15 +1,7 @@
-seo-strats.html
+# Repo root (svelte-app has its own .gitignore for the site build)
 
+seo-strats.html
+design-guide.html
 .env
 
-design-guide.html
-
-# SvelteKit (adapter-static output; Vercel expects "public")
-public
-.svelte-kit
-
-docs/*
-
-node_modules/*
-.vercel
-keys.json
+ohmyglass-agent/.wrangler/

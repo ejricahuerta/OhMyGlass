@@ -1,0 +1,33 @@
+{
+  "name": "next-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "next": "15.5.15",
+    "posthog-js": "^1.369.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/oxide-win32-x64-msvc": "^4.2.3",
+    "@tailwindcss/postcss": "^4.2.3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.15",
+    "lightningcss-win32-x64-msvc": "^1.32.0",
+    "postcss": "^8.5.10",
+    "tailwindcss": "^4.2.3",
+    "typescript": "^5"
+  }
+}
