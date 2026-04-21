@@ -313,14 +313,18 @@ function HomePage({ setPage }) {
             </div>
             <div className="platforms platforms--large">
               <div className="platform platform--google">
-                <div className="platform-logo platform-logo--g" aria-hidden>G</div>
+                <div className="platform-logo platform-logo--g" aria-hidden>
+                  <Icon.Google size={28} />
+                </div>
                 <div className="platform-body">
                   <div className="name">Google</div>
                   <div className="val">5.0 <span className="red">★★★★★</span></div>
                 </div>
               </div>
               <div className="platform platform--facebook">
-                <div className="platform-logo platform-logo--f" aria-hidden>f</div>
+                <div className="platform-logo platform-logo--f" aria-hidden>
+                  <Icon.FB size={22} />
+                </div>
                 <div className="platform-body">
                   <div className="name">Facebook</div>
                   <div className="val">5.0 <span className="red">★★★★★</span></div>
