@@ -1,0 +1,2 @@
+# Redirect .html URLs to clean URLs (e.g. /commercial-glass-repair.html → /commercial-glass-repair)
+/:file.html  /:file  301

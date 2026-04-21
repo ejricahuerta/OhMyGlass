@@ -1,0 +1,15 @@
+seo-strats.html
+
+.env
+
+design-guide.html
+
+# SvelteKit (adapter-static output; Vercel expects "public")
+public
+.svelte-kit
+
+docs/*
+
+node_modules/*
+.vercel
+keys.json
