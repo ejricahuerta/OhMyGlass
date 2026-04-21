@@ -40,6 +40,9 @@ const Icon = {
 function Nav({ page, setPage, urgency, onOpenTweaks }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const mobileMenuCloseRef = useRef(null);
+  const hamburgerRef = useRef(null);
+  const hadMenuOpenRef = useRef(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
@@ -48,6 +51,25 @@ function Nav({ page, setPage, urgency, onOpenTweaks }) {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+  useEffect(() => {
+    if (menuOpen) {
+      hadMenuOpenRef.current = true;
+      const onKey = (e) => {
+        if (e.key === 'Escape') setMenuOpen(false);
+      };
+      window.addEventListener('keydown', onKey);
+      const t = requestAnimationFrame(() => mobileMenuCloseRef.current?.focus());
+      return () => {
+        cancelAnimationFrame(t);
+        window.removeEventListener('keydown', onKey);
+      };
+    }
+    if (hadMenuOpenRef.current) {
+      hadMenuOpenRef.current = false;
+      requestAnimationFrame(() => hamburgerRef.current?.focus());
+    }
+    return undefined;
   }, [menuOpen]);
   const go = (p, anchor) => {
     setPage(p); setMenuOpen(false);
@@ -88,16 +110,37 @@ function Nav({ page, setPage, urgency, onOpenTweaks }) {
             <button className="btn btn-red" onClick={() => go('contact')}>
               <span>Free Quote</span> <Icon.Arrow />
             </button>
-            <button className="hamburger" onClick={() => setMenuOpen(true)} aria-label="Open menu">
+            <button
+              type="button"
+              ref={hamburgerRef}
+              className="hamburger"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              aria-controls="omg-mobile-nav"
+            >
               <Icon.Menu size={22} />
             </button>
           </div>
         </div>
       </nav>
-      <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
+      <div
+        id="omg-mobile-nav"
+        className={`mobile-menu${menuOpen ? ' open' : ''}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+        aria-hidden={!menuOpen}
+      >
         <div className="mobile-menu-top">
           <img src="assets/logo.png" alt="OhMyGlass" />
-          <button className="mobile-menu-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
+          <button
+            type="button"
+            ref={mobileMenuCloseRef}
+            className="mobile-menu-close"
+            onClick={() => setMenuOpen(false)}
+            aria-label="Close menu"
+          >
             <Icon.X size={24}/>
           </button>
         </div>
