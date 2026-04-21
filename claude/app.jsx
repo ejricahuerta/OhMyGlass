@@ -53,7 +53,7 @@ function App() {
       <Nav page={page} setPage={setPage} urgency={tweaks.urgencyIntensity} />
       <PageComp setPage={setPage} />
       <Footer setPage={setPage} />
-      <FloatCall />
+      <FloatCall page={page} />
       <TweaksPanel open={tweaksOpen} tweaks={tweaks} update={updateTweak} onClose={() => setTweaksOpen(false)} />
     </div>
   );

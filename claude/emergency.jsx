@@ -16,16 +16,16 @@ function EmergencyPage({ setPage }) {
       </div>
 
       {/* Hero — red, loud */}
-      <section className="em-hero">
+      <section className="em-hero" data-float-underlay="red">
         <div className="inner">
           <div className="badge-row">
             <span className="big-badge"><span className="dot"></span>DISPATCHING NOW</span>
             <span className="big-badge outline">24/7 · Nights · Weekends · Holidays</span>
-            <span className="big-badge outline">30–60 min arrival · GTA</span>
+            <span className="big-badge outline">Rapid dispatch · GTA</span>
           </div>
           <h1>Emergency glass repair.<br/><span className="serif">When</span> you need it most.</h1>
           <p className="intro">
-            Accidents, break-ins, and storms don't wait for business hours — and neither do we. OhMyGlass provides round-the-clock 24/7 emergency glass repair across the Greater Toronto Area. Our rapid-response team is dispatched immediately when you call, with typical on-site arrival in 30 to 60 minutes. We carry board-up materials, common glass sizes, and professional tools on every service vehicle.
+            Accidents, break-ins, and storms don't wait for business hours — and neither do we. OhMyGlass provides round-the-clock 24/7 emergency glass repair across the Greater Toronto Area. When you call, we confirm your address and job type, dispatch the nearest available crew right away, and your dispatcher gives an estimated arrival based on distance, traffic, and current volume. We carry board-up materials, common glass sizes, and professional tools on every service vehicle.
           </p>
           <div className="call-panel">
             <div>
@@ -37,7 +37,7 @@ function EmergencyPage({ setPage }) {
               <div className="k">After hours line</div>
               <div className="v">437-525-1255</div>
             </div>
-            <div style={{marginLeft:'auto'}}>
+            <div className="call-panel-cta">
               <a href="tel:6478032730" className="btn" style={{background:'#fff', color:'#E5322D', padding:'14px 20px'}}>
                 <Icon.Phone /> Call now
               </a>
@@ -146,14 +146,14 @@ function EmergencyPage({ setPage }) {
         <div className="inner" style={{maxWidth: 1440}}>
           <div className="form-grid">
             <div>
-              <div className="mono" style={{fontSize:11, letterSpacing:'0.15em', color:'var(--red)', fontWeight:700, marginBottom: 16}}>SECTION 04 · GET HELP</div>
+              <div className="mono em-form-section-kicker">Section 04 · Get help</div>
               <h2 style={{fontSize:'clamp(36px, 4.5vw, 64px)', fontWeight:800, letterSpacing:'-0.025em', lineHeight:1, marginBottom:24}}>
                 Non-emergency?<br/><span className="serif" style={{fontFamily:"'Fraunces', serif", fontStyle:'italic', fontWeight:400, color:'var(--red)'}}>Send us</span><br/> the details.
               </h2>
               <p style={{fontSize:16, lineHeight:1.6, color:'var(--ink-3)', marginBottom:24, maxWidth:480}}>
                 For anything not a 2am emergency, the form is the fastest way to get a quote. We'll text or email back within 2 business hours.
               </p>
-              <div style={{padding:20, background:'var(--paper)', border:'1px solid var(--rule)', display:'flex', alignItems:'center', gap:16}}>
+              <div className="em-form-callout" style={{padding:20, background:'var(--paper)', border:'1px solid var(--rule)', display:'flex', alignItems:'center', gap:16}}>
                 <div style={{width:48, height:48, background:'var(--red)', color:'#fff', display:'flex', alignItems:'center', justifyContent:'center', borderRadius:'50%'}}>
                   <Icon.Phone size={20}/>
                 </div>

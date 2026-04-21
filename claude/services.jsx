@@ -1,4 +1,36 @@
 // Services page for OhMyGlass
+function AreaDetailBody({ area: a, go }) {
+  return (
+    <>
+      <div className="k">Now viewing · {a.name}</div>
+      <h3>Emergency glass repair in {a.name}</h3>
+      <p>{a.desc}</p>
+      <div className="stats-row">
+        <div className="ar-stat">
+          <div className="v">{a.eta}</div>
+          <div className="k">Service zone</div>
+        </div>
+        <div className="ar-stat">
+          <div className="v">{a.jobs}</div>
+          <div className="k">Jobs completed</div>
+        </div>
+        <div className="ar-stat">
+          <div className="v">{a.pop}</div>
+          <div className="k">Population served</div>
+        </div>
+        <div className="ar-stat">
+          <div className="v">24/7</div>
+          <div className="k">Availability</div>
+        </div>
+      </div>
+      <div className="area-detail-actions">
+        <a href="tel:6478032730" className="btn btn-red">Dispatch to {a.name} · 647-803-2730</a>
+        <button type="button" className="btn btn-bone-out" onClick={() => go('contact')}>Free quote for {a.name}</button>
+      </div>
+    </>
+  );
+}
+
 function ServicesPage({ setPage }) {
   const [selectedArea, setSelectedArea] = React.useState(0);
   const go = (p) => { setPage(p); window.scrollTo({ top: 0 }); };
@@ -40,8 +72,8 @@ function ServicesPage({ setPage }) {
               <div className="k">After hours</div>
               <a href="tel:4375251255" className="v">437-525-1255</a>
             </div>
-            <div style={{marginLeft:'auto'}}>
-              <button className="btn btn-red btn-lg" onClick={() => go('contact')}>Get a free quote <Icon.Arrow /></button>
+            <div className="phones-cta">
+              <button type="button" className="btn btn-red btn-lg" onClick={() => go('contact')}>Get a free quote <Icon.Arrow /></button>
             </div>
           </div>
         </div>
@@ -83,49 +115,73 @@ function ServicesPage({ setPage }) {
           </div>
           <div className="lead">
             <h2>We serve the<br/><span className="serif">full</span> GTA.</h2>
-            <p>Click any city to see local arrival times, active jobs, and population served. Each area has a dedicated emergency dispatch page.</p>
+            <p className="areas-lede-copy">Choose a city for local stats and dispatch. On smaller screens, details open directly under each location.</p>
           </div>
-          <div className="area-chip-grid">
+
+          <div className="area-mobile-list" aria-label="Service areas — mobile">
             {D.areas.map((a, i) => (
-              <button key={a.name} className={`area-chip${selectedArea === i ? ' active' : ''}`} onClick={() => setSelectedArea(i)}>
-                <div className="num">{String(i+1).padStart(2, '0')}</div>
-                <div className="name">{a.name}</div>
-                <div className="sub">{a.eta} · {a.jobs} jobs</div>
-              </button>
+              <div key={a.name} className="area-chip-wrap">
+                <button
+                  type="button"
+                  className={`area-chip area-chip--mobile${selectedArea === i ? ' active' : ''}`}
+                  id={`area-chip-m-${i}`}
+                  aria-expanded={selectedArea === i}
+                  aria-controls={`area-detail-m-${i}`}
+                  onClick={() => {
+                    setSelectedArea(i);
+                    requestAnimationFrame(() => {
+                      document.getElementById(`area-detail-m-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    });
+                  }}
+                >
+                  <div className="area-chip-main">
+                    <div className="num">{String(i + 1).padStart(2, '0')}</div>
+                    <div className="name">{a.name}</div>
+                    <div className="sub">{a.eta} · {a.jobs} jobs</div>
+                  </div>
+                  <span className="area-chip-expand-icon" aria-hidden>
+                    <Icon.ChevronDown size={18} />
+                  </span>
+                </button>
+                {selectedArea === i && (
+                  <div
+                    id={`area-detail-m-${i}`}
+                    className="area-detail area-detail--under-chip"
+                    role="region"
+                    aria-labelledby={`area-chip-m-${i}`}
+                  >
+                    <AreaDetailBody area={a} go={go} />
+                  </div>
+                )}
+              </div>
             ))}
           </div>
-          <div className="area-detail">
-            <div className="k">Now viewing · {area.name}</div>
-            <h3>Emergency glass repair in {area.name}</h3>
-            <p>{area.desc}</p>
-            <div className="stats-row">
-              <div className="ar-stat">
-                <div className="v">{area.eta}</div>
-                <div className="k">Typical arrival</div>
-              </div>
-              <div className="ar-stat">
-                <div className="v">{area.jobs}</div>
-                <div className="k">Jobs completed</div>
-              </div>
-              <div className="ar-stat">
-                <div className="v">{area.pop}</div>
-                <div className="k">Population served</div>
-              </div>
-              <div className="ar-stat">
-                <div className="v">24/7</div>
-                <div className="k">Availability</div>
-              </div>
+
+          <div className="area-desktop-picker">
+            <div className="area-chip-grid">
+              {D.areas.map((a, i) => (
+                <button
+                  type="button"
+                  key={a.name}
+                  className={`area-chip area-chip--desktop${selectedArea === i ? ' active' : ''}`}
+                  onClick={() => setSelectedArea(i)}
+                  aria-pressed={selectedArea === i}
+                >
+                  <div className="num">{String(i + 1).padStart(2, '0')}</div>
+                  <div className="name">{a.name}</div>
+                  <div className="sub">{a.eta} · {a.jobs} jobs</div>
+                </button>
+              ))}
             </div>
-            <div style={{marginTop:24, display:'flex', gap:12, flexWrap:'wrap'}}>
-              <a href="tel:6478032730" className="btn btn-red">Dispatch to {area.name} · 647-803-2730</a>
-              <button className="btn btn-bone-out" onClick={() => go('contact')}>Free quote for {area.name}</button>
+            <div className="area-detail" aria-live="polite">
+              <AreaDetailBody area={area} go={go} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Final emergency CTA */}
-      <section className="cta-final">
+      <section className="cta-final" data-float-underlay="red">
         <div className="inner">
           <h2>Need help <span className="serif">now?</span></h2>
           <p>We're available 24/7 for emergency glass repair across the entire Greater Toronto Area. Board-up included free with permanent repair booking.</p>
