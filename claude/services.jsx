@@ -24,7 +24,7 @@ function AreaDetailBody({ area: a, go }) {
         </div>
       </div>
       <div className="area-detail-actions">
-        <a href="tel:6478032730" className="btn btn-red">Dispatch to {a.name} · 647-803-2730</a>
+        <a href="tel:6478032730" data-cta-location="services-area" className="btn btn-red">Dispatch to {a.name} · 647-803-2730</a>
         <button type="button" className="btn btn-bone-out" onClick={() => go('contact')}>Free quote for {a.name}</button>
       </div>
     </>
@@ -63,14 +63,15 @@ function ServicesPage({ setPage }) {
           <p className="sub">
             Professional glass repair specialists. We repair cracked, broken, and foggy glass — saving you 60–80% vs replacement. 24/7 emergency service available across the Greater Toronto Area.
           </p>
+          <p className="page-hero-trust">{window.OMG_DATA.trust.warrantyLine} {window.OMG_DATA.trust.insuranceLine}</p>
           <div className="phones">
             <div className="phone-grp">
               <div className="k">24/7 Main line</div>
-              <a href="tel:6478032730" className="v"><span className="red">647-</span>803-2730</a>
+              <a href="tel:6478032730" data-cta-location="services-hero" className="v"><span className="red">647-</span>803-2730</a>
             </div>
             <div className="phone-grp">
               <div className="k">After hours</div>
-              <a href="tel:4375251255" className="v">437-525-1255</a>
+              <a href="tel:4375251255" data-cta-location="services-hero-alt" className="v">437-525-1255</a>
             </div>
             <div className="phones-cta">
               <button type="button" className="btn btn-red btn-lg" onClick={() => go('contact')}>Get a free quote <Icon.Arrow /></button>
@@ -186,7 +187,7 @@ function ServicesPage({ setPage }) {
           <h2>Need help <span className="serif">now?</span></h2>
           <p>We're available 24/7 for emergency glass repair across the entire Greater Toronto Area. Board-up included free with permanent repair booking.</p>
           <div className="ctas">
-            <a href="tel:6478032730" className="btn btn-white btn-xl"><Icon.Phone /> 647-803-2730 · Main</a>
+            <a href="tel:6478032730" data-cta-location="services-bottom" className="btn btn-white btn-xl"><Icon.Phone /> 647-803-2730 · Main</a>
             <a href="tel:4375251255" className="btn btn-bone-out btn-xl"><Icon.Phone /> 437-525-1255 · After hours</a>
           </div>
         </div>

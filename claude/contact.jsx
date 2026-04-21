@@ -19,6 +19,7 @@ function ContactPage({ setPage }) {
           <p className="sub">
             Have a question or need to get in touch? Fill out the form below and we'll get back to you quickly. You can also reach us by phone or email — emergencies are answered 24/7.
           </p>
+          <p className="contact-hero-trust">{window.OMG_DATA.trust.insuranceLine}</p>
         </div>
       </section>
 
@@ -29,14 +30,20 @@ function ContactPage({ setPage }) {
             <div className="item">
               <div className="k">Main · 24/7</div>
               <div className="v">
-                <a href="tel:6478032730">647-803-2730</a>
+                <a href="tel:6478032730" data-cta-location="contact-sidebar">647-803-2730</a>
                 <span className="sub">Primary dispatch line — always answered</span>
+              </div>
+            </div>
+            <div className="item">
+              <div className="k">Text a photo</div>
+              <div className="v contact-sms-wrap">
+                <SmsQuoteCta location="contact-sidebar" variant="solid-red" />
               </div>
             </div>
             <div className="item">
               <div className="k">After hours</div>
               <div className="v">
-                <a href="tel:4375251255">437-525-1255</a>
+                <a href="tel:4375251255" data-cta-location="contact-sidebar-alt">437-525-1255</a>
                 <span className="sub">Backup line if main is busy</span>
               </div>
             </div>
@@ -105,7 +112,7 @@ function ContactPage({ setPage }) {
           <h2>Glass <span className="serif">doesn't</span> wait. Neither do we.</h2>
           <p>Pick up the phone or send the form. Whichever's faster for you — we'll be on the way.</p>
           <div className="ctas">
-            <a href="tel:6478032730" className="btn btn-white btn-xl"><Icon.Phone /> Call 647-803-2730</a>
+            <a href="tel:6478032730" data-cta-location="contact-cta-final" className="btn btn-white btn-xl"><Icon.Phone /> Call 647-803-2730</a>
             <a href="mailto:ohmy.glass.to@gmail.com" className="btn btn-bone-out btn-xl">Email us</a>
           </div>
         </div>
