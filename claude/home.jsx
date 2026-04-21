@@ -116,14 +116,7 @@ function HomePage({ setPage }) {
             </div>
           </div>
           <div className="hero-visual">
-            <div className="hero-img-wrap">
-              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900" alt="Modern glass storefront" />
-            </div>
-            <div className="badge-24">
-              <div className="big">24/7</div>
-              <div>Emergency Response</div>
-            </div>
-            <div className="tag">File 04 · Queen St · Toronto</div>
+            <QuoteForm />
           </div>
         </div>
         <div className="hero-marquee hero-marquee-spacer">
