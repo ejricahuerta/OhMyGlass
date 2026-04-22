@@ -92,10 +92,10 @@ function HomePage({ navigate }) {
   }, []);
 
   const serviceFeatures = [
-    { t: 'Window glass repair', desc: 'Cracked, broken, or foggy window panes—repaired fast, often in a single visit across the GTA.', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', badge: 'WINDOWS' },
-    { t: 'Door glass repair', desc: 'Patio, entry, and sliding doors: glass, seals, hardware, tracks, and rollers for homes and businesses.', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', badge: 'DOORS' },
-    { t: 'Storefront & commercial', desc: 'Tempered and safety glass for entrances, facades, and high-traffic door openings—same repair-first mindset.', img: 'https://images.unsplash.com/photo-1555636222-cae831e670b3?w=800', badge: 'COMMERCIAL' },
-    { t: 'Custom mirror', desc: 'Cut-to-size mirrors for bath and closet—installed with the same care as our window and door work.', img: 'https://images.unsplash.com/photo-1595514535415-dae8970c381a?w=800', badge: 'MIRRORS' },
+    { t: 'Window glass repair', desc: 'Cracked, broken, or foggy window panes—repaired fast, often in a single visit across the GTA.', img: 'images/glass-window.jpg', badge: 'WINDOWS' },
+    { t: 'Door glass repair', desc: 'Patio, entry, and sliding doors: glass, seals, hardware, tracks, and rollers for homes and businesses.', img: 'images/glass-door.jpg', badge: 'DOORS' },
+    { t: 'Storefront & commercial', desc: 'Tempered and safety glass for entrances, facades, and high-traffic door openings—same repair-first mindset.', img: 'images/local-commercial-storefront.jpg', badge: 'COMMERCIAL' },
+    { t: 'Custom mirror', desc: 'Cut-to-size mirrors for bath and closet—installed with the same care as our window and door work.', img: 'images/mirror-wall.jpg', badge: 'MIRRORS' },
   ];
 
   return (
