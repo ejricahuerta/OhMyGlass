@@ -21,7 +21,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import ActiveContact from '$lib/components/ActiveContact.svelte';
   import { getServicesByCategory } from '$lib/service-cards.js';
-  import { withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
+  import { homeHeroSub, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
 
   /** @type {{ page: { title: string; seo?: { meta_description?: string; keywords?: string[] } }; serviceAreaLocations: Array<{ name: string; slug: string }> }} */
   export let data;
@@ -41,9 +41,7 @@
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
         Expert Glass Repair<br class="hidden sm:inline" /> Toronto & GTA
       </h1>
-      <p class="text-lg md:text-xl text-neutral-200 max-w-2xl">
-        Professional glass repair specialists. We repair cracked, broken, and foggy glass – saving you 60–80% vs replacement. 24/7 emergency service available.
-      </p>
+      <p class="text-lg md:text-xl text-neutral-200 max-w-3xl">{homeHeroSub}</p>
       <div class="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-start sm:items-center">
         <ActiveContact let:phone let:phoneHref let:afterHoursPhone let:afterHoursPhoneHref>
           <a
@@ -155,7 +153,7 @@
   <section class="py-10 md:py-12 bg-neutral-800 text-white">
     <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-center sm:text-left">
       <p class="text-lg font-semibold m-0">
-        Need help now? We're available 24/7 for emergency glass repair.
+        Broken window or door glass? We're available 24/7 for urgent glass repair.
       </p>
       <ActiveContact let:phone let:phoneHref let:afterHoursPhone let:afterHoursPhoneHref>
         <div class="flex flex-col sm:flex-row flex-wrap gap-3 justify-center sm:justify-start">

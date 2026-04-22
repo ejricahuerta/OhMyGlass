@@ -371,7 +371,7 @@
                 </a>
                 <a
                   href={afterHoursPhoneHref}
-                  class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white font-bold px-6 py-3 rounded-2xl border border-white/30 transition-colors"
+                  class="inline-flex items-center gap-2 bg-white hover:bg-neutral-100 text-neutral-900 font-bold px-6 py-3 rounded-2xl border border-white transition-colors"
                 >
                   After hours: {afterHoursPhone}
                 </a>

@@ -181,7 +181,7 @@ export const serviceCards: ServiceCard[] = [
     href: withInternalUtm("/glass-repair-vs-replacement", "services"),
     title: "Glass Repair vs Window Glass Replacement",
     description:
-      "Replace just the glass (~$200) or full window (~$2k). We replace panes and IGUs—no crack-filling. Expert assessment across the GTA.",
+      "Replace just the glass (~$200) or full window (~$2k). We replace panes and IGUs; we do not fill or seal cracks. Expert assessment across the GTA.",
     category: "other",
     icon: "fa-scale-balanced",
   },

@@ -1,5 +1,8 @@
 // Home page for OhMyGlass
-const { useState: useStateH, useRef: useRefH } = React;
+const { useState: useStateH, useRef: useRefH, useEffect: useEffectH } = React;
+
+/** Default document title when the home route is active. */
+var HOME_PAGE_TITLE = 'OhMyGlass | Window & Door Glass Repair | Toronto & GTA · 24/7 · Free Quote';
 
 function WorkFilmCard({ w, filmNum }) {
   const [playing, setPlaying] = useStateH(false);
@@ -9,11 +12,16 @@ function WorkFilmCard({ w, filmNum }) {
     if (typeof window.OMG_trackEvent === 'function') {
       window.OMG_trackEvent('video_play', { film: w.brand, filmNum });
     }
+    const el = vidRef.current;
+    if (el) {
+      // Call play() in the same turn as the user click so the browser keeps
+      // "user activation" and allows unmuted playback (rAF can lose that).
+      el.muted = false;
+      el.volume = 1;
+      const p = el.play();
+      if (p && typeof p.catch === 'function') p.catch(function () {});
+    }
     setPlaying(true);
-    requestAnimationFrame(() => {
-      const el = vidRef.current;
-      if (el) el.play().catch(() => {});
-    });
   };
 
   const onPlayOverlayClick = (e) => {
@@ -70,22 +78,30 @@ function WorkFilmCard({ w, filmNum }) {
   );
 }
 
-function HomePage({ setPage }) {
-  const go = (p) => { setPage(p); window.scrollTo({ top: 0 }); };
+function HomePage({ navigate }) {
+  const go = (path) => {
+    navigate(path);
+  };
   const T = window.OMG_DATA.trust;
   const S = window.OMG_DATA.site;
 
+  useEffectH(function () {
+    document.title = HOME_PAGE_TITLE;
+    var m = document.querySelector('meta[name="description"]');
+    if (m) m.setAttribute('content', S.homeHeroSub);
+  }, []);
+
   const serviceFeatures = [
-    { t: 'Window Repairs', desc: 'Cracked, broken, or foggy panes — repaired in under 2 hours on most jobs.', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', badge: 'WINDOWS' },
-    { t: 'Aluminum Storefront', desc: 'Commercial frames, tempered glass, and full storefront installs across the GTA.', img: 'https://images.unsplash.com/photo-1555636222-cae831e670b3?w=800', badge: 'STOREFRONTS' },
-    { t: 'Door Repairs', desc: 'Patio, entry, sliding. Glass panels, hardware, tracks, rollers — residential and commercial.', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', badge: 'DOORS' },
-    { t: 'Custom Mirror', desc: 'Cut to size for bathrooms, closets, retail. Delivered and installed professionally.', img: 'https://images.unsplash.com/photo-1595514535415-dae8970c381a?w=800', badge: 'MIRRORS' },
+    { t: 'Window glass repair', desc: 'Cracked, broken, or foggy window panes—repaired fast, often in a single visit across the GTA.', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', badge: 'WINDOWS' },
+    { t: 'Door glass repair', desc: 'Patio, entry, and sliding doors: glass, seals, hardware, tracks, and rollers for homes and businesses.', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', badge: 'DOORS' },
+    { t: 'Storefront & commercial', desc: 'Tempered and safety glass for entrances, facades, and high-traffic door openings—same repair-first mindset.', img: 'https://images.unsplash.com/photo-1555636222-cae831e670b3?w=800', badge: 'COMMERCIAL' },
+    { t: 'Custom mirror', desc: 'Cut-to-size mirrors for bath and closet—installed with the same care as our window and door work.', img: 'https://images.unsplash.com/photo-1595514535415-dae8970c381a?w=800', badge: 'MIRRORS' },
   ];
 
   return (
     <>
       {/* HERO */}
-      <section className="hero">
+      <section className="hero" id="omg-hero" aria-label="Hero">
         <div className="hero-inner">
           <div>
             <div className="hero-kicker">
@@ -94,13 +110,11 @@ function HomePage({ setPage }) {
               <span className="hero-kicker-short">Est. 2015 · North York · GTA</span>
             </div>
             <h1>
-              Glass breaks.<br/>
+              Window &amp; door glass<br/>
               <span className="accent">We</span> <span className="red">fix it</span><br/>
               fast.
             </h1>
-            <p className="hero-sub">
-              Professional glass repair and replacement across Toronto, North York, Vaughan, Richmond Hill, Markham, Mississauga and the full GTA. We repair cracked, broken, and foggy glass — saving you 60–80% vs full replacement.
-            </p>
+            <p className="hero-sub">{S.homeHeroSub}</p>
             <div className="hero-ctas hero-ctas--stack">
               <div className="hero-contact-rail" role="group" aria-label="Call or text OhMyGlass">
                 <span className="hero-contact-seg hero-contact-seg--num">{S.phoneDisplay}</span>
@@ -149,28 +163,28 @@ function HomePage({ setPage }) {
         </div>
       </section>
 
-      {/* STATS — trust metrics (after hero) */}
+      {/* STATS: trust metrics (after hero) */}
       <section className="stats" aria-label="OhMyGlass by the numbers">
         <div className="stats-inner">
           <div className="stat">
             <div className="big">2<sup>K+</sup></div>
             <div className="k">GTA properties</div>
-            <div className="v">Homes, condos, storefronts, and commercial sites we have repaired or replaced glass for across the Greater Toronto Area.</div>
+            <div className="v">Homes, condos, storefronts, and commercial sites where we have repaired or replaced window and door glass across the Greater Toronto Area.</div>
           </div>
           <div className="stat">
             <div className="big">10<sup>YRS</sup></div>
             <div className="k">Years of experience</div>
-            <div className="v">In the glass business for over a decade. Same local crew, same repair-first approach.</div>
+            <div className="v">Over a decade focused on window and door glass. Same local crew, same repair-first approach.</div>
           </div>
           <div className="stat">
             <div className="big">5<sup>K+</sup></div>
-            <div className="k">Glass jobs</div>
-            <div className="v">Completed successfully across the GTA, saving customers 60–80% vs full replacement where repair was possible.</div>
+            <div className="k">Window &amp; door jobs</div>
+            <div className="v">Completed successfully across the GTA—mostly window and door glass—saving customers 60–80% vs full replacement where repair was possible.</div>
           </div>
         </div>
       </section>
 
-      {/* OUR WORK — elevated (PRD) */}
+      {/* OUR WORK (elevated, PRD) */}
       <section className="section work" id="work">
         <div className="section-inner">
           <div className="section-eye">
@@ -209,13 +223,13 @@ function HomePage({ setPage }) {
               <div className="motto">
                 We repair when possible, <strong>replace only when necessary.</strong>
               </div>
-              <p className="why-warranty-note">{T.warrantyLine}</p>
+              {T.warrantyLine && String(T.warrantyLine).trim() ? <p className="why-warranty-note">{T.warrantyLine}</p> : null}
             </div>
             <div className="why-right">
               {[
-                ['10+ yrs', 'A decade of GTA glass work', 'Specialists — not generalists. Glass is all we do.', 'EXPERIENCE'],
+                ['10+ yrs', 'A decade of GTA window & door glass', 'Specialists in window and door glass—not a general handyman shop.', 'EXPERIENCE'],
                 ['24/7', 'Emergency dispatch', 'Nights, weekends, and holidays. Real humans answer.', 'AVAILABILITY'],
-                ['60–80%', 'Typical customer savings', 'We repair glass instead of replacing whole windows.', 'COST'],
+                ['60–80%', 'Typical customer savings', 'We repair the glass instead of selling you a whole new window or door when it makes sense.', 'COST'],
                 ['FREE', 'Board-up included', 'No extra charge when booking the permanent repair with us.', 'VALUE'],
                 ['5.0★', 'Google & Facebook rating', 'Hundreds of reviews from homeowners and business owners.', 'TRUST'],
                 ['GTA', 'Full coverage', 'Toronto, North York, Vaughan, Markham, Mississauga + more.', 'REACH'],
@@ -240,14 +254,14 @@ function HomePage({ setPage }) {
             <span>What we fix</span>
             <span className="line"></span>
           </div>
-          <h2 className="section-h">Four core services,<br /><span className="serif">countless</span> glass problems solved.</h2>
+          <h2 className="section-h">Window &amp; door glass,<br /><span className="serif">done</span> right across the GTA.</h2>
           <p className="section-lede">
-            Residential, commercial, emergency. We handle every kind of glass job from a single cracked pane to a full storefront.
+            Residential, commercial, and emergency. From a single cracked pane to a full storefront opening—if it is window or door glass, that is our focus.
           </p>
-          <p className="services-warranty-lede">{T.warrantyLine}</p>
+          {T.warrantyLine && String(T.warrantyLine).trim() ? <p className="services-warranty-lede">{T.warrantyLine}</p> : null}
           <div className="svc-grid">
             {serviceFeatures.map((s, i) => (
-              <div className="svc-card" key={i} onClick={() => go('services')}>
+              <div className="svc-card" key={i} onClick={() => go('/services')}>
                 <img src={s.img} alt={s.t} />
                 <div className="overlay" />
                 <div className="body">
@@ -262,7 +276,9 @@ function HomePage({ setPage }) {
             ))}
           </div>
           <div style={{textAlign:'center'}}>
-            <button type="button" className="btn btn-outline btn-lg" onClick={() => go('services')}>See all 21 services <Icon.Arrow /></button>
+            <button type="button" className="btn btn-outline btn-lg" onClick={() => go('/services')}>
+              See all services <Icon.Arrow />
+            </button>
           </div>
         </div>
       </section>
@@ -285,7 +301,7 @@ function HomePage({ setPage }) {
               'Foggy Window Repair GTA',
               'Double Pane Replacement',
             ].map(c => (
-              <button type="button" className="seo-chip" key={c} onClick={() => go('services')}>
+              <button type="button" className="seo-chip" key={c} onClick={() => go('/services')}>
                 <span className="seo-chip-label">{c}</span>
                 <span className="arrow" aria-hidden><Icon.Arrow size={12} /></span>
               </button>
@@ -353,11 +369,15 @@ function HomePage({ setPage }) {
       {/* FINAL CTA */}
       <section className="cta-final" data-float-underlay="red">
         <div className="inner">
-          <h2>Ready to <span className="serif">repair</span><br/>or replace your glass?</h2>
-          <p>Request a free quote or call us for 24/7 emergency glass repair across Toronto and the GTA. {T.responseTimeLine}</p>
+          <h2>Ready to <span className="serif">repair</span><br/>your window or door glass?</h2>
+          <p>Request a free quote or call us for 24/7 emergency window and door glass repair across Toronto and the GTA. {T.responseTimeLine}</p>
           <div className="ctas">
-            <button type="button" className="btn btn-white btn-xl" onClick={() => go('contact')}>Free quote <Icon.Arrow /></button>
-            <a href="tel:6478032730" data-cta-location="home-cta-final" className="btn btn-bone-out btn-xl"><Icon.Phone /> 647-803-2730</a>
+            <button type="button" className="btn btn-white btn-xl" onClick={() => go('/contact')}>
+              Free quote <Icon.Arrow />
+            </button>
+            <a href={window.OMG_DATA.contact.phoneHref} data-cta-location="home-cta-final" className="btn btn-bone-out btn-xl">
+              <Icon.Phone /> {window.OMG_DATA.contact.phone}
+            </a>
           </div>
         </div>
       </section>

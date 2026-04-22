@@ -1,4 +1,4 @@
-/** Ported from svelte-app/vercel.json — Next.js `redirects()` shape */
+/** Ported from svelte-app/vercel.json: Next.js `redirects()` shape */
 export const vercelRedirects: Array<{
   source: string;
   destination: string;

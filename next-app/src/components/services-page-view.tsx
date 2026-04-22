@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { withInternalUtm } from "@/lib/site-data";
+import { homeHeroSub, withInternalUtm } from "@/lib/site-data";
 import { getServicesByCategory } from "@/lib/service-cards";
 import { Footer } from "./footer";
 import { ActiveContact } from "./active-contact";
@@ -25,10 +25,7 @@ export function ServicesPageView({
             Expert Glass Repair
             <br className="hidden sm:inline" /> Toronto & GTA
           </h1>
-          <p className="text-lg md:text-xl text-neutral-200 max-w-2xl">
-            Professional glass repair specialists. We repair cracked, broken, and foggy glass –
-            saving you 60–80% vs replacement. 24/7 emergency service available.
-          </p>
+          <p className="text-lg md:text-xl text-neutral-200 max-w-3xl">{homeHeroSub}</p>
           <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-start sm:items-center">
             <ActiveContact>
               {({ phone, phoneHref, afterHoursPhone, afterHoursPhoneHref }) => (
@@ -146,7 +143,7 @@ export function ServicesPageView({
       <section className="py-10 md:py-12 bg-neutral-800 text-white">
         <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-center sm:text-left">
           <p className="text-lg font-semibold m-0">
-            Need help now? We&apos;re available 24/7 for emergency glass repair.
+            Broken window or door glass? We&apos;re available 24/7 for urgent glass repair.
           </p>
           <ActiveContact>
             {({ phone, phoneHref, afterHoursPhone, afterHoursPhoneHref }) => (

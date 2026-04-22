@@ -1,56 +1,71 @@
 // Contact page for OhMyGlass
-function ContactPage({ setPage }) {
-  const go = (p) => { setPage(p); window.scrollTo({ top: 0 }); };
+function ContactPage({ navigate }) {
+  const C = window.OMG_DATA.contact;
 
   return (
     <>
       <div className="crumb">
         <div className="inner">
-          <a onClick={() => go('home')} style={{cursor:'pointer'}}>Home</a>
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/');
+            }}
+            style={{ cursor: 'pointer' }}
+          >
+            Home
+          </a>
           <span>/</span>
           <span className="current">Contact · Free Quote</span>
         </div>
       </div>
 
-      <section className="contact-hero">
-        <div className="inner">
-          <div className="mono contact-hero-eyebrow">{"Let's talk glass"}</div>
-          <h1>Contact<br /><span className="serif">OhMy</span>Glass.</h1>
-          <p className="sub">
-            Have a question or need to get in touch? Fill out the form below and we'll get back to you quickly. You can also reach us by phone or email — emergencies are answered 24/7.
-          </p>
-          <p className="contact-hero-trust">{window.OMG_DATA.trust.insuranceLine}</p>
-        </div>
-      </section>
+      <PageHeroWithQuoteForm
+        eye="Contact · Window &amp; door glass"
+        titleContent={
+          <>
+            Contact
+            <br />
+            <span className="serif">OhMy</span>Glass.
+          </>
+        }
+        sub="Have a question or need to get in touch? Send the form and we'll get back to you quickly. You can also call, text, or email; emergencies are answered 24/7."
+        submitLocation="contact-hero"
+        phonesCtaMain="contact-hero"
+        phonesCtaAlt="contact-hero-alt"
+      />
 
       <div className="contact-grid">
-        {/* Left: contact info */}
-        <div>
-          <div className="contact-info-block">
+        <div className="contact-info-block">
             <div className="item">
               <div className="k">Main · 24/7</div>
               <div className="v">
-                <a href="tel:6478032730" data-cta-location="contact-sidebar">647-803-2730</a>
-                <span className="sub">Primary dispatch line — always answered</span>
+                <a href={C.phoneHref} data-cta-location="contact-sidebar">
+                  {C.phone}
+                </a>
+                <span className="sub">Primary dispatch line, always answered</span>
               </div>
             </div>
             <div className="item">
               <div className="k">Text a photo</div>
               <div className="v contact-sms-wrap">
-                <SmsQuoteCta location="contact-sidebar" variant="solid-red" />
+                <SmsQuoteCta location="contact-sidebar" variant="contact-link" />
               </div>
             </div>
             <div className="item">
               <div className="k">After hours</div>
               <div className="v">
-                <a href="tel:4375251255" data-cta-location="contact-sidebar-alt">437-525-1255</a>
+                <a href={C.afterHoursPhoneHref} data-cta-location="contact-sidebar-alt">
+                  {C.afterHoursPhone}
+                </a>
                 <span className="sub">Backup line if main is busy</span>
               </div>
             </div>
             <div className="item">
               <div className="k">Email</div>
               <div className="v">
-                <a href="mailto:ohmy.glass.to@gmail.com">ohmy.glass.to@gmail.com</a>
+                <a href={C.emailHref}>{C.email}</a>
                 <span className="sub">Replies within 2 business hours</span>
               </div>
             </div>
@@ -72,12 +87,23 @@ function ContactPage({ setPage }) {
               <div className="k">Area</div>
               <div className="v">
                 Full GTA
-                <span className="sub"><a onClick={() => { go('services'); setTimeout(() => document.getElementById('areas')?.scrollIntoView({behavior:'smooth'}), 100); }} style={{cursor:'pointer', color:'var(--red)'}}>View service areas →</a></span>
+                <span className="sub">
+                  <a
+                    href="/service-areas"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate('/service-areas');
+                    }}
+                    style={{ cursor: 'pointer', color: 'var(--red)' }}
+                  >
+                    View service areas →
+                  </a>
+                </span>
               </div>
             </div>
           </div>
 
-          {/* Fake map */}
+        <div className="contact-map-col">
           <div className="map-embed">
             <div className="overlay">
               <svg className="bg" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
@@ -96,13 +122,10 @@ function ContactPage({ setPage }) {
               <div className="pin"></div>
               <div className="pin-label">7 Benjamin Boake Trail · North York</div>
             </div>
-            <a href="https://maps.app.goo.gl/asTcvrbx57PsitbD9" target="_blank" className="open-maps">Open in Maps →</a>
+            <a href={C.googleMaps} target="_blank" rel="noopener noreferrer" className="open-maps">
+              Open in Maps →
+            </a>
           </div>
-        </div>
-
-        {/* Right: form */}
-        <div>
-          <QuoteForm />
         </div>
       </div>
 
@@ -110,10 +133,14 @@ function ContactPage({ setPage }) {
       <section className="cta-final" data-float-underlay="red">
         <div className="inner">
           <h2>Glass <span className="serif">doesn't</span> wait. Neither do we.</h2>
-          <p>Pick up the phone or send the form. Whichever's faster for you — we'll be on the way.</p>
+          <p>Pick up the phone or send the form. Whichever is faster for you, we will be on the way.</p>
           <div className="ctas">
-            <a href="tel:6478032730" data-cta-location="contact-cta-final" className="btn btn-white btn-xl"><Icon.Phone /> Call 647-803-2730</a>
-            <a href="mailto:ohmy.glass.to@gmail.com" className="btn btn-bone-out btn-xl">Email us</a>
+            <a href={C.phoneHref} data-cta-location="contact-cta-final" className="btn btn-white btn-xl">
+              <Icon.Phone /> Call {C.phone}
+            </a>
+            <a href={C.emailHref} className="btn btn-bone-out btn-xl">
+              Email us
+            </a>
           </div>
         </div>
       </section>
