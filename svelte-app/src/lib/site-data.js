@@ -65,6 +65,10 @@ export const footerServicesDefaultOrder = [
 export const serviceAreaCities =
   'Toronto, North York, Vaughan, Richmond Hill, Markham, Mississauga, Scarborough, Etobicoke, Newmarket, Oakville, Ajax, Milton, Pickering, Whitby, Woodbridge, Burlington, Halton Hills, Caledon, Aurora, East Gwillimbury, Georgina, King, Whitchurch-Stouffville, Clarington, Oshawa, Scugog, Uxbridge';
 
+/** Home hero + services hero subtitle (aligned with `claude/data.js` `site.homeHeroSub`). */
+export const homeHeroSub =
+  'Professional glass repair and replacement windows in Toronto, North York, Vaughan, Richmond Hill, Markham, Mississauga & GTA. We repair cracked, broken, and foggy glass – saving you 60-80% vs full replacement. 24/7 emergency glass repair available.';
+
 /** Same cities as an array for grid/pill display */
 export const serviceAreaCitiesList = [
   'Toronto',

@@ -1,13 +1,13 @@
 <svelte:head>
   <title>OhMyGlass | Replacement Windows & Glass Repair Toronto & GTA - Free Quote, 24/7</title>
-  <meta name="description" content="Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass. Call now." />
+  <meta name="description" content={homeHeroSub} />
   <meta name="keywords" content="glass repair, window repair, broken glass repair, cracked window repair, foggy window repair, emergency glass repair, glass repair toronto, glass repair GTA, window repair toronto, storefront glass repair, residential glass repair, commercial glass repair, glass repair vs replacement" />
   <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high" />
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={siteUrl + '/'} />
   <meta property="og:title" content="OhMyGlass | Replacement Windows & Glass Repair Toronto & GTA - Free Quote, 24/7" />
-  <meta property="og:description" content="Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass." />
+  <meta property="og:description" content={homeHeroSub} />
   <meta property="og:image" content={ogImage} />
   <meta property="fb:app_id" content="966242223397117" />
   <meta property="og:site_name" content="OhMyGlass" />
@@ -16,7 +16,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content={siteUrl + '/'} />
   <meta name="twitter:title" content="OhMyGlass | Replacement Windows & Glass Repair Toronto & GTA" />
-  <meta name="twitter:description" content="Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass." />
+  <meta name="twitter:description" content={homeHeroSub} />
   <meta name="twitter:image" content={ogImage} />
   <link rel="canonical" href={siteUrl + '/'} />
   <!-- Schema: LocalBusiness + Service list (injected raw so JSON is not escaped) -->
@@ -29,7 +29,7 @@
   import ActiveContact from '$lib/components/ActiveContact.svelte';
   import CtaFormSection from '$lib/components/CtaFormSection.svelte';
   import Footer from '$lib/components/Footer.svelte';
-  import { contact, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
+  import { contact, homeHeroSub, withInternalUtm, siteUrl, ogImage } from '$lib/site-data.js';
   import { getLocalBusinessSchema, getJsonLdScriptTag } from '$lib/schema.js';
 
   const homeServiceSchemas = [
@@ -96,9 +96,7 @@
     <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 drop-shadow-lg leading-tight">
       Expert Glass Repair Services
     </h1>
-    <p class="text-lg md:text-xl text-white font-normal drop-shadow-lg max-w-3xl mb-8">
-      Professional glass repair and replacement windows in Toronto, North York, Vaughan, Richmond Hill, Markham, Mississauga & GTA. We repair cracked, broken, and foggy glass – saving you 60-80% vs full replacement. 24/7 emergency glass repair available.
-    </p>
+    <p class="text-lg md:text-xl text-white font-normal drop-shadow-lg max-w-3xl mb-8">{homeHeroSub}</p>
     <a
       href="#contact-form"
       class="inline-block bg-white backdrop-blur-md text-[#d32f2f] border-2 border-[#d32f2f]/80 px-8 md:px-12 py-4 md:py-5 font-bold text-lg md:text-xl shadow-lg hover:bg-[#d32f2f]/90 hover:text-white transition-all duration-300 transform hover:scale-105 rounded-3xl mb-2"

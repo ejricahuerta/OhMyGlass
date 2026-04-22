@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { ogImage, siteUrl } from "@/lib/site-data";
+import { homeHeroSub, ogImage, siteUrl } from "@/lib/site-data";
 import { HomePage } from "@/components/home-page";
 
 export const metadata: Metadata = {
   title: "OhMyGlass | Replacement Windows & Glass Repair Toronto & GTA - Free Quote, 24/7",
-  description:
-    "Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass. Call now.",
+  description: homeHeroSub,
   keywords: [
     "glass repair",
     "window repair",
@@ -26,8 +25,7 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl + "/",
     title: "OhMyGlass | Replacement Windows & Glass Repair Toronto & GTA - Free Quote, 24/7",
-    description:
-      "Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass.",
+    description: homeHeroSub,
     images: [{ url: ogImage }],
     siteName: "OhMyGlass",
     locale: "en_CA",
@@ -35,8 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "OhMyGlass | Replacement Windows & Glass Repair Toronto & GTA",
-    description:
-      "Replacement windows Toronto & GTA. Glass repair saves 60-80% vs full replacement. Free quote, 24/7 emergency. Window repair, foggy & cracked glass.",
+    description: homeHeroSub,
     images: [ogImage],
   },
   other: { "fb:app_id": "966242223397117" },

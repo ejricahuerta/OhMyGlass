@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { contact, withInternalUtm, siteUrl } from "@/lib/site-data";
+import { contact, homeHeroSub, withInternalUtm, siteUrl } from "@/lib/site-data";
 import { getLocalBusinessSchema, safeJsonLdScript } from "@/lib/schema";
 import { CtaFormSection } from "./cta-form-section";
 import { Footer } from "./footer";
@@ -82,9 +82,7 @@ export function HomePage() {
             Expert Glass Repair Services
           </h1>
           <p className="text-lg md:text-xl text-white font-normal drop-shadow-lg max-w-3xl mb-8">
-            Professional glass repair and replacement windows in Toronto, North York, Vaughan,
-            Richmond Hill, Markham, Mississauga & GTA. We repair cracked, broken, and foggy glass –
-            saving you 60-80% vs full replacement. 24/7 emergency glass repair available.
+            {homeHeroSub}
           </p>
           <a
             href="#contact-form"
