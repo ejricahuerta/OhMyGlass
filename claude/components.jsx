@@ -201,7 +201,7 @@ function Nav({ route, navigate, urgency }) {
             }}
             style={{ cursor: 'pointer' }}
           >
-            <img src={atHero ? 'assets/logo-dark.png' : 'assets/logo.png'} alt="OhMyGlass" />
+            <img src={atHero ? 'assets/logo-on-dark.png' : 'assets/logo.png'} alt="OhMyGlass" />
           </a>
           <div className="nav-links">
             {NAV_ITEMS.map((it, i) => (
@@ -246,7 +246,7 @@ function Nav({ route, navigate, urgency }) {
         aria-hidden={!menuOpen}
       >
         <div className="mobile-menu-top">
-          <img src="assets/logo-dark.png" alt="OhMyGlass" />
+          <img src="assets/logo-on-dark.png" alt="OhMyGlass" />
           <button type="button" ref={mobileMenuCloseRef} className="mobile-menu-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
             <Icon.X size={24} />
           </button>
@@ -309,7 +309,7 @@ function Footer({ navigate }) {
       <div className="footer-inner">
         <div className="footer-top">
           <div className="brand-col footer-col footer-col--brand">
-            <img className="footer-logo" src="assets/logo-dark.png" alt="OhMyGlass" />
+            <img className="footer-logo" src="assets/logo-on-dark.png" alt="OhMyGlass" />
             <div className="footer-trust-badge" aria-label="Credentials">
               {window.OMG_DATA.trust.licensedBadge}
             </div>
@@ -391,6 +391,13 @@ function Footer({ navigate }) {
               <div className="item">
                 <strong>Email</strong>
                 <a href={C.emailHref}>{C.email}</a>
+                {C.secondaryEmail ? (
+                  <>
+                    <br />
+                    <a href={C.secondaryEmailHref}>{C.secondaryEmail}</a>
+                    <span style={{ display: 'block', fontSize: '0.85em', opacity: 0.85 }}>Secondary</span>
+                  </>
+                ) : null}
               </div>
               <div className="item">
                 <strong>Shop</strong>
@@ -466,8 +473,78 @@ function FloatCall({ route = { path: '' } }) {
     >
       <span className="dot"></span>
       <Icon.Phone size={16} />
-      <span className="fc-label">Call 24/7 · {C.phone}</span>
+      <span className="fc-label">Call 24/7</span>
     </a>
+  );
+}
+
+// ============== REVEAL (scroll / mount) ==============
+function Reveal({
+  as: Tag = 'div',
+  variant = 'text',
+  className = '',
+  delayMs = 0,
+  showOnMount = false,
+  once = true,
+  children,
+  style,
+  ...rest
+}) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const mergedStyle = {
+    ...(style || {}),
+    ...(delayMs ? { '--reveal-delay': delayMs + 'ms' } : {}),
+  };
+  const vClass =
+    'reveal reveal--' +
+    variant +
+    (visible ? ' is-visible' : '') +
+    (className ? ' ' + className : '');
+
+  useEffect(
+    function () {
+      if (showOnMount) {
+        var id = requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            setVisible(true);
+          });
+        });
+        return function () {
+          cancelAnimationFrame(id);
+        };
+      }
+      var el = ref.current;
+      if (!el) return undefined;
+      if (typeof IntersectionObserver === 'undefined') {
+        setVisible(true);
+        return undefined;
+      }
+      var obs = new IntersectionObserver(
+        function (entries) {
+          for (var i = 0; i < entries.length; i++) {
+            if (!entries[i].isIntersecting) continue;
+            setVisible(true);
+            if (once) {
+              obs.disconnect();
+              return;
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+      );
+      obs.observe(el);
+      return function () {
+        obs.disconnect();
+      };
+    },
+    [showOnMount, once]
+  );
+
+  return (
+    <Tag ref={ref} className={vClass} style={mergedStyle} {...rest}>
+      {children}
+    </Tag>
   );
 }
 
@@ -475,7 +552,7 @@ function FloatCall({ route = { path: '' } }) {
 var QUOTE_MAX_PHOTOS = 6;
 var QUOTE_MAX_PHOTO_BYTES = 12 * 1024 * 1024;
 
-function QuoteForm({ compact = false, submitLocation }) {
+function QuoteForm({ compact = false, submitLocation, revealOnMount = false, revealDelayMs = 0 }) {
   const [form, setForm] = useState({ name: '', phone: '', email: '', postalCode: '', service: '', message: '' });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -616,29 +693,34 @@ function QuoteForm({ compact = false, submitLocation }) {
   });
 
   if (loading) return (
-    <div className="form-wrap" style={{minHeight: 480, display:'flex', alignItems:'center', justifyContent:'center'}}>
-      <div style={{display:'flex', flexDirection:'column', gap:16, alignItems:'center'}}>
-        <div style={{width:32, height:32, border:'3px solid #ECE8E0', borderTop:'3px solid #E5322D', borderRadius:'50%', animation:'spin 1s linear infinite'}}></div>
-        <div className="mono" style={{fontSize:11, letterSpacing:'0.15em', textTransform:'uppercase', color:'#6b7280'}}>Loading form…</div>
+    <Reveal variant="form" showOnMount={revealOnMount} delayMs={revealDelayMs}>
+      <div className="form-wrap" style={{minHeight: 480, display:'flex', alignItems:'center', justifyContent:'center'}}>
+        <div style={{display:'flex', flexDirection:'column', gap:16, alignItems:'center'}}>
+          <div style={{width:32, height:32, border:'3px solid #ECE8E0', borderTop:'3px solid #E5322D', borderRadius:'50%', animation:'spin 1s linear infinite'}}></div>
+          <div className="mono" style={{fontSize:11, letterSpacing:'0.15em', textTransform:'uppercase', color:'#6b7280'}}>Loading form…</div>
+        </div>
+        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
       </div>
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-    </div>
+    </Reveal>
   );
 
   if (submitted) return (
-    <div className="form-success">
-      <div className="check"><Icon.Check size={28}/></div>
-      <h3>Quote request received.</h3>
-      <p>Thanks {form.name.split(' ')[0] || 'friend'}. We've got it. For emergencies, our dispatch team prioritizes your message and reaches out as soon as possible. Otherwise expect a text or email within 2 business hours.</p>
-        <div style={{display:'flex', gap:12, marginTop: 8}}>
-        <a href={window.OMG_DATA.contact.phoneHref} className="btn btn-red" data-cta-location="form-success">
-          Or call now · {window.OMG_DATA.contact.phone}
-        </a>
+    <Reveal variant="form" showOnMount={revealOnMount} delayMs={revealDelayMs}>
+      <div className="form-success">
+        <div className="check"><Icon.Check size={28}/></div>
+        <h3>Quote request received.</h3>
+        <p>Thanks {form.name.split(' ')[0] || 'friend'}. We've got it. For emergencies, our dispatch team prioritizes your message and reaches out as soon as possible. Otherwise expect a text or email within 2 business hours.</p>
+          <div style={{display:'flex', gap:12, marginTop: 8}}>
+          <a href={window.OMG_DATA.contact.phoneHref} className="btn btn-red" data-cta-location="form-success">
+            Or call now · {window.OMG_DATA.contact.phone}
+          </a>
+        </div>
       </div>
-    </div>
+    </Reveal>
   );
 
   return (
+    <Reveal variant="form" showOnMount={revealOnMount} delayMs={revealDelayMs}>
     <div className="form-wrap">
       <div className="tag">Free quote · no obligation</div>
       <h3>Tell us what broke.</h3>
@@ -809,6 +891,7 @@ function QuoteForm({ compact = false, submitLocation }) {
         </div>
       ) : null}
     </div>
+    </Reveal>
   );
 }
 
@@ -866,6 +949,9 @@ function PageHeroWithQuoteForm({
   submitLocation,
   phonesCtaMain,
   phonesCtaAlt,
+  revealOnMount = true,
+  heroRevealDelayMs = 0,
+  quoteFormRevealDelayMs = 120,
 }) {
   var T = window.OMG_DATA.trust;
   var parts = titleContent ? null : splitDisplayTitleForPageHero(displayTitle);
@@ -889,16 +975,25 @@ function PageHeroWithQuoteForm({
   return (
     <section className="page-hero">
       <div className="inner page-hero-inner--with-form">
-        <div className="page-hero-main">
+        <Reveal
+          variant="text"
+          showOnMount={revealOnMount}
+          delayMs={heroRevealDelayMs}
+          className="page-hero-main"
+        >
           <div className="eye">{eye}</div>
           {h1El}
           <p className="sub">{sub}</p>
           {trustText ? <p className="page-hero-trust">{trustText}</p> : null}
           <PageHeroPhones ctaMain={phonesCtaMain} ctaAlt={phonesCtaAlt} />
-        </div>
+        </Reveal>
         <div className="hero-visual hero-visual--form page-hero-form-col">
           <div className="hero-form-stack">
-            <QuoteForm submitLocation={submitLocation} />
+            <QuoteForm
+              submitLocation={submitLocation}
+              revealOnMount={revealOnMount}
+              revealDelayMs={quoteFormRevealDelayMs}
+            />
           </div>
         </div>
       </div>
@@ -951,7 +1046,7 @@ function BrokenGlassSafetyChecklistSection() {
   var items = D.checklist || [];
   return (
     <section className="section-plain">
-      <div className="inner">
+      <Reveal variant="section" className="inner">
         <div className="em-section-head">
           <div>
             <div className="num">SAFETY · FIRST STEPS</div>
@@ -976,7 +1071,7 @@ function BrokenGlassSafetyChecklistSection() {
             );
           })}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -992,7 +1087,7 @@ function ServicesByAreaSection({ navigate, dispatchCtaLocation, sectionEyeNum })
 
   return (
     <section className="areas" id="areas">
-      <div className="inner">
+      <Reveal variant="section" className="inner">
         <div className="section-eye">
           <span className="num" style={{ color: 'var(--red)' }}>
             {eyeNum}
@@ -1076,7 +1171,7 @@ function ServicesByAreaSection({ navigate, dispatchCtaLocation, sectionEyeNum })
             <ServicesAreaDetailBody area={area} navigate={navigate} dispatchCtaLocation={dispatchCtaLocation} />
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -1086,6 +1181,7 @@ Object.assign(window, {
   Nav,
   Footer,
   FloatCall,
+  Reveal,
   QuoteForm,
   EmergencyBar,
   SmsQuoteCta,

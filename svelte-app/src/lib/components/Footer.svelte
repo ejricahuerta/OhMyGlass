@@ -19,13 +19,13 @@
     <!-- Brand -->
     <div class="flex flex-col items-center text-center md:items-center">
       <picture>
-        <source srcset="/images/logo.webp" type="image/webp" />
+        <source srcset="/images/logo-on-dark.webp" type="image/webp" />
         <img
-          src="/images/logo.png"
+          src="/images/logo-on-dark.png"
           alt="OhMyGlass"
-          class="h-24 w-auto mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
-          width="432"
-          height="96"
+          class="h-24 w-auto mb-4"
+          width="1000"
+          height="491"
         />
       </picture>
       <p class="text-sm text-white/80">&copy; <span id="year">{year}</span> OhMyGlass. All rights reserved.</p>
@@ -54,7 +54,13 @@
             <a href={afterHoursPhoneHref} class="{linkClass} text-sm">{afterHoursPhone}</a>
           </ActiveContact>
         </li>
-        <li><a href={contact.emailHref} class={linkClass}>{contact.email}</a></li>
+        <li>
+          <a href={contact.emailHref} class={linkClass}>{contact.email}</a>
+          {#if contact.secondaryEmail}
+            <span class="block text-white/60 text-xs mt-1">Secondary</span>
+            <a href={contact.secondaryEmailHref} class="{linkClass} text-sm">{contact.secondaryEmail}</a>
+          {/if}
+        </li>
         <li>
           <a href={contact.googleMaps} target="_blank" rel="noopener noreferrer" class={linkClass}>Find Us on Map</a>
         </li>

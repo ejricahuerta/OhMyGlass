@@ -37,14 +37,14 @@ function EmergencyPage({ navigate }) {
       {/* Hero (red, loud) */}
       <section className="em-hero" data-float-underlay="red">
         <div className="inner em-hero-inner">
-          <div className="em-hero-copy">
-            <h1>Emergency window &amp; door glass repair.<br/>When you need it <span className="serif">most</span>.</h1>
+          <Reveal variant="text" showOnMount className="em-hero-copy">
+            <h1>Emergency window &amp; door glass repair.</h1>
             <p className="intro">
               Accidents, break-ins, and storms don't wait for business hours, and neither do we. OhMyGlass provides round-the-clock 24/7 emergency window and door glass repair across the Greater Toronto Area. {T.responseTimeLine} We carry board-up materials, common glass sizes, and professional tools on every service vehicle.
             </p>
             {T.insuranceLine && String(T.insuranceLine).trim() ? <p className="em-hero-insurance">{T.insuranceLine}</p> : null}
-          </div>
-          <div className="em-hero-aside">
+          </Reveal>
+          <Reveal variant="card" showOnMount delayMs={90} className="em-hero-aside">
             <div className="call-panel">
               <div>
                 <div className="k">Main · 24/7 dispatch</div>
@@ -69,7 +69,7 @@ function EmergencyPage({ navigate }) {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -77,7 +77,7 @@ function EmergencyPage({ navigate }) {
 
       {/* 5-step process timeline */}
       <section className="section-plain">
-        <div className="inner">
+        <Reveal variant="section" className="inner">
           <div className="em-section-head">
             <div>
               <div className="num">DISPATCH · HOW IT WORKS</div>
@@ -87,19 +87,19 @@ function EmergencyPage({ navigate }) {
           </div>
           <div className="process-timeline">
             {D.processSteps.map((s, i) => (
-              <div className="step" key={i} style={{paddingLeft: i === 0 ? 0 : 24}}>
+              <Reveal variant="card" delayMs={i * 55} className="step" key={i} style={{paddingLeft: i === 0 ? 0 : 24}}>
                 <div className="n">{s.n}</div>
                 <div className="t">{s.t}</div>
                 <div className="d">{s.d}</div>
-              </div>
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Types of emergencies */}
       <section className="section-plain">
-        <div className="inner">
+        <Reveal variant="section" className="inner">
           <div className="em-section-head">
             <div>
               <div className="num">SCOPE · WHAT WE HANDLE</div>
@@ -109,21 +109,21 @@ function EmergencyPage({ navigate }) {
           </div>
           <div className="em-types">
             {D.emTypes.map((t, i) => (
-              <div className="em-type" key={i}>
+              <Reveal variant="card" delayMs={i * 50} className="em-type" key={i}>
                 <div className="ic">{t.ic}</div>
                 <div>
                   <strong>{t.t}</strong>
                   <p>{t.d}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* FAQ */}
       <section className="section-plain em-faq-section">
-        <div className="inner">
+        <Reveal variant="section" className="inner">
           <div className="em-section-head em-section-head--faq">
             <div>
               <div className="num">FAQ · QUICK ANSWERS</div>
@@ -139,12 +139,12 @@ function EmergencyPage({ navigate }) {
               </details>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Board-up callout */}
       <section className="section-plain" style={{background:'var(--bone)'}}>
-        <div className="inner">
+        <Reveal variant="section" className="inner">
           <div className="boardup-callout">
             <div className="boardup-seal" aria-hidden>
               <div className="boardup-seal-inner">
@@ -170,13 +170,14 @@ function EmergencyPage({ navigate }) {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Form */}
       <section className="form-section section-plain" style={{background:'var(--bone-2)'}}>
         <div className="inner">
           <div className="form-grid">
+            <Reveal variant="text">
             <div>
               <div className="mono em-form-section-kicker">HELP · GET IN TOUCH</div>
               <h2 style={{fontSize:'clamp(36px, 4.5vw, 64px)', fontWeight:800, letterSpacing:'-0.025em', lineHeight:1, marginBottom:24}}>
@@ -197,7 +198,8 @@ function EmergencyPage({ navigate }) {
                 </div>
               </div>
             </div>
-            <QuoteForm />
+            </Reveal>
+            <QuoteForm revealDelayMs={60} />
           </div>
         </div>
       </section>

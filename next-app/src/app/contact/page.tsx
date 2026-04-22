@@ -19,7 +19,7 @@ const contactPageSchema = {
     "@type": "LocalBusiness",
     name: nap.name,
     telephone: nap.telephoneSchema,
-    email: contact.email,
+    email: [contact.email, contact.secondaryEmail],
     address: {
       "@type": "PostalAddress",
       streetAddress: nap.address.streetAddress,

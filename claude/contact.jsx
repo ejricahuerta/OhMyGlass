@@ -37,7 +37,7 @@ function ContactPage({ navigate }) {
       />
 
       <div className="contact-grid">
-        <div className="contact-info-block">
+        <Reveal variant="card" delayMs={0} className="contact-info-block">
             <div className="item">
               <div className="k">Main · 24/7</div>
               <div className="v">
@@ -66,9 +66,18 @@ function ContactPage({ navigate }) {
               <div className="k">Email</div>
               <div className="v">
                 <a href={C.emailHref}>{C.email}</a>
-                <span className="sub">Replies within 2 business hours</span>
+                <span className="sub">Primary · replies within 2 business hours</span>
               </div>
             </div>
+            {C.secondaryEmail ? (
+              <div className="item">
+                <div className="k">Email (secondary)</div>
+                <div className="v">
+                  <a href={C.secondaryEmailHref}>{C.secondaryEmail}</a>
+                  <span className="sub">Alternate inbox · also monitored</span>
+                </div>
+              </div>
+            ) : null}
             <div className="item">
               <div className="k">Shop</div>
               <div className="v">
@@ -101,9 +110,9 @@ function ContactPage({ navigate }) {
                 </span>
               </div>
             </div>
-          </div>
+        </Reveal>
 
-        <div className="contact-map-col">
+        <Reveal variant="card" delayMs={90} className="contact-map-col">
           <div className="map-embed">
             <div className="overlay">
               <svg className="bg" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice">
@@ -126,12 +135,12 @@ function ContactPage({ navigate }) {
               Open in Maps →
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
 
       {/* Final CTA */}
       <section className="cta-final" data-float-underlay="red">
-        <div className="inner">
+        <Reveal variant="section" className="inner">
           <h2>Glass <span className="serif">doesn't</span> wait. Neither do we.</h2>
           <p>Pick up the phone or send the form. Whichever is faster for you, we will be on the way.</p>
           <div className="ctas">
@@ -142,7 +151,7 @@ function ContactPage({ navigate }) {
               Email us
             </a>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );
