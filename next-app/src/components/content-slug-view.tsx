@@ -35,6 +35,7 @@ function stripTitleSuffix(title: string): string {
 
 export function ContentSlugView({ page, slug }: { page: PageRecord; slug: string }) {
   const isServiceAreasPage = slug === "service-areas";
+  const isEmergencyGlassRepairHero = slug === "emergency-glass-repair";
   const isResource = isResourcePage(page);
   const hasSections = Array.isArray(page.sections) && page.sections.length > 0;
 
@@ -179,7 +180,77 @@ export function ContentSlugView({ page, slug }: { page: PageRecord; slug: string
         />
       ) : null}
 
-      <main className={isServiceAreasPage ? "min-h-screen" : "py-16"}>
+      <main
+        className={
+          isServiceAreasPage ? "min-h-screen" : isEmergencyGlassRepairHero ? "" : "py-16"
+        }
+      >
+        {isEmergencyGlassRepairHero ? (
+          <section
+            className="relative pt-20 pb-14 md:pt-24 md:pb-20 overflow-hidden text-white"
+            aria-label="Emergency glass repair"
+          >
+            <picture className="absolute inset-0 block">
+              <source srcSet="/images/hero.webp" type="image/webp" />
+              <img
+                src="/images/hero.jpg"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover"
+                width={1920}
+                height={1080}
+                decoding="async"
+              />
+            </picture>
+            <div
+              className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-black/65"
+              aria-hidden
+            />
+            <div className="container relative z-10 mx-auto max-w-4xl px-4 lg:max-w-none">
+              <nav className="mb-6 text-sm text-white/80" aria-label="Breadcrumb">
+                <Link
+                  href={withInternalUtm("/", "content")}
+                  className="font-semibold text-white hover:underline"
+                >
+                  Home
+                </Link>
+                <span className="mx-2">/</span>
+                {isLocationPage ? (
+                  <>
+                    <Link
+                      href={withInternalUtm("/services", "content")}
+                      className="font-semibold text-white hover:underline"
+                    >
+                      Services
+                    </Link>
+                    <span className="mx-2">/</span>
+                    <Link
+                      href={withInternalUtm("/service-areas", "content")}
+                      className="font-semibold text-white hover:underline"
+                    >
+                      Service areas
+                    </Link>
+                    <span className="mx-2">/</span>
+                  </>
+                ) : null}
+                {isResource ? (
+                  <>
+                    <Link
+                      href={withInternalUtm("/resources", "content")}
+                      className="font-semibold text-white hover:underline"
+                    >
+                      Resources
+                    </Link>
+                    <span className="mx-2">/</span>
+                  </>
+                ) : null}
+                <span className="text-white">{stripTitleSuffix(page.title)}</span>
+              </nav>
+              <h1 className="mb-0 text-4xl font-bold leading-tight text-white drop-shadow-sm md:text-5xl">
+                {h1Display}
+              </h1>
+            </div>
+          </section>
+        ) : null}
         {isServiceAreasPage ? (
           <section className="relative bg-gradient-to-b from-neutral-800 to-neutral-900 text-white pt-20 pb-16 md:pt-24 md:pb-20 px-4 overflow-hidden">
             <div className="absolute inset-0 opacity-10">
@@ -198,7 +269,11 @@ export function ContentSlugView({ page, slug }: { page: PageRecord; slug: string
           </section>
         ) : null}
 
-        <div className={`container mx-auto px-4 ${isServiceAreasPage ? "py-14 md:py-20" : ""}`}>
+        <div
+          className={`container mx-auto px-4 ${
+            isServiceAreasPage ? "py-14 md:py-20" : isEmergencyGlassRepairHero ? "py-12 md:py-16" : ""
+          }`}
+        >
           <div className={`grid grid-cols-1 gap-12 ${isResource ? "" : "lg:grid-cols-2"}`}>
             <div className="max-w-none text-lg text-gray-800 space-y-4">
               {isResource ? (
@@ -209,7 +284,7 @@ export function ContentSlugView({ page, slug }: { page: PageRecord; slug: string
                   ← Resources
                 </Link>
               ) : null}
-              {!isServiceAreasPage ? (
+              {!isServiceAreasPage && !isEmergencyGlassRepairHero ? (
                 <nav className="mb-6 text-sm text-gray-600" aria-label="Breadcrumb">
                   <Link href={withInternalUtm("/", "content")} className="text-[#d32f2f] font-semibold hover:underline">
                     Home
@@ -247,7 +322,7 @@ export function ContentSlugView({ page, slug }: { page: PageRecord; slug: string
                   <span className="text-gray-800">{stripTitleSuffix(page.title)}</span>
                 </nav>
               ) : null}
-              {!isServiceAreasPage ? (
+              {!isServiceAreasPage && !isEmergencyGlassRepairHero ? (
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8">{h1Display}</h1>
               ) : null}
 

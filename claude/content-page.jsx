@@ -434,7 +434,7 @@ function ContentPage({ slug, navigate }) {
         />
 
         <section className="section-plain">
-          <div className="inner">
+          <Reveal variant="section" className="inner">
             <ContentEmSectionHead
               num="AREAS · BROWSE"
               title="Browse by area"
@@ -469,11 +469,11 @@ function ContentPage({ slug, navigate }) {
                 })}
               </div>
             )}
-          </div>
+          </Reveal>
         </section>
 
         <section className="section-plain">
-          <div className="inner">
+          <Reveal variant="section" className="inner">
             <ContentEmSectionHead
               num="LOCATION · GTA MAP"
               title="Our location and the GTA"
@@ -487,11 +487,11 @@ function ContentPage({ slug, navigate }) {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         <section className="section-plain">
-          <div className="inner">
+          <Reveal variant="section" className="inner">
             <ContentEmSectionHead
               num="CONTACT · 24/7 HELP"
               title="Need window or door glass repair in your area?"
@@ -505,11 +505,11 @@ function ContentPage({ slug, navigate }) {
                 After hours: {contact.afterHoursPhone}
               </a>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         <section className="section-plain">
-          <div className="inner">
+          <Reveal variant="section" className="inner">
             <ContentEmSectionHead
               num="LOCAL · POPULAR PAGES"
               title="Popular Toronto area pages"
@@ -543,7 +543,7 @@ function ContentPage({ slug, navigate }) {
               </ContentLink>
             </div>
             </div>
-          </div>
+          </Reveal>
         </section>
       </>
     );
@@ -601,7 +601,7 @@ function ContentPage({ slug, navigate }) {
       {postHeroSafetyChecklist ? <BrokenGlassSafetyChecklistSection /> : null}
 
       <section className="section-plain content-em-landing-section">
-        <div className="inner content-page-inner-wide">
+        <Reveal variant="section" className="inner content-page-inner-wide">
           {isResource && (
             <div className="content-back-row">
               <ContentLink href="/resources" className="btn btn-bone-out" navigate={navigate}>
@@ -637,7 +637,7 @@ function ContentPage({ slug, navigate }) {
               </div>
             </>
           )}
-        </div>
+        </Reveal>
       </section>
 
       {hasSections &&
@@ -655,7 +655,7 @@ function ContentPage({ slug, navigate }) {
           var headTitle = contentEmHeadingTitle(titleText);
           return (
             <section className={sectionClass} key={'emsec' + si}>
-              <div className="inner content-page-inner-wide">
+              <Reveal variant="section" className="inner content-page-inner-wide">
                 <ContentEmSectionHead
                   num={headNum}
                   title={headTitle}
@@ -674,14 +674,14 @@ function ContentPage({ slug, navigate }) {
                   ) : null}
                   {section.list && section.list.length > 0 ? <ContentSectionListBody section={section} /> : null}
                 </div>
-              </div>
+              </Reveal>
             </section>
           );
         })}
 
       {genericServiceAreaLinks.length > 0 && (
         <section className="section-plain content-em-landing-section">
-          <div className="inner content-page-inner-wide">
+          <Reveal variant="section" className="inner content-page-inner-wide">
             <ContentEmSectionHead
               num="AREAS · GTA"
               title={contentEmHeadingTitle('Areas we serve')}
@@ -703,13 +703,13 @@ function ContentPage({ slug, navigate }) {
               })}
               </div>
             </div>
-          </div>
+          </Reveal>
         </section>
       )}
 
       {isResource && (
         <section className="section-plain content-em-landing-section">
-          <div className="inner content-page-inner-wide">
+          <Reveal variant="section" className="inner content-page-inner-wide">
             <ContentEmSectionHead
               num="NEXT · STEPS"
               title={contentEmHeadingTitle('Next steps')}
@@ -728,13 +728,13 @@ function ContentPage({ slug, navigate }) {
                 Back to Resources
               </ContentLink>
             </div>
-          </div>
+          </Reveal>
         </section>
       )}
 
       {relatedPageLinks.length > 0 && (
         <section className="section-plain content-em-landing-section">
-          <div className="inner content-page-inner-wide">
+          <Reveal variant="section" className="inner content-page-inner-wide">
             <ContentEmSectionHead
               num="RELATED · LINKS"
               title={contentEmHeadingTitle('See also')}
@@ -749,13 +749,13 @@ function ContentPage({ slug, navigate }) {
                 );
               })}
             </div>
-          </div>
+          </Reveal>
         </section>
       )}
 
       {isLocationPage && locationPageInfo && (
         <section className="section-plain content-em-landing-section">
-          <div className="inner content-page-inner-wide">
+          <Reveal variant="section" className="inner content-page-inner-wide">
             <ContentEmSectionHead
               num="LOCAL · MORE SERVICES"
               title={contentEmHeadingTitle('Other services in ' + locationPageInfo.cityName)}
@@ -777,7 +777,7 @@ function ContentPage({ slug, navigate }) {
                 })}
               </nav>
             </div>
-          </div>
+          </Reveal>
         </section>
       )}
 

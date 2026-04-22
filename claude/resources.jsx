@@ -67,7 +67,7 @@ function ResourcesPage({ navigate }) {
       />
 
       <section className="section-plain">
-        <div className="inner">
+        <Reveal variant="section" className="inner">
           <div className="em-section-head">
             <div>
               <div className="num">ARTICLES · ALL GUIDES</div>
@@ -86,12 +86,12 @@ function ResourcesPage({ navigate }) {
           ) : (
             <div className="content-em-band">
             <ul className="svc-list">
-              {resources.map((r) => {
+              {resources.map((r, ri) => {
                 const slug = window.OMG_urlToSlug(r.url);
                 const href = '/' + slug;
                 const desc = (r.seo && r.seo.meta_description) || '';
                 return (
-                  <li key={slug} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+                  <Reveal as="li" variant="card" delayMs={ri * 50} key={slug} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
                     <a
                       href={href}
                       className="svc-item"
@@ -107,13 +107,13 @@ function ResourcesPage({ navigate }) {
                         Read article <Icon.Arrow size={12} />
                       </div>
                     </a>
-                  </li>
+                  </Reveal>
                 );
               })}
             </ul>
             </div>
           )}
-        </div>
+        </Reveal>
       </section>
     </>
   );

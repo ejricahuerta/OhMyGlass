@@ -67,6 +67,14 @@ export function CtaFormSection({
               <a href={contact.emailHref} className="hover:text-[#d32f2f]">
                 {contact.email}
               </a>
+              {contact.secondaryEmail ? (
+                <span className="block text-white/80 text-base mt-1 pl-7">
+                  Secondary:{" "}
+                  <a href={contact.secondaryEmailHref} className="hover:text-[#d32f2f]">
+                    {contact.secondaryEmail}
+                  </a>
+                </span>
+              ) : null}
             </p>
             <p className="mb-2">
               <i className="fas fa-map-marker-alt mr-2" />

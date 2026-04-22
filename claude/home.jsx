@@ -4,6 +4,85 @@ const { useState: useStateH, useRef: useRefH, useEffect: useEffectH } = React;
 /** Default document title when the home route is active. */
 var HOME_PAGE_TITLE = 'OhMyGlass | Window & Door Glass Repair | Toronto & GTA · 24/7 · Free Quote';
 
+function kpiEaseOutCubic(t) {
+  return 1 - Math.pow(1 - t, 3);
+}
+
+/** Animates the main KPI integer from 0 to `end`; superscript suffix (e.g. K+, YRS) stays fixed. */
+function KpiCountUp({ end, suffixSup, durationMs = 1650, delayMs = 0 }) {
+  const [value, setValue] = useStateH(0);
+  const [inView, setInView] = useStateH(false);
+  const ref = useRefH(null);
+
+  useEffectH(function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setValue(end);
+      return undefined;
+    }
+    var el = ref.current;
+    if (!el) return undefined;
+    if (typeof IntersectionObserver === 'undefined') {
+      setInView(true);
+      return undefined;
+    }
+    var obs = new IntersectionObserver(
+      function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (!entries[i].isIntersecting) continue;
+          setInView(true);
+          obs.disconnect();
+          return;
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -5% 0px' }
+    );
+    obs.observe(el);
+    return function () {
+      obs.disconnect();
+    };
+  }, [end]);
+
+  useEffectH(
+    function () {
+      if (!inView) return undefined;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setValue(end);
+        return undefined;
+      }
+      setValue(0);
+      var rafId = 0;
+      var startTs = null;
+      function tick(ts) {
+        if (startTs === null) startTs = ts;
+        var elapsed = ts - startTs;
+        if (elapsed < delayMs) {
+          rafId = requestAnimationFrame(tick);
+          return;
+        }
+        var u = (elapsed - delayMs) / durationMs;
+        if (u >= 1) {
+          setValue(end);
+          return;
+        }
+        setValue(Math.round(kpiEaseOutCubic(u) * end));
+        rafId = requestAnimationFrame(tick);
+      }
+      rafId = requestAnimationFrame(tick);
+      return function () {
+        cancelAnimationFrame(rafId);
+      };
+    },
+    [inView, end, durationMs, delayMs]
+  );
+
+  return (
+    <div className="big" ref={ref} aria-label={String(end) + (suffixSup ? ' ' + suffixSup : '')}>
+      {value}
+      <sup>{suffixSup}</sup>
+    </div>
+  );
+}
+
 function WorkFilmCard({ w, filmNum }) {
   const [playing, setPlaying] = useStateH(false);
   const vidRef = useRefH(null);
@@ -43,7 +122,7 @@ function WorkFilmCard({ w, filmNum }) {
   };
 
   return (
-    <div className="work-item">
+    <Reveal variant="card" delayMs={(filmNum - 1) * 70} className="work-item">
       <div className="work-frame">
         <video
           ref={vidRef}
@@ -74,7 +153,7 @@ function WorkFilmCard({ w, filmNum }) {
       <h3>{w.brand}</h3>
       <div className="cat">{w.cat}</div>
       <p>{w.desc}</p>
-    </div>
+    </Reveal>
   );
 }
 
@@ -104,43 +183,51 @@ function HomePage({ navigate }) {
       <section className="hero" id="omg-hero" aria-label="Hero">
         <div className="hero-inner">
           <div>
-            <div className="hero-kicker">
-              <span className="line"></span>
-              <span className="hero-kicker-full">Est. 2015 · North York, ON · 5,000+ jobs across 2,000+ GTA properties</span>
-              <span className="hero-kicker-short">Est. 2015 · North York · GTA</span>
-            </div>
-            <h1>
-              Window &amp; door glass<br/>
-              <span className="accent">We</span> <span className="red">fix it</span><br/>
-              fast.
-            </h1>
-            <p className="hero-sub">{S.homeHeroSub}</p>
-            <div className="hero-ctas hero-ctas--stack">
-              <div className="hero-contact-rail" role="group" aria-label="Call or text OhMyGlass">
-                <span className="hero-contact-seg hero-contact-seg--num">{S.phoneDisplay}</span>
-                <a
-                  href={`tel:${S.phoneE164}`}
-                  data-cta-location="home-hero"
-                  className="hero-contact-seg hero-contact-seg--action"
-                  aria-label={`Call ${S.phoneDisplay}`}
-                >
-                  <Icon.Phone size={20} />
-                </a>
-                <a
-                  href={window.OMG_smsHref()}
-                  data-cta-location="home-hero"
-                  className="hero-contact-seg hero-contact-seg--action"
-                  aria-label={`Text ${S.phoneDisplay} a photo for a quote`}
-                >
-                  <Icon.Message size={20} />
-                </a>
+            <Reveal variant="text" showOnMount delayMs={0}>
+              <div className="hero-kicker">
+                <span className="line"></span>
+                <span className="hero-kicker-full">Est. 2015 · North York, ON · 5,000+ jobs across 2,000+ GTA properties</span>
+                <span className="hero-kicker-short">Est. 2015 · North York · GTA</span>
               </div>
-              <p className="sms-quote-helper hero-contact-helper">{S.smsHelper}</p>
-            </div>
+            </Reveal>
+            <Reveal variant="text" showOnMount delayMs={60}>
+              <h1>
+                Window &amp; door glass<br/>
+                <span className="accent">We</span> <span className="red">fix it</span><br/>
+                fast.
+              </h1>
+            </Reveal>
+            <Reveal variant="text" showOnMount delayMs={120}>
+              <p className="hero-sub">{S.homeHeroSub}</p>
+            </Reveal>
+            <Reveal variant="text" showOnMount delayMs={180}>
+              <div className="hero-ctas hero-ctas--stack">
+                <div className="hero-contact-rail" role="group" aria-label="Call or text OhMyGlass">
+                  <span className="hero-contact-seg hero-contact-seg--num">{S.phoneDisplay}</span>
+                  <a
+                    href={`tel:${S.phoneE164}`}
+                    data-cta-location="home-hero"
+                    className="hero-contact-seg hero-contact-seg--action"
+                    aria-label={`Call ${S.phoneDisplay}`}
+                  >
+                    <Icon.Phone size={20} />
+                  </a>
+                  <a
+                    href={window.OMG_smsHref()}
+                    data-cta-location="home-hero"
+                    className="hero-contact-seg hero-contact-seg--action"
+                    aria-label={`Text ${S.phoneDisplay} a photo for a quote`}
+                  >
+                    <Icon.Message size={20} />
+                  </a>
+                </div>
+                <p className="sms-quote-helper hero-contact-helper">{S.smsHelper}</p>
+              </div>
+            </Reveal>
           </div>
           <div className="hero-visual hero-visual--form">
             <div className="hero-form-stack">
-              <QuoteForm submitLocation="home-hero" />
+              <QuoteForm submitLocation="home-hero" revealOnMount revealDelayMs={140} />
             </div>
           </div>
         </div>
@@ -166,33 +253,33 @@ function HomePage({ navigate }) {
       {/* STATS: trust metrics (after hero) */}
       <section className="stats" aria-label="OhMyGlass by the numbers">
         <div className="stats-inner">
-          <div className="stat">
-            <div className="big">2<sup>K+</sup></div>
+          <Reveal variant="card" delayMs={0} className="stat">
+            <KpiCountUp end={2} suffixSup="K+" delayMs={0} />
             <div className="k">GTA properties</div>
             <div className="v">Homes, condos, storefronts, and commercial sites where we have repaired or replaced window and door glass across the Greater Toronto Area.</div>
-          </div>
-          <div className="stat">
-            <div className="big">10<sup>YRS</sup></div>
+          </Reveal>
+          <Reveal variant="card" delayMs={80} className="stat">
+            <KpiCountUp end={10} suffixSup="YRS" delayMs={120} />
             <div className="k">Years of experience</div>
             <div className="v">Over a decade focused on window and door glass. Same local crew, same repair-first approach.</div>
-          </div>
-          <div className="stat">
-            <div className="big">5<sup>K+</sup></div>
+          </Reveal>
+          <Reveal variant="card" delayMs={160} className="stat">
+            <KpiCountUp end={5} suffixSup="K+" delayMs={240} />
             <div className="k">Window &amp; door jobs</div>
             <div className="v">Completed successfully across the GTA—mostly window and door glass—saving customers 60–80% vs full replacement where repair was possible.</div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* OUR WORK (elevated, PRD) */}
       <section className="section work" id="work">
-        <div className="section-inner">
+        <Reveal variant="section" className="section-inner">
           <div className="section-eye">
             <span className="num">01</span>
             <span>Our work</span>
             <span className="line"></span>
           </div>
-          <h2 className="section-h">On-site. <span className="serif">On camera.</span><br/>No stock photos.</h2>
+          <h2 className="section-h">On-site. <span className="serif">On camera.</span></h2>
           <p className="section-lede">
             Three recent commercial installs filmed end to end. Watch how we approach measuring, board-up, and final installation.
           </p>
@@ -206,12 +293,12 @@ function HomePage({ navigate }) {
               <Icon.IG /> View all work on Instagram <Icon.Arrow />
             </a>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* WHY US */}
       <section className="section why">
-        <div className="section-inner">
+        <Reveal variant="section" className="section-inner">
           <div className="section-eye">
             <span className="num">02</span>
             <span>Why OhMyGlass</span>
@@ -234,21 +321,21 @@ function HomePage({ navigate }) {
                 ['5.0★', 'Google & Facebook rating', 'Hundreds of reviews from homeowners and business owners.', 'TRUST'],
                 ['GTA', 'Full coverage', 'Toronto, North York, Vaughan, Markham, Mississauga + more.', 'REACH'],
               ].map((row, i) => (
-                <div className="why-item" key={i}>
+                <Reveal variant="card" delayMs={i * 55} className="why-item" key={i}>
                   <div className="n">0{i + 1}</div>
                   <div className="t">{row[1]}</div>
                   <div className="k">{row[3]}</div>
                   <div className="d">{row[2]}</div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* SERVICE PREVIEWS */}
       <section className="section services-preview">
-        <div className="section-inner">
+        <Reveal variant="section" className="section-inner">
           <div className="section-eye">
             <span className="num">03</span>
             <span>What we fix</span>
@@ -261,7 +348,7 @@ function HomePage({ navigate }) {
           {T.warrantyLine && String(T.warrantyLine).trim() ? <p className="services-warranty-lede">{T.warrantyLine}</p> : null}
           <div className="svc-grid">
             {serviceFeatures.map((s, i) => (
-              <div className="svc-card" key={i} onClick={() => go('/services')}>
+              <Reveal variant="card" delayMs={i * 65} className="svc-card" key={i} onClick={() => go('/services')}>
                 <img src={s.img} alt={s.t} />
                 <div className="overlay" />
                 <div className="body">
@@ -272,7 +359,7 @@ function HomePage({ navigate }) {
                     <div className="arrow">View service <Icon.Arrow size={14} /></div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
           <div style={{textAlign:'center'}}>
@@ -280,12 +367,12 @@ function HomePage({ navigate }) {
               See all services <Icon.Arrow />
             </button>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* SEO CLUSTER */}
       <section className="seo-cluster">
-        <div className="inner">
+        <Reveal variant="section" className="inner">
           <div>
             <div className="label">Popular in the GTA</div>
             <h3>High-demand<br/>local pages.</h3>
@@ -307,12 +394,12 @@ function HomePage({ navigate }) {
               </button>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* REVIEWS */}
       <section className="section reviews" id="reviews">
-        <div className="section-inner">
+        <Reveal variant="section" className="section-inner">
           <div className="section-eye">
             <span className="num">04</span>
             <span>What customers say</span>
@@ -350,7 +437,7 @@ function HomePage({ navigate }) {
           </div>
           <div className="reviews-grid">
             {window.OMG_DATA.reviews.map((r, i) => (
-              <div className="review" key={i}>
+              <Reveal variant="card" delayMs={i * 50} className="review" key={i}>
                 <div className="stars">{'★'.repeat(r.stars)}</div>
                 <div className="text">“{r.text}”</div>
                 <div className="who">
@@ -360,15 +447,15 @@ function HomePage({ navigate }) {
                     <div className="meta">{r.meta}</div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* FINAL CTA */}
       <section className="cta-final" data-float-underlay="red">
-        <div className="inner">
+        <Reveal variant="section" className="inner">
           <h2>Ready to <span className="serif">repair</span><br/>your window or door glass?</h2>
           <p>Request a free quote or call us for 24/7 emergency window and door glass repair across Toronto and the GTA. {T.responseTimeLine}</p>
           <div className="ctas">
@@ -379,7 +466,7 @@ function HomePage({ navigate }) {
               <Icon.Phone /> {window.OMG_DATA.contact.phone}
             </a>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );

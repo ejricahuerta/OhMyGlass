@@ -23,7 +23,7 @@
 // URL: https://your-worker.workers.dev/quote  (or /)
 // caller_phone default {{call.from_number}}
 
-const TO_EMAIL = "ohmy.glass.to@gmail.com";
+const TO_EMAIL = "info@ohmyglass.ca";
 const FROM_EMAIL = "hello@ednsy.com";
 
 /** Logo from production site (email theme) */

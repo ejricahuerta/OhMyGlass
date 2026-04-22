@@ -33,9 +33,9 @@ export function Header({
             <img
               src="/images/logo.png"
               alt="OhMyGlass Logo"
-              className="h-16 w-auto drop-shadow"
-              width={288}
-              height={64}
+              className="h-20 w-auto"
+              width={360}
+              height={80}
             />
           </picture>
         </Link>

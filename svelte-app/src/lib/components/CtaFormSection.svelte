@@ -60,6 +60,12 @@
         <p class="mb-2">
           <i class="fas fa-envelope mr-2"></i>
           <a href={contact.emailHref} class="hover:text-[#d32f2f]">{contact.email}</a>
+          {#if contact.secondaryEmail}
+            <span class="block text-white/80 text-base mt-1 pl-7">
+              Secondary:
+              <a href={contact.secondaryEmailHref} class="hover:text-[#d32f2f]">{contact.secondaryEmail}</a>
+            </span>
+          {/if}
         </p>
         <p class="mb-2">
           <i class="fas fa-map-marker-alt mr-2"></i>

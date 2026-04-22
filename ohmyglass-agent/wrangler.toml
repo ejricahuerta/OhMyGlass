@@ -3,7 +3,7 @@ main               = "src/index.js"
 compatibility_date = "2024-01-01"
 
 [vars]
-TO_EMAIL   = "ohmy.glass.to@gmail.com"
+TO_EMAIL   = "info@ohmyglass.ca"
 FROM_EMAIL = "hello@ednsy.com"
 
 [observability]

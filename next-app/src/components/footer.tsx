@@ -23,13 +23,13 @@ export function Footer({ serviceLinksOrder = "index" }: { serviceLinksOrder?: "i
       <div className="container mx-auto px-4 grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-8">
         <div className="flex flex-col items-center text-center md:items-center">
           <picture>
-            <source srcSet="/images/logo.webp" type="image/webp" />
+            <source srcSet="/images/logo-on-dark.webp" type="image/webp" />
             <img
-              src="/images/logo.png"
+              src="/images/logo-on-dark.png"
               alt="OhMyGlass"
-              className="h-24 w-auto mb-4 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
-              width={432}
-              height={96}
+              className="h-24 w-auto mb-4"
+              width={1000}
+              height={491}
             />
           </picture>
           <p className="text-sm text-white/80">
@@ -72,6 +72,14 @@ export function Footer({ serviceLinksOrder = "index" }: { serviceLinksOrder?: "i
               <Link href={contact.emailHref} className={linkClass}>
                 {contact.email}
               </Link>
+              {contact.secondaryEmail ? (
+                <>
+                  <span className="block text-white/60 text-xs mt-1">Secondary</span>
+                  <Link href={contact.secondaryEmailHref} className={`${linkClass} text-sm`}>
+                    {contact.secondaryEmail}
+                  </Link>
+                </>
+              ) : null}
             </li>
             <li>
               <Link

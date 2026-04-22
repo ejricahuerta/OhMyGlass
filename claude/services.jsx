@@ -50,7 +50,7 @@ function ServicesPage({ navigate }) {
       {/* Categories: same section rhythm as /emergency-glass-repair (section-plain + em-section-head) */}
       {categories.map((cat, ci) => (
         <section className="section-plain" key={ci}>
-          <div className="inner">
+          <Reveal variant="section" className="inner">
             <div className="em-section-head">
               <div>
                 <div className="num">{cat.eyebrow}</div>
@@ -61,7 +61,9 @@ function ServicesPage({ navigate }) {
             <div className="content-em-band">
             <div className="svc-list">
               {cat.items.map((it, i) => (
-                <div
+                <Reveal
+                  variant="card"
+                  delayMs={i * 45}
                   className="svc-item"
                   key={i}
                   role="button"
@@ -81,11 +83,11 @@ function ServicesPage({ navigate }) {
                   <h3>{it.title}</h3>
                   <p>{it.desc}</p>
                   <div className="arrow">Learn more <Icon.Arrow size={12} /></div>
-                </div>
+                </Reveal>
               ))}
             </div>
             </div>
-          </div>
+          </Reveal>
         </section>
       ))}
 
@@ -93,7 +95,7 @@ function ServicesPage({ navigate }) {
 
       {/* Final emergency CTA */}
       <section className="cta-final" data-float-underlay="red">
-        <div className="inner">
+        <Reveal variant="section" className="inner">
           <h2>Broken glass <span className="serif">after hours?</span></h2>
           <p>We're available 24/7 for emergency window and door glass repair across the entire Greater Toronto Area. Board-up included free with permanent repair booking.</p>
           <div className="ctas">
@@ -104,7 +106,7 @@ function ServicesPage({ navigate }) {
               <Icon.Phone /> {C.afterHoursPhone} · After hours
             </a>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );

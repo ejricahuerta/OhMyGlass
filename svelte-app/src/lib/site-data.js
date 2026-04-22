@@ -122,8 +122,10 @@ export const contact = {
   phone: nap.telephone,
   phoneHref: nap.telephoneHref,
   addressDisplay: nap.addressDisplay,
-  email: 'ohmy.glass.to@gmail.com',
-  emailHref: 'mailto:ohmy.glass.to@gmail.com',
+  email: 'info@ohmyglass.ca',
+  emailHref: 'mailto:info@ohmyglass.ca',
+  secondaryEmail: 'ohmy.glass.to@gmail.com',
+  secondaryEmailHref: 'mailto:ohmy.glass.to@gmail.com',
   /** Evenings & overnight line (listed alongside main; not time-switched in the UI) */
   afterHoursPhone: '437-525-1255',
   afterHoursPhoneHref: 'tel:+14375251255',
