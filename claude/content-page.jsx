@@ -1,8 +1,52 @@
 // Dynamic slug page from pages.json; layout aligned with Services / Contact (page-hero, svc-category, section-plain)
-const { useEffect: useEffectC } = React;
+const { useEffect: useEffectC, useState: useStateC } = React;
 
-var LOCATION_SUFFIXES = ['newmarket', 'etobicoke', 'markham', 'north-york', 'richmond-hill', 'scarborough', 'toronto', 'vaughan', 'mississauga'];
-var SERVICE_BASES = ['emergency-glass-repair', 'storefront-glass-repair', 'window-glass-replacement'];
+var LOCATION_SUFFIXES = ['newmarket', 'etobicoke', 'markham', 'north-york', 'richmond-hill', 'scarborough', 'toronto', 'vaughan', 'mississauga', 'brampton'];
+/** Longest first — must match next-app/src/lib/service-location-matrix.ts */
+var SERVICE_LOCATION_BASES = [
+  'residential-window-and-door-hardware-repairs',
+  'commercial-window-and-door-hardware-repairs',
+  'residential-double-pane-window-replacement',
+  'commercial-double-pane-window-replacement',
+  'residential-window-glass-replacement',
+  'commercial-window-glass-replacement',
+  'residential-commercial-glass-repair',
+  'residential-storefront-glass-repair',
+  'commercial-storefront-glass-repair',
+  'residential-emergency-glass-repair',
+  'commercial-emergency-glass-repair',
+  'residential-broken-window-repair',
+  'window-and-door-hardware-repairs',
+  'commercial-broken-window-repair',
+  'residential-foggy-window-repair',
+  'residential-shower-glass-repair',
+  'residential-sliding-door-repair',
+  'commercial-foggy-window-repair',
+  'commercial-shower-glass-repair',
+  'commercial-sliding-door-repair',
+  'double-pane-window-replacement',
+  'residential-patio-door-repair',
+  'commercial-patio-door-repair',
+  'residential-custom-mirror',
+  'residential-window-repair',
+  'commercial-custom-mirror',
+  'commercial-window-repair',
+  'residential-door-repairs',
+  'window-glass-replacement',
+  'commercial-door-repairs',
+  'commercial-glass-repair',
+  'storefront-glass-repair',
+  'emergency-glass-repair',
+  'broken-window-repair',
+  'foggy-window-repair',
+  'shower-glass-repair',
+  'sliding-door-repair',
+  'patio-door-repair',
+  'custom-mirror',
+  'window-repair',
+  'door-repairs',
+];
+var FLAGSHIP_CROSS_LINK_BASES = ['emergency-glass-repair', 'storefront-glass-repair', 'window-glass-replacement'];
 var LOCATION_DISPLAY_NAMES = {
   newmarket: 'Newmarket',
   etobicoke: 'Etobicoke',
@@ -13,12 +57,69 @@ var LOCATION_DISPLAY_NAMES = {
   toronto: 'Toronto',
   vaughan: 'Vaughan',
   mississauga: 'Mississauga',
+  brampton: 'Brampton',
 };
 var SERVICE_LABELS = {
+  'broken-window-repair': 'Broken window repair',
+  'commercial-broken-window-repair': 'Commercial broken window repair',
+  'commercial-custom-mirror': 'Commercial custom mirror installation',
+  'commercial-door-repairs': 'Commercial door repairs',
+  'commercial-double-pane-window-replacement': 'Commercial double-pane window replacement',
+  'commercial-emergency-glass-repair': 'Commercial emergency glass repair',
+  'commercial-foggy-window-repair': 'Commercial foggy window repair',
+  'commercial-glass-repair': 'Commercial glass repair',
+  'commercial-patio-door-repair': 'Commercial patio door repair',
+  'commercial-shower-glass-repair': 'Commercial shower glass repair',
+  'commercial-sliding-door-repair': 'Commercial sliding door repair',
+  'commercial-storefront-glass-repair': 'Commercial storefront glass repair',
+  'commercial-window-and-door-hardware-repairs': 'Commercial window & door hardware repairs',
+  'commercial-window-glass-replacement': 'Commercial window glass replacement',
+  'commercial-window-repair': 'Commercial window repair',
+  'custom-mirror': 'Custom mirror installation',
+  'door-repairs': 'Door repairs',
+  'double-pane-window-replacement': 'Double-pane window replacement',
   'emergency-glass-repair': 'Emergency glass repair',
+  'foggy-window-repair': 'Foggy window repair',
+  'patio-door-repair': 'Patio door repair',
+  'residential-broken-window-repair': 'Residential broken window repair',
+  'residential-commercial-glass-repair': 'Residential commercial glass repair',
+  'residential-custom-mirror': 'Residential custom mirror installation',
+  'residential-door-repairs': 'Residential door repairs',
+  'residential-double-pane-window-replacement': 'Residential double-pane window replacement',
+  'residential-emergency-glass-repair': 'Residential emergency glass repair',
+  'residential-foggy-window-repair': 'Residential foggy window repair',
+  'residential-patio-door-repair': 'Residential patio door repair',
+  'residential-shower-glass-repair': 'Residential shower glass repair',
+  'residential-sliding-door-repair': 'Residential sliding door repair',
+  'residential-storefront-glass-repair': 'Residential storefront glass repair',
+  'residential-window-and-door-hardware-repairs': 'Residential window & door hardware repairs',
+  'residential-window-glass-replacement': 'Residential window glass replacement',
+  'residential-window-repair': 'Residential window repair',
+  'shower-glass-repair': 'Shower glass repair',
+  'sliding-door-repair': 'Sliding door repair',
   'storefront-glass-repair': 'Storefront glass repair',
+  'window-and-door-hardware-repairs': 'Window & door hardware repairs',
   'window-glass-replacement': 'Window glass replacement',
+  'window-repair': 'Window repair',
 };
+
+var LOCATION_SUFFIXES_LONGEST_FIRST = LOCATION_SUFFIXES.slice().sort(function (a, b) {
+  return b.length - a.length;
+});
+/** Short pill label: SERVICE_LABELS title, plus city when slug ends with a known location. */
+function relatedTierLinkLabel(slug) {
+  for (var i = 0; i < LOCATION_SUFFIXES_LONGEST_FIRST.length; i++) {
+    var loc = LOCATION_SUFFIXES_LONGEST_FIRST[i];
+    var suf = '-' + loc;
+    if (slug.length > suf.length && slug.slice(-suf.length) === suf) {
+      var base = slug.slice(0, -suf.length);
+      var name = SERVICE_LABELS[base];
+      if (name) return name + ' · ' + (LOCATION_DISPLAY_NAMES[loc] || loc);
+    }
+  }
+  if (SERVICE_LABELS[slug]) return SERVICE_LABELS[slug];
+  return String(slug || '').replace(/-/g, ' ');
+}
 
 var RESOURCE_SERVICE_LINKS = {
   'how-to-tell-if-window-seal-is-broken': { path: '/foggy-window-repair', label: 'Foggy window repair' },
@@ -57,22 +158,200 @@ var RELATED_PAGE_LINKS = {
   ],
 };
 
-var SERVICE_AREA_SECTION_SLUGS = [
-  'broken-window-repair',
-  'residential-window-repair',
-  'foggy-window-repair',
-  'commercial-glass-repair',
-  'storefront-glass-repair',
-];
+function filterMatrixBasesForTier(bases, filter) {
+  if (!bases || !bases.length || filter === 'all') return bases || [];
+  if (filter === 'residential') return bases.filter(function (b) { return b.indexOf('residential-') === 0; });
+  if (filter === 'commercial') return bases.filter(function (b) { return b.indexOf('commercial-') === 0; });
+  return bases;
+}
+
+function filterRelatedForTier(links, filter) {
+  if (!links || !links.length || filter === 'all') return links || [];
+  return links.filter(function (L) {
+    var h = L.href || '';
+    if (filter === 'residential') return h.indexOf('/commercial-') === -1;
+    if (filter === 'commercial') return h.indexOf('/residential-') === -1;
+    return true;
+  });
+}
+
+function relatedLinksHaveTierMix(links) {
+  var hasR = false;
+  var hasC = false;
+  (links || []).forEach(function (L) {
+    var h = L.href || '';
+    if (h.indexOf('/residential-') !== -1) hasR = true;
+    if (h.indexOf('/commercial-') !== -1) hasC = true;
+  });
+  return hasR && hasC;
+}
+
+function TierViewToggle(props) {
+  var filter = props.value;
+  var onChange = props.onChange;
+  var hint = props.hint;
+  return (
+    <div className="tier-view-toggle" role="group" aria-label="Filter links by property type">
+      <div className="tier-view-toggle__row">
+        <span className="tier-view-toggle__label">Show</span>
+        <button
+          type="button"
+          className={'tier-view-toggle__btn' + (filter === 'all' ? ' tier-view-toggle__btn--active' : '')}
+          aria-pressed={filter === 'all'}
+          onClick={function () {
+            onChange('all');
+          }}
+        >
+          All
+        </button>
+        <button
+          type="button"
+          className={'tier-view-toggle__btn' + (filter === 'residential' ? ' tier-view-toggle__btn--active' : '')}
+          aria-pressed={filter === 'residential'}
+          onClick={function () {
+            onChange('residential');
+          }}
+        >
+          Residential
+        </button>
+        <button
+          type="button"
+          className={'tier-view-toggle__btn' + (filter === 'commercial' ? ' tier-view-toggle__btn--active' : '')}
+          aria-pressed={filter === 'commercial'}
+          onClick={function () {
+            onChange('commercial');
+          }}
+        >
+          Commercial
+        </button>
+      </div>
+      {hint ? <p className="tier-view-toggle__hint">{hint}</p> : null}
+    </div>
+  );
+}
+
+function mergeRelatedLinkLists(manual, auto) {
+  var seen = {};
+  var out = [];
+  function norm(href) {
+    var h = String(href || '').trim();
+    if (!h || h.charAt(0) !== '/') return null;
+    return h;
+  }
+  function push(list) {
+    (list || []).forEach(function (L) {
+      var h = norm(L.href);
+      if (!h || seen[h]) return;
+      seen[h] = true;
+      var slug = h.slice(1);
+      out.push({ href: h, label: relatedTierLinkLabel(slug) });
+    });
+  }
+  push(manual);
+  push(auto);
+  return out;
+}
+
+/** Picks residential / commercial / neutral tier siblings using slug naming; only adds hrefs that exist in pages.json. */
+function getAutoTierRelatedLinks(canonicalSlug, locationPageInfo) {
+  var links = [];
+  var seen = {};
+  function slugExists(slug) {
+    return typeof window.OMG_getPageBySlug === 'function' && !!window.OMG_getPageBySlug(slug);
+  }
+  function add(slug) {
+    if (!slugExists(slug)) return;
+    var href = '/' + slug;
+    if (seen[href]) return;
+    seen[href] = true;
+    links.push({ href: href, label: relatedTierLinkLabel(slug) });
+  }
+
+  if (locationPageInfo) {
+    var base = locationPageInfo.serviceBase;
+    var loc = locationPageInfo.locationSuffix;
+    add(base);
+
+    if (base === 'window-repair') {
+      add('residential-window-repair-' + loc);
+      add('commercial-window-repair-' + loc);
+    } else if (base === 'residential-window-repair') {
+      add('window-repair-' + loc);
+      add('commercial-window-repair-' + loc);
+    } else if (base === 'commercial-window-repair') {
+      add('window-repair-' + loc);
+      add('residential-window-repair-' + loc);
+    } else if (base === 'commercial-glass-repair') {
+      add('residential-commercial-glass-repair-' + loc);
+    } else if (base === 'residential-commercial-glass-repair') {
+      add('commercial-glass-repair-' + loc);
+    } else if (
+      base.indexOf('residential-') === 0 &&
+      base !== 'residential-window-repair' &&
+      base !== 'residential-commercial-glass-repair'
+    ) {
+      var coreR = base.slice('residential-'.length);
+      add(coreR + '-' + loc);
+      add('commercial-' + coreR + '-' + loc);
+    } else if (base.indexOf('commercial-') === 0 && base !== 'commercial-window-repair') {
+      var coreC = base.slice('commercial-'.length);
+      add(coreC + '-' + loc);
+      add('residential-' + coreC + '-' + loc);
+    } else {
+      add('residential-' + base + '-' + loc);
+      add('commercial-' + base + '-' + loc);
+    }
+    return links;
+  }
+
+  if (SERVICE_LOCATION_BASES.indexOf(canonicalSlug) === -1) return links;
+
+  var hub = canonicalSlug;
+  function addHub(slug) {
+    if (slug === hub) return;
+    add(slug);
+  }
+  if (hub === 'window-repair') {
+    addHub('residential-window-repair');
+    addHub('commercial-window-repair');
+  } else if (hub === 'residential-window-repair') {
+    addHub('window-repair');
+    addHub('commercial-window-repair');
+  } else if (hub === 'commercial-window-repair') {
+    addHub('window-repair');
+    addHub('residential-window-repair');
+  } else if (hub === 'commercial-glass-repair') {
+    addHub('residential-commercial-glass-repair');
+  } else if (hub === 'residential-commercial-glass-repair') {
+    addHub('commercial-glass-repair');
+  } else if (
+    hub.indexOf('residential-') === 0 &&
+    hub !== 'residential-window-repair' &&
+    hub !== 'residential-commercial-glass-repair'
+  ) {
+    var hr = hub.slice('residential-'.length);
+    addHub(hr);
+    addHub('commercial-' + hr);
+  } else if (hub.indexOf('commercial-') === 0 && hub !== 'commercial-window-repair') {
+    var hc = hub.slice('commercial-'.length);
+    addHub(hc);
+    addHub('residential-' + hc);
+  } else {
+    addHub('residential-' + hub);
+    addHub('commercial-' + hub);
+  }
+  return links;
+}
 
 function cleanDisplayTitle(title) {
-  return String(title || '')
+  var t = String(title || '')
     .replace(/\s*-\s*OhMyGlass\.ca$/i, '')
     .replace(/\s*–\s*OhMyGlass\.ca$/i, '')
     .replace(/\s*-\s*OhMyGlass$/i, '')
     .replace(/\s*–\s*OhMyGlass$/i, '')
     .replace(/\s*\|\s*OhMyGlass$/i, '')
     .trim();
+  return t.replace(/\s*\|\s*.+$/, '').trim();
 }
 
 function trimMeta(s, maxLen) {
@@ -147,15 +426,23 @@ function contentEmPageBandNum(n) {
 }
 
 /** Same two-column band header as emergency.jsx (`em-section-head`). `title` may be a string or React node. */
-function ContentEmSectionHead({ num, title, sub, headClassName, headStyle }) {
-  var subText = sub != null && String(sub).trim() !== '' ? String(sub).trim() : null;
+function ContentEmSectionHead({ num, title, sub, headClassName, headStyle, hideSub }) {
+  var subText =
+    hideSub || sub == null || String(sub).trim() === '' ? null : String(sub).trim();
   return (
-    <div className={'em-section-head' + (headClassName ? ' ' + headClassName : '')} style={headStyle || undefined}>
+    <div
+      className={
+        'em-section-head' +
+        (hideSub ? ' em-section-head--no-sub' : '') +
+        (headClassName ? ' ' + headClassName : '')
+      }
+      style={headStyle || undefined}
+    >
       <div>
         <div className="num">{num}</div>
         <h2>{title}</h2>
       </div>
-      <div className="sub">{subText || '\u00a0'}</div>
+      {!hideSub ? <div className="sub">{subText || '\u00a0'}</div> : null}
     </div>
   );
 }
@@ -191,6 +478,10 @@ function contentEmHeadingTitle(heading) {
   );
 }
 
+function isCityHubListSection(section) {
+  return /\bby city\b/i.test(section.heading || '');
+}
+
 function parseListItemToTitleDesc(item) {
   var s = String(item || '').trim();
   if (!s) return { title: '', desc: '' };
@@ -209,6 +500,14 @@ function parseListItemToTitleDesc(item) {
     return { title: s.slice(0, dot + 1).trim(), desc: s.slice(dot + 2).trim() };
   }
   return { title: s, desc: '' };
+}
+
+/** Parses `City — /slug` rows from typed tier hub pages. */
+function parseCityHubRow(item) {
+  var parsed = parseListItemToTitleDesc(item);
+  var d = (parsed.desc || '').trim();
+  if (!parsed.title || !d || d.charAt(0) !== '/') return null;
+  return { city: parsed.title, href: d };
 }
 
 /** Derives FAQ question (includes ?) and answer body from one list string. */
@@ -252,7 +551,7 @@ function contentSectionListKind(section) {
 }
 
 /** Renders list bodies to match emergency.jsx: em-types, process-timeline, faq-list, or checklist. */
-function ContentSectionListBody({ section }) {
+function ContentSectionListBody({ section, navigate }) {
   var list = section.list || [];
   var kind = contentSectionListKind(section);
   if (kind === 'faq') {
@@ -333,29 +632,40 @@ function ContentSectionListBody({ section }) {
 }
 
 function computeLocationPageInfo(slug) {
-  for (var i = 0; i < SERVICE_BASES.length; i++) {
-    var base = SERVICE_BASES[i];
+  for (var i = 0; i < SERVICE_LOCATION_BASES.length; i++) {
+    var base = SERVICE_LOCATION_BASES[i];
     var prefix = base + '-';
     if (slug.indexOf(prefix) !== 0) continue;
     var locationSuffix = slug.slice(prefix.length);
     if (LOCATION_SUFFIXES.indexOf(locationSuffix) === -1) continue;
-    var otherBases = SERVICE_BASES.filter(function (b) {
-      return b !== base;
-    });
+    var otherLinks = [];
+    for (var j = 0; j < FLAGSHIP_CROSS_LINK_BASES.length; j++) {
+      var fb = FLAGSHIP_CROSS_LINK_BASES[j];
+      if (fb === base) continue;
+      otherLinks.push({ slug: fb + '-' + locationSuffix, label: SERVICE_LABELS[fb] });
+    }
     return {
       cityName: LOCATION_DISPLAY_NAMES[locationSuffix] || locationSuffix,
-      otherLinks: otherBases.map(function (b) {
-        return { slug: b + '-' + locationSuffix, label: SERVICE_LABELS[b] };
-      }),
+      otherLinks: otherLinks,
+      serviceBase: base,
+      locationSuffix: locationSuffix,
     };
   }
   return null;
 }
 
 function ContentPage({ slug, navigate }) {
+  var tierFilterState = useStateC('all');
+  var tierFilter = tierFilterState[0];
+  var setTierFilter = tierFilterState[1];
+
   const page = typeof window.OMG_getPageBySlug === 'function' ? window.OMG_getPageBySlug(slug) : null;
   const contact = window.OMG_DATA.contact;
   const cities = window.OMG_DATA.serviceAreaCitiesList || [];
+
+  useEffectC(function () {
+    setTierFilter('all');
+  }, [slug]);
 
   useEffectC(() => {
     if (!page) return;
@@ -384,8 +694,17 @@ function ContentPage({ slug, navigate }) {
 
   const locationPageInfo = computeLocationPageInfo(canonicalSlug);
   const isLocationPage = locationPageInfo !== null;
+  var moreMatrixBasesInCity = [];
+  if (locationPageInfo && locationPageInfo.serviceBase) {
+    for (var mi = 0; mi < SERVICE_LOCATION_BASES.length; mi++) {
+      var mb = SERVICE_LOCATION_BASES[mi];
+      if (mb === locationPageInfo.serviceBase) continue;
+      if (FLAGSHIP_CROSS_LINK_BASES.indexOf(mb) !== -1) continue;
+      moreMatrixBasesInCity.push(mb);
+    }
+  }
 
-  const isGenericServiceWithAreas = SERVICE_BASES.indexOf(canonicalSlug) !== -1;
+  const isGenericServiceWithAreas = SERVICE_LOCATION_BASES.indexOf(canonicalSlug) !== -1;
   const genericServiceAreaLinks = isGenericServiceWithAreas
     ? LOCATION_SUFFIXES.map(function (suffix) {
         return { name: LOCATION_DISPLAY_NAMES[suffix] || suffix, slug: canonicalSlug + '-' + suffix };
@@ -395,14 +714,26 @@ function ContentPage({ slug, navigate }) {
   const hasExplicitAreasSection = (page.sections || []).some(function (section) {
     return /areas?\s+we\s+serve|service\s+areas?/i.test(section.heading || '');
   });
+  var serviceKeyForAreaSection =
+    locationPageInfo && locationPageInfo.serviceBase ? locationPageInfo.serviceBase : canonicalSlug;
   const shouldShowServiceAreaAboveForm =
     page.type === 'service' &&
-    SERVICE_AREA_SECTION_SLUGS.indexOf(canonicalSlug) !== -1 &&
+    SERVICE_LOCATION_BASES.indexOf(serviceKeyForAreaSection) !== -1 &&
     !isGenericServiceWithAreas &&
     !hasExplicitAreasSection;
   const showAsideColumn = !isResource && shouldShowServiceAreaAboveForm;
 
-  const relatedPageLinks = RELATED_PAGE_LINKS[canonicalSlug] || [];
+  var manualRelated = RELATED_PAGE_LINKS[canonicalSlug] || [];
+  var autoTierRelated =
+    page.type === 'service' && !isServiceAreasPage
+      ? getAutoTierRelatedLinks(canonicalSlug, locationPageInfo)
+      : [];
+  var relatedPageLinks = mergeRelatedLinkLists(manualRelated, autoTierRelated);
+  var filteredMatrixPills = filterMatrixBasesForTier(moreMatrixBasesInCity, tierFilter);
+  var filteredRelated = filterRelatedForTier(relatedPageLinks, tierFilter);
+  var showMatrixTierToggle = isLocationPage && moreMatrixBasesInCity.length > 0;
+  var showRelatedOnlyTierToggle =
+    !showMatrixTierToggle && relatedLinksHaveTierMix(relatedPageLinks) && relatedPageLinks.length > 1;
   const resourceSvc = RESOURCE_SERVICE_LINKS[canonicalSlug];
   const serviceAreasIntro = 'We provide expert window and door glass repair and replacement across the Greater Toronto Area.';
   const breadcrumbTail = cleanDisplayTitle(page.title);
@@ -517,10 +848,18 @@ function ContentPage({ slug, navigate }) {
             />
             <div className="content-em-band">
             <div className="svc-list content-area-link-grid">
+              <ContentLink href="/commercial-glass-repair-toronto" className="svc-item" navigate={navigate}>
+                <span className="badge b-ink">COMMERCIAL</span>
+                <h3>Commercial glass repair Toronto</h3>
+                <p>Offices, retail, and light industrial glass repair and replacement.</p>
+                <div className="arrow">
+                  Learn more <Icon.Arrow size={12} />
+                </div>
+              </ContentLink>
               <ContentLink href="/window-repair-toronto" className="svc-item" navigate={navigate}>
                 <span className="badge b-ink">TORONTO</span>
-                <h3>Window Repair Toronto</h3>
-                <p>Same-day residential and commercial window repair.</p>
+                <h3>Residential window repair Toronto</h3>
+                <p>Homes and condos: repair-first window and glass service.</p>
                 <div className="arrow">
                   Learn more <Icon.Arrow size={12} />
                 </div>
@@ -533,7 +872,7 @@ function ContentPage({ slug, navigate }) {
                   Learn more <Icon.Arrow size={12} />
                 </div>
               </ContentLink>
-              <ContentLink href="/glass-replacement-toronto" className="svc-item" navigate={navigate}>
+              <ContentLink href="/window-glass-replacement-toronto" className="svc-item" navigate={navigate}>
                 <span className="badge b-ink">GLASS</span>
                 <h3>Glass Replacement Toronto</h3>
                 <p>Expert window glass replacement with clear pricing.</p>
@@ -652,7 +991,8 @@ function ContentPage({ slug, navigate }) {
             (wash ? ' content-em-landing-section--wash' : '') +
             (isFaqSection ? ' em-faq-section' : '');
           var headNum = isFaqSection ? 'FAQ · QUICK ANSWERS' : contentEmPageBandNum(sn);
-          var headTitle = contentEmHeadingTitle(titleText);
+          var isCityHubHeading = /\bby city\b/i.test(titleText);
+          var headTitle = isCityHubHeading ? titleText : contentEmHeadingTitle(titleText);
           return (
             <section className={sectionClass} key={'emsec' + si}>
               <Reveal variant="section" className="inner content-page-inner-wide">
@@ -672,7 +1012,9 @@ function ContentPage({ slug, navigate }) {
                       <p>{section.content}</p>
                     </div>
                   ) : null}
-                  {section.list && section.list.length > 0 ? <ContentSectionListBody section={section} /> : null}
+                  {section.list && section.list.length > 0 ? (
+                    <ContentSectionListBody section={section} navigate={navigate} />
+                  ) : null}
                 </div>
               </Reveal>
             </section>
@@ -707,6 +1049,81 @@ function ContentPage({ slug, navigate }) {
         </section>
       )}
 
+      {isLocationPage && locationPageInfo && (
+        <section className="section-plain content-em-landing-section">
+          <Reveal variant="section" className="inner content-page-inner-wide">
+            <ContentEmSectionHead
+              num="LOCAL · PRIORITY"
+              headClassName="em-section-head--stack"
+              title={'Priority services in ' + locationPageInfo.cityName}
+              sub="Same crew and trucks—other high-demand specialties in your neighbourhood."
+            />
+            <div className="content-em-band">
+              <nav className="svc-list content-area-link-grid" aria-label={'Priority services in ' + locationPageInfo.cityName}>
+                {locationPageInfo.otherLinks.map(function (link) {
+                  return (
+                    <ContentLink key={link.slug} href={'/' + link.slug} className="svc-item" navigate={navigate}>
+                      <span className="badge b-ink">SERVICE</span>
+                      <h3>{link.label}</h3>
+                      <p>Local {locationPageInfo.cityName} dispatch for this specialty.</p>
+                      <div className="arrow">
+                        View in {locationPageInfo.cityName} <Icon.Arrow size={12} />
+                      </div>
+                    </ContentLink>
+                  );
+                })}
+              </nav>
+            </div>
+            <p className="inner content-page-inner-wide text-center mt-6 mb-0" style={{ maxWidth: '42rem', marginLeft: 'auto', marginRight: 'auto' }}>
+              <ContentLink href="/services" className="content-nav-link" style={{ fontWeight: 700 }} navigate={navigate}>
+                Browse all services
+              </ContentLink>
+              <span className="text-neutral-500"> · </span>
+              <ContentLink href="/service-areas" className="content-nav-link" style={{ fontWeight: 700 }} navigate={navigate}>
+                Service areas
+              </ContentLink>
+            </p>
+            {moreMatrixBasesInCity.length > 0 ? (
+              <div className="content-local-matrix-block">
+                <ContentEmSectionHead
+                  num="LOCAL · SPECIALTIES"
+                  headClassName="em-section-head--stack"
+                  title={'More glass services in ' + locationPageInfo.cityName}
+                  sub="Every other published city page for this area—filter when you already know residential vs commercial."
+                />
+                {showMatrixTierToggle ? (
+                  <TierViewToggle
+                    value={tierFilter}
+                    onChange={setTierFilter}
+                    hint="Applies to this list and Related below. Use All to include mixed-property (non-prefixed) pages."
+                  />
+                ) : null}
+                {filteredMatrixPills.length > 0 ? (
+                  <div className="pill-row pill-row--matrix">
+                    {filteredMatrixPills.map(function (b) {
+                      return (
+                        <ContentLink key={b} href={'/' + b + '-' + locationPageInfo.locationSuffix} className="pill" navigate={navigate}>
+                          {SERVICE_LABELS[b] || b}
+                        </ContentLink>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <p className="content-em-prose text-neutral-600 mt-3 mb-0" style={{ maxWidth: '40rem' }}>
+                    No services match this filter for {locationPageInfo.cityName}. Choose <strong>All</strong> to see every
+                    specialty, or switch between <strong>Residential</strong> and <strong>Commercial</strong>.
+                  </p>
+                )}
+              </div>
+            ) : null}
+          </Reveal>
+        </section>
+      )}
+
+      {showAsideColumn && (
+        <ServicesByAreaSection navigate={navigate} dispatchCtaLocation={'content-area-' + canonicalSlug} />
+      )}
+
       {isResource && (
         <section className="section-plain content-em-landing-section">
           <Reveal variant="section" className="inner content-page-inner-wide">
@@ -736,63 +1153,36 @@ function ContentPage({ slug, navigate }) {
         <section className="section-plain content-em-landing-section">
           <Reveal variant="section" className="inner content-page-inner-wide">
             <ContentEmSectionHead
-              num="RELATED · LINKS"
-              title={contentEmHeadingTitle('See also')}
-              sub="Related pages that pair well with what you just read."
+              num="RELATED · PAGES"
+              hideSub
+              title={isLocationPage ? 'Related services' : 'Related pages'}
             />
-            <div className="pill-row">
-              {relatedPageLinks.map(function (link) {
-                return (
-                  <ContentLink key={link.href} href={link.href} className="pill" navigate={navigate}>
-                    {link.label}
-                  </ContentLink>
-                );
-              })}
-            </div>
-          </Reveal>
-        </section>
-      )}
-
-      {isLocationPage && locationPageInfo && (
-        <section className="section-plain content-em-landing-section">
-          <Reveal variant="section" className="inner content-page-inner-wide">
-            <ContentEmSectionHead
-              num="LOCAL · MORE SERVICES"
-              title={contentEmHeadingTitle('Other services in ' + locationPageInfo.cityName)}
-              sub="Same crew and same trucks, with different glass specialties in your neighbourhood."
-            />
-            <div className="content-em-band">
-              <nav className="svc-list content-area-link-grid" aria-label={'Other services in ' + locationPageInfo.cityName}>
-                {locationPageInfo.otherLinks.map(function (link) {
+            {showRelatedOnlyTierToggle ? (
+              <TierViewToggle value={tierFilter} onChange={setTierFilter} />
+            ) : null}
+            {filteredRelated.length > 0 ? (
+              <div
+                className={
+                  'related-pages-grid' + (filteredRelated.length > 4 ? ' related-pages-grid--dense' : '')
+                }
+              >
+                {filteredRelated.map(function (link) {
                   return (
-                    <ContentLink key={link.slug} href={'/' + link.slug} className="svc-item" navigate={navigate}>
-                      <span className="badge b-ink">SERVICE</span>
-                      <h3>{link.label}</h3>
-                      <p>Same crew and trucks, with local {locationPageInfo.cityName} dispatch for this specialty.</p>
-                      <div className="arrow">
-                        View in {locationPageInfo.cityName} <Icon.Arrow size={12} />
-                      </div>
+                    <ContentLink key={link.href} href={link.href} className="related-page-card" navigate={navigate}>
+                      <span className="related-page-card__title">{link.label}</span>
+                      <span className="related-page-card__foot">
+                        View page <Icon.Arrow size={14} />
+                      </span>
                     </ContentLink>
                   );
                 })}
-              </nav>
-            </div>
+              </div>
+            ) : (
+              <p className="content-em-prose text-neutral-600 mt-3 mb-0" style={{ maxWidth: '40rem' }}>
+                Nothing in this view. Choose <strong>All</strong> to restore every related link.
+              </p>
+            )}
           </Reveal>
-        </section>
-      )}
-
-      {showAsideColumn && (
-        <ServicesByAreaSection navigate={navigate} dispatchCtaLocation={'content-area-' + canonicalSlug} />
-      )}
-
-      {!isResource && (
-        <section className="content-footer-strip">
-          <div className="inner">
-            Serving the Greater Toronto Area.{' '}
-            <ContentLink href="/service-areas" className="content-nav-link" style={{ fontWeight: 700 }} navigate={navigate}>
-              View Service Areas
-            </ContentLink>
-          </div>
         </section>
       )}
     </>

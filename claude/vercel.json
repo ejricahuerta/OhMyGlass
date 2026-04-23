@@ -1,6 +1,9 @@
 {
   "redirects": [
-    { "source": "/OhMyGlass.html", "destination": "/", "permanent": true }
+    { "source": "/OhMyGlass.html", "destination": "/", "permanent": true },
+    { "source": "/aluminum-storefront", "destination": "/storefront-glass-repair", "permanent": true },
+    { "source": "/glass-replacement-toronto", "destination": "/window-glass-replacement-toronto", "permanent": true },
+    { "source": "/glass-replacement-toronto.html", "destination": "/window-glass-replacement-toronto", "permanent": true }
   ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
