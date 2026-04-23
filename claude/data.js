@@ -51,11 +51,11 @@ var SERVICE_AREA_SLUG_LOOKUP = {};
     var s = cityNameToPathSlug(serviceAreaCitiesList[i]);
     if (s) SERVICE_AREA_SLUG_LOOKUP[s] = true;
   }
-  var legacy = ['newmarket', 'etobicoke', 'markham', 'north-york', 'richmond-hill', 'scarborough', 'toronto', 'vaughan', 'mississauga'];
+  var legacy = ['newmarket', 'etobicoke', 'markham', 'north-york', 'richmond-hill', 'scarborough', 'toronto', 'vaughan', 'mississauga', 'brampton'];
   for (i = 0; i < legacy.length; i++) SERVICE_AREA_SLUG_LOOKUP[legacy[i]] = true;
 })();
 
-/** True when path looks like /service-name-city (e.g. /window-repair-toronto), not a generic service slug. */
+/** True when path looks like /service-name-city (e.g. /residential-window-repair-toronto), not a generic service slug. */
 function pathIsServiceLocationVariant(path) {
   var slug = String(path || '')
     .replace(/^\//, '')
@@ -87,7 +87,7 @@ var serviceCardDefs = [
   { category: 'residential', title: 'Patio Door Repair', path: '/patio-door-repair', desc: 'Glass panel replacement and hardware repair for sliding and hinged patio doors. Same-day service.' },
   { category: 'residential', title: 'Sliding Door Repair', path: '/sliding-door-repair', desc: 'Track, roller, glass, and hardware repair for residential and commercial sliding doors.' },
   { category: 'residential', title: 'Window Glass Replacement', path: '/window-glass-replacement', desc: 'Upgrade your home or business with our high-quality window glass replacement services.' },
-  { category: 'residential', badge: 'TORONTO', title: 'Glass Replacement Toronto', path: '/glass-replacement-toronto', desc: 'Expert glass replacement in Toronto for residential and commercial windows with same-day options and clear pricing.' },
+  { category: 'residential', badge: 'TORONTO', title: 'Glass Replacement Toronto', path: '/window-glass-replacement-toronto', desc: 'Expert glass replacement in Toronto for residential and commercial windows with same-day options and clear pricing.' },
   { category: 'residential', title: 'Double Pane Window Replacement', path: '/double-pane-window-replacement', desc: 'Improve energy efficiency and comfort with our expert double-pane window replacements.' },
   { category: 'other', title: 'Custom Mirror', path: '/custom-mirror', desc: 'Custom mirror installation and repair. Cut to size for bathrooms, closets, and commercial spaces. Professional finish across the GTA.' },
   { category: 'other', title: 'Glass Repair vs Window Glass Replacement', path: '/glass-repair-vs-replacement', desc: 'Replace just the glass (~$200) or full window (~$2k). We replace panes and IGUs; we do not fill or seal cracks. Expert assessment across the GTA.' },
@@ -117,7 +117,7 @@ var footerServicePaths = [
   ['/emergency-glass-repair', 'Emergency Glass Repair'],
   ['/window-repair-toronto', 'Window Repair Toronto'],
   ['/window-repair-north-york', 'Window Repair North York'],
-  ['/glass-replacement-toronto', 'Glass Replacement Toronto'],
+  ['/window-glass-replacement-toronto', 'Glass Replacement Toronto'],
   ['/broken-window-repair', 'Broken Window Repair'],
   ['/residential-window-repair', 'Residential Window Repair'],
   ['/commercial-glass-repair', 'Commercial Glass Repair'],
